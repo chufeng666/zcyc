@@ -1,0 +1,24 @@
+<!--pages/userInfo/setting.wxml-->
+<view class='inner'>
+  <view class='setting-list' bindtap='save'>
+    <text>修改手机号</text>
+    <view>
+      <text class="body-view -view-inp "></text>
+      <image class='u-o-icon2' src='../../static/images/public/right_arrow_gray.png'/>
+    </view>
+  </view>
+  <view class='setting-list' bindtap='password'>
+    <text>设置密码</text>
+    <view class="body-view">
+      <image class='-view-edit' src='../../static/images/public/edit_gray.png'/>
+    </view>
+  </view>
+  <view class='setting-list'>
+    <text>微信绑定</text>
+
+
+    <text class="body-view -view-msg" wx:if="{{openid !=''}}">已绑定</text>
+    <button wx:else="" class="wx-binding {{pBgC}}" bindtap='binWx'>去绑定</button>
+  </view>
+  <button class='set-option {{pBgC}}' bindtap="unLogin">退出登录</button>
+</view>

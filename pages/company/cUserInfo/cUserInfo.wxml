@@ -1,0 +1,66 @@
+<view id="wrap">
+  <view class='inner'>
+    <!-- TITLE START -->
+    <view class='content-list'>
+      <view class='c-l-info'>
+          <navigator url='../../headPortrait/headPortrait'><image src='{{userData.logo}}' class="c-logo" /></navigator>
+          <view class='c-info-text'>
+            <text class='c-info-title'>{{userData.company_name}}</text>
+            <view class='c-msg m-b10'>
+              <text wx:if="{{userData.is_vip=== 1}}">VIP到期时间：{{timer}}</text>
+            </view>
+            <view class="surplus-num" >
+              剩余预定次数：{{userData.number}}
+            </view>
+            <view class='c-msg m-b10'>企业编号：{{userData.id}}</view>
+          </view>
+      </view>
+      <button class='edit-info company-bg-' bindtap='toEdit'>编辑发布内容</button>
+      <!-- USER OPTION START -->
+      <view class='user-option'>
+          <navigator url="../../editCampanyInfo/editInfo" class='u-o-list m-b10'>
+            <text>编辑企业信息</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <navigator url="../uCollect/uCollect" class='u-o-list m-b10'>
+            <text>我的收藏</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <navigator url="../../jobList/jobList" class='u-o-list m-b10'>
+            <text>招聘信息</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <navigator url="../../myReserve/myReserve" class='u-o-list m-b10'>
+            <text>我的预订</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <navigator url='../myPurse/myPurse' class='u-o-list m-b10'>
+            <text>我的钱包</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <navigator url="../../public/setting?openid={{userData.openid}}" class='u-o-list m-b10'>
+            <text>设置</text>
+            <icon class='iconfont icon-bianji company-color-'></icon>
+          </navigator>
+          <view class='u-o-list m-b10'>
+            <text>实名认证</text>
+            <text class='u-o-text company-color-' wx:if="{{userData.status=== 0}}">未认证</text>
+            <text class='u-o-text company-color-' wx:if="{{userData.status=== 1}}">认证</text>
+            <text class='u-o-text company-color-' wx:if="{{userData.status=== -1}}">拒绝认证</text>
+          </view>
+          <navigator url="../../public/help" class='u-o-list m-b10'>
+            <text>帮助与反馈</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </navigator>
+          <view class='u-o-list m-b10' bindtap="switchUser">
+            <text>切换账号</text>
+            <icon class='iconfont icon-youjiantou2 company-color-'></icon>
+          </view>
+      </view>
+    </view>
+  </view>
+  <!-- FOOTER START -->
+  <view class='footer-height'></view>
+  <import src="../../template/tabbar.wxml" />
+  <template is="tabBar" data="{{ tabBar}}" />
+</view>

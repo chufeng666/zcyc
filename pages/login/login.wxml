@@ -1,0 +1,41 @@
+<view class="title_login">
+  <view class="iconfont icon-zuojiantou"></view>
+  <view class="tl_denglu">登录 / 注册</view>
+</view>
+<view>
+  <view>
+    <view class="log_ear">
+      <image src="../../static/images/public/Xiaocx_zhuce_tubiao.png" class="xiaolian"></image>
+    </view>
+    <view>
+      <text class="welecom_title">筑城优才欢迎您!!</text>
+    </view>
+  </view>
+  <view class="login_ear {{status?'active':''}}">
+    <text class="qianzui  iconfont icon-yonghu  "></text>
+    <input placeholder="请输入手机号" class="phone_num" type='text' name="phone_num" bindinput='getMobile' value='{{inputValue}}'></input>
+  </view>
+  <view class="mima_ear  {{status?'active':''}}">
+    <text class="qianzui  iconfont icon-lock-alt2"></text>
+    <input placeholder="请输入密码" class="phone_password" name="password" password="{{is_pwd}}" bindinput='getPassword'></input>
+  </view>
+  <view>
+    <button class="denglu" style="background:{{color}}" bindtap="toLogin">登录</button>
+    <view class='resigt-wrap-tt'>
+      <view class="resigt" bindtap='resister'>注册</view>
+      <view class="forget" bindtap='forget'>忘记密码</view>
+    </view>
+  </view>
+  <view class='order'>
+    <view class="weixinshouquan">
+      <button class='wxshoq  ' open-type="getUserInfo" bindgetuserinfo="wxLogin" lang="zh_CN">
+        <view class="iconfont  icon-weixin"></view>
+      </button>
+      <view>微信登录</view>
+    </view>
+    <view class="youke" bindtap='visitorLogin'>
+      <image class="footPrint-ico" src='../../static/images/public/Xiaocx_zhuce_tubiao.png' />
+      <text>游客入口</text>
+    </view>
+  </view>
+</view>

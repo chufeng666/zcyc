@@ -1,0 +1,287 @@
+@import "../template/common";
+.name_ear{
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.name_text{
+  display: inline-block;
+  vertical-align: top;
+  width: 130rpx;
+  text-align: right;
+  font-weight: bold;
+  font-size:28rpx;
+}
+.name_input{
+  width: 480rpx;
+  margin-left: 20rpx;
+  font-size:28rpx;
+  border-bottom: 1rpx solid #f5f5f5
+}
+.man{
+  position: relative;
+  top: 4rpx;
+  left: 50rpx;
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  border: 1px solid gray;
+  border-radius: 50%;
+
+}
+.man_xuan{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: rgb(54, 193, 186);
+}
+.mail{
+  vertical-align: top;
+  margin-left: 60rpx
+}
+.femail{
+  vertical-align: top;
+  margin-left: 60rpx
+}
+.page__bd{
+  display: inline-block
+}
+.dd{
+  width: 460rpx; 
+  height: 125rpx;
+  margin-left: 40rpx;
+  color: rgb(54, 193, 186);
+  font-size:26rpx;
+}
+.shijian{
+  vertical-align: top;
+  display: inline-block;
+}
+.free-radio{
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: center;
+
+}
+/* 自定义弹出选择器---学历选择 s */
+.free-dialog__mask {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ z-index: 10;
+ background: rgba(0, 0, 0, 0.6);
+ display: none;
+}
+.free-dialog__container {
+ position: fixed;
+ left: 0;
+ bottom: 0;
+ width: 750rpx;
+ background: white;
+ transform: translateY(150%);
+ transition: all 0.4s ease;
+ z-index: 11;
+}
+.free-dialog--show .free-dialog__container {
+ transform: translateY(0);
+}
+.free-dialog--show .free-dialog__mask {
+ display: block;
+}
+/*模态框中的内容*/
+.free-button{
+ display: inline-block;
+ width:50px;
+ text-align: center;
+ font-size:20px;
+ color:#707070;
+ margin-bottom:20px;
+}
+radio-group{
+ /* margin:10rpx 0rpx; */
+ display: flex;
+ /* justify-content: space-around; */
+ flex-wrap: wrap;
+}
+.free-dialog__container radio-group>label{
+ width:20%;
+ display: inline-block;
+ border:1px solid #ddd;
+ padding:16rpx 0px;
+ margin:0 0 2% 2%;
+ box-sizing: border-box;
+}
+.e-info-radio {
+  /* display: flex; */
+  width: 70%;
+  padding-left:20rpx;
+}
+.e-info-radio .radio{
+  width: 40%;
+  font-size: 26rpx;
+}
+.e-info-radio .radio radio{
+  vertical-align: top;
+  margin-right: 6rpx;
+}
+.free-dialog__container radio-group label radio{
+ width:100%;
+ z-index: 3;
+ display: none;
+}
+.checked{
+ background:#48c23d;
+ color:#fff;
+}
+.free-dialog__container radio-group label .free-text{
+ width:100%;
+ text-align: center;
+ display: inline-block;
+ font-size: 28rpx;
+}
+.free-dialog-submit{
+  float: right;
+  color:rgb(54, 193, 186);
+  font-size: 38rpx;
+  padding:15rpx 15rpx 0 0
+}
+.free-dialog-reset{
+  font-size: 38rpx;
+  padding:15rpx 15rpx 0 0
+}
+/* 自定义弹出选择器---学历选择 e */
+/*点击上传身份证部分 s*/
+.idPic{
+  width: 100%;
+  height: auto;
+  font-size:28rpx;
+  color: #151515;
+}
+.-pic-subtitle{
+  margin: 20rpx 0 28rpx;
+  text-align: center;
+}
+.-pic-stat{
+  width: 17rpx;
+  height: 21rpx;
+}
+.id-card-top{
+  width:500rpx;
+  height: 260rpx;
+  padding:20rpx 10rpx;
+  margin: 30rpx auto;
+  position: relative;
+  background:#dadada;
+}
+.-add-img-{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.big-pic{
+    width:500rpx;
+    height: 260rpx;
+    position: absolute;
+}
+.addPic{
+  width:68rpx;
+  height: 68rpx;
+  position: relative;
+  top: 50rpx;
+  left: 50%;
+  margin-left:-34rpx;
+}
+.addPic2{
+  position:absolute;
+  top: 50%;
+  left:50%;
+  margin:-34rpx 0 0 -34rpx;
+  width:68rpx;
+  height: 68rpx;
+}
+.addTextBox{
+  width: 496rpx;
+  height: 50rpx;
+	border-radius: 6rpx;
+  border: solid 2rpx #dadada;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 12rpx;
+  font-size: 26rpx;
+}
+.id-card-top text,.id-card-bottom text{
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 70rpx;
+}
+.id-card-top image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.card-top {
+  width:500rpx;
+  height: 260rpx;
+  background:#dadada;
+}
+
+.area_select {
+	width: 100%;
+	display: block;
+}
+.a-more-pic{
+  text-align: center;
+  font-size:28rpx;
+  color: #151515;
+  margin:20rpx 0 39rpx;
+}
+/*点击上传身份证部分 e*/
+.file-inner{
+  position: relative;
+}
+.file-btn{
+  width: 500rpx;
+  height: 66rpx;
+  border-radius: 10rpx;
+  background:#dadada;
+
+}
+.f-plus-{
+  width: 33rpx;
+  height: 33rpx;
+  vertical-align: middle;
+  position: absolute;
+  top:18rpx;
+  bottom: 0;
+  left: 50%;
+  margin-left: -11.5rpx;
+}
+.picker-wrap {
+  width:70%;
+  display:flex;
+  align-items:center;
+  font-size:28rpx;
+  margin-left: 20rpx;
+}
+
+.down-arrow{
+  width:12rpx;
+  height:20rpx;
+  transform:rotate(90deg);
+  vertical-align:middle;
+  margin-left:10rpx;
+  padding-bottom:2rpx;
+
+}

@@ -1,0 +1,35 @@
+<!--pages/userInfo/search.wxml-->
+<view class='search-wrap'>
+
+  <view class='g-header- gllobal-header'>
+    <view class='search-cont'>
+      <input type='text' class='search company-bColor-1'  placeholder="输入所要查找的内容" bindinput='selecKeyWord'/>
+      <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+    </view>
+    <view class='subtitle overH search-subtitle'>
+        <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">人才</text>
+        <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">服务商</text>
+    </view>
+  </view>
+  <view class='inner inner-cont'>
+      <view class='wx-no-info' wx:if="{{isShowInfo}}">
+            <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+            <view>暂无数据</view>
+      </view>
+
+      <view wx:if="{{cStatus==0}}">
+          <!-- personal content start -->
+          <import src ="../../template/personal.wxml"/>
+          <template is="personal" data="{{person:list.person, pColor: pColor,pBgC:pBgC,url:'../../personalDetail/personalDetail?id='}}"/>
+          <!-- personal content end -->
+      </view>
+
+      <view wx:if="{{cStatus==1}}">
+          <!-- recruit content start -->
+          <import src ="../../template/company.wxml"/>
+          <template is="company" data="{{recruit:list.recruit, pColor: pColor,pBgC:pBgC,typeMsg:'服务商',url:'../../postionDetail/postionDetail?id='}}"/>
+          <!-- recruit content end -->
+      </view> 
+  </view>
+
+</view>

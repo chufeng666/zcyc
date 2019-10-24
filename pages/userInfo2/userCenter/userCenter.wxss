@@ -1,0 +1,233 @@
+page {
+  background-color: #e0d9d7;
+}
+
+/* <!-- 头部 --> */
+
+.i-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--themeColor);
+  height: 127rpx;
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 127rpx;
+}
+
+.h-left {
+  margin-left: 32rpx;
+}
+
+/* <!-- 头部 --> */
+
+/* 主体 */
+
+#wrap {
+  background-color: #fff;
+  margin-top: 127rpx;
+  margin-bottom: 200rpx;
+}
+
+/* <!-- TITLE START --> */
+
+.content-list {
+  border-bottom: 16rpx solid #dedede;
+}
+
+.main_top {
+  padding: 24rpx;
+}
+
+.c-l-info {
+  display: flex;
+}
+
+.c-logo {
+  width: 142rpx;
+  height: 142rpx;
+  border-radius: 50%;
+}
+
+.c-info-text {
+  flex: 2;
+  margin-left: 40rpx;
+}
+
+.c-info-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 39rpx;
+}
+
+.info_name {
+  font-size: 40rpx;
+  color: #303133;
+  margin-right: 24rpx;
+}
+
+.info_huiyuan {
+  width: 84rpx;
+  height: 37rpx;
+}
+
+.m-b10 {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.main_top .c-l-info .u-o-list {
+  display: flex;
+  font-size: 22rpx;
+  color: #999;
+  align-items: flex-end;
+}
+
+.info_huiyuan .u-o-list view {
+  margin-bottom: 5rpx;
+}
+
+.icon-youjiantou {
+  font-size: 30rpx;
+}
+
+/* <!-- TITLE START --> */
+
+/* 考试系统 */
+
+.system {
+  position: relative;
+  height: 170rpx;
+  margin-top: 20rpx;
+}
+
+.system image {
+  display: inline;
+}
+
+.sy-aq_kaoshi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  margin-left: 31rpx;
+  margin-top: 32rpx;
+}
+
+.sy_anquan {
+  color: #fff;
+}
+
+.sy_aq_large {
+  font-size: 40rpx;
+  margin-bottom: 14rpx;
+}
+
+.sy_aq_smart {
+  font-size: 30rpx;
+}
+
+.sy_ceshi {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 244rpx;
+  font-size: 24rpx;
+  color: #000;
+  font-weight: 600;
+}
+
+.sy_ceshi .icon-youjiantou {
+  padding-bottom: 5rpx;
+}
+
+.c-l-info .u-o-list {
+  margin-bottom: 24rpx;
+}
+
+.u-o-list {
+  display: flex;
+}
+
+.user_img {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 22rpx;
+}
+
+/* 考试系统 */
+
+/* <!-- USER OPTION START --> */
+
+.user-option {
+  font-size: 30rpx;
+  color: #686868;
+  font-weight: 500;
+}
+
+.youmihuobi,
+.user_caozuo {
+  border-bottom: 16rpx solid #dedede;
+}
+
+.u-o-qianbao {
+  display: flex;
+  justify-content: space-between;
+  padding: 26rpx 32rpx;
+}
+
+.u-o_left {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_price {
+  display: flex;
+}
+
+.usp_yuer {
+  color: var(--themeColor);
+}
+
+.user_price .icon-youjiantou {
+  margin-top: 6rpx;
+}
+
+.uscz_neirong,
+.user_qiehuan {
+  font-size: 28rpx;
+  padding: 26rpx 32rpx 0 32rpx;
+}
+
+.uscz_neirong .u-o-list,
+.user_qiehuan .u-o-list {
+  margin-bottom: 28rpx;
+}
+
+.uscz_neirong .u-o-list .u-o_left,
+.user_qiehuan .u-o-list .u-o_left {
+  padding-bottom: 28rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.uscz_neirong .u-o-list .u-o_left .icon-youjiantou,
+.user_qiehuan .u-o-list .u-o_left .icon-youjiantou {
+  margin-left: 485rpx;
+}
+.uscz_neirong .u-o-list:last-child .u-o_left .icon-youjiantou {
+  margin-left: 456rpx;
+}
+.uscz_neirong .u-o-list:last-child .u-o_left {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.user_qiehuan .u-o-list:last-child .u-o_left {
+  font-size: 30rpx;
+  color: #686868;
+  border: none;
+  margin: 0;
+}
+/* <!-- USER OPTION START --> */
+
+/* 主体 */
+@import '../../template/font';

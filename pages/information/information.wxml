@@ -1,0 +1,27 @@
+<!--pages/information/infomation.wxml-->
+<view class='inner'>
+  <view class='t-info-nav'>
+    <view data-status="0">
+      <!-- <text>系统信息</text> -->
+      <!-- <icon class='t-i-raduis'></icon> -->
+    </view>
+  </view>
+  <view class='-info-cont'>
+    <navigator url="infoDetail?id={{item.id}}" wx:for="{{array}}" class='t-info-list' bindtap='changNew' wx:key="{{index}}" data-index="{{index}}">
+      <image src='../../static/images/public/big_portrait.png' class='t-info-img'/>
+      <view class='t-info-msg'>
+          <view class='f-bold m-b20'>{{item.title}}</view>
+          <view class='-info-msg-exp'>{{item.content}}</view>
+      </view>
+      <view class='t-right create-time'>
+        <text>{{item.create_time}}</text>
+        <view wx:if="{{item.isChang}}"><icon class='t-i-raduis'></icon></view>
+      </view>
+    </navigator>
+    <view class='more-recommond2' wx:if="{{isMore}}" bindtap='lookMore'>点击查看更多</view>
+  </view>
+  <!-- FOOTER START -->
+  <view class='footer-height'></view>
+  <import src="../template/tabbar.wxml" />
+  <template is="tabBar" data="{{ tabBar}}" />
+</view>

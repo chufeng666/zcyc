@@ -1,0 +1,78 @@
+<view id="wrap">
+  <!-- SEARCH INFO START -->
+  <view class='inner'>
+    <!-- CONTENT START -->
+    <view class='d-content'>
+      <view class="d-c-list">
+        <view class='c-list-info'>
+          <view class='m-b22'>
+            <view class='w-bold'>
+              <view class="wm">{{recruitDetail.title}}</view>
+              <view class='m-r20'>{{recruitDetail.salary}}/月</view>
+            </view>
+            <view class="mb_yaoqiu">
+              <view class="mb_y" wx:for="{{yaoqiu}}" wx:key="id">
+                <view class="iconfont icon-baobao"></view>
+                <view class="mb_y_xuqiu">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class='m-b22'>
+            <navigator url='../cOrTInfo/cOrTInfoDetail?company_id={{recruitDetail.company_id}}' class='e-company-list-'>
+              <image class='c-portrait-img' src='{{recruitDetail.logo}}' />
+              <view class="gs_dz">
+                <view>{{recruitDetail.company_name}}</view>
+                <view class='m-r21'>
+                  <text class="iconfont  icon-ditu"></text>
+                  {{recruitDetail.province}}{{recruitDetail.city}}{{recruitDetail.district}}
+                </view>
+              </view>
+              <icon class='iconfont icon-youjiantou2'></icon>
+            </navigator>
+          </view>
+          <view class='employee-welfare'>
+            <view class="welfare">
+              <view class="wf_top">
+                <text class="iconfont icon-yuangongfuliguanli"></text>
+                <view>员工福利</view>
+              </view>
+              <view class="wf_bottom">
+                <view class="wf_fuli" wx:for="{{welfare}}" wx:key="id">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer-height">
+    <view class="d-c-desc">
+      <view class="dcd_top">
+        <text class="iconfont  icon-yuangongfuliguanli"></text>
+        职位要求：
+      </view>
+      <view class="-desc-msg">
+        {{recruitDetail.detail}}岗位职责: 1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料工作） 2.检查、
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <!-- <button class='f-btn-1' bindtap="callWithHim">马上预订</button> -->
+    <view class='search2-inner'>
+      <view class="si_shoucang">
+        <view class="ss_weishoucang" bindtap="onCollection" data-stu="0" wx:if="{{isCollect==0}}">
+          <text class="iconfont icon-wuxiaoxing-kong"></text>
+          <view class='collect_tab'>收藏职位</view>
+        </view>
+        <view class="ss_weishoucang" bindtap="onCollection" data-stu="1" wx:else>
+          <text class="iconfont icon-wuxiaoxing-kong {{isCollect==0?'':'active'}}"></text>
+          <view class='collect_tab'>已收藏</view>
+        </view>
+      </view>
+    </view>
+    <button class='f-btn-2 {{pBgC}}' open-type="contact">
+      <text class="iconfont    icon-lianxi"></text>
+      <view>联系客服</view>
+    </button>
+  </view>
+</view>

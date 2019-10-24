@@ -1,0 +1,21 @@
+/* pages/userInfo/search.wxss */
+@import "../../template/common";
+
+.inner-cont{
+  padding-top:155rpx;
+}
+.login_tab{
+  font-size: 28rpx;
+}
+.posen-msg{
+  font-size:28rpx;
+}
+.stss-active{
+    color: #be4cff;
+    line-height: 60rpx !important;
+}
+
+
+/* .gllobal-header{
+  padding-bottom: 0;
+} */

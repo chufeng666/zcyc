@@ -1,0 +1,38 @@
+<!--pages/userInfo/search.wxml-->
+<view class='search-wrap'>
+
+  <view class='g-header-'>
+    <view class='-header-cont'>
+      <view class='search-cont'>
+        <input type='text' class='search'  placeholder="输入所要查找的内容" bindinput='selecKeyWord' />
+        <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+      </view>
+      <!-- <text class='login_tab' bindtap='searchInfp'>搜索</text> -->
+    </view>
+    <view class='subtitle overH search-subtitle'>
+        <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">企业</text>
+        <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">服务商</text>
+    </view>
+  </view>
+
+  <view class='inner inner-cont'>
+      <view class='wx-no-info' wx:if="{{isShowInfo}}">
+            <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+            <view>暂无数据</view>
+      </view>
+      <view wx:if="{{cStatus==0}}">
+          <!-- recruit content start -->
+          <import src ="../../template/company.wxml"/>
+          <template is="company" data="{{recruit:list.recruit, pColor: pColor,pBgC:pBgC,typeMsg:'企业',url:'../../postionDetail/postionDetail?id='}}"/>
+          <!-- recruit content end -->
+      </view>
+
+      <view wx:if="{{cStatus==1}}">
+          <!-- recruit content start -->
+          <import src ="../../template/company.wxml"/>
+          <template is="company" data="{{recruit:list.person, pColor: pColor,pBgC:pBgC,typeMsg:'服务商',url:'../../postionDetail/postionDetail?id='}}"/>
+          <!-- recruit content end -->
+      </view>
+  </view>
+
+</view>

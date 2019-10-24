@@ -1,0 +1,23 @@
+<!-- pages/template/company.wxml -->
+<template name="companyList">
+  <navigator url="{{url}}{{item.id}}" wx:for="{{recruit}}" wx:key>
+    <view class='c-l-info'>
+      <view class="c-info-xinxi">
+        <image src='{{item.logo}}' class="c-logo" />
+        <view class='c-info-text'>
+          <text class='c-info-title'>{{item.company_name}}</text>
+          <view class='c-info-msg'>
+            <view class='c-msg'>
+              <text>实名认证：</text>
+              <text>未认证</text>
+            </view>
+            <view class='c-msg'>
+              <text>{{item.city_str}}-{{item.district_str}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="c-info-position">123</view>
+    </view>
+  </navigator>
+</template>

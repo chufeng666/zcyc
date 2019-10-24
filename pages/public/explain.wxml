@@ -1,0 +1,9 @@
+<!--pages/auditInfo/explain.wxml-->
+<view class='inner'>
+  <!-- <text class='e-msg'>时间：2019-6-20</text> -->
+  <view class='e-content'>
+    <view class='e-c-list'>
+      {{info}}
+    </view>
+  </view>
+</view>

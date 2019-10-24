@@ -1,0 +1,104 @@
+<view class='wrapper'>
+  <view class='content'>
+    <!-- 联系人 -->
+    <view class='name_wrap'>
+      <text class='text'>联系人:</text>
+      <view class='inp'>
+        <input placeholder='输入名字' bindinput='getContacts'></input>
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class='name_wrap'>
+      <text class='text'>手机号:</text>
+      <view class='inp'>
+        <input placeholder='输入手机号' bindinput='getMobiel'></input>
+      </view>
+    </view>
+    <!-- 固定电话 -->
+    <view class='name_wrap'>
+      <text class='text'>固定电话:</text>
+      <view class='inp'>
+        <input placeholder='输入固定电话号码' bindinput='getTel'></input>
+      </view>
+    </view>
+    <!-- 选择公司地区 -->
+    <view class='name_wrap'>
+      <text class='text'>公司地区:</text>
+      <view class="section">
+      <view class="newsite_box">
+        <!-- 所在地区点击按钮 -->
+        <view class="newsite_button" bindtap="selectDistrict">
+          <view class="" wx:if="{{showTST}}">请选择省，市，区</view>
+          <view class="newsite_city">{{areaInfo}}</view>
+        </view>
+        <!-- 所有城市三级联动列表 -->
+        <include src="../../template/address"/> 
+        <!-- 地址选择接受 -->
+      </view>
+      <!-- 地址选择接受 -->
+      </view>
+      <image class='u-o-icon2' src='../../../static/images/public/right_arrow_gray.png'/>
+    </view>
+    <!-- 公司名称 -->
+    <view class='name_wrap'>
+      <text class='text'>公司名称:</text>
+      <view class='inp'>
+        <input placeholder='输入公司名称' bindinput='getCName'></input>
+      </view>
+    </view>
+    <!-- 公司类型 -->
+    <view class='name_wrap'>
+      <text class='text'>公司类型:</text>
+      <view class='inp'>
+        <input placeholder='例如：国企' bindinput='getCType'></input>
+      </view>
+    </view>
+    <!-- 公司介绍 -->
+    <view class='name_wrap'>
+      <text class='text'>公司介绍:</text>
+      <textarea class='in_tar' placeholder=' 至少10字介绍公司' bindinput='getCExp'></textarea>
+    </view>
+     <!-- 上传营业执照 -->
+    <view class='idPic'>
+      <view class='-pic-subtitle'>
+        <image class='-pic-stat' src='../../../static/images/public/star.png'></image>
+        <text>上传营业执照(必填)</text>
+      </view>
+      <!-- -->
+      <view class='id-card-top' bindtap='addIdCardPic'>
+        <block>
+          <image class='card-top' mode='aspectFit' src="{{icCardPic.src}}" data-index="{{index}}"/>
+        </block>
+        <view class='-add-img-' wx:if="{{icCardPic.hiddenName}}">
+          <image class='addPic' bindtap='addPosPic' src='../../../static/images/public/plus.png'></image>
+          <text>营业执照</text>
+        </view>
+      </view>
+      <!-- -->
+    </view>
+
+    <!-- 上传其他资料 -->
+    <view class='idPic'>
+      <view class='-pic-subtitle'>其他资料(选填)</view>
+      <!-- -->
+      <view  wx:for="{{pics}}" wx:key="{{index}}">
+        <view class='id-card-top' bindtap='addWordPic' data-id="{{index}}">
+          <block>
+            <image class='card-top' mode='aspectFit' src="{{item.src}}" data-index="{{index}}"/>
+          </block>
+          <view class='-add-img-' wx:if="{{item.hiddenName}}">
+            <image class='addPic2' src='../../../static/images/public/plus.png'></image>
+          </view>
+        </view>
+      </view>
+      <!-- -->
+      <view class='file-inner' bindtap='addImgBox'>
+        <button class='file-btn'></button> 
+        <image class='f-plus-' src='../../../static/images/public/plus.png'/>
+      </view>
+    </view>
+    <view class='a-more-pic'>添加一张</view>
+    <!-- 上传其他资料结束 -->
+  </view>
+  <button class='option user-bg-' bindtap='saveInfo'>提交</button>
+</view>

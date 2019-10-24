@@ -1,0 +1,52 @@
+<!--pages/userInfo/editInfo.wxml-->
+<view class='inner'>
+
+  <view class='global-company-list'>
+      <navigator url='../../headPortrait/headPortrait'><image src='{{cList.logo}}' class="c-logo" /></navigator>
+      <view class='c-info-text'>
+        <text class='c-info-title'>{{cList.company_name}}</text>
+      </view>
+  </view>
+
+  <view class='global-company-list2'>
+      <view class="global-c-body">
+          <view class="global-c-msg">
+              <icon class="iconfont icon-qiye-copy" />
+              <text>{{cList.type}}</text>
+          </view>
+          <view class="global-c-msg">
+              <icon class="iconfont icon-shouye_sifangkuang_jingdiananli" />
+              <text>{{cList.open_time}}</text>
+          </view>
+      </view>
+      <view class="global-c-body">
+          <view class="global-c-msg">
+              <icon class="iconfont icon-yonghu" />
+              <text>{{cList.contacts_scale}}人</text>
+          </view>
+      </view>
+  </view>
+
+
+
+	<view class='cOrTInfo-cont global-cOrTInfo-'>
+      <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+        <icon class="iconfont icon-1 {{pColor}}" />
+        <text class='cOrTInfo-msg'> 公司成就</text>
+        <view class='-cOrTInfo'>{{cList.achievement}}</view>
+      </view>
+
+      <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+        <icon class="iconfont icon-1 {{pColor}}" /> 
+        <text class='cOrTInfo-msg '>公司名人</text>
+        <view class='-cOrTInfo'>{{cList.introduction}}</view>
+      </view>
+
+      <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+        <icon class="iconfont icon-1 {{pColor}}" /> 
+        <text class='cOrTInfo-msg'>公司介绍</text>
+        <view class='-cOrTInfo'>{{cList.desc}}</view>
+      </view>
+
+	  </view>
+</view>

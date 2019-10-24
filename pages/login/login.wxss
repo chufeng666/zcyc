@@ -1,0 +1,226 @@
+page {
+  background: #fff;
+}
+/* 头部 */
+.title_login {
+  display: flex;
+  align-items: center;
+  margin-top: 64rpx;
+  color: #999;
+  padding: 0 16rpx;
+}
+.title_login .icon-zuojiantou {
+  font-size: 60rpx;
+}
+.title_login .tl_denglu {
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-bottom: 7rpx;
+}
+/* 头部 */
+
+/* 微信授权 */
+
+.header_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: #fff;
+  overflow-y: hidden;
+}
+.header {
+  margin: 90rpx 0 90rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+
+.header image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+.content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+}
+
+/* 微信授权结束 */
+
+.log_ear {
+}
+
+.xiaolian {
+}
+
+.welecom_title {
+  width: 100%;
+}
+
+.login_ear {
+  position: relative;
+  margin: 100rpx 132rpx 0rpx 132rpx;
+  font-size: 36rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 480rpx;
+  border-bottom: 1px solid #999;
+}
+.icon-lock-alt2 {
+  font-size: 36rpx;
+}
+.qianzui {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 500;
+  position: absolute;
+  padding-bottom: 15rpx;
+  bottom: 0rpx;
+}
+
+.phone_num {
+  display: inline-block;
+  font-size: 27rpx;
+  vertical-align: top;
+  position: absolute;
+  bottom: 10rpx;
+  left: 50rpx;
+}
+.phone_password {
+  position: absolute;
+  bottom: 6rpx;
+  left: 55rpx;
+  font-size: 27rpx;
+}
+.delete_pic {
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  right: 0;
+  bottom: 23rpx;
+}
+
+.mima_ear {
+  position: relative;
+  margin: 100rpx 132rpx 0rpx 132rpx;
+  font-size: 27rpx;
+  border-bottom: 1px solid #999;
+  padding-bottom: 17rpx;
+  width: 480rpx;
+}
+
+.denglu {
+  width: 480rpx;
+  border-radius: 60rpx;
+  color: white;
+  margin: 80rpx 50rpx 0rpx 130rpx;
+}
+
+.resigt {
+  /* margin-left: 80rpx; */
+  font-size: 28rpx;
+  color: #ee331a;
+  padding-top: 20rpx;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  font-weight: 600;
+}
+.weixinshouquan {
+  display: flex;
+  flex-direction: column;
+  margin-top: 42rpx;
+}
+.youke {
+  display: flex;
+  flex-direction: column;
+  margin-left: 93rpx;
+  margin-top: 42rpx;
+}
+
+.wxshoq {
+  border-radius: 50%;
+  border: none;
+  color: #62be63;
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  background-color: #fff;
+}
+.icon-weixin {
+  position: absolute;
+  left: 1.5rpx;
+  bottom: 58.5rpx;
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 80rpx;
+  border-radius: 50%;
+}
+.eye_pic {
+  width: 40rpx;
+  height: 25rpx;
+  position: absolute;
+  right: 0;
+  bottom: 10rpx;
+  padding: 20rpx;
+  z-index: 1;
+}
+.resigt-wrap-tt {
+  display: flex;
+  justify-content: space-between;
+  width: 480rpx;
+  margin: 39rpx 50rpx 20rpx 130rpx;
+}
+.forget {
+  /* margin-right: 80rpx; */
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 20rpx;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  font-weight: 500;
+}
+
+.order {
+  margin-top: 202rpx;
+  text-align: center;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #dadada;
+  margin-bottom: 40rpx;
+}
+.footPrint-ico {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+}
+
+.footPrint-ico2 {
+  width: 13rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-left: 16rpx;
+}
+.active {
+  color: var(--themeColor);
+}
+@import '../template/font.wxss';

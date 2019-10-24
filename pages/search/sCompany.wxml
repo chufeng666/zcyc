@@ -1,0 +1,10 @@
+<view class='i-header'>
+  <view class="h-left">
+    <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+    <view class="l_qiye">搜索</view>
+  </view>
+  <view class="h-bottom">
+    <input type='text' class='search' placeholder="一级建造师" bindinput='selecKeyWord' />
+    <image class="search-icon" src='../../static/images/public/search_icon.png'></image>
+  </view>
+</view>

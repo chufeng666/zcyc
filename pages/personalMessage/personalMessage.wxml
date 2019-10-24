@@ -1,0 +1,137 @@
+
+<view class='inner'>
+  <view class='name_ear'>
+    <text class="name_text">姓名:</text>
+    <input placeholder='请输入名字' class='name_input' bindinput='getName'></input>
+  </view>
+  <!-- <view class='name_ear'>
+    <text class="name_text">手机号:</text>
+    <input placeholder='输入手机号' class='name_input'></input>
+  </view> -->
+  <view class='name_ear'>
+    <text class="name_text">性别:</text>
+      <view class='e-info-radio'>
+        <radio-group class="radio-group" bindchange="changSex">
+            <label class="radio" wx:for="{{radioItems}}">
+              <radio style="zoom:.6" color="#25bbb3" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group>
+      </view>
+  </view>
+  <!-- 日期选择 -->
+  <view class='name_ear'>
+    <text class="name_text chusheng">出生日期:</text>
+    <view class='picker-wrap'>
+      <view class="section">
+        <picker mode="date" value="{{date}}" start="" end="{{date}}"
+         bindchange="picketchang">
+          <view class="picker">{{date}}</view>
+        </picker>
+      </view>
+      <image class="down-arrow" src='../../static/images/public/right_arrow_gray.png'/>
+    </view>
+  </view>
+  <view class='name_ear'>
+    <text class="name_text">毕业学校:</text>
+    <input placeholder='输入毕业院校' class='name_input' bindinput='getScholl'></input>
+  </view>
+  <!-- 毕业时间 -->
+  <view class='name_ear'>
+    <text class="name_text chusheng">毕业时间:</text>
+    <view class='picker-wrap'>
+      <view class="section">
+        <picker mode="date" value="{{date1}}" end="{{date1}}" bindchange="picketChange1">
+          <view class="picker">{{date1}}</view>
+        </picker>
+      </view>
+      <image class="down-arrow" src='../../static/images/public/right_arrow_gray.png'/>
+    </view>
+  </view>
+  <view class='name_ear'>
+    <text class="name_text">学校类型:</text>
+    <view class="page__bd">
+      <view class="free-btns" style="background:none;">
+        <input class="free-btn name_input" bindtap="toggleDialog" value='{{value1}}' placeholder='请选择学校类型' disabled="true">
+        </input>
+      </view>
+      <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+        <view class="free-dialog__mask" bindtap="toggleDialog" />
+        <view class="free-dialog__container">
+          <view>
+            <form bindsubmit='submit' bindreset="reset">
+              <view bindtap='freetoBack' class="free-button free-dialog-reset">取消</view>
+              <view bindtap='freetoBack' class="free-button free-dialog-submit">确定</view>
+              <radio-group class='free-radios' bindchange="radioChange">
+                <label class="free-radio" bindtap="click" wx:for="{{items}}" wx:key="{{items}}" data-id="{{index}}" style="{{index==id?'background:#48c23d;color:#fff;':'background:#fff;color:#000;'}}">
+                  <radio value="{{item.name}}" name="{{item.value}}"></radio>
+                  <label class="free-text">{{item.value}}</label>
+                </label>
+              </radio-group>
+            </form>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='name_ear'>
+    <text class="name_text">选择职业:</text>
+
+    <view class='picker-wrap'>
+      <view class="section">
+        <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
+          <view class="picker">{{jobArray[jobIndex].cat_name}} </view>
+        </picker>
+      </view>
+      <image class="down-arrow" src='../../static/images/public/right_arrow_gray.png'/>
+    </view>
+    <!-- <input placeholder='输入职业名称' class='name_input' bindinput='getProfession'></input> -->
+        <!-- <view class='-list-pays name_input' value="{{cat_id}}">
+          <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
+            <view class="picker">
+              {{jobArray[jobIndex].cat_name}} 
+            </view>
+          </picker>
+        </view> -->
+  </view>
+  <!-- 上传身份证正面 -->
+  <view class='idPic'>
+    <view class='-pic-subtitle'>
+      <image class='-pic-stat' src='../../static/images/public/star.png'></image>
+      <text>上传身份证(必填)</text>
+    </view>
+    <!-- -->
+    <view  wx:for="{{icCardPic}}" wx:key="{{index}}" data-id="{{index}}" class='id-card-top' bindtap='addIdCardPic'>
+      <block>
+        <image class='card-top' mode='aspectFit' src="{{item.src}}" data-index="{{index}}"/>
+      </block>
+      <view class='-add-img-' wx:if="{{item.hiddenName}}">
+        <image class='addPic' bindtap='addPosPic' src='../../static/images/public/plus.png'></image>
+        <text>{{item.msg}}</text>
+      </view>
+    </view>
+    <!-- -->
+  </view>
+  <!-- 上传证书 -->
+  <view class='idPic'>
+    <view class='-pic-subtitle'>职业证书(选填)</view>
+    <!-- -->
+    <view  wx:for="{{pics}}" wx:key="{{index}}">
+      <view class='id-card-top' bindtap='addWordPic' data-id="{{index}}">
+        <block>
+          <image class='card-top' mode='aspectFit' src="{{item.src}}" data-index="{{index}}"/>
+        </block>
+        <view class='-add-img-' wx:if="{{item.hiddenName}}">
+          <image class='addPic2' src='../../static/images/public/plus.png'></image>
+        </view>
+      </view>
+      <input class="addTextBox" bindblur='getPicName' data-iname='input{{index}}' placeholder='请输入职业证书名称'/>
+    </view>
+    <!-- -->
+    <view class='file-inner' bindtap='addImgBox'>
+      <button class='file-btn'></button> 
+      <image class='f-plus-' src='../../static/images/public/plus.png'/>
+    </view>
+  </view>
+  <view class='a-more-pic' >添加一张</view>
+  <button class='s-1-option' bindtap="saveInfo">确认保存</button>
+</view>

@@ -1,0 +1,177 @@
+/* pages/userInfo/editInfo.wxss */
+@import '../template/common';
+.inner {
+  padding: 40rpx 31rpx;
+}
+.c-l-info {
+  margin-bottom: 30rpx;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 40rpx;
+}
+.company-status {
+  float: right;
+}
+/* 第一部分 */
+.gcl_right {
+  margin-left: 24rpx;
+}
+.c-info-title {
+  font-size: 40rpx;
+}
+.icon-baobao {
+  margin-right: 10rpx;
+  font-size: 30rpx;
+}
+.global-c-msg text:nth-child(2) {
+  margin-right: 32rpx;
+}
+.global-company-list2 {
+  display: flex;
+  font-size: 24rpx;
+  color: #686868;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #dedede;
+}
+.global-c-body {
+  background-color: #f0f0f0;
+  padding: 4px 16rpx;
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+}
+.icon-icon-test {
+  margin-right: 8rpx;
+  margin-top: 4rpx;
+  color: #686868;
+  font-weight: 600;
+}
+
+/* 第一部分 */
+
+/* 第二部分 */
+.introduction {
+  padding: 0 31rpx;
+  border-top: 10rpx solid #f0f0f0;
+}
+.tabs {
+  display: flex;
+}
+.tabs .title_item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: #000;
+  font-size: 30rpx;
+  padding-top: 31rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.tabs .active {
+  color: var(--themeColor);
+  font-weight: 600;
+  border-width: 100rpx;
+  padding-bottom: 31rpx;
+  border-bottom: 4rpx solid currentColor;
+}
+.c-first {
+  margin-top: 40rpx;
+  height: 300rpx;
+}
+.cc_desx {
+  padding-bottom: 41rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.c-second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c-second .cOrTInfo-option .icon-1 {
+  font-size: 30rpx;
+}
+.cs_time {
+  font-size: 26rpx;
+  color: #686868;
+}
+.desc {
+  font-size: 30rpx;
+  color: #686868;
+}
+.company_nav {
+  margin-bottom: 319rpx;
+}
+.company_nav .iconfont {
+  font-size: 30rpx;
+}
+.company_map {
+  align-items: center;
+}
+.company_nav .company_map .cOrTInfo-msg {
+  color: var(--themeColor);
+}
+/* 招聘 */
+.third {
+  margin-top: 41rpx;
+}
+.i_list {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.i_list .l_yuan {
+  font-size: 34rpx;
+  font-weight: 550;
+  color: #000;
+}
+.i_list .l_price {
+  color: #ee291a;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.i_second {
+  display: flex;
+  margin-top: 14rpx;
+}
+.i_second view {
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: normal;
+  background-color: #ee291a;
+  padding: 6rpx 15rpx;
+  border-radius: 4rpx;
+}
+.i_second view:nth-child(2) {
+  margin-left: 15rpx;
+}
+.i_third {
+  color: #686868;
+  font-size: 26rpx;
+  display: flex;
+  margin-top: 10rpx;
+}
+.i_third .t_zhili {
+  margin: 0 28rpx;
+}
+/* 招聘 */
+/* 第二部分 */
+.cOrTInfo-,
+.cOrTInfo-option {
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #151515;
+}
+.cOrTInfo-msg {
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  margin-left: 12rpx;
+}
+.cOrTInfo-2 {
+  text-indent: 60rpx;
+}
+.cOrTInfo-cont .c-title {
+  margin-top: 40rpx;
+  border-top: 2rpx solid #f8f8f8;
+  padding-top: 40rpx;
+}
+
+@import '../template/font';

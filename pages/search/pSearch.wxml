@@ -1,0 +1,14 @@
+<view class='search-wrap'>
+  <view class='g-header-'>
+    <view class="h-left">
+      <navigator url="../index/index" class="iconfont icon-zuojiantou" bindinput='selecKeyWord'></navigator>
+      <view class="l_qiye">搜索</view>
+    </view>
+    <view class='-header-cont'>
+      <view class='search-cont'>
+        <input type='text' class='search {{pBC1}}' placeholder="一级建造师" bindinput='selecKeyWord' />
+        <image class="search-icon" src='../../static/images/public/search_icon.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

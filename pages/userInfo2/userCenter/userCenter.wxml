@@ -1,0 +1,121 @@
+<!-- 头部 -->
+<view class='i-header'>
+  <view class="h-left">个人中心</view>
+</view>
+<!-- 头部 -->
+<!-- 主体 -->
+<view id="wrap">
+  <view class='inner'>
+    <!-- TITLE START -->
+    <view class='content-list'>
+      <view class="main_top">
+        <view class='c-l-info'>
+          <navigator url='../../headPortrait/headPortrait'>
+            <image src='{{info.avatar}}' class="c-logo" />
+          </navigator>
+          <view class='c-info-text'>
+            <view class='c-info-title'>
+              <text class="info_name">{{info.name}}</text>
+              <image class="info_huiyuan" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_huiyuan1.png" />
+            </view>
+            <view class='c-msg m-b10'>用户 ID:{{info.user_id}}</view>
+          </view>
+          <navigator url="../editInfo/editInfo" class='u-o-list'>
+            <view>编辑信息</view>
+            <text class='iconfont  icon-youjiantou user-color-'></text>
+          </navigator>
+          <!-- company info start -->
+        </view>
+        <!-- 考试系统 -->
+        <view class="system">
+          <image mode="aspectFit" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_anguankaos.png" />
+          <view class="sy-aq_kaoshi">
+            <view class="sy_anquan">
+              <view class="sy_aq_large">安全员考试系统</view>
+              <view class="sy_aq_smart">剩余时间124天</view>
+            </view>
+            <navigator class="sy_ceshi" url="">
+              <view>进入测试</view>
+              <text class="iconfont  icon-youjiantou"></text>
+            </navigator>
+          </view>
+        </view>
+        <!-- 考试系统 -->
+      </view>
+    </view>
+    <!-- USER OPTION START -->
+    <view class='user-option'>
+      <view class="youmihuobi">
+        <navigator url="../myPurse/myPurse" class='u-o-qianbao'>
+          <view class="u-o_left">
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
+            <text>我的谷仓</text>
+          </view>
+          <view class="user_price">
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+            <view class="usp_yuer">600</view>
+            <text class='iconfont icon-youjiantou user-color-'></text>
+          </view>
+        </navigator>
+      </view>
+      <view class="user_caozuo">
+        <view class="uscz_neirong">
+          <navigator url="../collect/collect" class='u-o-list'>
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shouc.png" />
+            <view class="u-o_left">
+              <text>我的收藏</text>
+              <text class='iconfont icon-youjiantou user-color-'></text>
+            </view>
+          </navigator>
+          <navigator url="../myCertificate/myCertificate" class='u-o-list'>
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_zhengshu.png" />
+            <view class="u-o_left">
+              <text>我的证书</text>
+              <text class='iconfont icon-youjiantou user-color-'></text>
+            </view>
+          </navigator>
+          <view class='u-o-list'>
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shimingrenz.png" />
+            <view class="u-o_left">
+              <text>实名认证</text>
+              <text class='iconfont icon-youjiantou user-color-'></text>
+            </view>
+          </view>
+          <navigator url="../privacySettings/privacySettings" class='u-o-list'>
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
+            <view class="u-o_left">
+              <text>隐私设置</text>
+              <text class='iconfont icon-youjiantou user-color-'></text>
+            </view>
+          </navigator>
+          <navigator url="../../public/help" class='u-o-list'>
+            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shoucfankui.png" />
+            <view class="u-o_left">
+              <text>帮助与反馈</text>
+              <text class='iconfont icon-youjiantou user-color-'></text>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <view class="user_qiehuan">
+        <navigator url="../../public/setting?openid={{info.openid}}" class='u-o-list'>
+          <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
+          <view class="u-o_left">
+            <text>设置</text>
+            <text class='iconfont icon-youjiantou user-color-'></text>
+          </view>
+        </navigator>
+        <view class='u-o-list m-b10' bindtap="switchUser">
+          <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qiehuanzhangh.png" />
+          <view class="u-o_left">
+            <text>切换账号</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 主体 -->
+<!-- 底部tabbar栏 -->
+<import src="../../template/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />

@@ -1,0 +1,92 @@
+<!-- top -->
+<view class='inner'>
+  <view class='global-company-list'>
+    <navigator url='../headPortrait/headPortrait'>
+      <image mode="aspectFit" src='{{cList.logo}}' class="c-logo" />
+    </navigator>
+    <view class="gcl_right">
+      <view class='c-info-text'>
+        <text class='c-info-title'>{{cList.company_name}}</text>
+      </view>
+      <view class="global-c-msg">
+        <text class="iconfont  icon-baobao"></text>
+        <text>{{cList.type}}</text>
+        <text class="iconfont  icon-baobao"></text>
+        <text>{{cList.contacts_scale}}人</text>
+      </view>
+    </view>
+  </view>
+  <view class='global-company-list2'>
+    <view class="global-c-body" wx:for="{{jishu}}" wx:key="id">{{item.name}}</view>
+  </view>
+  <view class='cOrTInfo-cont global-cOrTInfo-'>
+    <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+      <icon class="iconfont icon-1 {{pColor}}" />
+      <text class='cOrTInfo-msg'>公司资质</text>
+    </view>
+    <view class='-cOrTInfo' wx:for="{{zizhi}}" wx:key="id">
+      <text class="iconfont  icon-icon-test"></text>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<!-- top -->
+<!-- bottom -->
+<view class="introduction">
+  <view class='tabs' bindtap='addAchievementBox'>
+    <view class="title_item " wx:for="{{tabs}}" wx:key="id" bindtap="handleItemChange" data-index="{{index}}">
+      <view class="{{item.isActive?'active':''}}">{{item.name}}</view>
+    </view>
+  </view>
+  <!-- 公司介绍部分 -->
+  <view class='cOrTInfo-cont' wx:if="{{index===0}}">
+    <image mode="aspectFit" class="c-first" src="{{cList.logo}}" />
+    <view class="cc_desx">
+      <view class='c-second'>
+        <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+          <icon class="iconfont icon-1 {{pColor}}" />
+          <text class='cOrTInfo-msg'>公司资质</text>
+        </view>
+        <view class="cs_time">
+          成立时间:{{cList.open_year}}年{{cList.open_month}}月{{cList.open_day}}日
+        </view>
+      </view>
+      <view class="desc">
+        {{cList.desc}}在社会大行素质教育之道的环境下,有这么一类学有余力的孩子:他们除按教学要求完成正常的学习内容外,还有较大“余力”可以参加各种课
+      </view>
+    </view>
+    <view class="company_nav">
+      <view class='cOrTInfo-option' bindtap='addAchievementBox'>
+        <icon class="iconfont icon-1 {{pColor}}" />
+        <text class='cOrTInfo-msg'>公司地址</text>
+      </view>
+      <navigator class="company_map" url="">
+        <icon class="iconfont icon-ditu {{pColor}}" />
+        <text class='cOrTInfo-msg'>广州市海珠区</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- 公司介绍部分 -->
+  <!-- 招聘部分 -->
+  <view class="third" wx:if="{{index===1}}">
+    <navigator url="../postionDetail/postionDetail?id={{item.id}}" wx:for="{{pList}}" wx:key>
+      <view class='c-l-info'>
+        <view class="i_list">
+          <view class="l_yuan">{{item.title}}</view>
+          <view class="l_price">{{item.salary}}/月</view>
+        </view>
+        <view class="i_second">
+          <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
+          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+        </view>
+        <view class="i_third">
+          <view class="t_weizhi">广州 - 海珠区</view>
+          <view class="t_zhili">{{item.work_age}}年</view>
+          <view class="t_xueli">本科</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 招聘部分 -->
+</view>
+<!-- bottom -->

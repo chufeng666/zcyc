@@ -1,0 +1,269 @@
+/* @import 'template/font/iconfont.css'; */
+
+.phcolor {
+  font-size: 24rpx;
+  /* color:#ff54b5; */
+  color: #999;
+  line-height: 40rpx;
+}
+
+.stss-active {
+  color: #ee331a;
+  font-weight: 600;
+}
+
+page {
+  background: #f8f8f8;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.overH {
+  overflow: hidden;
+}
+
+.f-bold {
+  font-weight: 700;
+}
+
+.w-bold {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.m-r10 {
+  margin-right: 10rpx;
+}
+
+.m-r20 {
+  color: var(--themeColor);
+  font-size: 38rpx;
+}
+.m-r21 {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+  color: #686868;
+}
+.m-left-auto {
+  margin-left: auto;
+}
+
+.m-r35 {
+  margin-right: 35rpx;
+}
+
+.m-r80 {
+  margin-right: 80rpx;
+}
+
+.m-b10 {
+  margin-bottom: 10rpx;
+}
+
+.m-t20 {
+  margin-top: 20rpx;
+}
+
+.m-t40 {
+  margin-top: 40rpx;
+}
+
+.m-b20 {
+  margin-bottom: 20rpx;
+}
+
+.m-b22 {
+  margin-bottom: 32rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.m-b45 {
+  margin-bottom: 45rpx;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.m-top-10 {
+  margin-top: 10rpx !important;
+}
+
+.m-b50 {
+  margin-bottom: 50rpx;
+}
+
+.size-28 {
+  font-size: 28rpx !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.inner {
+  /* padding: 24rpx; */
+}
+
+/* TABBAR START */
+
+.menu-item {
+  text-align: center;
+  padding: 14rpx 0;
+  color: #7a7a7a;
+  flex: 1;
+}
+
+.tab-bar .img {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 9rpx;
+}
+
+.clear {
+  clear: both;
+}
+
+.tab-bar {
+  position: fixed;
+  border-top: 1px solid rgb(221, 220, 220);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  font-size: 24rpx;
+  display: flex;
+}
+
+.button {
+  margin: 130px;
+}
+
+/* TOP STAT */
+
+.custom {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 45px;
+  background: #2c5cff;
+  z-index: 999;
+}
+
+.custom text {
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 500;
+  max-width: 280rpx;
+}
+
+.empty_custom {
+  height: 45px;
+  width: 100%;
+}
+
+.footer-height {
+}
+
+/* MOBILE CODE START */
+
+.emailCode {
+  color: var(--themeColor);
+  border: 1rpx solid var(--themeColor);
+  border-radius: 48rpx;
+  font-weight: 550;
+  font-size: 30rpx;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 16rpx;
+  z-index: 10;
+}
+
+.emailCodeSend {
+  color: var(--themeColor);
+  border: 1rpx solid var(--themeColor);
+  border-radius: 48rpx;
+  font-weight: 550;
+  font-size: 30rpx;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 16rpx;
+  z-index: 10;
+}
+
+/* login style */
+
+.log_ear {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.xiaolian {
+  width: 133rpx;
+  height: 133rpx;
+}
+
+.welecom_title {
+  font-size: 32rpx;
+  font-weight: bolder;
+  display: inline-block;
+  padding-top: 20rpx;
+  text-align: center;
+  letter-spacing: 4rpx;
+  color: #ee291a;
+}
+
+.mima_ear {
+  margin: 20rpx 50rpx 0rpx 50rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #ff54b5;
+  padding-bottom: 17rpx;
+  display: flex;
+}
+
+/* 支付宝 */
+
+.zfb-style .zfb-1 {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 14rpx;
+}
+
+image {
+  width: 100%;
+}
+
+page {
+  /* 1 定义变量 */
+  --themeColor: #ee291a;
+  --qiyeBackground-color: #1487f1 !important;
+}
+
+.user-top {
+  background: #ee291a !important;
+}
+
+.user-size {
+  color: #ee291a !important;
+}
+
+.company-color {
+  color: #1487f1 !important;
+}

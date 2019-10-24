@@ -1,0 +1,123 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.1",
+	"appid": "wx92a6b209dd4c5a6c",
+	"projectname": "job_xcx",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 6,
+					"name": "（改版）个人-首页",
+					"pathName": "pages/userInfo2/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "(改版)个人—企业",
+					"pathName": "pages/userInfo2/company/company",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "（改版）个人—搜索",
+					"pathName": "pages/userInfo2/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "（改版）个人-筛选",
+					"pathName": "pages/userInfo2/ScreeningConditions/ScreeningConditions",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "(改版)个人—服务商",
+					"pathName": "pages/userInfo2/thirdParty/thirdParty",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "(改版)职位详情",
+					"pathName": "pages/postionDetail/postionDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "(改版)个人-公司详情",
+					"pathName": "pages/cOrTInfo/cOrTInfoDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "（改版）个人—我的",
+					"pathName": "pages/userInfo2/userCenter/userCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "(改版)企业—首页",
+					"pathName": "pages/company/index/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}

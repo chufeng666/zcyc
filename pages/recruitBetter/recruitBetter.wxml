@@ -1,0 +1,41 @@
+
+<view class='hot-wrap'>
+    <view class='inner'>
+        <view class='container'>
+            <view class='content-list'>
+              <!-- 暂无数据 start -->
+              <view class="loading-complete m-t40" wx:if="{{isNoData}}">
+                  <image class="wx-no-icon" src='../../static/images/public/none.png'/>
+                  <view>暂无数据</view>
+              </view> 
+              <!-- 暂无数据 end -->
+              <scroll-view class="list" wx:if="{{!isNoData}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="scrollLower">
+                <navigator url="../userInfo/postionDetail/postionDetail?id={{item.id}}" wx:for="{{recList}}" wx:key>
+                  <view class='c-l-info'>
+                    <image src='{{item.logo}}'class="c-logo" />
+                    <view class='c-info-text'>
+                      <text class='c-info-title'>{{item.title}}</text>
+                      <view class='c-info-msg'>
+                        <text class='c-msg'>月薪{{item.salary}}</text>
+                        <text class='c-msg2'>{{item.work_age}}年</text>
+                      </view>
+                    </view>
+                    <!-- company info start -->
+                    <view class='company-info'>
+                        <text>{{regtypeMsg}}</text>
+                        <view class='company-status {{pBgC}}'>
+                            <text wx:if="{{item.require_cert==0}}">无需证书</text>
+                            <text wx:if="{{item.require_cert==1}}">需要证书</text>
+                        </view>
+                    </view>
+                  </view>
+                </navigator>
+
+              </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view>  
+</view>
+<!-- FOOTER TARBAR START -->
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "SearchInput": "../../search/pSearch"
+  },
+  "navigationStyle": "custom"
+}

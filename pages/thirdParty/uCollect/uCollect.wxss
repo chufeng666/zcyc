@@ -1,0 +1,33 @@
+/* pages/company/uCollect.wxss */
+@import "../../template/common";
+.inner{padding: 20rpx 24rpx; background:#f8f8f8;}
+.c-info-msg{margin-top: 14rpx;}
+.c-msg3{margin: 12rpx 0 13rpx;}
+
+.tab {
+    display: flex;
+  }
+  .tab-item {
+    flex: 1;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 65rpx;
+    font-weight: bold;
+  
+  }
+  .show{
+    display: block;
+  }
+  .search-job-list{
+    padding:10px;
+    background:#fff;
+    margin-bottom: 15rpx;
+  }
+  .hidden{
+    display: none;
+  }
+  .active{
+    color:#54b9ff !important;
+    font-size: 30rpx;
+    font-weight: bold;
+  }
