@@ -139,11 +139,11 @@
 }
 
 /* 筛选 */
+
 /* 数据展示 */
 
 .inner {
   padding: 0;
-  border-bottom: 16rpx solid #dedede;
 }
 
 .container {
@@ -151,6 +151,7 @@
 
 .content-list {
   padding: 33rpx 32rpx;
+  border-bottom: 16rpx solid #dedede;
 }
 
 .c-l-info {
@@ -212,7 +213,9 @@
 .ci_zuixin {
   padding-top: 5rpx;
 }
+
 /* 数据展示 */
+
 .active {
   color: #ee331a;
   font-weight: 400;

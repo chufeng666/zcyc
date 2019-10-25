@@ -82,8 +82,7 @@
     </navigator>
   </block>
 </view>
-<!-- 所有城市三级联动列表 -->
-<include src="../../template/address" />
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

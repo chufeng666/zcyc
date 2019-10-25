@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/components/address/address",
     "pages/userInfo2/userCenter/userCenter",
     "pages/userInfo2/thirdParty/thirdParty",
     "pages/userInfo2/company/company",

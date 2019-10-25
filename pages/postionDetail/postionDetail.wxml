@@ -7,7 +7,7 @@
         <view class='c-list-info'>
           <view class='m-b22'>
             <view class='w-bold'>
-              <view class="wm">{{recruitDetail.title}}</view>
+              <view class="wm">{{recruitDetail.company_name}}</view>
               <view class='m-r20'>{{recruitDetail.salary}}/月</view>
             </view>
             <view class="mb_yaoqiu">

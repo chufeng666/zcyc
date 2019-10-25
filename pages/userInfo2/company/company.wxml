@@ -14,7 +14,7 @@
   <view class="n-xiahuaxian">
     <view class="newest">
       <view class="province">
-        <view>{{city.area_name}}-{{area.area_name}}　|　建筑　|　国企</view>
+        <view>{{recList[0].city_str}}-{{recList[0].district_str}}　|　建筑　|　{{recList[0].type}}</view>
       </view>
     </view>
     <view class="n-search">
@@ -31,30 +31,12 @@
 </view>
 <view class="inner">
   <view class="container">
-    <view class="content-list">
-      <navigator url="../../postionDetail/postionDetail?id={{item.id}}" wx:for="{{recList.recruit_hot}}" wx:key>
-        <view class='c-l-info'>
-          <image src='{{item.logo}}' class="c-logo" />
-          <view class='c-info-text'>
-            <text class='c-info-title'>{{item.title}}</text>
-            <view class='c-info-msg'>
-              <text class='c-msg'>建筑</text>
-              <text class='c-msg'>水利水电</text>
-            </view>
-            <view class='company-status'>广州 — 海珠区</view>
-          </view>
-        </view>
-        <!-- company info start -->
-        <view class='company-info'>
-          <image class="ci_img"></image>
-          <view class="ci_zuixin">最新招聘•安全员等21个职位</view>
-        </view>
-      </navigator>
-    </view>
+    <import src="../../template/companyList.wxml" />
+    <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->
-<include src="../../template/address" />
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

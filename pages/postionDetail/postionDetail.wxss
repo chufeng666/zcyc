@@ -11,6 +11,7 @@
 
 .inner {
   margin-top: 24rpx;
+  padding: 0 33rpx
 }
 
 .search-inner {

@@ -35,7 +35,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      companyId: options.id,
+      companyId: options.company_id,
       pBgC: util.loginIdentity().pBgC,
       pColor: util.loginIdentity().pColor
     })
@@ -48,10 +48,9 @@ Page({
 
   lookCompany () {         // 要传给后台的参数
     var _opt = {
-      company_id: 91
+      company_id: this.data.companyId
     }
     ServerData.lookCompany(_opt).then((res) => {
-      console.log(res, '111111111111111111111111111111111');
       if (res.data.status == 1) {
         this.setData({
           cList: res.data.data,
@@ -67,10 +66,9 @@ Page({
   },
   getRecruitList () {         // 要传给后台的参数
     var _opt = {
-      company_id: 91
+      company_id: this.data.companyId
     }
     ServerData.getRecruitList(_opt).then((res) => {
-      console.log(res, '2222222222222222222222222222222222222');
       if (res.data.status == 1) {
         this.setData({
           pList: res.data.data,

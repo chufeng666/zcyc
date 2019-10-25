@@ -38,9 +38,6 @@ Page({
       pBgC: util.loginIdentity().pBgC
     });
     this.reqDetails();
-    wx.showShareMenu({
-      withShareTicket: true
-    })
   },
 
 	/**
@@ -53,7 +50,6 @@ Page({
       id: this.data.id
     }
     ServerData.recruitDetail(_opt).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         this.setData({
           recruitDetail: res.data.data,
