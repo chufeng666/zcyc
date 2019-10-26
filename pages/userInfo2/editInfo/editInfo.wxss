@@ -1,1 +1,191 @@
-/* pages/userInfo2/editInfo/editInfo.wxss */
+.user_header {
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  background-color: #FFE4CC;
+  color: #FF730E;
+}
+.user_header .liaojie {
+  flex: 18;
+  text-align: center;
+  font-size: 24rpx;
+}
+.user_header .icon-cha {
+  flex: 1;
+  font-size: 24rpx;
+}
+.inner {
+  padding: 68rpx 52rpx;
+}
+.inner .user_name {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 44rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.inner .user_name .us_left {
+  display: flex;
+  flex-direction: column;
+}
+.inner .user_name .us_left .us_l_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 31rpx;
+}
+.inner .user_name .us_left .us_l_top .us_l_t_name {
+  color: #000;
+  font-size: 38rpx;
+  font-weight: 700;
+}
+.inner .user_name .us_left .us_l_top .icon-bianji {
+  margin-left: 19rpx;
+  color: var(--themeColor);
+  font-size: 26rpx;
+}
+.inner .user_name .us_left .us_l_bottom {
+  display: flex;
+  align-items: center;
+  color: #686868;
+  font-size: 28rpx;
+}
+.inner .user_name .us_img {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+}
+.inner .user_name:nth-child(2) {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+}
+.inner .user_name:nth-child(3) {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+}
+.inner .user_name:nth-child(3) .icon-bianji {
+  color: var(--themeColor);
+}
+.inner .user_name:nth-child(4) {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+}
+.inner .user_name:nth-child(4) .us_left .us_l_bottom {
+  display: inline;
+}
+.inner .user_name:nth-child(4) .us_left .us_l_bottom .us_l_bt_top {
+  margin-bottom: 10rpx;
+  font-size: 30rpx;
+  color: #262626;
+}
+.inner .user_name:nth-child(4) .icon-bianji {
+  color: var(--themeColor);
+}
+.inner .user_work {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.inner .user_work .us_wk_first {
+  display: flex;
+  justify-content: space-between;
+  font-size: 36rpx;
+  margin-bottom: 40rpx;
+}
+.inner .user_work .us_wk_first .us_wk_ft_left {
+  display: flex;
+  align-items: center;
+}
+.inner .user_work .us_wk_first .us_wk_ft_left .us_l_t_name {
+  font-weight: bold;
+}
+.inner .user_work .us_wk_first .us_wk_ft_right {
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.inner .user_work .us_wk_second {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 38rpx;
+}
+.inner .user_work .us_wk_second .us_wk_sd_left {
+  display: flex;
+  align-items: center;
+}
+.inner .user_work .us_wk_second .us_wk_sd_left .icon-gongsi {
+  margin-right: 15rpx;
+}
+.inner .user_work .us_wk_second .icon-bianji {
+  color: var(--themeColor);
+}
+.inner .user_work .us_wk_third {
+  display: flex;
+  margin-bottom: 43rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.inner .user_work .us_wk_fourth {
+  font-size: 30rpx;
+  color: #686868;
+}
+.inner .user_education {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.inner .user_education .us_l_top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 40rpx;
+}
+.inner .user_education .us_l_top .icon-bianji {
+  color: var(--themeColor);
+}
+.inner .user_education .us_l_bottom .us_l_bt_top {
+  font-size: 30rpx;
+  color: #262626;
+  font-weight: bold;
+  margin-bottom: 21rpx;
+}
+.inner .user_education .us_l_bottom .us_l_bt_oottom {
+  font-size: 26rpx;
+  color: #686868;
+}
+.inner .user_personal {
+  margin-top: 56rpx;
+  padding-bottom: 56rpx;
+  border-bottom: 1rpx solid #dedede;
+  font-size: 36rpx;
+  color: #000;
+}
+.inner .user_personal .us_l_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.inner .user_personal .us_l_top .us_l_t_name {
+  font-weight: bold;
+}
+.inner .user_personal .us_l_top .icon-bianji {
+  color: var(--themeColor);
+}
+.inner .user_personal .us_l_bottom {
+  color: #686868;
+  font-size: 30rpx;
+}
+.inner .bitian {
+  margin-left: 21rpx;
+  border: 1rpx solid var(--themeColor);
+  color: var(--themeColor);
+  font-size: 22rpx;
+  padding: 0 8rpx;
+  border-radius: 4rpx;
+}
+.inner .icon-lianjie {
+  margin-right: 17rpx;
+}
+@import '../../template/font.wxss';

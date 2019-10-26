@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/userInfo2/editInfo/editInfo",
+    "pages/userInfo2/privacySettings/privacySettings",
+    "pages/userInfo2/collect/collect",
     "pages/components/address/address",
     "pages/userInfo2/userCenter/userCenter",
     "pages/userInfo2/thirdParty/thirdParty",

@@ -1,0 +1,17 @@
+/* pages/userInfo/setting.wxss */
+@import '../../template/common';
+.inner{
+  padding: 0 30rpx;
+}
+.setting-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: normal;
+  color: #686868;
+  opacity: 0.8;
+  padding: 47rpx 0;
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+}

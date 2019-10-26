@@ -11,50 +11,52 @@ Page({
     mcode: '',
     pColor: '',                          //动态获取字体颜色
     pBgC: '',                            //动态获背景颜色                 
-    pBC1: ''                             //动态获边框颜色   
-   
+    pBC1: '',                            //动态获边框颜色   
+    getmobile: ''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     this.setData({
       pBgC: util.loginIdentity().pBgC,
       pColor: util.loginIdentity().pColor,
-      pBC1: util.loginIdentity().pBC1
+      pBC1: util.loginIdentity().pBC1,
+      getmobile: options.mobile
     })
   },
 
   saveInfo: function () {
-      var that =this,
-          mobile =that.data.mobile,
-          code = that.data.mcode
-      if (!ServerData._zzVerifyMobile(mobile) || mobile == "") {
-          return ServerData._wxTost('请正确输入手机号')
+    var that = this,
+      mobile = that.data.mobile,
+      code = that.data.mcode
+    if (!ServerData._zzVerifyMobile(mobile) || mobile == "") {
+      return ServerData._wxTost('请正确输入手机号')
+    }
+    if (code == "" || code.length != 6 || isNaN(code)) {
+      return ServerData._wxTost('请正确输入验证码')
+    }
+    var _opt = {
+      'mobile': mobile,
+      'code': code
+    }
+    ServerData.editMobile(_opt).then((res) => {
+      if (res.data.status == 1) {
+        wx.navigateTo({
+          url: '../public/setting'
+        })
+      } else if (res.data.status == -1) {
+        wx.navigateTo({
+          url: '../login/login'
+        })
       }
-      if(code == "" || code.length!=6 || isNaN(code)){
-          return ServerData._wxTost('请正确输入验证码')
-      }
-      var _opt={
-          'mobile': mobile,
-          'code': code
-      }
-      ServerData.editMobile(_opt).then((res) => {
-        if (res.data.status == 1) {
-            wx.navigateTo({
-                url: '../public/setting'
-            })
-        }else if(res.data.status== -1){
-          wx.navigateTo({
-            url: '../login/login'
-          })
-        }
-        ServerData._wxTost(res.data.msg)
-      });
+      ServerData._wxTost(res.data.msg)
+    });
 
-      // wx.navigateTo({
-      //   url: '../public/setting'
-      // })
+    // wx.navigateTo({
+    //   url: '../public/setting'
+    // })
   },
 
   getVale: function (e) {
@@ -69,17 +71,17 @@ Page({
   },
   clickCode: function () {     //发送验证码
     var that = this,
-        mobile = that.data.mobile
-        if (!ServerData._zzVerifyMobile(mobile) || mobile == "") {
-          return ServerData._wxTost('请正确输入手机号!')
-        }
-        var _opt = { 'mobile': mobile }
-        ServerData.fsCode(_opt).then((res) => {
-          if (res.data.status == 1) {
-            settime(that)
-          }
-          ServerData._wxTost(res.data.msg)
-        });
+      mobile = that.data.mobile
+    if (!ServerData._zzVerifyMobile(mobile) || mobile == "") {
+      return ServerData._wxTost('请正确输入手机号!')
+    }
+    var _opt = { 'mobile': mobile }
+    ServerData.fsCode(_opt).then((res) => {
+      if (res.data.status == 1) {
+        settime(that)
+      }
+      ServerData._wxTost(res.data.msg)
+    });
   },
 
   deletetext: function (e) {

@@ -1,17 +1,63 @@
 /* pages/information/infomation.wxss */
 @import "../template/common";
-inner{
-  background:#f8f8f8;
-  padding: 40rpx 24rpx;
+
+/* 头部 */
+.xiaoxi_header {
+  background-color: var(--themeColor);
+  height: 127rpx;
+  line-height: 170rpx;
 }
-/* .t-info-list{
-  flex-wrap: wrap;
-} */
-.create-time{
-  margin-left:auto;
+
+.h-left {
+  display: flex;
+  font-size: 36rpx;
+  margin-left: 10rpx;
+  color: #fff;
+  align-items: center;
+}
+
+.icon-zuojiantou {
+  font-size: 48rpx;
+}
+
+/* 头部 */
+.inner {
+  background: #fff;
+  padding: 25rpx 30rpx;
+}
+
+.t-info-list {
+  position: relative;
+}
+
+.create-time {
+  margin-left: auto;
   font-size: 24rpx;
-  color: #666;
+  color: #999;
 }
-/* .t-info-img{
-  height: 70rpx;
-} */
+
+.f-bold {
+  color: #262626;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  white-space: nowrap;
+}
+
+.-info-msg-exp {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.show {
+  position: absolute;
+  top: 6rpx;
+  left: 90rpx;
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background-color: var(--themeColor);
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+}

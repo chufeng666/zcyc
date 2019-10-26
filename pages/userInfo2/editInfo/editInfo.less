@@ -1,0 +1,269 @@
+// 头部开始
+.user_header {
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  background-color: #FFE4CC;
+  color: #FF730E;
+
+  .liaojie {
+    flex: 18;
+    text-align: center;
+    font-size: 24rpx;
+  }
+
+  .icon-cha {
+    flex: 1;
+    font-size: 24rpx;
+  }
+}
+
+// 头部结束
+
+.inner {
+  padding: 68rpx 52rpx;
+
+  // 姓名部分开始
+  .user_name {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 44rpx;
+    border-bottom: 1rpx solid #dedede;
+
+    .us_left {
+      display: flex;
+      flex-direction: column;
+
+      .us_l_top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 31rpx;
+
+        .us_l_t_name {
+          color: #000;
+          font-size: 38rpx;
+          font-weight: 700;
+        }
+
+        .icon-bianji {
+          margin-left: 19rpx;
+          color: var(--themeColor);
+          font-size: 26rpx;
+        }
+      }
+
+      .us_l_bottom {
+        display: flex;
+        align-items: center;
+        color: #686868;
+        font-size: 28rpx;
+      }
+    }
+
+    .us_img {
+      width: 112rpx;
+      height: 112rpx;
+      border-radius: 50%;
+    }
+  }
+
+  // 姓名部分结束
+
+  // 身份验证开始
+  .user_name:nth-child(2) {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+  }
+
+  // 身份验证结束
+
+  // 职业证书开始
+  .user_name:nth-child(3) {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+
+    .icon-bianji {
+      color: var(--themeColor);
+    }
+  }
+
+  // 职业证书结束
+  .user_name:nth-child(4) {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+
+    .us_left {
+      .us_l_bottom {
+        display: inline;
+
+        .us_l_bt_top {
+          margin-bottom: 10rpx;
+          font-size: 30rpx;
+          color: #262626;
+        }
+      }
+    }
+
+    .icon-bianji {
+      color: var(--themeColor);
+    }
+  }
+
+  // 求职意向开始
+
+  // 求职意向结束
+
+  // 工作经验开始
+
+  .user_work {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+    border-bottom: 1rpx solid #dedede;
+
+    .us_wk_first {
+      display: flex;
+      justify-content: space-between;
+      font-size: 36rpx;
+      margin-bottom: 40rpx;
+
+      .us_wk_ft_left {
+        display: flex;
+        align-items: center;
+
+        .us_l_t_name {
+          font-weight: bold;
+        }
+      }
+
+      .us_wk_ft_right {
+        font-weight: bold;
+        color: var(--themeColor);
+      }
+    }
+
+    .us_wk_second {
+      display: flex;
+      justify-content: space-between;
+      font-size: 32rpx;
+      font-weight: 600;
+      color: #262626;
+      margin-bottom: 38rpx;
+
+      .us_wk_sd_left {
+        display: flex;
+        align-items: center;
+
+        .icon-gongsi {
+          margin-right: 15rpx;
+        }
+
+        view {}
+      }
+
+      .icon-bianji {
+        color: var(--themeColor);
+      }
+    }
+
+    .us_wk_third {
+      display: flex;
+      margin-bottom: 43rpx;
+      font-size: 26rpx;
+      color: #999;
+    }
+
+    .us_wk_fourth {
+      font-size: 30rpx;
+      color: #686868;
+    }
+  }
+
+  // 工作经验结束
+  // 教育经历开始
+  .user_education {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+    border-bottom: 1rpx solid #dedede;
+
+    .us_l_top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 38rpx;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 40rpx;
+
+      .us_l_t_name {}
+
+      .icon-bianji {
+        color: var(--themeColor);
+      }
+    }
+
+    .us_l_bottom {
+
+      .us_l_bt_top {
+        font-size: 30rpx;
+        color: #262626;
+        font-weight: bold;
+        margin-bottom: 21rpx;
+      }
+
+      .us_l_bt_oottom {
+        font-size: 26rpx;
+        color: #686868;
+      }
+    }
+
+  }
+
+  // 教育经历结束
+
+  // 个人说明开始
+  .user_personal {
+    margin-top: 56rpx;
+    padding-bottom: 56rpx;
+    border-bottom: 1rpx solid #dedede;
+    font-size: 36rpx;
+    color: #000;
+
+    .us_l_top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30rpx;
+
+      .us_l_t_name {
+        font-weight: bold;
+      }
+
+      .icon-bianji {
+        color: var(--themeColor);
+      }
+    }
+
+    .us_l_bottom {
+      color: #686868;
+      font-size: 30rpx;
+
+      text {}
+    }
+
+  }
+
+  // 个人说明结束
+
+  .bitian {
+    margin-left: 21rpx;
+    border: 1rpx solid var(--themeColor);
+    color: var(--themeColor);
+    font-size: 22rpx;
+    padding: 0 8rpx;
+    border-radius: 4rpx;
+  }
+
+  .icon-lianjie {
+    margin-right: 17rpx;
+  }
+}
+
+@import'../../template/font.wxss';

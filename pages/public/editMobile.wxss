@@ -1,38 +1,63 @@
-
 @import "../template/common";
-.login_ear {
+@import "../template/font";
+
+.jiu_mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 96rpx;
+  color: #7E7E7E;
+}
+
+.jm_top {
+  font-size: 28rpx;
+}
+
+.jm_bottom {
+  font-size: 40rpx;
+}
+
+.user_login {
+  margin: 139rpx 86rpx 0rpx 86rpx;
+  font-size: 30rpx;
+}
+
+.login_ear,
+.mima_ear {
+  display: flex;
+  align-items: center;
   position: relative;
-  margin: 100rpx 50rpx 0rpx 50rpx;
-  font-size: 36rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-  border-bottom: 1px solid #ff54b5;
+  border-bottom: 1px solid #dedede;
+}
+
+.login_ear {
+  margin-bottom: 64rpx;
+}
+
+.mima_ear {
+  margin-bottom: 39rpx;
 }
 
 .qianzui {
-  color: #ff54b5;
-  display: inline-block;
-  vertical-align: top;
-  position: absolute;
-  padding-bottom: 15rpx;
-  bottom: 0rpx;
+  color: #BEC1BF;
 }
 
-.phone_num {
-  display: inline-block;
+.phone_num,
+.phone_password {
+  opacity: 0.5;
   font-size: 30rpx;
-  vertical-align: top;
   margin-left: 20px;
-  width: 450rpx;
-  padding-bottom: 15rpx;
-  position: absolute;
-  bottom: 0rpx;
-  left:40rpx
 }
-.phone_password{
- width: 500rpx;
- height: 56rpx;
- display: inline-block;
+
+.phone_password {
+  margin-left: 36px;
+}
+
+.icon-yanzhengma {
+  position: absolute;
+  left: -8rpx;
+  top: 5rpx;
+  font-size: 48rpx;
 }
 
 .delete_pic {
@@ -43,14 +68,6 @@
   bottom: 23rpx;
 }
 
-.mima_ear {
-  position: relative;
-  margin: 50rpx 50rpx 0rpx 50rpx;
-  font-size: 30rpx;
-  border-bottom: 1px solid #ff54b5;
-  padding-bottom: 17rpx;
-  display: flex;
-}
 
 .denglu {
   border-radius: 60rpx;
@@ -68,87 +85,22 @@
   cursor: pointer;
 }
 
-/* .eye_pic{
-  width: 30rpx;
-  height: 24rpx;
-  position: absolute;
-  right: 0;
-  bottom: 23rpx;
-
-} */
-/* .fasong{
-  display: inline-block;
-  vertical-align: top;
-  height: 56rpx;
-  width: 200rpx;
-  line-height: 56rpx;
-  color: rgb(54, 193, 186);
-  text-align:center;
-  font-weight: bolder;
-  letter-spacing: 2rpx
-} */
-/* .mask{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background: black;
-  opacity: .5;
-  z-index: 1000000
-} */
-/* .mask_white_box{
-  position: relative;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%,50%);
-  width: 350rpx;
-  height: 350rpx;
-  background: white;
-  border-radius: 10%; 
-  z-index: 8989898989898989;
-} */
-/* .success_pic{
-  position: absolute;
-  top: 45%;
-  left: 52%;
-  transform: translate(-50%,-50%);
-  width: 180rpx;
-  height: 180rpx;
-  background: white;
-} */
-/* .mask_white_box text{
-  position: absolute;
-  bottom: 40rpx;
-  width: 100%;
-  text-align: center;
-  color: rgb(54, 193, 186);
-  font-weight: bolder;
-} */
-/* 下拉框的样式 */
-/* .xiala_pic{
-  width: 20rpx;
-  height: 20rpx
-} */
-.emailCode{
- width: 236rpx;
- height: 56rpx;
- align-items: center;
- justify-content: center;
- display: flex;
- flex-direction: row;
- color:#ff54b5;
- font-size: 30rpx;
- background-color: #fff;
+.emailCode {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  background-color: #fff;
 }
-.emailCodeSend{
- width: 236rpx;
- height: 56rpx;
- align-items: center;
- justify-content: center;
- display: flex;
- flex-direction: row;
- color:white;
- font-size: 30rpx;
- background-color: #B9DAF7;
+
+.emailCodeSend {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+.us_lg_bangding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  color: #7E7E7E;
 }

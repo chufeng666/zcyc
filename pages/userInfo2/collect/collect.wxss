@@ -1,0 +1,137 @@
+/* pages/userInfo/collect.wxss */
+@import "../../template/common";
+
+.inner {
+  padding: 0 32rpx;
+  background: #f8f8f8;
+}
+
+.tab {
+  display: flex;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}
+
+.tab-item {
+  flex: 1;
+  position: relative;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 65rpx;
+  font-weight: bold;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.c-l-info .c-logo {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.c-info-msg {
+  margin-top: 0;
+}
+
+.company-info text {
+  font-size: 24rpx;
+}
+
+.c-l-info {
+  margin-bottom: 15rpx;
+}
+/* 数据展示 */
+
+.inner {
+  padding: 0;
+}
+
+.container {
+  border-bottom: 16rpx solid #dedede;
+}
+
+.content-list {
+  padding: 33rpx 32rpx;
+}
+
+.c-l-info {
+  display: flex;
+}
+
+.c-logo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+
+.c-info-text {
+  margin-left: 24rpx;
+}
+
+.c-info-title {
+  font-size: 36rpx;
+  color: #262626;
+  font-weight: 600;
+}
+
+.c-info-msg {
+  display: flex;
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 12rpx;
+}
+
+.c-msg {
+  background-color: var(--themeColor);
+  padding: 4rpx 16rpx;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+}
+
+.company-status {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  color: #686868;
+  font-weight: 500;
+}
+
+.company-info {
+  display: flex;
+  font-size: 24rpx;
+  color: #262626;
+  margin-top: 16rpx;
+}
+
+.ci_img {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.ci_zuixin {
+  padding-top: 5rpx;
+}
+
+/* 数据展示 */
+.active2 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 35%;
+  bottom: 0;
+  width: 100rpx;
+  border-bottom: 2px solid var(--themeColor);
+}

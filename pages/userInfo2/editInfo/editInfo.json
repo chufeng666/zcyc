@@ -1,7 +1,6 @@
 {
-  "navigationBarTitleText": "信息填写",
   "usingComponents": {
-    "address-form": "../../components/address",
-    "van-popup": "/vant-weapp/popup/index"
-  }
+    "address-form": "../../components/address/address"
+  },
+  "navigationBarTitleText": "信息填写"
 }

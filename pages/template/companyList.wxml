@@ -14,7 +14,7 @@
       </view>
       <!-- company info start -->
       <view class='company-info'>
-        <image class="ci_img"></image>
+        <image class="ci_img" src="../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png"></image>
         <view class="ci_zuixin">最新招聘•安全员等21个职位</view>
       </view>
     </navigator>

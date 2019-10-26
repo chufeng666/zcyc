@@ -115,6 +115,14 @@
 					"id": -1,
 					"name": "(改版)企业—首页",
 					"pathName": "pages/company/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/userInfo2/editInfo/editInfo",
+					"pathName": "pages/userInfo2/editInfo/editInfo",
+					"query": "",
 					"scene": null
 				}
 			]

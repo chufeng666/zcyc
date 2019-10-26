@@ -7,11 +7,13 @@
     </navigator>
   </view>
   <view class="new">
-    <view class="n-lfet">
-      消息
-      <view>|</view>
-    </view>
-    <view class="n-right">著名企业今天新发布160个职业</view>
+    <navigator class="new_xiaoxi" url="../../information/information">
+      <view class="n-lfet">
+        消息
+        <view>|</view>
+      </view>
+      <view class="n-right">著名企业今天新发布160个职业</view>
+    </navigator>
   </view>
 </view>
 <view class="newest-search">

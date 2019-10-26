@@ -98,7 +98,7 @@
         </view>
       </view>
       <view class="user_qiehuan">
-        <navigator url="../../public/setting?openid={{info.openid}}" class='u-o-list'>
+        <navigator url="../../public/setting?openid={{info.mobile}}" class='u-o-list'>
           <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
           <view class="u-o_left">
             <text>设置</text>

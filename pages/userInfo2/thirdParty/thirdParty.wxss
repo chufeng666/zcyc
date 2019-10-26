@@ -206,7 +206,6 @@
   width: 40rpx;
   height: 40rpx;
   border-radius: 50%;
-  background-color: var(--themeColor);
   margin-right: 20rpx;
 }
 

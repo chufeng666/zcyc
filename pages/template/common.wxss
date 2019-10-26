@@ -19,6 +19,7 @@
 }
 
 .user-bColor-1ss {
+  padding-bottom: 17rpx;
   border-color: var(--themeColor);
 }
 
@@ -421,16 +422,16 @@
 /* SETTING BTN START */
 
 .set-option {
-  width: 702rpx;
-  height: 90rpx;
-  line-height: 90rpx;
+  width: 482rpx;
+  height: 72rpx;
+  line-height: 72rpx;
   border-radius: 45rpx;
   color: #fff;
-  position: fixed;
-  left: 24rpx;
+  position: fixed;  
+  left: 18%;
   text-align: center;
-  bottom: 40rpx;
-  font-size: 30rpx;
+  bottom: 38%;
+  font-size: 32rpx;
   z-index: 11;
 }
 
@@ -482,8 +483,6 @@
 }
 
 .-info-msg-exp {
-  width: 100%;
-  /* height: 40rpx; */
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
@@ -502,24 +501,24 @@
 /* CONTENT STAT */
 
 .t-info-list {
-  border-radius: 6rpx;
-  font-size: 26rpx;
-  padding: 20rpx;
+  font-size: 30rpx;
   display: flex;
   background: #fff;
-  margin-bottom: 15rpx;
+  margin-bottom: 25rpx;
+  padding-bottom: 25rpx;
+  border-bottom: 1rpx solid #dedede;
 }
 
 .t-info-img {
-  width: 80rpx;
-  height: 80rpx;
-  margin-right: 25rpx;
+  width: 112rpx;
+  height: 112rpx;
+  margin-right: 24rpx;
 }
 
 .t-info-msg {
   display: block;
   color: #151515;
-  width: 390rpx;
+  width: 426rpx;
 }
 
 /* EIDIT INFO TEXTAREA STYLE START */

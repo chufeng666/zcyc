@@ -1,13 +1,29 @@
 /* pages/userInfo/setting.wxss */
 @import '../template/common';
+.inner{
+  padding: 0 28rpx;
+  color: #999;
+  font-size: 28rpx;
+}
 .setting-list{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    font-size:30rpx;
-    color:151515rpx;
-    margin-bottom:26rpx;
+    font-size:32rpx;
+    font-weight: bold;
+    color:#686868;
     line-height:60rpx;
+    padding: 47rpx 0;
+    border-bottom: 1px solid #dedede;
+}
+.setting-list:first-child{
+  border-top: 1px solid #dedede;
+} 
+.body-view{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 .-view-edit{
   width:26rpx;
@@ -19,19 +35,16 @@
   width: 60%;
 }
 .-view-msg,.-view-inp{
-  color: #808080;
-  font-size:30rpx;
+  font-size: 28rpx;
+  color: #999;
 }
 .u-o-icon2{
   width: 12rpx;
   height: 24rpx;
 }
 .wx-binding{
-  margin:0;
-  width:151rpx;
-  height:60rpx;
-  line-height:60rpx;
-  font-size:28rpx;
-  color:#fff;
-
+  margin: 0;
+  font-size:24rpx;
+  color:#E4FEFF;
+  border-radius: 38rpx;
 }

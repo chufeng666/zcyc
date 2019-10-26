@@ -1,0 +1,138 @@
+<view class="user_header">
+  <view class="liaojie">请填写真实信息，方便企业了解</view>
+  <text class="iconfont  .icon-cha"></text>
+</view>
+<view class="inner">
+  <!-- 姓名部分 -->
+  <view class="user_name">
+    <view class="us_left">
+      <view class="us_l_top">
+        <view class="us_l_t_name">{{getUData.name}}</view>
+        <text class="iconfont  .icon-bianji"></text>
+      </view>
+      <view class="us_l_bottom">
+        {{getUData.work_age}} 年经验 | {{getUData.age}} 岁 | {{getUData.school_type}}
+      </view>
+    </view>
+    <image mode="aspectFit" class="us_img" src="{{getUData.avatar}}" />
+  </view>
+  <!-- 姓名部分 -->
+  <!-- 身份验证 -->
+  <view class="user_name">
+    <view class="us_left">
+      <view class="us_l_top">
+        <view class="us_l_t_name">身份验证</view>
+        <text class="bitian">必填</text>
+      </view>
+      <view class="us_l_bottom">
+        <text class="iconfont  icon-lianjie"></text>
+        <view>身份证[正] [反]面</view>
+      </view>
+    </view>
+  </view>
+  <!-- 身份验证 -->
+  <!-- 职业证书 -->
+  <view class="user_name">
+    <view class="us_left">
+      <view class="us_l_top">
+        <view class="us_l_t_name">职业证书</view>
+      </view>
+      <view class="us_l_bottom">
+        <text class="iconfont  icon-lianjie"></text>
+        <view>广东省初级专业资格证</view>
+      </view>
+    </view>
+    <text class="iconfont  icon-bianji"></text>
+  </view>
+  <!-- 职业证书 -->
+  <!-- 求职意向 -->
+  <view class="user_name">
+    <view class="us_left">
+      <view class="us_l_top">
+        <view class="us_l_t_name">求职意向</view>
+        <text class="bitian">必填</text>
+      </view>
+      <view class="us_l_bottom">
+        <view class="us_l_bt_top">{{getUData.job_type}}　 {{getUData.salary}}</view>
+        <view class="us_l_bt_oottom">
+          {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time}}
+        </view>
+      </view>
+    </view>
+    <text class="iconfont  .icon-bianji"></text>
+  </view>
+  <!-- 求职意向 -->
+  <!-- 工作经验 -->
+  <view class="user_work">
+    <view class="us_wk_first">
+      <view class="us_wk_ft_left">
+        <view class="us_l_t_name">工作经验</view>
+        <text class="bitian">必填</text>
+      </view>
+      <view class="us_wk_ft_right">
+        <text class="iconfont icon-hao"></text>
+        添加
+      </view>
+    </view>
+    <view class="us_wk_second">
+      <view class="us_wk_sd_left">
+        <text class="iconfont  icon-gongsi"></text>
+        <view>广州万宝有限公司</view>
+      </view>
+      <text class="iconfont  icon-bianji"></text>
+    </view>
+    <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
+    <view class="us_wk_fourth">
+      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...\n1.负责落实公司各项安</text>
+    </view>
+  </view>
+  <!-- 工作经验 -->
+  <!-- 项目经验 -->
+  <view class="user_work">
+    <view class="us_wk_first">
+      <view class="us_wk_ft_left">
+        <view class="us_l_t_name">项目经验</view>
+        <text class="bitian">必填</text>
+      </view>
+      <view class="us_wk_ft_right">
+        <text class="iconfont icon-hao"></text>
+        添加
+      </view>
+    </view>
+    <view class="us_wk_second">
+      <view class="us_wk_sd_left">
+        <text class="iconfont  icon-gongsi"></text>
+        <view>广州交易中心安全</view>
+      </view>
+      <text class="iconfont  icon-bianji"></text>
+    </view>
+    <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
+    <view class="us_wk_fourth">
+      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...\n1.负责落实公司各项安</text>
+    </view>
+  </view>
+  <!-- 项目经验 -->
+  <!-- 教育经历 -->
+  <view class="user_education">
+    <view class="us_l_top">
+      <view class="us_l_t_name">教育经历</view>
+      <text class="iconfont icon-bianji"></text>
+    </view>
+    <view class="us_l_bottom">
+      <view class="us_l_bt_top">广州市交通技师学院</view>
+      <view class="us_l_bt_oottom">本科 - 建筑专业 | 2014-2018</view>
+    </view>
+  </view>
+  <!-- 教育经历 -->
+  <!-- 个人说明 -->
+  <view class="user_personal">
+    <view class="us_l_top">
+      <view class="us_l_t_name">个人说明</view>
+      <text class="iconfont icon-bianji"></text>
+    </view>
+    <view class="us_l_bottom">
+      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...</text>
+    </view>
+  </view>
+  <!-- 个人说明 -->
+</view>

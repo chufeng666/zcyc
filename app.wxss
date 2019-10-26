@@ -29,7 +29,7 @@ page {
 }
 
 .f-bold {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .w-bold {
@@ -49,7 +49,7 @@ page {
 
 .m-r20 {
   color: var(--themeColor);
-  font-size: 38rpx;
+  font-size: 34rpx;
 }
 .m-r21 {
   margin-top: 24rpx;
@@ -231,7 +231,7 @@ page {
 }
 
 .mima_ear {
-  margin: 20rpx 50rpx 0rpx 50rpx;
+  /* margin: 20rpx 50rpx 0rpx 50rpx; */
   font-size: 30rpx;
   border-bottom: 1px solid #ff54b5;
   padding-bottom: 17rpx;
