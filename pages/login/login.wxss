@@ -150,6 +150,7 @@ page {
 }
 .youke {
   display: flex;
+  align-items: center;
   flex-direction: column;
   margin-left: 93rpx;
   margin-top: 42rpx;
