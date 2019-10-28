@@ -1,0 +1,17 @@
+<view class="inner">
+  <view class="userId_header">
+    <text class="name_size">证件类型</text>
+    <text>身份证</text>
+  </view>
+  <view class="userId_main">
+    <image mode="aspectFit" class="userId_img" src="../../../static/images/bar_icon/user/edit/zhiyezhengshu.png" />
+    <view class="userId_shangchuang">
+      <text class="iconfont  .icon-hao"></text>
+      <view>添加证件</view>
+    </view>
+  </view>
+</view>
+<footer class="pro_ft">
+  <button class="del">删除</button>
+  <button class="add">保存</button>
+</footer>

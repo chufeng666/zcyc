@@ -1,0 +1,36 @@
+.inner {
+  padding: 11rpx 55rpx;
+}
+
+.leixing {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45rpx;
+  font-size: 32rpx;
+  color: #262626;
+  font-weight: bold;
+  padding-bottom: 29rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.xizi {
+  color: var(--themeColor);
+}
+
+.job_bt {
+  margin-top: 313rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background-color: #1487F1;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 36rpx;
+}
+
+.name_size {
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #686868;
+}

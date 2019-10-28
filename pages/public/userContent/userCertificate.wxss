@@ -1,0 +1,19 @@
+@import "userWork";
+
+.inner {
+  padding: 68rpx 54rpx;
+}
+
+.baocun {
+  padding: 68rpx 54rpx;
+}
+
+.bc_shuoming {
+  width: 639rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 72rpx;
+  background-color: #1487F1;
+}

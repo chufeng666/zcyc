@@ -1,0 +1,52 @@
+<view class="info_header">
+  <view class="liaojie">个人信息非常重要，请认真填写</view>
+  <text class="iconfont  icon-cha"></text>
+</view>
+<view class="inner">
+  <view class="portrait">
+    <view class="por_left">
+      <view class="por_l_top">头像</view>
+      <view class="por_l_bt">
+        <text class="iconfont    icon-iconcopy"></text>
+        建议使用真实头像
+      </view>
+    </view>
+    <image mode="aspectFit" bindtap="openActionsheet" class="por_img" src="{{icCardPic.src}}" />
+  </view>
+  <view class="name">
+    <text class="name_size">姓名</text>
+    <input value="凉凉" />
+  </view>
+  <view class="gender  name">
+    <text class="name_size">性别</text>
+    <input bindtap="setgender" value="{{tapIndex}}" />
+  </view>
+  <view class="age  name">
+    <text class="name_size">年龄</text>
+    <input value="{{age}}" />
+  </view>
+  <view class="nation  name">
+    <text class="name_size">民族</text>
+    <input value="{{nation}}" />
+  </view>
+  <view class="education  name">
+    <text class="name_size">学历</text>
+    <picker class="" mode="selector" range="{{educationList}}" value="{{index}}" bindchange="bindPickerChange">
+      <view class="picker">{{educationList[index]}}</view>
+    </picker>
+  </view>
+  <view class="work  name">
+    <text class="name_size">工作年限</text>
+    <picker class="" mode="selector" range="{{workYearList}}" value="{{index}}" bindchange="setWorkYear">
+      <view class="picker">{{workYearList[index1]}}</view>
+    </picker>
+  </view>
+  <view class="address  name" bindtap="selectDistrict">
+    <text class="name_size">现居住地址</text>
+    <text>{{areaInfo}}</text>
+    <!-- 所有城市三级联动列表 -->
+    <address-form id='address' bind:tabEvent="tabEvent"></address-form>
+    <!-- 地址选择接受 -->
+  </view>
+  <button class="info_bt">保存</button>
+</view>

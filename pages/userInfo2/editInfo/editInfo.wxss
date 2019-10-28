@@ -98,6 +98,7 @@
   font-weight: bold;
 }
 .inner .user_work .us_wk_first .us_wk_ft_right {
+  font-size: 26rpx;
   font-weight: bold;
   color: var(--themeColor);
 }
@@ -188,4 +189,14 @@
 .inner .icon-lianjie {
   margin-right: 17rpx;
 }
+.inner .set-option {
+  margin-top: 66rpx;
+  width: 608rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
+  color: #fff;
+  background-color: var(--themeColor);
+}
 @import '../../template/font.wxss';
+@import '../../public/userContent/userInfo';

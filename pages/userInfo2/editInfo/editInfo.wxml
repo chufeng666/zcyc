@@ -8,7 +8,9 @@
     <view class="us_left">
       <view class="us_l_top">
         <view class="us_l_t_name">{{getUData.name}}</view>
-        <text class="iconfont  .icon-bianji"></text>
+        <navigator url="../../public/userContent/userInfo">
+          <text class="iconfont  .icon-bianji"></text>
+        </navigator>
       </view>
       <view class="us_l_bottom">
         {{getUData.work_age}} 年经验 | {{getUData.age}} 岁 | {{getUData.school_type}}
@@ -29,6 +31,9 @@
         <view>身份证[正] [反]面</view>
       </view>
     </view>
+    <navigator url="../../public/userContent/userId">
+      <text class="iconfont  .icon-bianji  user-size"></text>
+    </navigator>
   </view>
   <!-- 身份验证 -->
   <!-- 职业证书 -->
@@ -42,7 +47,9 @@
         <view>广东省初级专业资格证</view>
       </view>
     </view>
-    <text class="iconfont  icon-bianji"></text>
+    <navigator url="../../public/userContent/Professional">
+      <text class="iconfont  icon-bianji"></text>
+    </navigator>
   </view>
   <!-- 职业证书 -->
   <!-- 求职意向 -->
@@ -59,7 +66,9 @@
         </view>
       </view>
     </view>
-    <text class="iconfont  .icon-bianji"></text>
+    <navigator url="../../public/userContent/userJob">
+      <text class="iconfont  icon-bianji"></text>
+    </navigator>
   </view>
   <!-- 求职意向 -->
   <!-- 工作经验 -->
@@ -69,17 +78,21 @@
         <view class="us_l_t_name">工作经验</view>
         <text class="bitian">必填</text>
       </view>
-      <view class="us_wk_ft_right">
-        <text class="iconfont icon-hao"></text>
-        添加
-      </view>
+      <navigator url="../../public/userContent/userAddWork">
+        <view class="us_wk_ft_right">
+          <text class="iconfont icon-hao"></text>
+          添加
+        </view>
+      </navigator>
     </view>
     <view class="us_wk_second">
       <view class="us_wk_sd_left">
         <text class="iconfont  icon-gongsi"></text>
         <view>广州万宝有限公司</view>
       </view>
-      <text class="iconfont  icon-bianji"></text>
+      <navigator url="../../public/userContent/userWork">
+        <text class="iconfont  icon-bianji"></text>
+      </navigator>
     </view>
     <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
     <view class="us_wk_fourth">
@@ -94,17 +107,21 @@
         <view class="us_l_t_name">项目经验</view>
         <text class="bitian">必填</text>
       </view>
-      <view class="us_wk_ft_right">
-        <text class="iconfont icon-hao"></text>
-        添加
-      </view>
+      <navigator url="../../public/userContent/userAddProject">
+        <view class="us_wk_ft_right">
+          <text class="iconfont icon-hao"></text>
+          添加
+        </view>
+      </navigator>
     </view>
     <view class="us_wk_second">
       <view class="us_wk_sd_left">
         <text class="iconfont  icon-gongsi"></text>
         <view>广州交易中心安全</view>
       </view>
-      <text class="iconfont  icon-bianji"></text>
+      <navigator url="../../public/userContent/userProject">
+        <text class="iconfont  icon-bianji"></text>
+      </navigator>
     </view>
     <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
     <view class="us_wk_fourth">
@@ -116,7 +133,9 @@
   <view class="user_education">
     <view class="us_l_top">
       <view class="us_l_t_name">教育经历</view>
-      <text class="iconfont icon-bianji"></text>
+      <navigator url="../../public/userContent/userEducation">
+        <text class="iconfont  icon-bianji"></text>
+      </navigator>
     </view>
     <view class="us_l_bottom">
       <view class="us_l_bt_top">广州市交通技师学院</view>
@@ -128,7 +147,9 @@
   <view class="user_personal">
     <view class="us_l_top">
       <view class="us_l_t_name">个人说明</view>
-      <text class="iconfont icon-bianji"></text>
+      <navigator url="../../public/userContent/userCertificate">
+        <text class="iconfont  icon-bianji"></text>
+      </navigator>
     </view>
     <view class="us_l_bottom">
       <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...</text>

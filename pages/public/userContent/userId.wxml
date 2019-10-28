@@ -1,0 +1,11 @@
+<view class="inner">
+  <view class="userId_header">
+    <text class="name_size">证件类型</text>
+    <text>身份证</text>
+  </view>
+  <view class="userId_main">
+    <image mode="aspectFit" class="userId_img" src="../../../static/images/bar_icon/user/edit/shengfengzheng_zhnegmian.png" />
+    <image mode="aspectFit" class="userId_img" src="../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
+    <button class="userId_bt">确定上传</button>
+  </view>
+</view>

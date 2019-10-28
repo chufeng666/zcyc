@@ -1,0 +1,41 @@
+.inner {
+  padding: 59rpx 56rpx;
+}
+
+.userId_header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 64rpx;
+  padding-bottom: 29rpx;
+  border-bottom: 1rpx solid #dedede;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #262626;
+}
+
+.userId_main {
+  padding: 0 16rpx;
+}
+
+.userId_img {
+  width: 608rpx;
+  height: 342rpx;
+  border-radius: 10rpx;
+  margin-bottom: 80rpx;
+}
+
+.userId_bt {
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 32rpx;
+  background-color: var(--themeColor);
+  color: #fff;
+  border-radius: 36rpx;
+}
+
+.name_size {
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #686868;
+}

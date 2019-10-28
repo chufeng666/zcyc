@@ -1,5 +1,17 @@
 {
   "pages": [
+    "pages/public/userContent/userCertificate",
+    "pages/public/userContent/userEducation",
+    "pages/public/userContent/userAddProject",
+    "pages/public/userContent/userProject",
+    "pages/public/userContent/userAddWork",
+    "pages/public/userContent/userWork",
+    "pages/public/userContent/userJob",
+    "pages/public/userContent/Professional",
+    "pages/public/userContent/userId",
+    "pages/public/userContent/userInfo",
+
+
     "pages/userInfo2/editInfo/editInfo",
     "pages/userInfo2/privacySettings/privacySettings",
     "pages/userInfo2/collect/collect",

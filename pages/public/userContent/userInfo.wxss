@@ -1,0 +1,87 @@
+@import "../../template/font";
+
+
+.info_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFE4CC;
+  height: 56rpx;
+  color: #FF730E;
+  font-size: 24rpx;
+}
+
+.liaojie {
+  flex: 9;
+  text-align: center;
+}
+
+.icon-cha {
+  margin-right: 23rpx;
+}
+
+.inner {
+  padding: 68rpx 55rpx;
+  font-size: 32rpx;
+}
+
+.portrait {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 29rpx;
+}
+
+.por_left {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.por_l_top {
+  margin-bottom: 45rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #262626;
+}
+
+.por_l_bt {
+  font-size: 28rpx;
+  color: #FDBA0B;
+}
+
+.icon-iconcopy {
+  font-size: 32rpx;
+}
+
+.por_img {
+  width: 112rpx;
+  height: 112rpx;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #262626;
+  margin: 45rpx 0;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.name_size {
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #686868;
+}
+
+.info_bt {
+  background-color: #1487F1;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 36rpx;
+}

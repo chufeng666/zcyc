@@ -87,7 +87,7 @@ Component({
       var value = that.data.value
       that.startAddressAnimation(false)
       // 将选择的城市信息显示到输入框
-      let areaInfo = that.data.province.area_name + ',' + that.data.city.area_name + ',' + that.data.area.area_name
+      let areaInfo = that.data.city.area_name + '-' + that.data.area.area_name
       that.setData({
         areaInfo: areaInfo,
         pCode: that.data.province.code,

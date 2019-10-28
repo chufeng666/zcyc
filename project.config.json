@@ -23,7 +23,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wx92a6b209dd4c5a6c",
+	"appid": "wxb2321247535b62b6",
 	"projectname": "job_xcx",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -120,7 +120,14 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/userInfo2/editInfo/editInfo",
+					"name": "pages/public/userContent/userCertificate",
+					"pathName": "pages/public/userContent/userCertificate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "信息填写",
 					"pathName": "pages/userInfo2/editInfo/editInfo",
 					"query": "",
 					"scene": null

@@ -1,0 +1,75 @@
+.inner {
+  padding: 14rpx 55rpx;
+}
+
+.gongsi {
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #262626;
+  padding-bottom: 29rpx;
+  margin-top: 45rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.zaizhiDate {
+
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 45rpx;
+}
+
+.zzd_bt {
+  display: flex;
+}
+
+.zzd_bt text {
+  margin: 0 44rpx;
+}
+
+.zzd_bt_data {
+  flex: 2;
+  padding-bottom: 32rpx;
+  color: var(--themeColor);
+  text-align: center;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.pro_ft {
+  margin-top: 200rpx;
+  padding: 80rpx 56rpx;
+  display: flex;
+  align-items: center;
+
+}
+
+.del {
+  width: 178rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  background-color: #dedede;
+  color: #1487F1;
+  margin-right: 12rpx;
+  font-size: 30rpx;
+}
+
+.add {
+  width: 442rpx;
+  height: 72rpx;
+  background-color: #1487F1;
+  color: #fff;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+}
+
+.name_size {
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #686868;
+}

@@ -1,0 +1,9 @@
+<view class="inner">
+  <view class="jingli  gongsi">
+    <text class="name_size">个人说明</text>
+    <editor placeholder="{{shuoming}}"></editor>
+  </view>
+</view>
+<footer class="baocun">
+  <button class="bc_shuoming">保存</button>
+</footer>

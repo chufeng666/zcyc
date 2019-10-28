@@ -190,7 +190,7 @@ page {
 }
 
 .user_price .icon-youjiantou {
-  margin-top: 6rpx;
+  margin-top: 4rpx;
 }
 
 .uscz_neirong,
@@ -210,13 +210,13 @@ page {
   border-bottom: 1rpx solid #dedede;
 }
 .uscz_neirong .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 485rpx;
+  margin-left: 494rpx;
 }
 .user_qiehuan .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 536rpx;
+  margin-left: 546rpx;
 }
 .uscz_neirong .u-o-list:last-child .u-o_left .icon-youjiantou {
-  margin-left: 456rpx;
+  margin-left: 466rpx;
 }
 .uscz_neirong .u-o-list:last-child .u-o_left {
   border: none;

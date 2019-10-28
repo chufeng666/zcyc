@@ -1,0 +1,54 @@
+@import "../../template/font";
+
+
+.userId_main .userId_img {
+  margin-bottom: 0;
+}
+
+.userId_shangchuang {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+  background-color: #dedede;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+
+.icon-hao {
+  font-weight: bold;
+  margin-right: 15rpx;
+}
+
+.pro_ft {
+  margin-top: 200rpx;
+  padding: 80rpx 56rpx;
+  display: flex;
+  align-items: center;
+
+}
+
+.del {
+  width: 178rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  background-color: #dedede;
+  color: #1487F1;
+  margin-right: 12rpx;
+  font-size: 30rpx;
+}
+
+.add {
+  width: 442rpx;
+  height: 72rpx;
+  background-color: #1487F1;
+  color: #fff;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+}
+
+@import "userId";
