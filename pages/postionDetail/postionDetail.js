@@ -49,7 +49,7 @@ Page({
     var _opt = {
       id: this.data.id
     }
-    ServerData.recruitDetail(_opt).then((res) => {
+    ServerData.personalDetail(_opt).then((res) => {
       if (res.data.status == 1) {
         this.setData({
           recruitDetail: res.data.data,

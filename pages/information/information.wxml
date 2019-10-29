@@ -1,6 +1,6 @@
 <view class="xiaoxi_header">
   <view class="h-left">
-    <navigator url="../userInfo2/index/index" class="iconfont icon-zuojiantou"></navigator>
+    <navigator url="{{url}}" class="iconfont icon-zuojiantou"></navigator>
     <view class="l_qiye">消息(24)</view>
   </view>
 </view>

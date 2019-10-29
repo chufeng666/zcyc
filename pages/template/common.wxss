@@ -2,7 +2,8 @@
 
 /* USER STYLE START */
 
-.user-bg-, .user-active- {
+.user-bg-,
+.user-active- {
   background: #ee291a !important;
 }
 
@@ -25,7 +26,8 @@
 
 /* COMPANY STYLE START */
 
-.company-bg-, .company-active- {
+.company-bg-,
+.company-active- {
   background: var(--themeColor);
 }
 
@@ -47,8 +49,10 @@
 
 /* THIRDPARTH SRTAR */
 
-.third-bg-, .third-active- {
-  background: #54b9ff !important;
+.third-bg-,
+.third-active- {
+  border-radius: 4rpx;
+  background: #54b9ff;
 }
 
 .third-color- {
@@ -90,7 +94,8 @@
 }
 
 .search2-inner .collect_tab {
-  padding: 8rpx;
+  margin-right: 18rpx;
+  text-align: center;
 }
 
 .-header-cont {
@@ -99,10 +104,8 @@
 }
 
 .search-cont {
-  /* width:702rpx; */
   flex: 1;
   overflow: hidden;
-  margin: 0 32rpx;
   position: relative;
 }
 
@@ -182,7 +185,8 @@
   vertical-align: top;
 }
 
-.subtitle text, .subtitle-msg {
+.subtitle text,
+.subtitle-msg {
   text-align: center;
   font-size: 30rpx;
 }
@@ -243,15 +247,15 @@
   padding: 25rpx 10rpx 25rpx;
 }
 
-.c-info-xinxi .c-logo, .new-c-l-info .c-logo {
+.c-info-xinxi .c-logo,
+.new-c-l-info .c-logo {
   width: 140rpx;
   height: 140rpx;
   flex: 0 0 1;
   border-radius: 10rpx;
 }
 
-.c-info-text {
-}
+.c-info-text {}
 
 .c-info-title {
   font-weight: 600;
@@ -261,8 +265,7 @@
   margin-bottom: 16rpx;
 }
 
-.c-info-msg {
-}
+.c-info-msg {}
 
 .c-info-msg .c-msg:nth-child(1) {
   display: flex;
@@ -285,12 +288,7 @@
 
 /* search style stert */
 
-.global-search-wrap {
-  margin-bottom: 15rpx;
-  border-radius: 5px;
-  background: #fff;
-  padding: 25rpx 25rpx;
-}
+.global-search-wrap {}
 
 .global-search-cont {
   align-items: center;
@@ -300,6 +298,7 @@
 }
 
 .global-search-cont .c-msg2 {
+  font-size: 26rpx;
   margin-right: 20rpx;
 }
 
@@ -352,8 +351,11 @@
 }
 
 .company-status {
+  background-color: var(--thirdPartyColor);
+  border-radius: 2rpx;
   font-size: 26rpx !important;
-  color: #686868;
+  text-align: center;
+  color: #fff;
   padding: 6rpx 16rpx;
 }
 
@@ -363,7 +365,8 @@
   height: 100%;
 }
 
-.more-recommond, .more-recommond2 {
+.more-recommond,
+.more-recommond2 {
   text-align: center;
   margin: 11rpx 0;
   color: #5d5d5d;
@@ -378,6 +381,7 @@
 
 .s-portrait {
   margin-top: 24rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   color: #fff;
   font-size: 26rpx;
@@ -385,6 +389,7 @@
 }
 
 .s-company-information {
+  margin-top: 24rpx;
   display: flex;
   font-size: 24rpx;
   line-height: 28rpx;
@@ -412,6 +417,7 @@
 }
 
 .s-portrait .posen-msg {
+  background-color: var(--thirdPartyColor);
   font-size: 28rpx !important;
   border-radius: 2px;
   color: #fff;
@@ -427,7 +433,7 @@
   line-height: 72rpx;
   border-radius: 45rpx;
   color: #fff;
-  position: fixed;  
+  position: fixed;
   left: 18%;
   text-align: center;
   bottom: 38%;
@@ -579,7 +585,8 @@ textarea {
 }
 
 .c-list-info {
-  width: 100%;
+ font-size: 38rpx;
+ font-weight: normal;
 }
 
 .edit-tips {
@@ -733,9 +740,8 @@ textarea {
 }
 
 .c-list-portrait {
-  width: 150rpx;
-  height: 125rpx !important;
-  margin-left: auto;
+  width: 112rpx;
+  height: 112rpx !important;
 }
 
 /* 公司详情 */
@@ -751,9 +757,7 @@ textarea {
   border-radius: 4rpx;
 }
 
-.global-c-body {
- 
-}
+.global-c-body {}
 
 .global-c-msg {
   font-size: 26rpx;

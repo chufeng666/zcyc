@@ -1,0 +1,29 @@
+<template name="thirdParty">
+  <view class="content-list" wx:for="{{recList}}" wx:key="index">
+    <navigator url="{{url}}{{item.id}}">
+      <view class='global-search-wrap'>
+        <view class='search-job-list'>
+          <view class='c-info-title'>
+            <text>{{item.name}}</text>
+            <text class="pColor">{{item.salary==='面议' ? item.salary : item.salary+'/月'}}</text>
+          </view>
+          <view class='s-portrait'>
+            <text class="posen-msg">人才</text>
+            <view class='company-status'>有证书</view>
+          </view>
+          <view class='c-info-msg global-search-cont'>
+            <view>
+              <text class='c-msg2 '>广州 - 海珠区</text>
+              <text class='c-msg2 '>{{item.work_age}}年</text>
+              <text class='c-msg2 '>{{item.school_type}}</text>
+            </view>
+          </view>
+          <view class="s-company-information">
+            <image src='{{item.avatar}}' class='portrait-icon' />
+            <text class="xianmujingli">求职岗位•{{item.cat_name}}</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</template>

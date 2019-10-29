@@ -53,6 +53,7 @@
         <view class="newsite_view " wx:if="{{showTST}}">地点</view>
         <view class="newsite_city ">{{areaInfo}}</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+        <!-- 所有城市三级联动列表 -->
       </view>
       <navigator url="../ScreeningConditions/ScreeningConditions">
         <view class="picker">
@@ -80,6 +81,5 @@
     <template is="company" data="{{recruit:list.person, pColor: pColor,pBgC:pBgC,typeMsg:'服务商',url:'../../postionDetail/postionDetail?id='}}" />
     <!-- recruit content end -->
   </view>
+  <address-form id='address' bind:tabEvent="tabEvent"></address-form>
 </view>
-<!-- 所有城市三级联动列表 -->
-<include src="../../template/address" />

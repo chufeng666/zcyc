@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "筑城优才"
+  "usingComponents": {
+    "address-form": "../../components/address/address"
+  },
+  "navigationStyle": "custom"
 }

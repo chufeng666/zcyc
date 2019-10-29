@@ -7,36 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-     cStatus: 0,
-      kw:'',
-      rows:200,
-      page:1,
-      list:[],
-      isShowInfo: false,
-      pColor:'',                            //动态获字体颜色     
-      pBgC: '',                            //动态获背景颜色                 
-      pBC1: '',                            //动态获边框颜色  
+    cStatus: 0,
+    kw: '',
+    rows: 200,
+    page: 1,
+    list: [],
+    isShowInfo: false,
+    pColor: '',                   //动态获字体颜色     
+    pBgC: '',                     //动态获背景颜色                 
+    pBC1: '',                     //动态获边框颜色  
+    pCode: '',                    //获取选中的省ID
+    cCode: '',                    //获取选中的市ID
+    aCode: '',                    //获取选中的区ID
+    site_show: false,             //是否选择人才
+    showTST: true,                //是否选择地址
+    hiddenhistory: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-          pColor: util.loginIdentity().pColor,
-          pBC1: util.loginIdentity().pBC1,
-          pBgC: util.loginIdentity().pBgC,
-          // resType: util.loginIdentity().resType,
-      })
+    /*********地址 */
+    if (wx.hideHomeButton) wx.hideHomeButton()
+    this.addressForm = this.selectComponent('#address');
+    /*********地址 */
+    this.setData({
+      pColor: util.loginIdentity().pColor,
+      pBC1: util.loginIdentity().pBC1,
+      pBgC: util.loginIdentity().pBgC,
+    })
   },
 
-  searchInfp(){
+  searchInfp () {
     var that = this,
-    _opt ={
-      kw:that.data.kw,
-      rows:that.data.rows,
-      page:that.data.page
-    }
+      _opt = {
+        kw: that.data.kw,
+        rows: that.data.rows,
+        page: that.data.page
+      }
     ServerData.searchInfp(_opt).then((res) => {
       if (res.data.status == 1) {
         var status = false
@@ -44,9 +53,9 @@ Page({
           status = true
         }
 
-        that.setData({ 
+        that.setData({
           list: res.data.data,
-          isShowInfo:status
+          isShowInfo: status
         })
       }
       else if (res.data.status == -1) {
@@ -64,12 +73,32 @@ Page({
       cStatus: e.currentTarget.dataset.status
     })
   },
-  selecKeyWord(e){
-      this.setData({
-        kw: e.detail.value
-      })
-      this.searchInfp()
+  selecKeyWord (e) {
+    this.setData({
+      kw: e.detail.value,
+      hiddenhistory: false
+    })
+    this.searchInfp()
   },
+  /***********地址开始**************** */
+  tabEvent (data) {      //接收传过来的参数
+    var info = data.detail
+    this.setData({
+      areaInfo: info.areaInfo,
+      pCode: info.pCode,
+      cCode: info.cCode,
+      aCode: info.aCode,
+      showTST: info.showTST
+    })
+    this.reqIndex()
+  },
+
+  // 点击所在地区弹出选择框
+  selectDistrict: function (e) {
+    this.addressForm.showPopup()
+    this.addressForm.startAddressAnimation(true)
+  },
+  /***********地址结束**************** */
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,28 @@
+<view class="xiaoxi_header">
+  <view class="h-left">
+    <navigator url="../thirdParty/index/index" class="iconfont icon-zuojiantou"></navigator>
+    <view class="l_qiye">消息(24)</view>
+  </view>
+</view>
+<view class='inner'>
+  <view class='t-info-nav'>
+    <view data-status="0"></view>
+  </view>
+  <view class='-info-cont'>
+    <navigator url="infoDetail?id={{item.id}}" wx:for="{{array}}" class='t-info-list' bindtap='changNew' wx:key="{{index}}" data-index="{{index}}">
+      <image src='../../static/images/public/big_portrait.png' class='t-info-img' />
+      <view class='t-info-msg'>
+        <view class='f-bold m-b20'>{{item.title}}</view>
+        <view class='-info-msg-exp'>{{item.content}}</view>
+      </view>
+      <view class='t-right create-time'>
+        <text>{{item.create_time}}</text>
+        <view wx:if="{{item.isChang}}">
+          <icon class='t-i-raduis'></icon>
+        </view>
+      </view>
+      <view class="show">{{item.show}}</view>
+    </navigator>
+    <view class='more-recommond2' wx:if="{{isMore}}" bindtap='lookMore'>点击查看更多</view>
+  </view>
+</view>

@@ -1,0 +1,219 @@
+@import '../template/common';
+
+#wrap {
+  background: #f8f8f8;
+  font-size: 26rpx;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* SRARCH INFO START */
+
+.inner {}
+
+.search-inner {
+  margin: 25rpx 0 10rpx;
+  display: flex;
+  align-items: center;
+  line-height: 48rpx;
+}
+
+.s-left-arrow {
+  flex: 0 0 1;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+}
+
+.s-left-arrow .lef-icon {
+  width: 16rpx;
+  height: 25rpx;
+}
+
+.search-cont {
+  margin: 0 24rpx 0 24rpx;
+  flex: 0 0 1;
+  width: 80%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.search {
+  width: 100%;
+  border-radius: 28px;
+  height: 60rpx;
+  padding-left: 80rpx;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 24rpx;
+  position: relative;
+}
+
+.search_icon {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  left: 54rpx;
+  top: 30rpx;
+}
+
+.collect_tab {}
+
+/* CONTENT STAT */
+/* list */
+.d-content {
+  border-top: 16rpx solid #dedede;
+}
+
+.list_name {
+  display: flex;
+}
+
+.icon-nv {
+  color: #F10180;
+  padding-top: 10rpx;
+  margin-left: 11rpx;
+}
+
+.icon-baobao {
+  margin-right: 8rpx;
+}
+
+.d-c-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx 30rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+
+/* list */
+/* 求职期望 */
+.qiuzhiqiwang {
+  display: flex;
+  align-items: center;
+  font-size: 38rpx;
+  font-weight: normal;
+  margin-bottom: 40rpx;
+}
+
+.icon-1 {
+  color: #F10180;
+  margin-right: 16rpx;
+}
+
+.qiwang {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #dedede;
+  color: #262626;
+  font-size: 26rpx;
+  width: 686rpx;
+  padding: 25rpx 0;
+  border-top: 1rpx solid #dedede;
+  font-weight: bold;
+}
+
+.xinzi {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 40rpx;
+}
+
+/* 求职期望 */
+/* 工作经验 */
+.gongsi {
+  display: flex;
+  align-items: center;
+  margin-bottom: 43rpx;
+}
+
+.icon-gongsi {
+  margin-right: 16rpx;
+}
+
+.gangwei {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  color: #262626;
+}
+
+.gongzuoneirong {
+  font-size: 30rpx;
+  color: #686868;
+}
+
+/* 工作经验 */
+/* 职业证书 */
+.jinengzhengshu {
+  margin-bottom: 163rpx;
+}
+
+.jnzs_list {
+  display: flex;
+  align-items: center;
+  color: var(--thirdPartyColor);
+}
+
+.jinengzhengshu .icon-1 {
+  margin-right: 16rpx;
+}
+
+/* 职业证书 */
+.line {
+  margin: 0 0 25rpx;
+  margin-right: 16rpx;
+}
+
+.reserve_money {
+  font-size: 28rpx;
+  color: #888;
+}
+
+/* FOOTER START */
+
+.search2-inner {
+  padding: 0 50rpx;
+  font-size: 22rpx;
+  color: #B6B6B6;
+}
+
+.footer {
+  position: fixed;
+  bottom: 28rpx;
+  padding: 0 32rpx;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  text-align: right;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-right {}
+
+.icon-wuxiaoxing-kong {
+  font-size: 50rpx;
+}
+
+.active {
+  color: #FFEEAB;
+}
+
+.footer button {
+  background-color: var(--thirdPartyColor);
+  display: inline-block;
+  padding: 0 50rpx;
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 4rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  margin-left: 18rpx;
+  color: #fff;
+}

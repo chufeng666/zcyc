@@ -33,10 +33,10 @@ page {
 }
 
 .w-bold {
-  font-weight: bold;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 32rpx;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
 }
 
 .t-right {
@@ -44,18 +44,20 @@ page {
 }
 
 .m-r10 {
-  margin-right: 10rpx;
+  margin-right: 32rpx;
 }
 
 .m-r20 {
   color: var(--themeColor);
   font-size: 34rpx;
 }
+
 .m-r21 {
   margin-top: 24rpx;
   font-size: 24rpx;
   color: #686868;
 }
+
 .m-left-auto {
   margin-left: auto;
 }
@@ -85,9 +87,7 @@ page {
 }
 
 .m-b22 {
-  margin-bottom: 32rpx;
-  padding-bottom: 40rpx;
-  border-bottom: 1rpx solid #dedede;
+  margin-bottom: 29rpx;
 }
 
 .m-b45 {
@@ -253,7 +253,7 @@ image {
 page {
   /* 1 定义变量 */
   --themeColor: #ee291a;
-  --qiyeBackground-color: #1487f1 !important;
+  --thirdPartyColor: #1487f1 !important;
 }
 
 .user-top {

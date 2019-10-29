@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "SearchInput": "../../search/pSearch"
+    "SearchInput": "../../search/pSearch",
+    "address-form": "../../components/address/address"
   },
   "navigationStyle": "custom"
 }

@@ -1,43 +1,56 @@
 @import '../../template/font.wxss';
 @import '../../template/common.wxss';
-.sousuolishi {
-  margin-top: 273rpx;
+
+.search-wrap {
+  background-color: var(--themeColor) !important;
 }
+
+.sousuolishi {}
+
 .sousuolishi .history {
   border-bottom: 10px solid #dedede;
 }
+
 .sousuolishi .history .history_search {
-  padding: 0 34rpx;
+  padding: 64rpx 34rpx 0 34rpx;
 }
+
 .sousuolishi .history .history_search .hs_top {
   display: flex;
   justify-content: space-between;
   margin-bottom: 47rpx;
 }
+
 .sousuolishi .history .history_search .hs_top .t_left {
   font-size: 30rpx;
   font-weight: 600;
 }
+
 .sousuolishi .history .history_search .hs_content {
   display: flex;
   color: #686868;
   margin-bottom: 47rpx;
 }
+
 .sousuolishi .history .history_search .hs_content .con_zhiye {
   margin-left: 16rpx;
   font-size: 26rpx;
 }
+
 .sousuolishi .popular {
   margin: 27rpx 33rpx;
 }
+
 .sousuolishi .popular .popular_search {
   font-size: 30rpx;
   font-weight: 600;
   margin-bottom: 47rpx;
 }
+
 .sousuolishi .popular .p_zhiwei {
   display: flex;
 }
+
 .sousuolishi .popular .p_zhiwei .zw_security-officer {
   background-color: #ee331a;
   padding: 22rpx 35rpx;
@@ -45,6 +58,7 @@
   font-size: 30rpx;
   border-radius: 50rpx;
 }
+
 .sousuolishi .popular .p_zhiwei .zw_executive-secretary {
   background-color: #fda531;
   padding: 22rpx 35rpx;
@@ -53,16 +67,18 @@
   border-radius: 50rpx;
   margin: 0 24rpx;
 }
+
 .search_concent {
-  margin-top: 207rpx;
   background-color: #fff;
 }
+
 .search_concent .search_nav {
   margin: 0 34rpx;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dedede;
 }
+
 .search_concent .search_nav .n-search {
   display: flex;
   justify-content: space-between;
@@ -71,6 +87,7 @@
   color: #969696;
   padding: 18rpx 0;
 }
+
 .search_concent .search_nav .n-search .newsite_button {
   display: flex;
   background-color: #eaeaea;
@@ -79,20 +96,20 @@
   line-height: 56rpx;
   border-radius: 8%;
 }
+
 .search_concent .search_nav .n-search .newsite_button .newsite_view {
   margin-left: 10rpx;
 }
+
 .search_concent .search_nav .n-search .newsite_button .newsite_city {
   padding-left: 10rpx;
 }
-.search_concent
-  .search_nav
-  .n-search
-  .newsite_button
-  .icon-zhcc_xiangxiajiantou {
+
+.search_concent .search_nav .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
   margin: -8rpx 6rpx 0rpx 6rpx;
 }
+
 .search_concent .search_nav .n-search .picker {
   background-color: #eaeaea;
   height: 56rpx;
@@ -100,17 +117,31 @@
   border-radius: 8%;
   padding-left: 10rpx;
 }
+
 .search_concent .search_nav .n-search .picker .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
   margin: -8rpx 6rpx 0rpx 6rpx;
 }
+
+.inner-cont .third-color- {
+  color: var(--themeColor) !important;
+
+}
+
+.inner-cont .third-bg- {
+  background-color: var(--themeColor) !important;
+
+}
+
 .inner-cont {
   margin: 0 8rpx;
 }
+
 .active {
   color: #ee331a;
   font-weight: 400;
 }
+
 .picker-view {
   width: 100%;
   display: flex;
@@ -124,12 +155,14 @@
   left: 0rpx;
   height: 40vh;
 }
+
 .picker-item {
   line-height: 70rpx;
   margin-left: 5rpx;
   margin-right: 5rpx;
   text-align: center;
 }
+
 .zhezhao {
   position: fixed;
   left: 0;

@@ -1,33 +1,87 @@
-<!--pages/userInfo/search.wxml-->
 <view class='search-wrap'>
   <view class='g-header-'>
+    <view class="h-left">
+      <navigator url="../index/index">
+        <text class="iconfont icon-zuojiantou"></text>
+      </navigator>
+      <view class="l_qiye">搜索</view>
+    </view>
     <view class='-header-cont'>
       <view class='search-cont'>
-        <input type='text' class='search third-bColor-1'  placeholder="输入所要查找的内容" bindinput='selecKeyWord' />
+        <input type='text' class='search {{pBC1}}' placeholder="一级建造师" bindinput='selecKeyWord' />
         <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
       </view>
     </view>
-    <view class='subtitle overH search-subtitle'>
-        <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">人才</text>
-        <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">企业</text>
-    </view>
-  </view>
-  <view class='inner inner-cont'>
-      <view class='wx-no-info' wx:if="{{isShowInfo}}">
-            <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
-          <view>暂无数据</view>
-      </view>
-      <view wx:if="{{cStatus==0}}">
-          <!-- personal content start -->
-          <import src ="../../template/personal.wxml"/>
-          <template is="personal" data="{{person:list.person, pColor: pColor,pBgC:pBgC,url:'../../personalDetail/personalDetail?id='}}"/>
-          <!-- personal content end -->
-      </view>
-      <view wx:if="{{cStatus==1}}">
-        <!-- recruit content start -->
-          <import src ="../../template/company.wxml"/>
-          <template is="company" data="{{recruit:list.recruit, pColor: pColor,pBgC:pBgC,typeMsg:'企业',url:'../../postionDetail/postionDetail?id='}}"/>
-          <!-- recruit content end -->
-      </view>
   </view>
 </view>
+<view class="sousuolishi" wx:if="{{hiddenhistory}}">
+  <view class="history">
+    <view class="history_search">
+      <view class="hs_top">
+        <view class="t_left">历史搜索</view>
+        <view class="iconfont icon-lajitong"></view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+    </view>
+  </view>
+  <view class="popular">
+    <view class="popular_search">热门搜索</view>
+    <view class="p_zhiwei">
+      <view class="zw_security-officer">安全员</view>
+      <view class="zw_executive-secretary">行政秘书</view>
+      <view class="zw_security-officer">安全员</view>
+    </view>
+  </view>
+</view>
+<view class="search_concent" wx:elif="{{!hiddenhistory}}">
+  <view class="search_nav">
+    <view class='subtitle overH search-subtitle'>
+      <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">最新</text>
+      <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">最热</text>
+    </view>
+    <view class="n-search">
+      <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
+        <view class="newsite_view   company-color" wx:if="{{showTST}}">地点</view>
+        <view class="newsite_city ">{{areaInfo}}</view>
+        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+      </view>
+      <navigator url="../ScreeningConditions/ScreeningConditions">
+        <view class="picker">
+          人才
+          <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='inner-cont'>
+  <view class='wx-no-info' wx:if="{{isShowInfo}}">
+    <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+    <view>暂无数据</view>
+  </view>
+  <view wx:if="{{cStatus==0}}">
+    <!-- recruit content start -->
+    <import src="../../template/company.wxml" />
+    <template is="company" data="{{recruit:list.recruit, pColor: pColor,pBgC:pBgC,typeMsg:'企业',url:'../../postionDetail/postionDetail?id='}}" />
+    <!-- recruit content end -->
+  </view>
+  <view wx:if="{{cStatus==1}}">
+    <!-- recruit content start -->
+    <import src="../../template/company.wxml" />
+    <template is="company" data="{{recruit:list.person, pColor: pColor,pBgC:pBgC,typeMsg:'服务商',url:'../../postionDetail/postionDetail?id='}}" />
+    <!-- recruit content end -->
+  </view>
+</view>
+<!-- 所有城市三级联动列表 -->
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>

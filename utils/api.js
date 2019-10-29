@@ -1,4 +1,4 @@
-const proxys = 'https://ycjobs.cn/api';
+const proxys = 'https://zhaopin.zhifengwangluo.cn/api';
 // const apiProxys ='/api/'
 const userAPI = {
   login: `${proxys}/user/login`,                      //登陆

@@ -1,61 +1,48 @@
-
-  <!-- HEADER START -->
-  <view class='g-header-'>
-    <view class='-header-cont'>
-      <navigator url='../../search/pSearch' class='search-cont s-nosearch-wrap'>
-        <view class='search search-nosearch third-bColor-1'>输入所要查找的内容</view>
-        <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+<!-- 头部 -->
+<view class='i-header'>
+  <view class="h-left">
+    <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+    <view class="l_qiye">招人</view>
+  </view>
+  <view class="h-bottom">
+    <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
+      <view class='search search-nosearch company-bColor-1'>一级建造师</view>
+      <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+    </navigator>
+  </view>
+</view>
+<!-- 头部 -->
+<!-- 筛选 -->
+<view class="newest-search">
+  <view class="n-xiahuaxian">
+    <view class="newest">
+      <view class="province">
+        <view>
+          {{recList[0].city_str}} — {{recList[0].district_str}}　|　建筑　|　{{recList[0].type}}
+        </view>
+      </view>
+    </view>
+    <view class="n-search">
+      <view class="newsite_button active" bindtap="selectDistrict">
+        <view class="newsite_view subtitle-msg  active">地点</view>
+        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+      </view>
+      <navigator class="newsite_button  active" url="../ScreeningConditions/ScreeningConditions">
+        <view class="newsite_view subtitle-msg  ">更多</view>
+        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </navigator>
     </view>
-    <view class='subtitle overH search-subtitle'>
-        <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
-          <view class="picker subtitle-msg {{site_show?'third-color-':''}}">
-              {{jobArray[jobIndex].cat_name}} 
-              <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-          </view>
-        </picker>
-        <view class="newsite_button m-left-auto {{showTST?'':'third-color-'}}" bindtap="selectDistrict">
-          <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">选择地点</view>
-          <view class="newsite_city">{{areaInfo}} <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon></view>
-        </view>
-    </view>
-    <!-- 所有城市三级联动列表 -->
-    <include src="../../template/address"/> 
-    <!-- 地址选择接受 -->
-
-
   </view>
-  <view class='header-heigh'></view>
-  <!-- HEADER END -->
-  <view class='inner'>
-      <!-- personal content start -->
-      <import src ="../../template/personal.wxml"/>
-      <template is="personal" data="{{person:hiringData, pColor: pColor,pBgC:pBgC,url:'../../personalDetail/personalDetail?id='}}"/>
-      <!-- personal content end -->
-    <!-- <navigator url="../personalDetail/personalDetail?id={{item.id}}" class='c-l-info' wx:for="{{hiringData}}" wx:key="key">
-        <view class='search-job-list'>
-          <view class='c-info-title'>
-              <text wx:if="{{item.cat_name!=null}}">{{item.cat_name}}</text>
-              <text wx:else></text>
-              
-          </view>
-          <view class='c-info-msg overH'>
-            <text class='c-msg2 fl'>{{item.work_age}}年</text>
-          </view>
-          <view class='s-portrait'>
-            <image src='{{item.avatar}}' class='portrait-icon'/>
-            <text>{{item.name}}</text>
-          </view>
-          <view class='overH'></view>
-        </view>
-        <view class='company-status third-bg- fr'>
-            <text wx:if="{{item.images==1}}">有证书</text>
-            <text wx:else>无证书</text>
-        </view>
-    </navigator> -->
-    <!-- <view class='more-recommond'>更多推荐</view> -->
+</view>
+<!-- 筛选 -->
+<!-- 数据展示 -->
+<view class="inner">
+  <view class="container">
+    <import src="../../template/jobApplicant/jobApplicant" />
+    <template is="thirdParty" data="{{recList:hiringData,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
   </view>
-  <!-- FOOTER TARBAR START -->
-  <view class='footer-height'></view>
-  <import src="../../template/tabbar.wxml" />
-  <template is="tabBar" data="{{tabBar}}" />
+</view>
+<!-- 所有城市三级联动列表 -->
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>
+<import src="../../template/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />

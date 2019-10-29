@@ -19,7 +19,6 @@ Page({
   onLoad: function (options) {
     util.getStorageItem('savePostion', app);   //获取底部导航
     this.getCompanyList()                      //公司及第三方职位列表
-
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');

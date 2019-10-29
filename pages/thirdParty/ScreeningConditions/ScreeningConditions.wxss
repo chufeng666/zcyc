@@ -1,0 +1,88 @@
+@import "../../template/font";
+
+.search-wrap {
+  background-color: var(--thirdPartyColor) !important;
+}
+
+.search-wrap .h-left {
+  display: flex;
+  align-items: center;
+  padding-top: 60rpx;
+  margin-left: 8rpx;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.search-wrap .h-left .icon-zuojiantou {
+  font-size: 48rpx;
+}
+
+.search-wrap .h-left .l_qiye {
+  line-height: 80rpx;
+}
+
+.salary {
+  padding: 40rpx 30rpx;
+}
+
+.salary .xinzi .title-color {
+  margin-bottom: 67rpx;
+}
+
+.salary .xinzi .fanwei {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #686868;
+  margin-bottom: 41rpx;
+}
+
+.salary .xinzi .body-view {
+  width: 100%;
+}
+
+.salary .xinzi .body-view slider {
+  background-color: #dedede;
+  border-radius: 20rpx;
+  height: 33rpx;
+}
+
+.salary .s_gongsi {
+  margin-top: 62rpx;
+}
+
+.salary .s_gongsi .gs_waiwei {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.salary .s_gongsi .gs_waiwei .si_qiye {
+  margin-top: 40rpx;
+  text-align: center;
+  height: 64rpx;
+  width: 216rpx;
+  line-height: 64rpx;
+  border-radius: 40rpx;
+  background-color: #e3e3e3;
+  margin-right: 15rpx;
+  font-size: 28rpx;
+}
+
+.salary .avtive {
+  border: 1rpx solid var(--thirdPartyColor);
+  color: var(--thirdPartyColor);
+  font-size: 28rpx;
+  font-weight: 600;
+  text-align: center;
+  height: 64rpx;
+  width: 216rpx;
+  line-height: 64rpx;
+  border-radius: 40rpx;
+  background-color: #fff;
+}
+
+.title-color {
+  color: #262626;
+  font-size: 36rpx;
+  font-weight: 600;
+}

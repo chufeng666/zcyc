@@ -148,7 +148,7 @@ App({
           active: true
         },
         {
-          "pagePath": "/pages/company/jobApplicant/jobApplicant",
+          "pagePath": "/pages/thirdParty/jobApplicant/jobApplicant",
           "text": "招人",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_weidianji.png",
           "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_dianji.png",

@@ -1,0 +1,123 @@
+<!-- pages/company/uPosition.wxml -->
+<view id="wrap">
+  <!-- SEARCH INFO START -->
+  <view class='inner'>
+    <!-- CONTENT START -->
+    <view class='d-content'>
+      <view class="d-c-list">
+        <view class='c-list-info'>
+          <view class="list_name">
+            <view class='m-b22'>{{personalData.name}}</view>
+            <text class="iconfont  .icon-nv"></text>
+          </view>
+          <view class='w-bold'>
+            <text class='iconfont  icon-baobao'></text>
+            <view class='m-r10'>{{personalData.work_age}}</view>
+            <text class='iconfont  icon-baobao'></text>
+            <view class='m-r10'>{{personalData.school_type}}</view>
+            <text class='iconfont  icon-baobao'></text>
+            <text class='m-r10'>{{personalData.mobile}}</text>
+          </view>
+        </view>
+        <image mode="aspectFit" src='{{personalData.avatar}}' class='c-list-portrait' />
+      </view>
+    </view>
+    <view class="d-c-list">
+      <view class='c-list-info'>
+        <view class='qiuzhiqiwang'>
+          <text class="iconfont  icon-1"></text>
+          <view>求职期望</view>
+        </view>
+        <view class="qiwang">
+          <view>工作状态</view>
+          <view class="xinzi">{{personalData.job_type}}</view>
+        </view>
+        <view class="qiwang">
+          <view>工作地点</view>
+          <view class="xinzi">{{personalData.job_type}}</view>
+        </view>
+        <view class="qiwang">
+          <view>期望职位</view>
+          <view class="xinzi">{{personalData.job_type}}</view>
+        </view>
+        <view class="qiwang">
+          <view>期望薪资</view>
+          <view class="xinzi">{{personalData.job_type}}</view>
+        </view>
+        <view class="qiwang">
+          <view>工作类型</view>
+          <view class="xinzi">{{personalData.job_type}}</view>
+        </view>
+      </view>
+      <!-- <image src='../../static/images/public/big_portrait.png' class='c-list-portrait'/> -->
+    </view>
+    <view class="d-c-list">
+      <view class="c-list-info">
+        <view class='qiuzhiqiwang'>
+          <text class="iconfont  icon-1"></text>
+          <view>工作经验</view>
+        </view>
+        <view class="gongsi">
+          <text class="iconfont  icon-gongsi"></text>
+          <view>广州万宝有限公司</view>
+        </view>
+        <view class="gangwei">
+          <view class="gw_left">岗位: 安全员</view>
+          <view class="gw_right">时间: 2015.06-2018.10</view>
+        </view>
+        <view class="gongzuoneirong">
+          <text>
+            1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料工作）
+            \n2.检查、消除安全隐患，做到责任、组织、制度、防范措施四落实；
+            \n3.配合项目经理做好入场前施工班组安全教育，做好安全交底工作；
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class="d-c-list">
+      <view class="c-list-info">
+        <view class='qiuzhiqiwang'>
+          <text class="iconfont  icon-1"></text>
+          <view>职业证书</view>
+        </view>
+        <view class="jinengzhengshu">
+          <view class="jnzs_list">
+            <text class="iconfont  icon-1"></text>
+            <view>广东省初级专业资格证</view>
+          </view>
+          <view class="jnzs_list">
+            <text class="iconfont  icon-1"></text>
+            <view>广东省初级专业资格证</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="reserve_money" wx:if="{{personalData.reserve_money!=''}}">
+      注意：预订人才费用为￥{{personalData.reserve_money}} 元/次
+    </view>
+    <view class='footer'>
+      <view class='search2-inner'>
+        <view class="shoucang" bindtap="onCollection" class='collect_tab' data-stu="0" wx:if="{{isCollect==0}}">
+          <text class="iconfont  icon-wuxiaoxing-kong"></text>
+          <view>收藏</view>
+        </view>
+        <view class="shoucang" bindtap="onCollection" class='collect_tab' data-stu="1" wx:else>
+          <text class="iconfont  icon-wuxiaoxing-kong"></text>
+          <view>已收藏</view>
+        </view>
+      </view>
+      <view class="footer-right">
+        <button class='f-btn-1 {{pBgC}}' bindtap="toReservation" wx:if="{{personalData.reserve==1 && personalData.reserve_c==0 }}">
+          马上预订
+        </button>
+        <button class='f-btn-2 {{pBgC}}'>
+          <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
+          <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
+          <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
+          <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
+          联系客服
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
