@@ -42,7 +42,6 @@ Page({
     }
     var _opt = { 'mobile': mobile }
     ServerData.verifyCode(_opt).then((res) => {
-      console.log(res)
       if (res.data.status == 1) {
         settime(that)
       } else {
@@ -55,7 +54,6 @@ Page({
       type = 0;
     if (!that.verifyUserInfo()) { return }
     that.data.index == 0 ? type = 3 : type = that.data.index
-    console.log(this.data.toke)
     var _opt = {
       'type': type,
       'mobile': that.data.mobile,

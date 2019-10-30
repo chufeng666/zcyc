@@ -1,0 +1,56 @@
+.inner {
+  padding: 48rpx 54rpx;
+}
+
+.top {
+  font-size: 46rpx;
+  color: #262626;
+  font-weight: bold;
+  margin-bottom: 50rpx;
+}
+
+.wanshan {
+  display: flex;
+  align-items: center;
+  margin-top: 29rpx;
+  font-size: 28rpx;
+  color: #FF730E;
+  font-weight: normal;
+}
+
+.icon-iconcopy {
+  font-size: 38rpx;
+  margin-right: 16rpx;
+}
+
+.xiangce {
+  font-size: 28rpx;
+  color: #B1B1B1;
+  margin-bottom: 49rpx;
+}
+
+.main {
+  font-size: 36rpx;
+  color: #262626;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 29rpx;
+}
+
+.main input {
+  font-size: 36rpx;
+  opacity: 0.4;
+}
+
+.footer {
+  margin-top: 200rpx;
+}
+
+.footer button {
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: var(--thirdPartyColor);
+
+}
+
+@import "../../../template/font";

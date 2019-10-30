@@ -18,6 +18,9 @@ for (let i = 1; i <= 31; i++) {
 
 Page({
   data: {
+    // 头像
+    logo: '',
+    icCardPic: { src: '', hiddenName: true, newSrc: '' },
     companyName: '', //名称
     companyType: '', //公司类型
     years: years, //年份数组
@@ -41,7 +44,7 @@ Page({
   onLoad: function (options) {
     this.getCompanyInfo()
   },
-  returnIndex(flag, arry, isN) {
+  returnIndex (flag, arry, isN) {
     for (var i in arry) {
       if (isN) {
         if (arry[i].cat_id == flag) {
@@ -54,14 +57,14 @@ Page({
       }
     }
   },
-  selectDay(arry, flag) {
+  selectDay (arry, flag) {
     for (var i in arry) {
       if (arry[i] == flag) {
         return i
       }
     }
   },
-  getCompanyInfo() {
+  getCompanyInfo () {
     var that = this
     ServerData.getCompayInfo({}).then((res) => {
       if (res.data.status == 1) {
@@ -79,7 +82,8 @@ Page({
           achiInfo: info.achievement,
           personInfo: info.introduction,
           companyIntroduce: info.desc,
-          value: val
+          value: val,
+          logo: info.logo
         })
         // console.log(that.data.userList)
       } else if (res.data.status == -1) {
@@ -92,7 +96,55 @@ Page({
     })
 
   },
+  // 头像
+  openActionsheet () {
+    var _this = this,
+      data = _this.data.icCardPic
+    wx.showActionSheet({
+      itemList: ['拍照', '从相册选择'],
+      itemColor: '#007aff',
+      success (res) {
+        if (res.tapIndex === 0) {
+          wx.chooseImage({
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: function (res) {
+              var imgSrc = res.tempFilePaths[0];
+              data.src = imgSrc;
+              data.hiddenName = false;
+              _this.setData({
+                icCardPic: data
+              })
+              ServerData.uploadFile(imgSrc).then((res) => {
+                var dat = JSON.parse(res.data)
+                if (dat.status == 1) {
+                  data.newSrc = dat.data
+                  _this.setData({
+                    icCardPic: data
+                  })
+                }
+              })
+            }
 
+          })
+        } else if (res.tapIndex === 1) {
+          wx.chooseImage({
+            count: 1, // 设置最多三张
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success (res) {
+              var tempFilePaths = res.tempFilePaths;
+              // 图片预览
+              wx.previewImage({
+                current: res.tempFilePaths[0],
+                urls: res.tempFilePaths
+              })
+            }
+          })
+        }
+      }
+    })
+  },
 	/**
 	 * 编辑公司名称
 	 */

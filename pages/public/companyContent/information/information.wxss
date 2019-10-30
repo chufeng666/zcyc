@@ -1,0 +1,69 @@
+.inner {
+  padding: 48rpx 54rpx;
+}
+
+.top {
+  font-size: 46rpx;
+  color: #262626;
+  font-weight: bold;
+  margin-bottom: 89rpx;
+}
+
+.wanshan {
+  display: flex;
+  align-items: center;
+  margin-top: 29rpx;
+  font-size: 28rpx;
+  color: #FF730E;
+  font-weight: normal;
+}
+
+.icon-iconcopy {
+  font-size: 38rpx;
+  margin-right: 16rpx;
+}
+
+.main {
+  font-size: 28rpx;
+  color: #262626;
+  margin-bottom: 29rpx;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 29rpx;
+}
+
+.m_top {
+  margin-bottom: 49rpx;
+}
+
+.main input {
+  font-size: 36rpx;
+  opacity: 0.4;
+}
+
+.ql-container {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-user-select: text;
+  user-select: text;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: 10rpx;
+  min-height: 200rpx;
+  border: 1rpx solid #dedede;
+}
+
+.footer {
+  margin-top: 152rpx;
+}
+
+.footer button {
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: var(--thirdPartyColor);
+
+}
+
+@import "../../../template/font";

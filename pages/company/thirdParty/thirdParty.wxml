@@ -1,7 +1,7 @@
 <view class='i-header'>
   <view class="h-left">
     <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
-    <view class="l_qiye">企业</view>
+    <view class="l_qiye">招人</view>
   </view>
   <view class="h-bottom">
     <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
@@ -14,7 +14,7 @@
   <view class="n-xiahuaxian">
     <view class="newest">
       <view class="province">
-        <view>{{recList[0].city_str}}-{{recList[0].district_str}}　|　建筑　|　{{recList[0].type}}</view>
+        <view>广州市-海珠区　|　建筑　|　{{hiringData[0].cat_name}}</view>
       </view>
     </view>
     <view class="n-search">

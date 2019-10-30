@@ -1,0 +1,25 @@
+<view class="inner">
+  <view class="header">
+    <view class="top">
+      <view>营业执照</view>
+      <view class="wanshan">
+        <text class="iconfont  .icon-iconcopy"></text>
+        <view>请上传公司营业执照</view>
+      </view>
+    </view>
+    <view class="main">
+      <view class="m_top">执照名称</view>
+      <input placeholder="请输入公司执照名称" />
+    </view>
+  </view>
+  <view class="main_img">
+    <image mode="aspectFit" bindtap="openActionsheet" class="userId_img" src="../../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
+  </view>
+  <view class="userId_shangchuang">
+    <text class="iconfont  .icon-hao"></text>
+    <view>添加一份</view>
+  </view>
+  <view class="footer">
+    <button>确定</button>
+  </view>
+</view>

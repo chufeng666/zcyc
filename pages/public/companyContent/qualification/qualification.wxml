@@ -1,0 +1,22 @@
+<view class="inner">
+  <view class="header">
+    <view class="top">
+      <view>公司资质</view>
+      <view class="wanshan">
+        <text class="iconfont  .icon-iconcopy"></text>
+        <view>请完善公司资质</view>
+      </view>
+    </view>
+    <view class="main">
+      <view class="m_top">公司资质</view>
+      <input placeholder="请输入公司资质" />
+    </view>
+  </view>
+  <view class="userId_shangchuang">
+    <text class="iconfont  .icon-hao"></text>
+    <view>添加一份</view>
+  </view>
+  <view class="footer">
+    <button>确定</button>
+  </view>
+</view>

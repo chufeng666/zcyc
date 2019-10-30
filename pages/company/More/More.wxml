@@ -1,0 +1,24 @@
+<view class='search-wrap    user-top'>
+  <view class="h-left">
+    <navigator url="../thirdParty/thirdParty" class="iconfont icon-zuojiantou"></navigator>
+    <view class="l_qiye">筛选</view>
+  </view>
+</view>
+<view class="salary">
+  <view class="s_gongsi">
+    <view class="title-color">性质</view>
+    <view class="gs_waiwei">
+      <view class="si_qiye" wx:for="{{xingzhi}}" data-index="{{index}}" bindtap="changIsActive" wx:key="id">
+        <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="s_gongsi">
+    <view class="title-color">规模</view>
+    <view class="gs_waiwei">
+      <view class="si_qiye" wx:for="{{guimo}}" data-index="{{index}}" bindtap="changZhiwei" wx:key="id">
+        <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

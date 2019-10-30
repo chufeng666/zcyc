@@ -444,14 +444,7 @@
 /**/
 
 .set-option-1 {
-  position: fixed;
-  z-index: 11;
-  left: 0;
-  bottom: 40rpx;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 18rpx 24rpx 0;
-  margin-top: 25rpx;
+
 }
 
 .header-heigh {
@@ -465,14 +458,10 @@
 }
 
 .s-1-option {
-  border-radius: 45rpx;
-  color: #fff;
-  background: #ff54b5;
   font-size: 30rpx;
-  width: 702rpx;
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: var(--thirdPartyColor);
 }
 
 /* GLOBAL INFORMATION START */

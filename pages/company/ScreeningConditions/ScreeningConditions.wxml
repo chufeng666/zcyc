@@ -17,7 +17,7 @@
     </view>
   </view>
   <view class="s_gongsi">
-    <view class="title-color">公司</view>
+    <view class="title-color">对象</view>
     <view class="gs_waiwei">
       <view class="si_qiye" wx:for="{{disanfang}}" data-index="{{index}}" bindtap="changIsActive" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
@@ -25,7 +25,7 @@
     </view>
   </view>
   <view class="s_gongsi">
-    <view class="title-color">公司</view>
+    <view class="title-color">证书</view>
     <view class="gs_waiwei">
       <view class="si_qiye" wx:for="{{zhengshu}}" data-index="{{index}}" bindtap="changZhengshu" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>

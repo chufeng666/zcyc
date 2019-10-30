@@ -1,0 +1,21 @@
+<view class="inner">
+  <view class="header">
+    <view class="top">
+      <view>公司环境</view>
+      <view class="wanshan">
+        <text class="iconfont  .icon-iconcopy"></text>
+        <view>请上传公司照片</view>
+      </view>
+    </view>
+    <view class="xiangce">公司相册</view>
+    <view class="main">
+      <view class="m_top">公司照片</view>
+    </view>
+    <view class="main_img">
+      <image mode="aspectFit" bindtap="openActionsheet" class="userId_img" src="../../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
+    </view>
+  </view>
+  <view class="footer">
+    <button>确定</button>
+  </view>
+</view>

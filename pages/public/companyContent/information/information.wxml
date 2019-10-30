@@ -1,0 +1,44 @@
+<view class="inner">
+  <view class="header">
+    <view class="top">
+      <view>公司基本信息</view>
+      <view class="wanshan">
+        <text class="iconfont  .icon-iconcopy"></text>
+        <view>请完善公司信息</view>
+      </view>
+    </view>
+    <view class="main">
+      <view class="m_top">公司名称</view>
+      <input placeholder="凉凉" />
+    </view>
+    <view class="main">
+      <view class="m_top">公司固定电话</view>
+      <input placeholder="请输入公司固定电话" />
+    </view>
+    <view class="main">
+      <view class="m_top">公司性质</view>
+      <picker mode="selector" range="{{xingzhi}}" value="{{index2}}" bindchange="setXingzhi">
+        <view class="picker">{{xingzhi[index2]}}</view>
+      </picker>
+    </view>
+    <view class="main">
+      <view class="m_top">公司规模</view>
+      <picker mode="selector" range="{{guimo}}" value="{{index}}" bindchange="setGuimo">
+        <view class="picker">{{guimo[index]}}</view>
+      </picker>
+    </view>
+    <view class="main">
+      <view class="m_top">公司成立时间</view>
+      <picker fields="month" mode="date" value="" bindchange="setSameDay">
+        <view class="picker">{{sameDay===''?'请选择公司成立时间':sameDay}}</view>
+      </picker>
+    </view>
+    <view class="main">
+      <view class="m_top">公司简介</view>
+      <editor class="ql-container" placeholder="1.请填写公司简介"></editor>
+    </view>
+  </view>
+  <view class="footer">
+    <button>确定</button>
+  </view>
+</view>
