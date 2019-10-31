@@ -63,7 +63,7 @@
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
-    <navigator class="c_info" wx:for="{{list.recruit}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.title}}</view>
         <view class="l_price">{{item.salary}}/月</view>

@@ -22,7 +22,7 @@
             <view>联系人</view>
             <view class="yiwanshan">已完善</view>
           </view>
-          <navigator url="" class="ec_bt">
+          <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
             <view>建议使用真实头像</view>
           </navigator>
         </view>
@@ -33,9 +33,11 @@
             <view>公司基本信息</view>
             <view class="buwanzheng">[ 公司信息不完整 ]</view>
           </view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
+          <navigator url="../../public/companyContent/information/information">
+            <view class="ec_bt">
+              <view>光泽建材企业有限公司/企业</view>
+            </view>
+          </navigator>
         </view>
       </view>
       <view class="ec_lianxiren">
@@ -44,9 +46,11 @@
             <view>行业标签</view>
             <view class="yiwanshan">已完善</view>
           </view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
+          <navigator url="../../public/companyContent/label/label">
+            <view class="ec_bt">
+              <view>建筑/水电</view>
+            </view>
+          </navigator>
         </view>
       </view>
       <view class="ec_lianxiren">
@@ -55,25 +59,31 @@
             <view>公司资质</view>
             <view class="yiwanshan">已完善</view>
           </view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
+          <navigator url="../../public/companyContent/qualification/qualification">
+            <view class="ec_bt">
+              <view>建议使用真实头像</view>
+            </view>
+          </navigator>
         </view>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>公司照片</view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
+          <navigator url="../../public/companyContent/photo/photo">
+            <view class="ec_bt">
+              <view>已上传</view>
+            </view>
+          </navigator>
         </view>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>营业执照</view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
+          <navigator url="../../public/companyContent/license/license">
+            <view class="ec_bt">
+              <view>已上传</view>
+            </view>
+          </navigator>
         </view>
       </view>
       <view class="ec_lianxiren">

@@ -1,7 +1,7 @@
 <view class='i-header'>
   <view class="h-left">
     <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
-    <view class="l_qiye">招人</view>
+    <view class="l_qiye">服务商</view>
   </view>
   <view class="h-bottom">
     <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
@@ -32,7 +32,7 @@
 <view class="inner">
   <view class="container">
     <import src="../../template/companyList.wxml" />
-    <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
+    <template is="companyList" data="{{recList:recList,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->

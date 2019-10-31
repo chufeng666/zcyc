@@ -1,0 +1,48 @@
+<view class="header">
+  <text class="iconfont    icon-zuojiantou"></text>
+  <view class="yuding">预定人才</view>
+</view>
+<view class="inner">
+  <view class="main">
+    <view class="main_first">
+      <view class="mf_top">
+        <view>确定预定人才</view>
+        <view class="lianxi">
+          <text class="iconfont  icon-iconcopy"></text>
+          <view>预定成功后可以查看联系方式</view>
+        </view>
+      </view>
+      <view class="mf_middle">
+        <view class="mf_m_left">
+          <image src="" class="mf_m_l_img" />
+          <view>刘小姐</view>
+        </view>
+        <view class="mf_m_right">
+          <icon type="success" color="#19CF66" class="dagou" size="22" />
+        </view>
+      </view>
+      <view class="mf_bt">
+        <view class="mf_bt_top">
+          <view class="mf_bt_top_left">
+            <text class="iconfont  icon-yanzhengma"></text>
+            <view>广东省初级专业资格证</view>
+          </view>
+          <view class="mf_bt_top_right">一级证书</view>
+        </view>
+      </view>
+    </view>
+    <view class="main_seconds">
+      <view class="ms_top">支付优米</view>
+      <view class="ms_middle">
+        <input placeholder="请输入支付金额" />
+      </view>
+      <view class="ms_bt">
+        <image class="ms_bt_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+        <view>优米余额: 3000</view>
+      </view>
+      <navigator url="../myPurse/payment/payment" class="ms_footer">
+        <button class="ms_ft_but">确定支付</button>
+      </navigator>
+    </view>
+  </view>
+</view>

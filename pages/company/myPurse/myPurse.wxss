@@ -1,9 +1,72 @@
-@import "../../template/gold";
-.th-btn-active{
-  background:#be4cff !important;
-  color: #fff !important;
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #333233;
+  padding: 66rpx 36rpx 24rpx 36rpx;
+  color: #fff;
+  font-size: 36rpx;
 }
-.g-deposits-btn2 button,.g-deposits-btn1 .g-d-btn2{
-    border: 1px solid #be4cff;
-    color:#be4cff;
+
+.icon-zuojiantou {
+  font-size: 54rpx;
+  margin-top: 5rpx;
 }
+
+.main_top {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 127rpx 0;
+}
+
+.m_top_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #FDA430;
+  margin-bottom: 62rpx;
+}
+
+.m_top_bt {
+  font-size: 130rpx;
+  color: #343434;
+}
+
+.ms_bt_img {
+  margin-right: 21rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.main_moddle {}
+
+.wancheng {
+  width: 242rpx;
+  height: 72rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #E8B05F;
+}
+
+.jixu {
+  width: 242rpx;
+  height: 72rpx;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #E8B05F;
+  background-color: #D8D1CF;
+}
+
+.main_footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 228rpx;
+  font-size: 22rpx;
+  color: #FF730E;
+}
+
+@import "../../template/font";

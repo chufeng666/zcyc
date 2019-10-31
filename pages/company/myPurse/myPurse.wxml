@@ -1,39 +1,31 @@
-
-<view class='inner'>
-
-	<view class='g-deposits-list'>
-		<view class='g-deposits-a company-bg-'>
-			<view>我的金额</view>
-			<view class='g-deposits-money'>{{moneyData.balance}}</view>
-			<image class="d-gold-icon" src='../../../static/images/public/gold_icon.png' />
-		</view>
-		<view class='g-deposits-btn1'>
-			<navigator url='./goldDeposits/goldDeposits'><button class='g-d-btn1 th-btn-active'>充值</button></navigator>
-			<navigator url='./withdrawal/withdrawal'><button class='g-d-btn2'>提现</button></navigator>
-		</view>
-	</view>
-
-	<view class='g-deposits-list'>
-		<view class='g-deposits-a g-deposits-b company-bg-'>
-			<view>超级VIP</view>
-			<image class="d-gold-icon" src='../../../static/images/public/vip.png' />
-		</view>
-		<view class='g-deposits-btn2'>
-			<button class='g-d-btn1 {{savaStatus==1 ? "th-btn-active" : ""}}' bindtap='changSelect' data-status="1">月费</button>
-			<button class='g-d-btn2 {{savaStatus==2 ? "th-btn-active" : ""}}' bindtap='changSelect' data-status="2">季费</button>
-			<button class='g-d-btn2 {{savaStatus==3 ? "th-btn-active" : ""}}' bindtap='changSelect' data-status="3">年费</button>
-		</view>
-
-		<view class='kt-jh'>开通 <text class='bold'>{{selectMsg}}</text> 会员您将会获得<text class='bold'>{{num}}</text>次预订机会</view>
-	</view>
-
-	  <!-- <view class='set-option company-bg-'>立即开通</view> -->
-    <navigator url='../../public/pay/payWay?vip_type={{vip_type}}' class='set-option company-bg-'>立即开通</navigator>
-		<view class='foot-info'>
-		<text>￥{{saveMoney}}元</text>
-		<view class='line-heig'></view>
-		<!-- <view class='set-option company-bg-'>确定付款</view> -->
-    
-	</view>
-
+<view class="header">
+  <navigator url="../cUserInfo/cUserInfo">
+    <text class="iconfont    icon-zuojiantou"></text>
+  </navigator>
+  <view class="yuding">我的谷仓</view>
+</view>
+<view class="inner">
+  <view class="main">
+    <view class="main_top">
+      <view class="m_top_top">
+        <image mode="aspectFill" class="ms_bt_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+        <view>优米余额( 个 )</view>
+      </view>
+      <view class="m_top_bt">5000</view>
+    </view>
+    <view class="main_moddle">
+      <view class="main_bt">
+        <navigator url="goldDeposits/goldDeposits">
+          <button class="wancheng">充值</button>
+        </navigator>
+        <navigator url="withdrawal/withdrawal">
+          <button class="jixu">提现</button>
+        </navigator>
+      </view>
+    </view>
+    <view class="main_footer">
+      <text class="iconfont  icon-iconcopy"></text>
+      <view>平台主要用“优米”优米来消费，暂不开通其他支付方式</view>
+    </view>
+  </view>
 </view>

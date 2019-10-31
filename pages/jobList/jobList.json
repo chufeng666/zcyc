@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "招工信息"
+  "navigationBarTitleText": "我发布的职位",
+  "navigationBarBackgroundColor": "#1487F1",
+  "navigationBarTextStyle": "white"
 }

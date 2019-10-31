@@ -1,0 +1,34 @@
+<!-- pages/userInfo/collect.wxml -->
+<view class='inner'>
+  <view class="tab">
+    <view class="tab-item {{item.isActive?'active':''}}" data-index="{{index}}" bindtap="clickTab" wx:for="{{tabs}}" wx:key="id">
+      {{item.name}}
+      <view class="{{item.isActive?'active2':''}}"></view>
+    </view>
+  </view>
+  <view class="{{currentTab === 1 ? 'show':'hidden'}}">
+    <import src="../../template/companyList.wxml" />
+    <template is="companyList" data="{{recList:collData,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
+  </view>
+  <view class="{{currentTab === 2 ? 'show':'hidden'}}">
+    <navigator class="c_info" wx:for="{{collData}}" wx:key="id" url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
+      <view class="i_list">
+        <view class="l_yuan">{{item.job_type}}</view>
+        <view class="l_price">6-7/月</view>
+      </view>
+      <view class="i_second">
+        <view>人才</view>
+        <view>{{item.images == 1 ? "无需证书":"需要证书"}}</view>
+      </view>
+      <view class="i_third">
+        <view class="t_weizhi">广州 - 海珠区</view>
+        <view class="t_zhili">{{item.work_age}}年</view>
+        <view class="t_xueli">本科</view>
+      </view>
+      <view class="i_fourth">
+        <image src='{{item.avatar}}' class="f_logo" />
+        <view class="f_zhiwei">{{item.name}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>

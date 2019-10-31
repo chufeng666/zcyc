@@ -1,0 +1,51 @@
+<!-- pages/company/uCollect.wxml -->
+<view class='inner'>
+  <view class="yuding">
+    <view class="bianji">
+      <view class="bj_left">编辑</view>
+      <view class="bj_right">删除</view>
+    </view>
+  </view>
+  <view class='c-l-info'>
+    <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" wx:if="{{!isShowR}}" bindscrolltolower="scrollLower">
+      <block wx:for="{{bookListData}}" wx:key="index">
+        <navigator url='../../personalDetail/personalDetail?id={{item.id}}'>
+          <view class='global-search-wrap'>
+            <view class='search-job-list'>
+              <view class='s-portrait global-search-cont'>
+                <text class="name">{{item.name}}</text>
+                <text class="pColor">6-7k月</text>
+              </view>
+              <view class="zhenghsu">
+                <view class="company-status">人才</view>
+                <view class='company-status {{pBgC}} fr'>{{item.images == 0 ? "无证书":"有证书"}}</view>
+              </view>
+              <view class="xuqiu">
+                <text class="dizhi">广州 - 海珠区</text>
+                <text class='c-msg2'>{{item.work_age}}年</text>
+                <text class="xueli">本科</text>
+              </view>
+              <view class='c-info-title'>
+                <image class="ci_img" src="../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png" />
+                <text>求职岗位•{{item.job_type}}</text>
+                <view class="dqdate">
+                  <text class="iconfont  .icon-shizhong"></text>
+                  <view class="daoqi">2019-12-21 到期</view>
+                </view>
+                <view class="group">
+                  <icon type="success" color="var(--thirdPartyColor)" class="dagou" size="22" />
+                  <!-- <icon type="success" color="var(--thirdPartyColor)" class="dagou" size="22" /> -->
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view>
+  <view class='wx-no-info' wx:if="{{isShowR}}">
+    <image class='wx-no-icon' src='../../../static/images/public/none.png'></image>
+    <view>暂无数据</view>
+  </view>
+</view>

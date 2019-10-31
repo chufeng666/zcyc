@@ -1,6 +1,6 @@
 <template name="companyList">
   <view class="content-list" wx:for="{{recList}}" wx:key>
-    <navigator url="../../postionDetail/postionDetail?id={{item.id}}">
+    <navigator url="{{url}}{{item.id}}">
       <view class='c-l-info'>
         <image src='{{item.logo}}' class="c-logo" />
         <view class='c-info-text'>

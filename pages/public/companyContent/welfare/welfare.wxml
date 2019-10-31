@@ -1,0 +1,43 @@
+<view class="inner">
+  <view class="header">
+    <view class="top">
+      <view>公司福利</view>
+      <view class="wanshan">
+        <text class="iconfont  .icon-iconcopy"></text>
+        <view>请发布岗位福利标签</view>
+      </view>
+    </view>
+    <view class="main">
+      <view class="m_top"></view>
+      <input placeholder="请输入福利标签" />
+    </view>
+    <view class="setLabel">
+      <view>添加标签</view>
+      <view class="sl_biaoqian">
+        <view class="sl_bq_list">
+          <view>餐补</view>
+          <text class="iconfont  .icon-cuo"></text>
+        </view>
+        <view class="sl_bq_seconds">
+          <view>包吃包住</view>
+          <text class="iconfont  .icon-cuo"></text>
+        </view>
+        <view class="sl_bq_seconds">
+          <view>五险一金</view>
+          <text class="iconfont  .icon-cuo"></text>
+        </view>
+        <view class="sl_bq_seconds">
+          <view>周末福利</view>
+          <text class="iconfont  .icon-cuo"></text>
+        </view>
+        <view class="sl_bq_list">
+          <view>年底分红</view>
+          <text class="iconfont  .icon-cuo"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <button>确定</button>
+  </view>
+</view>

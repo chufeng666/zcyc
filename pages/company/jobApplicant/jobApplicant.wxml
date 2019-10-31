@@ -32,7 +32,7 @@
 <view class="inner">
   <view class="container">
     <import src="../../template/jobApplicant/jobApplicant" />
-    <template is="thirdParty" data="{{recList:hiringData,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
+    <template is="thirdParty" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->

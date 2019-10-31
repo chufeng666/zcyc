@@ -1,20 +1,45 @@
+<view class="header">
+  <navigator url="../myPurse">
+    <text class="iconfont    icon-zuojiantou"></text>
+  </navigator>
+  <view class="yuding">充值</view>
+</view>
 <view class="inner">
-  	<view class='gold-search'>
-		  <input type='number' placeholder-class="phcolor" placeholder='请输入充值金币' bindinput='changMoney'/>
-	</view>
-
-  	<view class='gold-content'>
-		<view class='gold-list company-bColor-' bindtap="selectGoldNumber" wx:for="{{arr}}"  wx:for-index="index" data-index="{{index}}"  data-money="{{item.money}}" wx:key>
-			<view class='company-color-'>{{item.money}}金币</view>
-			<view>{{item.money}}元</view>
-			<image class="gold-active-img {{saveStatus==index ? '-show-' :'-hide'}}" src='../../../../static/images/public/yes_pop.png'/>
-		</view>
-	</view>
-	
-    <view class='foot-info'>
-        <text>￥{{saveMoney}}元</text>
-        <view class='line-heig'></view>
-        <view class='set-option company-bg-' bindtap="toGoldDeposits">确定付款</view>
+  <view class="main">
+    <view class="main_top">
+      <view class="weixinhao">
+        <view class="wxh_top">绑定微信号充值</view>
+        <view class="wxh_bt">
+          <view class="wxh_left">
+            <text class="iconfont  icon-weixin"></text>
+            <view>微信</view>
+            <view class="zhanghao">（微信号：ky15815836096）</view>
+          </view>
+          <icon type="success" size="20" />
+        </view>
+      </view>
     </view>
-    
+    <view class='gold-search'>
+      <view class="czje">
+        <view class="czje_left">充值金额</view>
+        <view class="czje_right">
+          <text class="iconfont  icon-iconcopy"></text>
+          <view>1优米=1元</view>
+        </view>
+      </view>
+      <view class="jine">
+        <view>￥</view>
+        <input type='number' placeholder='请输入充值金额' bindinput='changMoney' />
+      </view>
+      <view class="ms_bt">
+        <image class="ms_bt_img" src="../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+        <view>优米余额:  {{saveMoney}}</view>
+      </view>
+    </view>
+    <view class='foot-info'>
+      <navigator url="../../myPurse/goldDeposits/payment/payment">
+        <button class='set-option'>确定充值</button>
+      </navigator>
+    </view>
+  </view>
 </view>

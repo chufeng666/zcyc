@@ -1,123 +1,142 @@
-@import "../../../template/common";
-.inner{
-  padding: 20rpx 24rpx;
-}
+/* pages/userInfo/gold.wxss */
+@import '../../../template/font';
 
-.g-withdrawal-a{
-  width: 702rpx;
-  padding:69rpx 0;
-  text-align: center;
-  position: relative;
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #333233;
+  padding: 66rpx 36rpx 24rpx 36rpx;
   color: #fff;
-  border-radius: 6rpx;
-  font-size: 26rpx;
-  margin-bottom: 50rpx;
-}
-.g-withdrawal-a .d-gold-icon{
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 190rpx;
-  height: 190rpx;
-}
-.g-withdrawal-a text{
-  font-size: 26rpx;
-  letter-spacing: 1px;
-}
-.g-withdrawal-money{
-  margin-top: 18rpx;
-  font-size: 40rpx;
-  margin-bottom: 20rpx;
-  font-weight: 600;
-}
-.withdrawal-subtitle{
-  font-size: 26rpx;
-  color:#151515;
-  font-weight: 600;
+  font-size: 36rpx;
 }
 
-/* CONTENT START */
-.withdrawal-cont{
-  margin-top: 38rpx;
-}
-.w-icon-wrap{
-  display: inline-block;
-}
-.w-icon{
-  width:62rpx;
-  height: 57rpx;
-  margin-right: 35rpx;
-}
-.w-icon img{
-  width:62rpx;
-  height: 57rpx;
-}
-.ic-active{
-  width:72rpx;
-  height:72rpx;
-}
-.w-user-info{
-  width: 702rpx;
-  padding-bottom: 26rpx;
-  margin: 40rpx 0 0;
-  font-size: 26rpx;
-  color: #151515;
-  border-bottom: 2rpx solid #fff;
-  overflow: hidden;
-}
-.w-user-icon{
-  width: 25rpx;
-  height: 25rpx;
-  float: right;
-  margin-top: 14rpx;
-}
-.w-user-info text:nth-child(1){
-  margin-right: 55rpx;
-}
-.v-money-tit{
-  font-size: 26rpx;
-  font-weight: bold;
-  margin: 26rpx 0;
+.icon-zuojiantou {
+  font-size: 54rpx;
+  margin-top: 5rpx;
 }
 
-.v-money-{
+.inner {}
+
+.main_top {
+  padding: 34rpx 56rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+
+.weixinhao {}
+
+.wxh_top {
+  margin-bottom: 45rpx;
+  font-size: 26rpx;
+  color: #B0B0B0;
+}
+
+.wxh_bt {
   display: flex;
-  align-items: center;
-  color: #151515;
-  font-weight: bold;
-  border-bottom: 2rpx solid #fff;
-
-}
-.w-money-msg{
-  font-size:30rpx;
-}
-.v-money-inp{
-  width: 566rpx;
-  font-size: 24rpx;
-}
-.w-money-msg1{
-  font-size:26rpx;
-}
-.v-money-2{
-  margin-top: 38rpx;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding-bottom: 20rpx;
-  border-bottom: 2rpx solid #fff;
-  margin-bottom: 40rpx;
+  align-items: center;
 }
-.w-tip{
+
+.wxh_left {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 139rpx;
+  font-size: 36rpx;
+  color: #686868;
+}
+
+.icon-weixin {
+  color: #62BE63;
+  font-size: 42rpx;
+  margin-right: 16rpx;
+}
+
+.zhanghao {
   font-size: 26rpx;
-  color:#151515;
-  font-weight: bold;
+
 }
-.w-tip-msg{
+
+
+
+
+
+
+
+
+.gold-search {
+  padding: 40rpx 56rpx;
+}
+
+.czje {
+  display: flex;
+  align-items: center;
+  margin-bottom: 26rpx;
+  font-size: 30rpx;
+  color: #686868;
+}
+
+.icon-iconcopy {
+  margin-top: 5rpx;
+  font-size: 30rpx;
+}
+
+.czje_right {
+  display: flex;
+  align-items: center;
+  color: #FF730E;
+  font-size: 22rpx;
+  margin-left: 14rpx;
+}
+
+.jine {
+  display: flex;
+  align-items: center;
+  padding: 47rpx 0;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.ms_bt {
+  display: flex;
+  align-items: center;
+  margin-top: 41rpx;
+  font-size: 30rpx;
+  color: #b0b0b0;
+}
+
+.ms_bt .ms_bt_img {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  margin-right: 17rpx;
+}
+
+.shouxufeng {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 42rpx 0;
+  border-bottom: 1rpx solid #dedede;
   font-size: 24rpx;
-  color: #f20d0d;
-  line-height: 40rpx;
 }
-.height{
-  width: 100%;
-  height: 150rpx;
+
+.sxf_left {
+  color: #686868;
+}
+
+.sxf_right {
+  color: #EE331A;
+}
+
+.foot-info {
+  padding: 0 58rpx;
+  margin-top: 300rpx;
+}
+
+.set-option {
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #E8B05F;
+  color: #fff;
+  font-size: 30rpx;
+
 }

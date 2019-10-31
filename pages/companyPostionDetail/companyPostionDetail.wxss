@@ -85,7 +85,9 @@
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
-
+.d-c-list:nth-child(4){
+  border-bottom: none;
+}
 /* list */
 /* 求职期望 */
 .qiuzhiqiwang {
@@ -180,10 +182,7 @@
 }
 
 .footer {
-  position: fixed;
-  bottom: 28rpx;
   padding: 0 32rpx;
-  left: 0;
   width: 100%;
   z-index: 1;
   text-align: right;
@@ -194,7 +193,9 @@
   align-items: center;
 }
 
-.footer-right {}
+.footer-right {
+  display: flex;
+}
 
 .icon-wuxiaoxing-kong {
   font-size: 50rpx;

@@ -1,0 +1,48 @@
+<view class="header" wx:if="{{isShow}}">
+  <navigator url="../goldDeposits">
+    <text class="iconfont    icon-zuojiantou"></text>
+  </navigator>
+  <view class="yuding">充值</view>
+</view>
+<view class="header" wx:else>
+  <text class="iconfont    icon-zuojiantou"></text>
+  <view class="yuding">充值</view>
+</view>
+<view class="inner" wx:if="{{isShow}}">
+  <view class="main">
+    <view class="main_top">
+      <icon class="gou" type="success" size="70" />
+      <view class="success">充值成功</view>
+      <view class="gouchu">
+        <image mode="aspectFill" class="ms_bt_img" src="../../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+        <view>5000</view>
+      </view>
+    </view>
+    <view class="main_bt">
+      <navigator url="../../../myPurse/myPurse">
+        <button class="wancheng">完成</button>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class="inner" wx:else>
+  <view class="main">
+    <view class="main_top">
+      <icon class="cuo" type="clear" color="var(--themeColor)" size="70" />
+      <view class="success">充值失败</view>
+      <view class="shibai">
+        <text class="iconfont icon-iconcopy"></text>
+        <view>非常抱歉，支付过程中发生未知错误，此操作无效</view>
+        <view>你可以选择返回首页或继续支付</view>
+      </view>
+    </view>
+    <view class="main_bt">
+      <navigator url="../../myPurse">
+        <button class="wancheng">返回钱包</button>
+      </navigator>
+      <navigator url="../goldDeposits">
+        <button class="jixu">继续充值</button>
+      </navigator>
+    </view>
+  </view>
+</view>

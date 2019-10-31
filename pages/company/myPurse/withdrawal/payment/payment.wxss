@@ -1,0 +1,116 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #333233;
+  padding: 66rpx 36rpx 24rpx 36rpx;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.icon-zuojiantou {
+  font-size: 54rpx;
+  margin-top: 5rpx;
+}
+
+.inner {
+  padding: 0 56rpx;
+}
+
+.main_top {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 79rpx 0;
+}
+
+.gou {
+  margin-top: 30rpx;
+}
+
+
+.success {
+  margin: 28px 0;
+  font-size: 36rpx;
+  color: #686868;
+}
+
+.gouchu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 88rpx;
+  color: #343434;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #B0B0B0;
+  margin-top: 80rpx;
+}
+
+.ms_bt_img {
+  margin-right: 21rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.main_moddle {
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #dedede;
+  border-top: 1rpx solid #dedede;
+}
+
+.m_m_vip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #B0B0B0;
+}
+
+.youhui {
+  display: flex;
+  align-items: center;
+}
+
+.ms_bt_img2 {
+  margin-right: 8rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}
+
+.main_bt {
+  margin-top: 179rpx;
+}
+
+.wancheng {
+  width: 242rpx;
+  height: 72rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #E8B05F;
+}
+
+.icon-iconcopy {
+  font-size: 38rpx;
+}
+
+.jixu {
+  width: 242rpx;
+  height: 72rpx;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #E8B05F;
+  background-color: #D8D1CF;
+}
+
+.shibai {
+  color: #FF730E;
+  font-size: 22rpx;
+}
+
+@import "../../../../template/font";

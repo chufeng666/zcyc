@@ -1,5 +1,5 @@
-const proxys = 'https://zhaopin.zhifengwangluo.cn/api';
-// const apiProxys ='/api/'
+const proxys = 'https://ycjobs.cn/api';
+// const apiProxys ='/api/ https://ycjobs.cn'
 const userAPI = {
   login: `${proxys}/user/login`,                      //登陆
   wxLogin: `${proxys}/login/index`,                   //微信登陆
