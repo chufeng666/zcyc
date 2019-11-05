@@ -20,7 +20,7 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     arr: [],
     indexData: [],//游客首页数据
-    indicatorDots: true,
+    indicatorDots: false,
     autoplay: true,
     interval: 3000,
     duration: 1000,
@@ -29,7 +29,8 @@ Page({
       { id: 1, title: "最热", isActive: false },
     ],
     index: 0,
-    popular: []
+    popular: [],
+    array: [],
   },
 
   onShow: function () {
@@ -41,6 +42,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function () {
+    this.messageList()
     this.reqIndex(); //请求数据
     util.getStorageItem('savePostion', app);   //
     this.getCategoryList();
@@ -144,10 +146,21 @@ Page({
   /***********地址结束**************** */
   // tabs栏
   changeTitleByIndex (e) {
+    console.log(e.currentTarget.dataset);
     const { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
     this.setData({ tabs, index });
+  },
+  messageList () {
+    var toke = wx.getStorage('token')
+    ServerData.messageList({ toke }).then((res) => {
+      if (res.data.code === 1) {
+        this.setData({
+          array: res.data.data
+        })
+      }
+    })
   },
 
 })

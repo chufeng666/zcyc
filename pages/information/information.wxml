@@ -1,6 +1,6 @@
 <view class="xiaoxi_header">
   <view class="h-left">
-    <navigator url="{{url}}" class="iconfont icon-zuojiantou"></navigator>
+    <navigator url="../userInfo2/index/index" class="iconfont icon-zuojiantou"></navigator>
     <view class="l_qiye">消息(24)</view>
   </view>
 </view>
@@ -16,7 +16,11 @@
       <image src='../../static/images/public/big_portrait.png' class='t-info-img' />
       <view class='t-info-msg'>
         <view class='f-bold m-b20'>{{item.title}}</view>
-        <view class='-info-msg-exp'>{{item.content}}</view>
+        <!-- <view class='-info-msg-exp'>{{item.content}}</view> -->
+        <!-- <view class='-info-msg-exp' wx:else>
+          <import src="../wxParse/wxParse.wxml" />
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view> -->
       </view>
       <view class='t-right create-time'>
         <text>{{item.create_time}}</text>
@@ -26,6 +30,6 @@
       </view>
       <view class="show">{{item.show}}</view>
     </navigator>
-    <view class='more-recommond2' wx:if="{{isMore}}" bindtap='lookMore'>点击查看更多</view>
+    <!-- <view class='more-recommond2' wx:if="{{isMore}}" bindtap='lookMore'>点击查看更多</view> -->
   </view>
 </view>

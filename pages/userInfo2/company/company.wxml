@@ -14,7 +14,7 @@
   <view class="n-xiahuaxian">
     <view class="newest">
       <view class="province">
-        <view>{{recList[0].city_str}}-{{recList[0].district_str}}　|　建筑　|　{{recList[0].type}}</view>
+        <view>{{recList[0].city}}-{{recList[0].district}}　|　建筑　|　{{recList[0].type}}</view>
       </view>
     </view>
     <view class="n-search">

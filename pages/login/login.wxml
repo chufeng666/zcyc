@@ -20,7 +20,7 @@
     <input placeholder="请输入密码" class="phone_password" name="password" password="{{is_pwd}}" bindinput='getPassword'></input>
   </view>
   <view>
-    <button class="denglu" style="background:{{color}}" bindtap="toLogin">登录</button>
+    <button class="denglu" style="background: var(--themeColor)" bindtap="toLogin">登录</button>
     <view class='resigt-wrap-tt'>
       <view class="resigt" bindtap='resister'>注册</view>
       <view class="forget" bindtap='forget'>忘记密码</view>

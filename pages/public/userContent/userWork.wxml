@@ -1,31 +1,41 @@
 <view class="inner">
-  <view class="gongsi">
-    <text class="name_size">公司名称</text>
-    <view>{{corporate}}</view>
-    <view></view>
-  </view>
-  <view class="zhiwei  gongsi">
-    <text class="name_size">职位名称</text>
-    <input type='text' value="{{gangwei}}" />
-  </view>
-  <view class="zaizhiDate">
-    <text class="name_size">在职时间</text>
-    <view class="zzd_bt">
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{sameDay}}" bindchange="setSameDay">
-        <view class="picker">{{sameDay}}</view>
-      </picker>
-      <text>—</text>
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{sameDay2}}" bindchange="setSameDay2">
-        <view class="picker">{{sameDay2}}</view>
-      </picker>
+  <view>
+    <view class="gongsi">
+      <view class="name_size">
+        <view>公司名称</view>
+        <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
+      </view>
+      <input placeholder="请输入公司名称" bindinput="inputCorporate" value="{{corporate}}" />
+      <view></view>
+    </view>
+    <view class="zhiwei  gongsi">
+      <text class="name_size">职位名称</text>
+      <input type='text' placeholder="请输入职位名称" bindinput="inputGangwei" value="{{gangwei}}" />
+    </view>
+    <view class="zaizhiDate">
+      <text class="name_size">在职时间</text>
+      <view class="zzd_bt">
+        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{sameDay}}" bindchange="setSameDay">
+          <view class="picker">{{sameDay}}</view>
+        </picker>
+        <text>—</text>
+        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{sameDay2}}" bindchange="setSameDay2">
+          <view class="picker">{{sameDay2}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="jingli  gongsi">
+      <text class="name_size">工作经历</text>
+      <editor placeholder="{{jingli}}"></editor>
     </view>
   </view>
-  <view class="jingli  gongsi">
-    <text class="name_size">工作经历</text>
-    <editor placeholder="{{jingli}}"></editor>
+  <view class="userId_main">
+    <view class="userId_shangchuang" bindtap="addOption">
+      <text class="iconfont  .icon-hao"></text>
+      <view>添加工作经验</view>
+    </view>
   </view>
 </view>
 <footer class="pro_ft">
-  <button class="del">删除</button>
-  <button class="add">保存</button>
+  <button class="add" bindtap='initUserInfoTwo'>保存</button>
 </footer>

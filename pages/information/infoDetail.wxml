@@ -1,6 +1,9 @@
-<!--pages/information/infoDetail.wxml-->
+<!-- pages/information/infoDetail.wxml -->
 <view class='info-detail-wrap'>
-    <view class='time'>{{addTime}}</view>
-    <view class='title'>{{info.title}}</view>
-    <view class='content'>{{info.content}}</view>
+  <view class='title'>{{info.title}}</view>
+  <view class='time'>{{addTime}}</view>
+  <view class='content'>
+    <import src="../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
 </view>

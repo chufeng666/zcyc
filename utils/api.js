@@ -36,6 +36,7 @@ const userAPI = {
   userInfo: `${proxys}/user/index`,                   //用户中心
   uploadHeadpic: `${proxys}/user/upload_headpic`,     // 保存头像
   initUserInfo: `${proxys}/person/info`,              // 初始化个人资料
+
   editUserInfo: `${proxys}/person/edit`,              // 编辑个人资料
   getUserImages: `${proxys}/user/get_images`,         // 我的证书
   editImages: `${proxys}/user/edit_images`,           // 编辑证书
@@ -69,6 +70,15 @@ const userAPI = {
   bookingList: `${proxys}/company/reserve_list`,      // 公司预订列表
 
   getAddress: `${proxys}/person/get_address`,             // 获取省/市/区列表
+  initUserInfo1: `${proxys}/person/info1`,            // 基本信息
+  initUserInfo2: `${proxys}/person/info2`,            // 工作经验
+  initUserInfo3: `${proxys}/person/info3`,            // 教育经历
+  initUserInfo4: `${proxys}/person/info4`,            // 项目经历
+  initUserInfo5: `${proxys}/person/info5`,            // 身份证上传
+  initUserInfo6: `${proxys}/person/info6`,            // 职业证书上传
+  initUserInfo7: `${proxys}/person/info7`,            // 求职意向
+  initUserInfo8: `${proxys}/person/info8`,            // 個人説明
+
 }
 
 module.exports = {

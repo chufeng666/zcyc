@@ -14,6 +14,7 @@ page {
   font-size: 36rpx;
   color: #fff;
   line-height: 127rpx;
+  z-index: 10;
 }
 
 .h-left {
@@ -27,7 +28,7 @@ page {
 #wrap {
   background-color: #fff;
   margin-top: 127rpx;
-  margin-bottom: 200rpx;
+  margin-bottom: 300rpx;
 }
 
 /* <!-- TITLE START --> */
@@ -90,6 +91,7 @@ page {
 
 .icon-youjiantou {
   font-size: 30rpx;
+  float: right;
 }
 
 /* <!-- TITLE START --> */
@@ -147,6 +149,7 @@ page {
 
 .u-o-list {
   display: flex;
+  align-content: center;
 }
 
 .user_img {
@@ -179,6 +182,7 @@ page {
 .u-o_left {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .user_price {
@@ -199,36 +203,37 @@ page {
   padding: 26rpx 32rpx 0 32rpx;
 }
 
+.u-o_left1 {
+  flex: 9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .uscz_neirong .u-o-list,
 .user_qiehuan .u-o-list {
   margin-bottom: 28rpx;
 }
 
-.uscz_neirong .u-o-list .u-o_left,
-.user_qiehuan .u-o-list .u-o_left {
+.uscz_neirong .u-o-list .u-o_left1,
+.user_qiehuan .u-o-list .u-o_left1 {
   padding-bottom: 28rpx;
   border-bottom: 1rpx solid #dedede;
 }
-.uscz_neirong .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 494rpx;
-}
-.user_qiehuan .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 546rpx;
-}
-.uscz_neirong .u-o-list:last-child .u-o_left .icon-youjiantou {
-  margin-left: 466rpx;
-}
-.uscz_neirong .u-o-list:last-child .u-o_left {
+
+.uscz_neirong .u-o-list:last-child .u-o_left1 {
   border: none;
   padding: 0;
   margin: 0;
 }
-.user_qiehuan .u-o-list:last-child .u-o_left {
+
+.user_qiehuan .u-o-list:last-child .u-o_left1 {
   font-size: 30rpx;
   color: #686868;
   border: none;
   margin: 0;
 }
+
 /* <!-- USER OPTION START --> */
 
 /* 主体 */

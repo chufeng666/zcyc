@@ -1,1 +1,5 @@
-@import "userWork"
+@import "userWork";
+
+.inner_main {
+  margin-bottom: 120rpx;
+}

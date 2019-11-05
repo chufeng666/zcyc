@@ -47,7 +47,7 @@ Page({
     // 要传给后台的参数
     // this.data.id职位id
     var _opt = {
-      id: this.data.id
+      id: 109
     }
     ServerData.personalDetail(_opt).then((res) => {
       if (res.data.status == 1) {

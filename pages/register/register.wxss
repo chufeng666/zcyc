@@ -55,14 +55,14 @@ page {
   font-size: 26rpx;
   vertical-align: top;
   margin-left: 28rpx;
-  width: 450rpx;
+  width: 300rpx;
   padding-bottom: 15rpx;
   position: absolute;
   bottom: 0rpx;
   left: 40rpx;
 }
 .phone_password {
-  width: 500rpx;
+  width: 300rpx;
   height: 56rpx;
   display: inline-block;
   margin-left: 68rpx;
@@ -225,6 +225,7 @@ page {
 }
 .option_box {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   margin-top: 45rpx;
 }
@@ -234,7 +235,6 @@ page {
   font-size: 32rpx;
   font-weight: 500;
   border-radius: 40rpx;
-  margin-right: 32rpx;
 }
 .xiala_pic {
   width: 20rpx;

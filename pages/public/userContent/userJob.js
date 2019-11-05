@@ -7,15 +7,20 @@ Page({
   data: {
     // 工种
     jobArray: [],
-    jobIndex: 0,
     // 工种城市
-    areaInfo: '广州-黄埔区',
     addressBoxShow: true,
     // 岗位
     gangwei: '安全员',
     // 薪资
-    index: 0,
-    xinzi: ['不限', '3k以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上']
+    xinzi: ['不限', '3k以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'],
+    // 上传数据
+    careers: '',    // 期望岗位职业
+    city: '',    // 市
+    district: '',    // 区
+    job_type: 0, // 工作类型
+    job_intention: '', // 工种名称
+    province: '',   // 省
+    salary: '',    // 期望薪资
   },
 
   /**
@@ -24,11 +29,52 @@ Page({
   onLoad: function (options) {
     // 获取工种
     this.getCategoryList();
+    this.initUserInfo7();
     /*********地址 */
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
   },
-  // 工种
+  // 请求
+  initUserInfo7 () {
+    let that = this;
+    ServerData.initUserInfo7({}).then((res) => {
+      if (res.data.status == 1) {
+        that.setData({
+          careers: res.data.data.careers,
+          city: res.data.data.city,
+          district: res.data.data.district,
+          job_type: res.data.data.job_type,
+          job_intention: res.data.data.job_intention,
+          province: res.data.data.province,
+          salary: res.data.data.salary,
+        })
+      }
+    })
+  },
+
+  // 上传
+  initUserInfoSeven () {
+    let { careers, city, district, job_type, job_intention, province, salary } = this.data
+    ServerData.initUserInfoSeven({ careers, city, district, job_type, job_intention, province, salary }).then((res) => {
+      if (res.data.status == 1) {
+        if (res.data.status == 1) {
+          ServerData._wxTost(res.data.msg);
+          setTimeout(function () {
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000)
+          }, 1500)
+        } else if (res.data.status == -1) {
+          ServerData._wxTost('请随机修改一个信息');
+        } else {
+          ServerData._wxTost(res.data.msg);
+        }
+      }
+    })
+  },
+  // 请求工种
   getCategoryList () {
     var that = this
     ServerData.categoryList({}).then((res) => {
@@ -43,12 +89,6 @@ Page({
       }
     })
   },
-  jobChange: function (e) {
-    this.setData({
-      jobIndex: e.detail.value
-    })
-  },
-
   /***********地址开始**************** */
   tabEvent (data) {      //接收传过来的参数
     var info = data.detail
@@ -59,6 +99,9 @@ Page({
       aCode: info.aCode,
       showTST: info.showTST,
       addressBoxShow: info.isShow,
+      province: info.province,
+      city: info.city + '-',
+      district: info.area,
     })
     // this.hiring()             //主页信息
   },
@@ -74,8 +117,26 @@ Page({
 
   // 薪资
   setiXinzi (e) {
+    let index = e.detail.value
+    let { xinzi } = this.data
     this.setData({
-      index: e.detail.value
+      salary: xinzi[index]
+    })
+  },
+  // 类型
+  jobChange (e) {
+    let value = e.detail.value
+    let { jobArray } = this.data
+    this.setData({
+      job_intention: jobArray[value].cat_name,
+      job_type: value
+    })
+  },
+  // 期望职位
+  inputGangwei (e) {
+    let careers = e.detail.value;
+    this.setData({
+      careers
     })
   },
   /**

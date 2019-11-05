@@ -1,5 +1,7 @@
 /* pages/information/infomation.wxss */
 @import "../template/common";
+@import "../wxParse/wxParse.wxss";
+
 
 /* 头部 */
 .xiaoxi_header {
@@ -28,9 +30,11 @@
 
 .t-info-list {
   position: relative;
+  text-align: center;
 }
 
 .create-time {
+  line-height: 127rpx;
   margin-left: auto;
   font-size: 24rpx;
   color: #999;
@@ -42,6 +46,7 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   white-space: nowrap;
+  margin-bottom: 0;
 }
 
 .-info-msg-exp {

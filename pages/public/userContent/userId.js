@@ -1,66 +1,100 @@
-// pages/public/userContent/userId.js
+import ServerData from '../../../utils/serverData.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isShow1: true,
+    idcard_back: [''],
+    isShow2: true,
+    idcard_front: [],
+    idcard: ''  // 省份证号码
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.initUserInfo5()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取身份证
+  initUserInfo5 () {
+    let that = this;
+    ServerData.initUserInfo5({}).then((res) => {
+      console.log(res);
+      if (res.data.status == 1) {
+        that.setData({
+          idcard: res.data.data.idcard,
+          idcard_back: res.data.data.idcard_back,
+          idcard_front: res.data.data.idcard_front
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 上传身份证
+  initUserInfoFive () {
+    let that = this;
+    let { idcard, idcard_back, idcard_front } = that.data
+    ServerData.initUserInfoFive({ idcard, idcard_back, idcard_front }).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+      ServerData._wxTost(res.data.msg)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  addIdCardPic1 () {                                    //头像上传1
+    var _this = this
+    let { idcard_back } = _this.data;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        var imgSrc = res.tempFilePaths[0];
+        idcard_back = imgSrc
+        ServerData.uploadFile(idcard_back).then((res) => {
+          console.log(res);
+          var dat = JSON.parse(res.data)
+          if (dat.status == 1) {
+            idcard_back = dat.data
+            _this.setData({
+              idcard_back, isShow1: false,
+            })
+          }
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  addIdCardPic2 () {                                    //头像上传1
+    var _this = this
+    let { idcard_front } = _this.data;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        var imgSrc = res.tempFilePaths[0];
+        idcard_front = imgSrc
+        ServerData.uploadFile(idcard_front).then((res) => {
+          var dat = JSON.parse(res.data)
+          if (dat.status == 1) {
+            idcard_front = dat.data
+            _this.setData({
+              idcard_front, isShow2: false,
+            })
+          }
+        })
+      }
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // 身份证号码
+  inputIdcard (e) {
+    this.setData({
+      idcard: e.detail.value
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

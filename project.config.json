@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -22,7 +23,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
+	"libVersion": "2.9.1",
 	"appid": "wxb2321247535b62b6",
 	"projectname": "job_xcx",
 	"debugOptions": {
@@ -54,7 +55,85 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/register/register",
+					"pathName": "pages/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/public/userContent/userInfo",
+					"pathName": "pages/public/userContent/userInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userId",
+					"pathName": "pages/public/userContent/userId",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/Professional",
+					"pathName": "pages/public/userContent/Professional",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/headPortrait/headPortrait",
+					"pathName": "pages/headPortrait/headPortrait",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userWork",
+					"pathName": "pages/public/userContent/userWork",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userJob",
+					"pathName": "pages/public/userContent/userJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userEducation",
+					"pathName": "pages/public/userContent/userEducation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userProject",
+					"pathName": "pages/public/userContent/userProject",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userWork",
+					"pathName": "pages/public/userContent/userWork",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userCertificate",
+					"pathName": "pages/public/userContent/userCertificate",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

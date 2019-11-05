@@ -1,18 +1,20 @@
-// pages/public/userContent/Professional.js
+import ServerData from '../../../utils/serverData.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    images: [{ path: '', title: '' }],
+    showAddBtn: 1,
+    index: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.initUserInfo6()
   },
 
   /**
@@ -21,7 +23,86 @@ Page({
   onReady: function () {
 
   },
+  initUserInfo6 () {
+    let that = this
+    ServerData.initUserInfo6({}).then((res) => {
+      let images = res.data.data;
+      that.setData({ images })
+    })
+  },
+  initUserInfoSix () {
+    let that = this
+    let { images } = that.data;
+    ServerData.initUserInfoSix({ images }).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+      ServerData._wxTost(res.data.msg)
+    })
 
+  },
+  addIdCardPic (e) {                                    //头像上传
+    var _this = this
+    let path
+    let { images } = _this.data;
+    for (let i in images) {
+      if (i == e.currentTarget.dataset.index) {
+        wx.chooseImage({
+          sizeType: ['original', 'compressed'],
+          sourceType: ['album', 'camera'],
+          success: function (res) {
+            var imgSrc = res.tempFilePaths[0];
+            path = imgSrc
+            ServerData.uploadFile(path).then((res) => {
+              var dat = JSON.parse(res.data)
+              if (dat.status == 1) {
+                path = dat.data
+                images[i].path = path
+                _this.setData({ images, index: e.currentTarget.dataset.index })
+              }
+            })
+          }
+        })
+      }
+    }
+
+  },
+  // 点击添加证件
+  addOption: function (e) {
+    let images = this.data.images;
+    images.push({ path: '', title: '' })
+    this.setData({ images });
+
+  },
+  inpuTitle (e) {
+    let title = e.detail.value
+    let index = e.target.dataset.index
+    // console.log(e);
+    let images = this.data.images
+    for (let i in images) {
+      if (i == index) {
+        images[i].title = title
+      }
+    }
+    this.setData({
+      images
+    })
+  },
+  deletProfessional (e) {
+    let that = this
+    let { images } = this.data;
+    for (let i in images) {
+      images.splice(i, 1)
+    }
+    that.setData({
+      images
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

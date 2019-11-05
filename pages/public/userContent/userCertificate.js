@@ -1,20 +1,36 @@
-// pages/public/userContent/userCertificate.js
+import ServerData from '../../../utils/serverData.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shuoming: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
+    desc: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.initUserInfo8()
   },
-
+  initUserInfo8 () {
+    ServerData.initUserInfo8({}).then((res) => {
+      console.log(res);
+    })
+  },
+  initUserInfo8 () {
+    let that = this
+    let { desc } = that.data
+    ServerData.initUserInfo8({ desc }).then((res) => {
+      console.log(res);
+    })
+  },
+  onContentChange (e) {
+    this.setData({
+      desc: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

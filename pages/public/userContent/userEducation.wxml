@@ -1,33 +1,32 @@
 <view class="inner">
   <view class="gongsi">
     <text class="name_size">学校名称</text>
-    <view>{{corporate}}</view>
+    <input type='text' bindinput="inputSchool" value="{{school}}"></input>
     <view></view>
   </view>
   <view class="zhiwei  gongsi">
     <text class="name_size">专业</text>
-    <input type='text' value="{{zhuanye}}" />
+    <input type='text' bindinput="inputMajor" value="{{major}}" />
   </view>
   <view class="zhiwei  gongsi">
     <text class="name_size">学历</text>
     <picker class="" mode="selector" range="{{educationList}}" value="{{index}}" bindchange="bindPickerChange">
-      <view class="picker">{{educationList[index]}}</view>
+      <view class="picker">{{school_type}}</view>
     </picker>
   </view>
   <view class="zaizhiDate">
     <text class="name_size">就读时间</text>
     <view class="zzd_bt">
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{sameDay}}" bindchange="setSameDay">
-        <view class="picker">{{sameDay}}</view>
+      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{start_time}}" bindchange="setSameDay">
+        <view class="picker">{{start_time}}</view>
       </picker>
       <text>—</text>
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{sameDay2}}" bindchange="setSameDay2">
-        <view class="picker">{{sameDay2}}</view>
+      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{graduate_time}}" bindchange="setSameDay2">
+        <view class="picker">{{graduate_time}}</view>
       </picker>
     </view>
   </view>
 </view>
 <footer class="pro_ft">
-  <button class="del">删除</button>
-  <button class="add">保存</button>
+  <button class="add" bindtap="initUserInfoThree">保存</button>
 </footer>

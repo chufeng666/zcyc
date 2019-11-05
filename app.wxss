@@ -176,8 +176,7 @@ page {
   width: 100%;
 }
 
-.footer-height {
-}
+.footer-height {}
 
 /* MOBILE CODE START */
 
@@ -227,7 +226,7 @@ page {
   padding-top: 20rpx;
   text-align: center;
   letter-spacing: 4rpx;
-  color: #ee291a;
+  color: var(--themeColor);
 }
 
 .mima_ear {
@@ -252,16 +251,16 @@ image {
 
 page {
   /* 1 定义变量 */
-  --themeColor: #ee291a;
+  --themeColor: #d93e23;
   --thirdPartyColor: #1487f1 !important;
 }
 
 .user-top {
-  background: #ee291a !important;
+  background: #d93e23 !important;
 }
 
 .user-size {
-  color: #ee291a !important;
+  color: #d93e23 !important;
 }
 
 .company-color {

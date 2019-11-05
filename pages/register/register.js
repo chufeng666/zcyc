@@ -25,14 +25,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.setData({
       toke: options.toke == undefined ? "" : options.toke,
       register: options.register == undefined ? "" : options.register,
     })
 
   },
-
   clickCode: function () {     //发送验证码
     var that = this,
       mobile = that.data.mobile,
@@ -42,6 +40,8 @@ Page({
     }
     var _opt = { 'mobile': mobile }
     ServerData.verifyCode(_opt).then((res) => {
+      console.log(res);
+      // settime(that)
       if (res.data.status == 1) {
         settime(that)
       } else {

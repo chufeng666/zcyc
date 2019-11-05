@@ -1,6 +1,6 @@
 .i-header {
   height: 208rpx;
-  background-color: #ee331a;
+  background-color: var(--themeColor);
   line-height: 104rpx;
   position: fixed;
   top: 0;
@@ -216,7 +216,7 @@
 /* 数据展示 */
 
 .active {
-  color: #ee331a;
+  color: var(--themeColor);
   font-weight: 400;
 }
 

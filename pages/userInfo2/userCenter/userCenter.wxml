@@ -62,35 +62,35 @@
         <view class="uscz_neirong">
           <navigator url="../collect/collect" class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shouc.png" />
-            <view class="u-o_left">
+            <view class="u-o_left1">
               <text>我的收藏</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <navigator url="../myCertificate/myCertificate" class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_zhengshu.png" />
-            <view class="u-o_left">
+            <view class="u-o_left1">
               <text>我的证书</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <view class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shimingrenz.png" />
-            <view class="u-o_left">
+            <view class="u-o_left1">
               <text>实名认证</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </view>
           <navigator url="../privacySettings/privacySettings" class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
-            <view class="u-o_left">
+            <view class="u-o_left1">
               <text>隐私设置</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <navigator url="../../public/help" class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shoucfankui.png" />
-            <view class="u-o_left">
+            <view class="u-o_left1">
               <text>帮助与反馈</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
@@ -100,14 +100,14 @@
       <view class="user_qiehuan">
         <navigator url="../../public/setting?openid={{info.mobile}}" class='u-o-list'>
           <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
-          <view class="u-o_left">
-            <text>设置</text>
+          <view class="u-o_left1">
+            <view>设置</view>
             <text class='iconfont icon-youjiantou user-color-'></text>
           </view>
         </navigator>
         <view class='u-o-list m-b10' bindtap="switchUser">
           <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qiehuanzhangh.png" />
-          <view class="u-o_left">
+          <view class="u-o_left1">
             <text>切换账号</text>
           </view>
         </view>

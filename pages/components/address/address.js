@@ -29,7 +29,6 @@ Component({
         isShow: !this.data.isShow
       })
     },
-
     // 执行动画
     startAddressAnimation: function (isShow) {
       var that = this
@@ -43,25 +42,6 @@ Component({
         addressMenuIsShow: isShow,
       })
     },
-
-    // 点击地区选择取消按钮
-
-
-    // closeCityBox(){
-    //   var that =this
-    //     this.startAddressAnimation(false)
-    //     this.showPopup()
-    //     let areaInfo = that.data.province.area_name + ',' + that.data.city.area_name + ',' + that.data.area.area_name
-    //     var json={
-    //       areaInfo: areaInfo,
-    //       pCode: that.data.province.code,
-    //       cCode: that.data.city.code,
-    //       aCode: that.data.area.code,
-    //       showTST: true,
-    //       isShow:true
-    //     }
-    //     this.triggerEvent('tabEvent', json)
-    // },
 
     cityCancel: function (e) {
       this.startAddressAnimation(false)
@@ -79,10 +59,6 @@ Component({
 
     // 点击地区选择确定按钮
     citySure: function (e) {
-
-
-
-
       var that = this
       var value = that.data.value
       that.startAddressAnimation(false)
@@ -95,15 +71,13 @@ Component({
         aCode: that.data.area.code,
         showTST: false
       })
-
-
-
       this.showPopup()
-      // this.reqIndex()
-      console.log(this.data.aCode)
       var json = {
         areaInfo: areaInfo,
         pCode: that.data.province.code,
+        province: that.data.province.area_name,
+        city: that.data.city.area_name,
+        area: that.data.area.area_name,
         cCode: that.data.city.code,
         aCode: that.data.area.code,
         showTST: false,

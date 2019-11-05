@@ -34,8 +34,44 @@
 }
 
 .name_size {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 48rpx;
   font-size: 28rpx;
   font-weight: normal;
   color: #686868;
 }
+
+.icon-iconcopy {
+  text-align: center;
+  margin-left: 19rpx;
+  font-weight: normal;
+  font-size: 28rpx;
+  color: #FDBA0B;
+}
+
+.us_hd_id_num {
+  margin-top: 51rpx;
+}
+
+.bitian {
+  width: 48rpx;
+  height: 28rpx;
+  font-size: 18rpx;
+  padding: 0 6rpx;
+  margin-left: 7rpx;
+  color: #fff;
+  background-color: #FF730E;
+  font-weight: normal;
+  border-radius: 10rpx 4rpx 10rpx 0;
+}
+
+.userId_img_zheng {
+  border: 1rp solid #dedede;
+}
+
+.userId_img_fan {
+  border: 1rp solid #dedede;
+}
+
+@import "../../template/font"

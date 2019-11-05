@@ -70,6 +70,10 @@
         </view>
       </view>
     </view>
+    <button class="tuisongjianli">
+      <text class="iconfont  icon-tuisong"></text>
+      <view>推送简历</view>
+    </button>
     <button class='f-btn-2 {{pBgC}}' open-type="contact">
       <text class="iconfont    icon-lianxi"></text>
       <view>联系客服</view>

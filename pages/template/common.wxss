@@ -4,11 +4,11 @@
 
 .user-bg-,
 .user-active- {
-  background: #ee291a !important;
+  background: var(--themeColor) !important;
 }
 
 .user-color- {
-  color: #ee291a !important;
+  color: var(--themeColor) !important;
 }
 
 .user-bColor- {
@@ -351,11 +351,11 @@
 }
 
 .company-status {
-  background-color: var(--thirdPartyColor);
+  float: left;
   border-radius: 2rpx;
   font-size: 26rpx !important;
   text-align: center;
-  color: #fff;
+  color: #686868;
   padding: 6rpx 16rpx;
 }
 
@@ -514,6 +514,7 @@
   display: block;
   color: #151515;
   width: 426rpx;
+  line-height: 127rpx;
 }
 
 /* EIDIT INFO TEXTAREA STYLE START */

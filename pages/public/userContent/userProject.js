@@ -1,18 +1,14 @@
-// pages/public/userContent/userWork.js
+import ServerData from '../../../utils/serverData.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 公司名称
-    corporate: '广州万宝有限公司',
-    // 职位名称
-    gangwei: '安全员',
-    // 当天时间
-    sameDay: '',
-    sameDay2: '至今',
-    jingli: '1.负责落实公司各项安全规章管理制度<br/>2.确保项目部顺利实行安全生产工作<br/>3.现场检查管理工作及内场资料。'
+    project: [],
+    isShow: true,
+    index1: '',
+    checked: false
   },
 
   /**
@@ -20,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.sameDay();
+    this.initUserInfo4();// 请求数据
   },
   // 当天时间
   sameDay () {
@@ -41,6 +38,74 @@ Page({
   setSameDay2 (e) {
     this.setData({
       sameDay2: e.detail.value
+    })
+  },
+  // 请求数据
+  initUserInfo4 () {
+    let that = this
+    ServerData.initUserInfo4({}).then((res) => {
+      if (res.data.status == 1) {
+        that.setData({
+          project: res.data.data
+        })
+      }
+    })
+  },
+  onContentChange (e) {
+    let { index } = e.target.dataset
+    let { project } = this.data
+    project[index].data5 = e.detail.value
+    this.setData({
+      project
+    })
+  },
+  addOption (e) {
+    let { project, isShow } = this.data;
+    if (project.length > 3) {
+      isShow = false
+    }
+    project.push({ data1: '', data2: '', data3: '', data4: '', data5: '' })
+    this.setData({ project, isShow });
+  },
+  //上传数据
+  initUserInfoFour () {
+    let { project } = this.data
+    ServerData.initUserInfoFour({ project }).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg);
+        setTimeout(function () {
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
+        }, 1500)
+      } else {
+        ServerData._wxTost(res.data.msg);
+      }
+    })
+  },
+  inputCorporate (e) {
+    this.setData({
+      corporate: e.detail.value
+    })
+  },
+  inputGangwei (e) {
+    this.setData({
+      gangwei: e.detail.value
+    })
+  },
+
+  deleteitem (e) {
+    let { index } = e.currentTarget.dataset;
+    let { project } = this.data;
+    for (let i = 0; i < project.length; i++) {
+      if (i == index) {
+        project.splice(i, 1);
+      }
+    }
+    this.setData({
+      project
     })
   },
   /**

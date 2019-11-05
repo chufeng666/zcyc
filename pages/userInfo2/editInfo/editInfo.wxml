@@ -60,9 +60,9 @@
         <text class="bitian">必填</text>
       </view>
       <view class="us_l_bottom">
-        <view class="us_l_bt_top">{{getUData.job_type}}　 {{getUData.salary}}</view>
+        <view class="us_l_bt_top">{{getUData.job_intention}}　 {{getUData.salary}}</view>
         <view class="us_l_bt_oottom">
-          {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time}}
+          {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time }}
         </view>
       </view>
     </view>
@@ -78,25 +78,21 @@
         <view class="us_l_t_name">工作经验</view>
         <text class="bitian">必填</text>
       </view>
-      <navigator url="../../public/userContent/userAddWork">
-        <view class="us_wk_ft_right">
-          <text class="iconfont icon-hao"></text>
-          添加
-        </view>
-      </navigator>
-    </view>
-    <view class="us_wk_second">
-      <view class="us_wk_sd_left">
-        <text class="iconfont  icon-gongsi"></text>
-        <view>广州万宝有限公司</view>
-      </view>
       <navigator url="../../public/userContent/userWork">
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
-    <view class="us_wk_fourth">
-      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...\n1.负责落实公司各项安</text>
+    <view class="us_wk_project">
+      <view class="us_wk_second">
+        <view class="us_wk_sd_left">
+          <text class="iconfont  icon-gongsi"></text>
+          <view>广州万宝有限公司</view>
+        </view>
+      </view>
+      <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
+      <view class="us_wk_fourth">
+        <text>{{getUData.experience}}</text>
+      </view>
     </view>
   </view>
   <!-- 工作经验 -->
@@ -107,25 +103,21 @@
         <view class="us_l_t_name">项目经验</view>
         <text class="bitian">必填</text>
       </view>
-      <navigator url="../../public/userContent/userAddProject">
-        <view class="us_wk_ft_right">
-          <text class="iconfont icon-hao"></text>
-          添加
-        </view>
-      </navigator>
-    </view>
-    <view class="us_wk_second">
-      <view class="us_wk_sd_left">
-        <text class="iconfont  icon-gongsi"></text>
-        <view>广州交易中心安全</view>
-      </view>
       <navigator url="../../public/userContent/userProject">
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
-    <view class="us_wk_fourth">
-      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...\n1.负责落实公司各项安</text>
+    <view class="us_wk_project" wx:for="{{getUData.project}}" wx:key="">
+      <view class="us_wk_second">
+        <view class="us_wk_sd_left">
+          <text class="iconfont  icon-gongsi"></text>
+          <view>{{item.data1}}</view>
+        </view>
+      </view>
+      <view class="us_wk_third">岗位：{{item.data2}}　　　　时间：{{item.data3}}-{{item.data4}}</view>
+      <view class="us_wk_fourth">
+        <text>{{item.data5}}</text>
+      </view>
     </view>
   </view>
   <!-- 项目经验 -->
@@ -138,8 +130,10 @@
       </navigator>
     </view>
     <view class="us_l_bottom">
-      <view class="us_l_bt_top">广州市交通技师学院</view>
-      <view class="us_l_bt_oottom">本科 - 建筑专业 | 2014-2018</view>
+      <view class="us_l_bt_top">{{getUData.school}}</view>
+      <view class="us_l_bt_oottom">
+        {{getUData.degree}} - {{getUData.major}} | {{getUData.start_time}}-{{getUData.graduate_time}}
+      </view>
     </view>
   </view>
   <!-- 教育经历 -->
@@ -152,8 +146,9 @@
       </navigator>
     </view>
     <view class="us_l_bottom">
-      <text>1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料...</text>
+      <text>{{desc}}</text>
     </view>
   </view>
   <!-- 个人说明 -->
+  <button class="denglu" bindtap="">登录</button>
 </view>

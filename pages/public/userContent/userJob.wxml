@@ -2,25 +2,25 @@
   <view class="leixing">
     <text class="name_size">职业类型</text>
     <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
-      <view class="picker">{{jobArray[jobIndex].cat_name}}</view>
+      <view class="picker">{{job_intention}}</view>
     </picker>
   </view>
   <view class="chengshi  leixing">
     <text class="name_size">工作城市</text>
-    <view bindtap="selectDistrict">{{areaInfo}}</view>
+    <view bindtap="selectDistrict">{{city}}{{district}}</view>
     <!-- 所有城市三级联动列表 -->
     <address-form id='address' bind:tabEvent="tabEvent"></address-form>
     <!-- 地址选择接受 -->
   </view>
   <view class="ganwei  leixing">
     <text class="name_size">期望岗位</text>
-    <input type='text' value="{{gangwei}}" />
+    <input type='text' bindinput="inputGangwei" value="{{careers}}" />
   </view>
   <view class="xizi  leixing">
     <text class="name_size">期望薪资</text>
     <picker class="" mode="selector" range="{{xinzi}}" value="{{index}}" bindchange="setiXinzi">
-      <view class="picker">{{xinzi[index]}}</view>
+      <view class="picker">{{salary}}</view>
     </picker>
   </view>
-  <button class="job_bt">保存</button>
+  <button class="job_bt" bindtap="initUserInfoSeven">保存</button>
 </view>

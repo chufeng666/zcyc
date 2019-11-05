@@ -7,13 +7,19 @@
     </navigator>
   </view>
   <view class="new">
-    <navigator class="new_xiaoxi" url="../../information/information">
-      <view class="n-lfet">
-        消息
-        <view>|</view>
-      </view>
-      <view class="n-right">著名企业今天新发布160个职业</view>
-    </navigator>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-active-color="#ff54b5">
+      <block wx:for="{{array}}" wx:key>
+        <swiper-item style="border-radius: 10rpx;">
+          <navigator class="new_xiaoxi" url="../../information/information">
+            <view class="n-lfet">
+              消息
+              <view>|</view>
+            </view>
+            <view class="n-right">{{item.title}}</view>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>
 <view class="newest-search">
@@ -62,7 +68,7 @@
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
-    <navigator class="c_info" wx:for="{{popular}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.title}}</view>
         <view class="l_price">{{item.salary}}/月</view>

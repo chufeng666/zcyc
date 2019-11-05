@@ -57,7 +57,6 @@
 .por_img {
   width: 112rpx;
   height: 112rpx;
-  background-color: red;
   border-radius: 50%;
 }
 

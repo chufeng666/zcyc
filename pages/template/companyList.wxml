@@ -9,7 +9,7 @@
             <text class='c-msg'>建筑</text>
             <text class='c-msg'>水利水电</text>
           </view>
-          <view class='company-status'>{{item.city_str}} — {{item.district_str}}</view>
+          <view class='company-status'>{{item.city}} — {{item.district}}</view>
         </view>
       </view>
       <!-- company info start -->

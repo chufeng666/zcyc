@@ -1,6 +1,7 @@
 page {
   background: #fff;
 }
+
 /* 头部 */
 .title_login {
   display: flex;
@@ -9,14 +10,17 @@ page {
   color: #999;
   padding: 0 16rpx;
 }
+
 .title_login .icon-zuojiantou {
   font-size: 60rpx;
 }
+
 .title_login .tl_denglu {
   font-size: 36rpx;
   font-weight: 500;
   margin-bottom: 7rpx;
 }
+
 /* 头部 */
 
 /* 微信授权 */
@@ -31,6 +35,7 @@ page {
   background: #fff;
   overflow-y: hidden;
 }
+
 .header {
   margin: 90rpx 0 90rpx 50rpx;
   border-bottom: 1px solid #ccc;
@@ -64,11 +69,9 @@ page {
 
 /* 微信授权结束 */
 
-.log_ear {
-}
+.log_ear {}
 
-.xiaolian {
-}
+.xiaolian {}
 
 .welecom_title {
   width: 100%;
@@ -83,9 +86,11 @@ page {
   width: 480rpx;
   border-bottom: 1px solid #999;
 }
+
 .icon-lock-alt2 {
   font-size: 36rpx;
 }
+
 .qianzui {
   display: inline-block;
   vertical-align: top;
@@ -103,12 +108,14 @@ page {
   bottom: 10rpx;
   left: 50rpx;
 }
+
 .phone_password {
   position: absolute;
   bottom: 6rpx;
   left: 55rpx;
   font-size: 27rpx;
 }
+
 .delete_pic {
   width: 35rpx;
   height: 35rpx;
@@ -136,18 +143,20 @@ page {
 .resigt {
   /* margin-left: 80rpx; */
   font-size: 28rpx;
-  color: #ee331a;
+  color: var(--themeColor);
   padding-top: 20rpx;
   display: inline-block;
   vertical-align: top;
   cursor: pointer;
   font-weight: 600;
 }
+
 .weixinshouquan {
   display: flex;
   flex-direction: column;
   margin-top: 42rpx;
 }
+
 .youke {
   display: flex;
   align-items: center;
@@ -165,6 +174,7 @@ page {
   position: relative;
   background-color: #fff;
 }
+
 .icon-weixin {
   position: absolute;
   left: 1.5rpx;
@@ -174,6 +184,7 @@ page {
   font-size: 80rpx;
   border-radius: 50%;
 }
+
 .eye_pic {
   width: 40rpx;
   height: 25rpx;
@@ -183,12 +194,14 @@ page {
   padding: 20rpx;
   z-index: 1;
 }
+
 .resigt-wrap-tt {
   display: flex;
   justify-content: space-between;
   width: 480rpx;
   margin: 39rpx 50rpx 20rpx 130rpx;
 }
+
 .forget {
   /* margin-right: 80rpx; */
   font-size: 28rpx;
@@ -209,6 +222,7 @@ page {
   border-top: 1px solid #dadada;
   margin-bottom: 40rpx;
 }
+
 .footPrint-ico {
   width: 80rpx;
   height: 80rpx;
@@ -221,7 +235,9 @@ page {
   vertical-align: middle;
   margin-left: 16rpx;
 }
+
 .active {
   color: var(--themeColor);
 }
+
 @import '../template/font.wxss';

@@ -1,9 +1,9 @@
 <view class="inner">
   <view class="jingli  gongsi">
     <text class="name_size">个人说明</text>
-    <editor placeholder="{{shuoming}}"></editor>
+    <textarea bindinput="onContentChange" data-index="{{index}}" value="{{desc}}" class="jieshao" placeholder="请输入项目经历"></textarea>
   </view>
 </view>
 <footer class="baocun">
-  <button class="bc_shuoming">保存</button>
+  <button class="bc_shuoming" bindtap="initUserInfo8">保存</button>
 </footer>

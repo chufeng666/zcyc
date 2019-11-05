@@ -14,7 +14,6 @@
 }
 
 .zaizhiDate {
-
   display: flex;
   flex-direction: column;
   font-size: 32rpx;
@@ -43,7 +42,6 @@
   padding: 80rpx 56rpx;
   display: flex;
   align-items: center;
-
 }
 
 .del {
@@ -52,7 +50,7 @@
   border-radius: 36rpx;
   line-height: 72rpx;
   background-color: #dedede;
-  color: #1487F1;
+  color: #1487f1;
   margin-right: 12rpx;
   font-size: 30rpx;
 }
@@ -60,16 +58,69 @@
 .add {
   width: 442rpx;
   height: 72rpx;
-  background-color: #1487F1;
+  background-color: #1487f1;
+  font-size: 28rpx;
+  font-weight: normal;
   color: #fff;
   border-radius: 36rpx;
   line-height: 72rpx;
-  font-size: 30rpx;
 }
 
 .name_size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 48rpx;
+  font-size: 30rpx;
+  color: #000;
+}
+
+.userId_shangchuang {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+  background-color: #dedede;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+
+.icon-hao {
+  font-weight: bold;
+  margin-right: 15rpx;
+}
+
+.jieshao {
+  font-size: 28rpx;
+  color: #686868;
+  font-weight: normal;
+  height: 150rpx;
+}
+
+.inner_main {
+  margin-bottom: 200rpx;
+}
+
+.jingli {
+  border-bottom: 1rpx dashed #dedede;
+}
+
+.jingli_top {
+
+  text-align: right;
+  margin-bottom: 15rpx;
+}
+
+.inputSize {
   font-size: 28rpx;
   font-weight: normal;
-  color: #686868;
+  color: #262626;
 }
+
+.radio-group {
+  font-size: 28rpx;
+}
+
+@import "../../template/font"

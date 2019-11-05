@@ -121,7 +121,6 @@ Page({
         var type = res.data.data.regtype       //用户状态
         wx.setStorageSync('token', res.data.data.token);
         wx.setStorageSync('savePostion', type);
-        console.log(type)
         that.comeIndex(type)    //进入首页
       }
       else if (res.data.status == 3) {            //注册账号但没有注册信息
@@ -205,7 +204,7 @@ Page({
   },
   forget: function () {             //  忘记密码
     wx.navigateTo({
-      url: '../forgetpassword/forgetpassword',
+      url: '../public/password',
     })
   },
   resister: function () {       //  注册
