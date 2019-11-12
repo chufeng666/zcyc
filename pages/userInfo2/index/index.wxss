@@ -52,8 +52,11 @@
 .i-header .new,
 swiper {
   height: 74rpx;
+  
 }
-
+swiper-item{
+border-radius: none;
+}
 .i-header .new .new_xiaoxi {
   display: flex;
   align-content: center;

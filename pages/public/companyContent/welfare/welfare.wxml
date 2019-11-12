@@ -7,37 +7,23 @@
         <view>请发布岗位福利标签</view>
       </view>
     </view>
-    <view class="main">
-      <view class="m_top"></view>
-      <input placeholder="请输入福利标签" />
-    </view>
     <view class="setLabel">
-      <view>添加标签</view>
-      <view class="sl_biaoqian">
-        <view class="sl_bq_list">
-          <view>餐补</view>
-          <text class="iconfont  .icon-cuo"></text>
+      <!-- <view class="sl_biaoqian">
+        <view class="sl_bq_list {{item.checked?'active':''}}" wx:for="{{daiyu}}" wx:key="index" data-index="{{index}}" bindtap="addDaiyu">
+          {{item.name}}
         </view>
-        <view class="sl_bq_seconds">
-          <view>包吃包住</view>
-          <text class="iconfont  .icon-cuo"></text>
+      </view> -->
+      <checkbox-group bindchange="checkboxChange" class="sl_biaoqian">
+        <view class="sl_bq_list  {{item.checked?'active':''}}" wx:for="{{daiyu}}" wx:key="index">
+          <label class="checkbox " bindtap='addDaiyu' data-index="{{index}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+            {{item.name}}
+          </label>
         </view>
-        <view class="sl_bq_seconds">
-          <view>五险一金</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_seconds">
-          <view>周末福利</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_list">
-          <view>年底分红</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-      </view>
+      </checkbox-group>
     </view>
   </view>
   <view class="footer">
-    <button>确定</button>
+    <button bindtap="editTel">确定</button>
   </view>
 </view>

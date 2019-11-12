@@ -13,6 +13,7 @@ Page({
     gangwei: '安全员',
     // 薪资
     xinzi: ['不限', '3k以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'],
+    workJob: ['离职-随时到岗', '在职-月内到岗', '在职-考虑机会', '在职-暂不考虑',],
     // 上传数据
     careers: '',    // 期望岗位职业
     city: '',    // 市
@@ -21,6 +22,7 @@ Page({
     job_intention: '', // 工种名称
     province: '',   // 省
     salary: '',    // 期望薪资
+    daogang_time: '' // 工作状态
   },
 
   /**
@@ -35,9 +37,10 @@ Page({
     /*********地址 */
   },
   // 请求
-  initUserInfo7 () {
+  initUserInfo7() {
     let that = this;
     ServerData.initUserInfo7({}).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           careers: res.data.data.careers,
@@ -53,9 +56,9 @@ Page({
   },
 
   // 上传
-  initUserInfoSeven () {
-    let { careers, city, district, job_type, job_intention, province, salary } = this.data
-    ServerData.initUserInfoSeven({ careers, city, district, job_type, job_intention, province, salary }).then((res) => {
+  initUserInfoSeven() {
+    let {daogang_time, careers, city, district, job_type, job_intention, province, salary } = this.data
+    ServerData.initUserInfoSeven({daogang_time, careers, city, district, job_type, job_intention, province, salary }).then((res) => {
       if (res.data.status == 1) {
         if (res.data.status == 1) {
           ServerData._wxTost(res.data.msg);
@@ -75,7 +78,7 @@ Page({
     })
   },
   // 请求工种
-  getCategoryList () {
+  getCategoryList() {
     var that = this
     ServerData.categoryList({}).then((res) => {
       if (res.data.status == 1) {
@@ -90,7 +93,7 @@ Page({
     })
   },
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
@@ -116,7 +119,7 @@ Page({
   /***********地址结束**************** */
 
   // 薪资
-  setiXinzi (e) {
+  setiXinzi(e) {
     let index = e.detail.value
     let { xinzi } = this.data
     this.setData({
@@ -124,7 +127,7 @@ Page({
     })
   },
   // 类型
-  jobChange (e) {
+  jobChange(e) {
     let value = e.detail.value
     let { jobArray } = this.data
     this.setData({
@@ -133,58 +136,16 @@ Page({
     })
   },
   // 期望职位
-  inputGangwei (e) {
+  inputGangwei(e) {
     let careers = e.detail.value;
     this.setData({
       careers
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  setiworkJob(e) {
+    let { workJob } = this.data;
+    this.setData({
+      daogang_time: workJob[e.detail.value]
+    })
   }
 })

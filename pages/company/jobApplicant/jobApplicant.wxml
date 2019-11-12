@@ -4,17 +4,24 @@
     <view class="l_qiye">企业</view>
   </view>
   <view class="h-bottom">
-    <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
-      <view class='search search-nosearch company-bColor-1'>一级建造师</view>
-      <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    </navigator>
+    <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+    <input placeholder="一级建造师" bindinput="handeSearchInput" class='search-nosearch'></input>
   </view>
 </view>
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="newest">
-      <view class="province">
-        <view>广州市-海珠区　|　建筑　|　{{hiringData[0].cat_name}}</view>
+      <view class="province" wx:if="{{showTST}}">
+        <text decode="{{true}}">广州市-海珠区&nbsp;&nbsp;|</text>
+        <picker mode="selector" range="{{jobArray}}" bindchange="setXingzhi">
+          <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{job_intention}}</text>
+        </picker>
+      </view>
+      <view class="province" wx:else>
+        <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|</text>
+        <picker mode="selector" range="{{jobArray}}" bindchange="setXingzhi">
+          <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{job_intention}}</text>
+        </picker>
       </view>
     </view>
     <view class="n-search">
@@ -22,17 +29,13 @@
         <view class="newsite_view subtitle-msg  active">地点</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </view>
-      <navigator class="newsite_button  active" url="../ScreeningConditions/ScreeningConditions">
-        <view class="newsite_view subtitle-msg  ">更多</view>
-        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-      </navigator>
     </view>
   </view>
 </view>
 <view class="inner">
   <view class="container">
-    <import src="../../template/jobApplicant/jobApplicant" />
-    <template is="thirdParty" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
+    <import src="../../template/companyJobSearch/companyJobSearch" />
+    <template is="JobSearch" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->

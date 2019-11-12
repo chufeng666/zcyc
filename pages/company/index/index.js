@@ -35,7 +35,21 @@ Page({
   },
 
   onShow: function () {
-
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '是否完善个人信息',
+    //   success (res) {
+    //     if (res.confirm) {
+    //       wx.redirectTo({
+    //         url: '../company/editInfo/editInfo'
+    //       })
+    //     } else if (res.cancel) {
+    //       wx.redirectTo({
+    //         url:'../company/index'
+    //       })
+    //     }
+    //   }
+    // })
   },
 
 	/**
@@ -118,8 +132,6 @@ Page({
 	 * 跳转到详情
 	 */
   jumpDetails: function (e) {
-    console.log(e);
-
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../company/postionDetail?id=' + id
@@ -133,7 +145,6 @@ Page({
       hasUserInfo: true
     })
   },
-
   /********************其他资料结束 */
   /***********地址开始**************** */
   tabEvent (data) {      //接收传过来的参数

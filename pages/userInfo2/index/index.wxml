@@ -8,7 +8,7 @@
   </view>
   <view class="new">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-active-color="#ff54b5">
-      <block wx:for="{{array}}" wx:key>
+      <block wx:for="{{array}}" wx:key="index">
         <swiper-item style="border-radius: 10rpx;">
           <navigator class="new_xiaoxi" url="../../information/information">
             <view class="n-lfet">
@@ -58,12 +58,12 @@
       <view class="i_third">
         <view class="t_weizhi">广州 - 海珠区</view>
         <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">本科</view>
+        <view class="t_xueli">{{item.education}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.logo}}' class="f_logo" />
         <view class="f_zhiwei">项目经理●刘勇</view>
-        <view class="f_gongsi">[广州建材企业有限公司]</view>
+        <view class="f_gongsi">[{{item.contacts}}]</view>
       </view>
     </navigator>
   </block>
@@ -80,12 +80,12 @@
       <view class="i_third">
         <view class="t_weizhi">广州 - 海珠区</view>
         <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">本科</view>
+        <view class="t_xueli">{{item.education}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.logo}}' class="f_logo" />
         <view class="f_zhiwei">项目经理●{{item.name}}</view>
-        <view class="f_gongsi">[广州建材企业有限公司]</view>
+        <view class="f_gongsi">[{{item.contacts}}]</view>
       </view>
     </navigator>
   </block>

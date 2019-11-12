@@ -1,0 +1,4 @@
+.content-list {
+  padding: 32rpx;
+  border-bottom: 16rpx solid #dedede;
+}

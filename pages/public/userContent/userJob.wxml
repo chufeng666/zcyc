@@ -2,7 +2,8 @@
   <view class="leixing">
     <text class="name_size">职业类型</text>
     <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
-      <view class="picker">{{job_intention}}</view>
+      <view wx:if="{{job_intention===''}}" class="picker">请选择职位类型</view>
+      <view wx:else class="picker">{{job_intention}}</view>
     </picker>
   </view>
   <view class="chengshi  leixing">
@@ -20,6 +21,13 @@
     <text class="name_size">期望薪资</text>
     <picker class="" mode="selector" range="{{xinzi}}" value="{{index}}" bindchange="setiXinzi">
       <view class="picker">{{salary}}</view>
+    </picker>
+  </view>
+  <view class="leixing">
+    <text class="name_size">工作状态</text>
+    <picker class="" mode="selector" range="{{workJob}}" value="{{index}}" bindchange="setiworkJob">
+        <view wx:if="{{daogang_time===''}}">请选工作状态</view>
+        <view wx:else>{{daogang_time}}</view>
     </picker>
   </view>
   <button class="job_bt" bindtap="initUserInfoSeven">保存</button>

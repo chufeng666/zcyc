@@ -13,7 +13,7 @@ Page({
     sameDay: '',
     sameDay2: '至今',
     jingli: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
-    experience: [{}],   // 工作经验上传  
+    experience: [{ data1: '', data2: '', data3: '', data4: '', data5: '' }],   // 工作经验上传  
     isShow: true
   },
 
@@ -37,57 +37,124 @@ Page({
     })
   },
   setSameDay (e) {
+    let { index } = e.currentTarget.dataset;
+    let data3 = e.detail.value
+    let { experience } = this.data;
+    for (let i in experience) {
+      if (i == index) {
+        experience[i].data3 = data3
+      }
+    }
     this.setData({
-      sameDay: e.detail.value
+      sameDay: e.detail.value,
+      experience
     })
   },
   setSameDay2 (e) {
+    let { index } = e.currentTarget.dataset;
+    let data4 = e.detail.value
+    let { experience } = this.data;
+    for (let i in experience) {
+      if (i == index) {
+        experience[i].data4 = data4
+      }
+    }
     this.setData({
-      sameDay2: e.detail.value
+      sameDay2: e.detail.value,
+      experience
     })
   },
   // 请求数据
   initUserInfo2 () {
+    let that = this;
     ServerData.initUserInfo2({}).then((res) => {
-      console.log(res);
+      if (res.data.status == 1) {
+        that.setData({
+          experience: res.data.data
+        })
+      }
     })
   },
   // 上传数据
   initUserInfoTwo () {
     let { experience } = this.data
     ServerData.initUserInfoTwo({ experience }).then((res) => {
-      console.log(res);
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+      ServerData._wxTost(res.data.msg)
     })
   },
   inputCorporate (e) {
-    this.setData({
-      corporate: e.detail.value
-    })
-  },
-  inputGangwei (e) {
-    this.setData({
-      gangwei: e.detail.value
-    })
-  },
-  deleteitem (e) {
     let { index } = e.currentTarget.dataset;
-    let { project } = this.data;
-    for (let i = 0; i < project.length; i++) {
+    let data1 = e.detail.value
+    let { experience } = this.data;
+    for (let i in experience) {
       if (i == index) {
-        project.splice(i, 1);
+        experience[i].data1 = data1
       }
     }
     this.setData({
-      project
+      corporate: e.detail.value,
+      experience
+    })
+  },
+  inputGangwei (e) {
+    let { index } = e.currentTarget.dataset;
+    let data2 = e.detail.value
+    let { experience } = this.data;
+    for (let i in experience) {
+      if (i == index) {
+        experience[i].data2 = data2
+      }
+    }
+    this.setData({
+      gangwei: e.detail.value,
+      experience
+    })
+  },
+  deleteitem (e) {
+    let that = this
+    let { index } = e.currentTarget.dataset;
+    let { experience } = this.data;
+    wx.showModal({
+      title: '提示',
+      content: '您确定要删除吗',
+      success (res) {
+        if (res.confirm) {
+          for (let i = 0; i < experience.length; i++) {
+            if (i == index) {
+              experience.splice(i, 1);
+              that.setData({
+                experience,
+                isShow: true
+              })
+            }
+          }
+        }
+      }
     })
   },
   addOption (e) {
-    let { project, isShow } = this.data;
-    if (project.length > 3) {
+    let { experience, isShow } = this.data;
+    if (experience.length == 2) {
       isShow = false
     }
-    project.push({ data1: '', data2: '', data3: '', data4: '', data5: '' })
-    this.setData({ project, isShow });
+    experience.push({ data1: '', data2: '', data3: '', data4: '', data5: '' })
+    this.setData({ experience, isShow });
+  },
+  onContentChange (e) {
+    let { index } = e.target.dataset
+    let { experience } = this.data
+    experience[index].data5 = e.detail.value
+    this.setData({
+      experience
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

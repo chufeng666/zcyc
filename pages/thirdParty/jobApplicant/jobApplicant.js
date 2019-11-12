@@ -9,19 +9,15 @@ Page({
    */
   data: {
     hiringData: [],
-    job_type: '',                 //选中的职位值
     jobArray: [],                 //职位列表
-    jobIndex: 0,                  //职位下标
-    row: 200,                     //默认拿一百条
+    row: 10,                     //默认拿一百条
     page: 1,                        //默认第一页
     //地址三级开始
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
-    site_show: false,              //是否选择人才
-    showTST: true,                  //是否选择地址
-    pColor: '',                            //动态获z字体颜色 
-    pBgC: '',                            //动态获背景颜色    
+    province: '',
+    city: '',
+    district: '',
+    job_intention: '请选择职位',
+    showTST:true
   },
 
   /**
@@ -40,16 +36,47 @@ Page({
       pBgC: util.loginIdentity().pBgC,
     })
   },
-  hiring: function () {
+  // 1 定时器id
+  TimeId: -1,
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
+    // 3 简单做一些验证 trim() 
+    if (!value.trim()) {
+      this.setData({
+        hiringData: [],
+      })
+      // 不合法 
+      return;
+    }
+    // // 4 正常
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.hiring(value);
+    }, 1000);
+  },
+  setJobsearch(e) {
+    let { jobArray } = this.data
+    this.setData({
+      job_intention: jobArray[e.detail.value]
+    })
+    this.hiring()
+  },
+  hiring: function (value) {
     var that = this
+    let { job_intention } = this.data
+    if (job_intention === '请选择职位') {
+      job_intention = ''
+    }
     var _opt = {
+      "name":value,
+      'job_intention': job_intention,
       'rows': that.data.row,
       'page': that.data.page,
       'type': that.data.job_type,
-      'province': that.data.pCode,
-      'city': that.data.cCode,
-      'district': that.data.aCode,
-
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district,
     }
     ServerData.hiring(_opt).then((res) => {
       if (res.data.status == 1) {
@@ -66,14 +93,14 @@ Page({
       }
     })
   },
-  getCategoryList () {
-    var that = this
+  getCategoryList() {
     ServerData.categoryList({}).then((res) => {
       if (res.data.status == 1) {
         var newArry = []
-        newArry.push({ cat_id: '', cat_name: "选择人才" })
-        var recl = [...newArry, ...res.data.data]
-        this.setData({ jobArray: recl })
+        for (let i in res.data.data) {
+          newArry.push(res.data.data[i].cat_name)
+        }
+        this.setData({ jobArray: newArry })
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -94,7 +121,7 @@ Page({
   },
   /********************其他资料结束 */
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,

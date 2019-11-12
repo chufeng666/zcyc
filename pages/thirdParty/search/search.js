@@ -8,20 +8,22 @@ Page({
    */
   data: {
     cStatus: 0,
-    kw: '',
-    rows: 200,
-    page: 1,
     list: [],
     isShowInfo: false,
-    pColor: '',                   //动态获字体颜色     
-    pBgC: '',                     //动态获背景颜色                 
-    pBC1: '',                     //动态获边框颜色  
     pCode: '',                    //获取选中的省ID
     cCode: '',                    //获取选中的市ID
     aCode: '',                    //获取选中的区ID
     site_show: false,             //是否选择人才
     showTST: true,                //是否选择地址
-    hiddenhistory: true
+    hiddenhistory: false,
+    require_cert: '', //证书
+    type: '',        //工种
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
+    province: '',
+    city: '',
+    district: ''
   },
 
   /**
@@ -32,63 +34,105 @@ Page({
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-    this.setData({
-      pColor: util.loginIdentity().pColor,
-      pBC1: util.loginIdentity().pBC1,
-      pBgC: util.loginIdentity().pBgC,
-    })
-  },
 
-  searchInfp () {
+  },
+  onShow: function (params) {
+    let { require_cert, type, education, work_age, salary } = this.data;
+    if (require_cert && type && education && work_age && salary !== '') {
+      this.reqIndex()
+    }
+  },
+  // 1 定时器id
+  TimeId: -1,
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
+    // 3 简单做一些验证 trim() 
+    if (!value.trim()) {
+      this.setData({
+        goods: [],
+        inputValue: "",
+        isFocus: false
+      })
+      // 不合法 
+      return;
+    }
+    this.setData({
+      isShowInfo: true
+    })
+    // // 4 正常
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.reqIndex(value);
+    }, 1000);
+  },
+	/**
+	 * 请求数据
+	 */
+  reqIndex(value) {
+    let { require_cert, type, education, work_age, salary, province, city, district } = this.data
     var that = this,
       _opt = {
-        kw: that.data.kw,
-        rows: that.data.rows,
-        page: that.data.page
+        'name': value,
+        'province': that.data.pCode,
+        'city': that.data.cCode,
+        'district': that.data.aCode,
+        'type': that.data.type,
+        'education': that.data.education,
+        'work_age': that.data.work_age,
+        'salary': that.data.salary,
+        'province': that.data.province,
+        'city': that.data.city,
+        'district': that.data.district,
       }
-    ServerData.searchInfp(_opt).then((res) => {
+    if (require_cert == '需要证书') {
+      require_cert = 0
+    } else {
+      require_cert = 1
+    }
+    if (type && education && work_age === '全部' || salary === '不限') {
+      type = '';
+      education = '';
+      work_age = '';
+      salary = ''
+    }
+    ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
-        var status = false
-        if (res.data.data.recruit.length < 1 && res.data.data.person.length < 1) {
-          status = true
+        if (res.data.data.recruit.length < 1 || res.data.data.person.length < 1) {
+          that.setData({ hiddenhistory: true })
+        } else {
+          this.setData({
+            list: res.data.data,
+            isShowInfo: true,
+            hiddenhistory: false
+          })
         }
-
-        that.setData({
-          list: res.data.data,
-          isShowInfo: status
-        })
       }
       else if (res.data.status == -1) {
         wx.redirectTo({
-          url: '../login/login'
+          url: '../../login/login'
         })
-      } else {
+      }
+      else {
         ServerData._wxTost(res.data.msg)
       }
-      console.log(res)
-    });
-  },
-  changStatus: function (e) {
-    this.setData({
-      cStatus: e.currentTarget.dataset.status
+    }).catch((error) => {
+      ServerData._wxTost("数据请求失败!")
     })
   },
-  selecKeyWord (e) {
-    this.setData({
-      kw: e.detail.value,
-      hiddenhistory: false
-    })
-    this.searchInfp()
-  },
+
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
       pCode: info.pCode,
       cCode: info.cCode,
       aCode: info.aCode,
-      showTST: info.showTST
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area
     })
     this.reqIndex()
   },
@@ -99,52 +143,9 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changStatus: function (e) {
+    this.setData({
+      cStatus: e.currentTarget.dataset.status
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -53,4 +53,8 @@
 
 }
 
+.main_img {
+  margin-top: 73rpx;
+}
+
 @import "../../../template/font";

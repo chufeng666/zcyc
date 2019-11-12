@@ -1,66 +1,58 @@
-// pages/public/companyContent/qualification/qualification.js
+import serverData from "../../../../utils/serverData";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    seniority: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // this.setCompanyInfo6();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setCompanyInfo6 () {
+    let that = this
+    serverData.setCompanyInfo6({}).then((res) => {
+      if (res.data.status == 1) {
+        that.setData({
+          seniority: res.data.data
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  setCompanyInfoSix () {
+    let { seniority } = this.data
+    serverData.setCompanyInfoSix({ seniority }).then((res) => {
+      if (res.data.status == 1) {
+        serverData._wxTost(res.data.msg)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+      serverData._wxTost(res.data.msg)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  inputSeniority (e) {
+    let { index } = e.target.dataset;
+    let { seniority } = this.data;
+    let value = e.detail.value
+    seniority[index] = value
+    this.setData({
+      seniority
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  addSeniority (e) {
+    let { seniority } = this.data;
+    seniority.push('');
+    this.setData({
+      seniority
+    })
   }
+
 })

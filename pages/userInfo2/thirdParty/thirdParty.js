@@ -9,11 +9,13 @@ Page({
   data: {
     recList: [],
     //地址三级开始
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
-    site_show: true,              //
-    showTST: true
+    province: '',
+    city: '',
+    district: '',
+    site_show: false,              //
+    showTST: true,
+    xingzhi: ['国企', '民营', '私企'],
+    type: '请选择公司性质', //公司性质
   },
 
   /**
@@ -28,50 +30,62 @@ Page({
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
   },
+  // 1 定时器id
+  TimeId: -1,
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
+    // 3 简单做一些验证 trim() 
+    if (!value.trim()) {
+      this.setData({
+        goods: [],
+        inputValue: "",
+        isFocus: false
+      })
+      // 不合法 
+      return;
+    }
+    this.setData({
+      isShowInfo: true
+    })
+    // // 4 正常
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.getCompanyList(value);
+    }, 1000);
+  },
   // 请求
-  lookMore () {
+  lookMore() {
     this.setData({
       page: this.data.page + 1
     })
     this.getCompanyList()
   },
-  getCompanyList () {
+  getCompanyList(value) {
     var that = this,
-      _opt = {
-        'regtype': 2,
-        'province': that.data.pCode,
-        'city': that.data.cCode,
-        'district': that.data.aCode,
-        'page': that.data.page,
-        'rows': that.data.rows
-      }
+      { type } = that.data
+    if (type === '请选择公司性质') {
+      type = ''
+    }
+    let _opt = {
+      'type':type,
+      'title': value,
+      'regtype': 2,
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district
+    }
     ServerData.companyList(_opt).then((res) => {
-      var status = res.data.status,
-        newArray = []
-      if (status == 1) {
-        if (res.data.data.length != "") {
-          if (that.data.page == 1) {
-            newArray = res.data.data
-          } else {
-            newArray = [...that.data.recList, ...res.data.data]
-          }
-          var tt = res.data.data.length >= that.data.rows ? true : false
-          this.setData({
-            recList: newArray,
-            isMore: tt
-          })
+      if (res.data.status == 1) {
+        if (res.data.data == '') {
+          that.setData({ site_show: true })
         } else {
-          this.setData({
-            isMore: false
+          that.setData({
+            recList: res.data.data
           })
-          // ServerData._wxTost('没有数据了')
+
         }
-        if (that.data.page == 1 && res.data.data == "") {
-          this.setData({
-            recList: [],
-          })
-        }
-      } else if (status == -1) {
+      } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
         })
@@ -80,19 +94,25 @@ Page({
       }
     })
   },
-
+  setXingzhi(e) {
+    let { xingzhi } = this.data;
+    this.setData({
+      type: xingzhi[e.detail.value]
+    })
+    this.getCompanyList()
+  },
 
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
+      province: info.province,
+      city: info.city,
+      district: info.area,
       showTST: info.showTST
     })
-    this.reqIndex()
+    this.getCompanyList()
   },
 
   // 点击所在地区弹出选择框
@@ -101,52 +121,5 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

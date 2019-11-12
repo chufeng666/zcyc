@@ -100,7 +100,8 @@
 
 .-header-cont {
   display: flex;
-  align-items: center;
+   justify-content: center;
+   align-items: center;
 }
 
 .search-cont {
@@ -111,28 +112,23 @@
 
 .search {
   width: 100%;
-  border: 1px solid #fa5fb7;
-  border-radius: 36px;
-  height: 60rpx;
-  padding-left: 60rpx;
   box-sizing: border-box;
+  margin-left: 16rpx;
   font-size: 24rpx;
-  background-color: #fff;
 }
 
 .search-nosearch {
-  line-height: 58rpx;
-  color: #808080;
-  position: relative;
+  width: 100%;
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: #999;
 }
 
 .search-icon {
   width: 30rpx;
   height: 30rpx;
-  position: absolute;
-  left: 22rpx;
-  top: 50%;
-  margin-top: -13rpx;
+  font-size: 50rpx;
+  margin-left: 26rpx;
 }
 
 /* .s-nosearch-wrap .search-icon{
@@ -352,10 +348,9 @@
 
 .company-status {
   float: left;
-  border-radius: 2rpx;
-  font-size: 26rpx !important;
+  border-radius: 8rpx;
+  font-size: 28rpx !important;
   text-align: center;
-  color: #686868;
   padding: 6rpx 16rpx;
 }
 
@@ -386,18 +381,20 @@
   color: #fff;
   font-size: 26rpx;
   display: flex;
+  align-items: center;
 }
 
 .s-company-information {
   margin-top: 24rpx;
   display: flex;
+  align-items: center;
   font-size: 24rpx;
   line-height: 28rpx;
 }
 
 .s-company-information .portrait-icon {
-  width: 56rpx;
-  height: 56rpx;
+  width: 48rpx;
+  height: 48rpx;
   margin-right: 18rpx;
   border-radius: 50%;
 }
@@ -419,10 +416,10 @@
 .s-portrait .posen-msg {
   background-color: var(--thirdPartyColor);
   font-size: 28rpx !important;
-  border-radius: 2px;
   color: #fff;
   padding: 6rpx 16rpx;
   margin-right: 16rpx;
+  border-radius: 8rpx;
 }
 
 /* SETTING BTN START */
@@ -444,7 +441,7 @@
 /**/
 
 .set-option-1 {
-
+margin-top: 150rpx;
 }
 
 .header-heigh {
@@ -578,6 +575,8 @@ textarea {
 }
 
 .c-list-info {
+  display: flex;
+  flex-direction: column;
  font-size: 38rpx;
  font-weight: normal;
 }
@@ -589,6 +588,7 @@ textarea {
 
 .e-company-list- {
   display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -706,7 +706,6 @@ textarea {
 
 .wx-no-info {
   text-align: center;
-  margin-top: 200rpx;
   font-size: 30rpx;
   color: #666;
 }

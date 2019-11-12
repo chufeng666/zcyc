@@ -1,21 +1,10 @@
 <view class='search-wrap    user-top'>
   <view class="h-left">
-    <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+    <text  bindtap="editTel" class="iconfont icon-zuojiantou"></text>
     <view class="l_qiye">筛选</view>
   </view>
 </view>
 <view class="salary">
-  <view class="xinzi">
-    <view class="title-color">薪资</view>
-    <view class="fanwei">
-      <view>0k</view>
-      <view>10万</view>
-    </view>
-    <view class="body-view">
-      <slider activeColor="#DEDEDE" bindchange="slider4change" step="1000" block-size="28" min="0" block-color="var(--thirdPartyColor)" max="100000" show-value="{{isShow}}" />
-      <view>{{value}}</view>
-    </view>
-  </view>
   <view class="s_gongsi">
     <view class="title-color">对象</view>
     <view class="gs_waiwei">
@@ -52,6 +41,14 @@
     <view class="title-color">经验要求</view>
     <view class="gs_waiwei">
       <view class="si_qiye" wx:for="{{jingyan}}" data-index="{{index}}" bindtap="changJingyan" wx:key="id">
+        <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="s_gongsi">
+    <view class="title-color">经验要求</view>
+    <view class="gs_waiwei">
+      <view class="si_qiye" wx:for="{{xinzi}}" data-index="{{index}}" bindtap="changXinzi" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
       </view>
     </view>

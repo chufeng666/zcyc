@@ -29,6 +29,7 @@ Page({
   initUserInfo3 () {
     let that = this;
     ServerData.initUserInfo3({}).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           graduate_time: res.data.data.graduate_time,
@@ -63,7 +64,8 @@ Page({
     //获取月份  
     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     this.setData({
-      sameDay: Y + '-' + M
+      sameDay: Y + '-' + M,
+
     })
   },
   setSameDay (e) {

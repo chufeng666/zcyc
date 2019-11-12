@@ -7,13 +7,21 @@
         <view class='c-list-info'>
           <view class='m-b22'>
             <view class='w-bold'>
-              <view class="wm">{{recruitDetail.company_name}}</view>
+              <view class="wm">{{recruitDetail.title}}</view>
               <view class='m-r20'>{{recruitDetail.salary}}/月</view>
             </view>
             <view class="mb_yaoqiu">
-              <view class="mb_y" wx:for="{{yaoqiu}}" wx:key="id">
+              <view class="mb_y">
                 <view class="iconfont icon-baobao"></view>
-                <view class="mb_y_xuqiu">{{item.name}}</view>
+                <view class="mb_y_xuqiu">{{recruitDetail.require_cert == 0 ? "无需证书":"需要证书"}}</view>
+              </view>
+              <view class="mb_y">
+                <view class="iconfont icon-baobao"></view>
+                <view class="mb_y_xuqiu">{{recruitDetail.work_age}}</view>
+              </view>
+              <view class="mb_y">
+                <view class="iconfont icon-baobao"></view>
+                <view class="mb_y_xuqiu">{{recruitDetail.education}}</view>
               </view>
             </view>
           </view>
@@ -24,7 +32,7 @@
                 <view>{{recruitDetail.company_name}}</view>
                 <view class='m-r21'>
                   <text class="iconfont  icon-ditu"></text>
-                  {{recruitDetail.province}}{{recruitDetail.city}}{{recruitDetail.district}}
+                  {{recruitDetail.city}} - {{recruitDetail.district}}
                 </view>
               </view>
               <icon class='iconfont icon-youjiantou2'></icon>
@@ -37,7 +45,7 @@
                 <view>员工福利</view>
               </view>
               <view class="wf_bottom">
-                <view class="wf_fuli" wx:for="{{welfare}}" wx:key="id">{{item.name}}</view>
+                <view class="wf_fuli" wx:for="{{recruitDetail.welfare}}" wx:key="id">{{item}}</view>
               </view>
             </view>
           </view>
@@ -51,9 +59,7 @@
         <text class="iconfont  icon-yuangongfuliguanli"></text>
         职位要求：
       </view>
-      <view class="-desc-msg">
-        {{recruitDetail.detail}}岗位职责: 1.负责落实公司各项安全规章管理制度，确保项目部顺利实行安全生产工作（现场检查管理工作及内场资料工作） 2.检查、
-      </view>
+      <view class="-desc-msg">{{recruitDetail.detail}}</view>
     </view>
   </view>
   <view class='footer'>

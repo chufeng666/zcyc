@@ -1,35 +1,36 @@
 <view class="inner">
-  <view>
+  <view wx:for="{{experience}}" wx:key="index">
     <view class="gongsi">
       <view class="name_size">
         <view>公司名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input placeholder="请输入公司名称" bindinput="inputCorporate" value="{{corporate}}" />
-      <view></view>
+      <input placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
     </view>
     <view class="zhiwei  gongsi">
       <text class="name_size">职位名称</text>
-      <input type='text' placeholder="请输入职位名称" bindinput="inputGangwei" value="{{gangwei}}" />
+      <input type='text' placeholder="请输入职位名称" data-index="{{index}}" bindinput="inputGangwei" value="{{item.data2}}" />
     </view>
     <view class="zaizhiDate">
       <text class="name_size">在职时间</text>
       <view class="zzd_bt">
-        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{sameDay}}" bindchange="setSameDay">
-          <view class="picker">{{sameDay}}</view>
+        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay}}" value="{{item.data3}}" bindchange="setSameDay">
+          <view wx:if="{{item.data3==''}}" class="picker">{{sameDay}}</view>
+          <view wx:else class="picker">{{item.data3}}</view>
         </picker>
         <text>—</text>
-        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{sameDay2}}" bindchange="setSameDay2">
-          <view class="picker">{{sameDay2}}</view>
+        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay2}}" value="{{item.data4}}" bindchange="setSameDay2">
+          <view wx:if="{{item.data4==''}}" class="picker">{{sameDay2}}</view>
+          <view wx:else class="picker">{{item.data4}}</view>
         </picker>
       </view>
     </view>
     <view class="jingli  gongsi">
       <text class="name_size">工作经历</text>
-      <editor placeholder="{{jingli}}"></editor>
+      <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao" placeholder="请输入项目经历"></textarea>
     </view>
   </view>
-  <view class="userId_main">
+  <view class="userId_main" wx:if="{{isShow}}">
     <view class="userId_shangchuang" bindtap="addOption">
       <text class="iconfont  .icon-hao"></text>
       <view>添加工作经验</view>

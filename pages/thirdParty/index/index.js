@@ -35,7 +35,23 @@ Page({
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-
+  },
+  onShow:function () {
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '是否完善个人信息',
+    //   success (res) {
+    //     if (res.confirm) {
+    //       wx.redirectTo({
+    //         url: '../thirdParty/editInfo/editInfo'
+    //       })
+    //     } else if (res.cancel) {
+    //       wx.redirectTo({
+    //         url:'../thirdParty/index'
+    //       })
+    //     }
+    //   }
+    // })
   },
   getUserInfo: function () {
     var that = this,

@@ -10,10 +10,8 @@ Page({
   data: {
     Id: '',
     isCollect: 0,
-    personalData: {},
-    pColor: '',                          //动态获取字体颜色
-    pBgC: '',                            //动态获背景颜色                 
-    pBC: ''                             //动态获边框颜色   
+    personalData: {}, 
+    experience:[]
   },
 
 	/**
@@ -22,7 +20,7 @@ Page({
   onLoad: function (options) {
     // 接收id
     this.setData({
-      id: 49,
+      id: options.id,
       pBgC: util.loginIdentity().pBgC,
       pColor: util.loginIdentity().pColor,
       pBC: util.loginIdentity().pBC
@@ -42,7 +40,8 @@ Page({
       if (res.data.status == 1) {
         this.setData({
           personalData: res.data.data,
-          isCollect: res.data.data.is_collection
+          isCollect: res.data.data.is_collection,
+          experience:res.data.data.experience
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({

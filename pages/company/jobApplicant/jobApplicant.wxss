@@ -7,6 +7,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  padding: 0 32rpx;
 }
 
 .i-header .h-left {
@@ -15,7 +17,6 @@
   padding-top: 30rpx;
   display: flex;
   text-align: center;
-  margin-left: 20rpx;
 }
 
 .i-header .h-left .icon-zuojiantou {
@@ -27,7 +28,12 @@
 }
 
 .i-header .h-bottom {
-  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
 }
 
 .i-header .h-bottom .search-cont {
@@ -81,6 +87,8 @@
 }
 
 .newest-search .n-xiahuaxian .newest .province {
+  display: flex;
+  align-items: center;
   font-size: 26rpx;
   font-weight: 500;
   color: #686868;

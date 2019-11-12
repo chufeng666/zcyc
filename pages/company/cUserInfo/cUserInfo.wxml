@@ -36,7 +36,7 @@
           <text class="iconfont  icon-baobao"></text>
           <view class="sy_aq_smart">发布职位信息</view>
         </view>
-        <navigator class="sy_ceshi" url="../../jobList/editJobList">
+        <navigator class="sy_ceshi" url="../../jobList/editJobList?id={{userData.id}}">
           <text class="iconfont    .icon-hao"></text>
         </navigator>
       </view>

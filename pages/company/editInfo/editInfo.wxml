@@ -14,7 +14,9 @@
             <view>建议使用真实头像</view>
           </view>
         </view>
-        <image bindtap="openActionsheet" class="por_img" src="{{logo||icCardPic.src}}" />
+        <navigator url="../headPortrait/headPortrait">
+          <image mode="aspectFit" class="por_img" src="{{userList.logo}}" />
+        </navigator>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
@@ -23,7 +25,7 @@
             <view class="yiwanshan">已完善</view>
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
-            <view>建议使用真实头像</view>
+            <view class="size-28">{{userList.contacts}}/{{userList.type}}....</view>
           </navigator>
         </view>
       </view>
@@ -35,7 +37,7 @@
           </view>
           <navigator url="../../public/companyContent/information/information">
             <view class="ec_bt">
-              <view>光泽建材企业有限公司/企业</view>
+              <view class="size-28">{{userList.company_name}}/{{userList.telephone}}</view>
             </view>
           </navigator>
         </view>
@@ -48,7 +50,7 @@
           </view>
           <navigator url="../../public/companyContent/label/label">
             <view class="ec_bt">
-              <view>建筑/水电</view>
+              <view class="size-28">{{userList.label}}</view>
             </view>
           </navigator>
         </view>
@@ -61,7 +63,7 @@
           </view>
           <navigator url="../../public/companyContent/qualification/qualification">
             <view class="ec_bt">
-              <view>建议使用真实头像</view>
+              <view class="size-28">{{userList.seniority}}</view>
             </view>
           </navigator>
         </view>
@@ -71,7 +73,8 @@
           <view>公司照片</view>
           <navigator url="../../public/companyContent/photo/photo">
             <view class="ec_bt">
-              <view>已上传</view>
+              <view wx:if="{{userList.head == null}}">未上传</view>
+              <view wx:else>已上传</view>
             </view>
           </navigator>
         </view>
@@ -81,22 +84,15 @@
           <view>营业执照</view>
           <navigator url="../../public/companyContent/license/license">
             <view class="ec_bt">
-              <view>已上传</view>
+              <view wx:if="{{userList.c_img == ''}}">未上传</view>
+              <view wx:else>已上传</view>
             </view>
           </navigator>
         </view>
       </view>
-      <view class="ec_lianxiren">
-        <view class="touxiang">
-          <view>公司地址</view>
-          <view class="ec_bt">
-            <view>建议使用真实头像</view>
-          </view>
-        </view>
-      </view>
       <view>
         <view class='set-option-1'>
-          <button class='s-1-option company-bg-' bindtap='saveEditInfo'>保存</button>
+          <button class='s-1-option company-bg-' bindtap='saveEditInfo'>登录</button>
         </view>
       </view>
     </view>

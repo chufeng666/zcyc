@@ -9,36 +9,49 @@
     </view>
     <view class="main">
       <view class="m_top">公司名称</view>
-      <input placeholder="凉凉" />
+      <input bindinput="inputCompany_name" placeholder="请输入公司名称" value="{{company_name}}" />
     </view>
     <view class="main">
       <view class="m_top">公司固定电话</view>
-      <input placeholder="请输入公司固定电话" />
+      <input bindinput="inputTelephone" placeholder="请输入公司固定电话" value="{{telephone}}" />
     </view>
     <view class="main">
       <view class="m_top">公司性质</view>
       <picker mode="selector" range="{{xingzhi}}" value="{{index2}}" bindchange="setXingzhi">
-        <view class="picker">{{xingzhi[index2]}}</view>
+        <view class="picker">{{type}}</view>
       </picker>
     </view>
     <view class="main">
       <view class="m_top">公司规模</view>
       <picker mode="selector" range="{{guimo}}" value="{{index}}" bindchange="setGuimo">
-        <view class="picker">{{guimo[index]}}</view>
+        <view class="picker">{{contacts_scale}}</view>
       </picker>
     </view>
     <view class="main">
       <view class="m_top">公司成立时间</view>
       <picker fields="month" mode="date" value="" bindchange="setSameDay">
-        <view class="picker">{{sameDay===''?'请选择公司成立时间':sameDay}}</view>
+        <view class="picker">{{open_time}}</view>
       </picker>
     </view>
     <view class="main">
+      <view class="m_top">公司地址</view>
+      <view wx:if="{{showTST &&  province ===''}}" bindtap="selectDistrict" class="picker">
+        请选择地址
+      </view>
+      <view wx:if="{{!showTST  &&  province ===''}}" bindtap="selectDistrict" class="picker">
+        {{city}} - {{district}}
+      </view>
+      <view wx:if="{{province !==''}}" bindtap="selectDistrict" class="picker">
+        {{city}} - {{district}}
+      </view>
+    </view>
+    <view class="main">
       <view class="m_top">公司简介</view>
-      <editor class="ql-container" placeholder="1.请填写公司简介"></editor>
+      <textarea class="ql-container" bindinput="inputDesc" placeholder="1.请填写公司简介" value="{{desc}}"></textarea>
     </view>
   </view>
   <view class="footer">
-    <button>确定</button>
+    <button bindtap="setCompanyInfoThree">确定</button>
   </view>
 </view>
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>

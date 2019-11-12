@@ -102,7 +102,7 @@ App({
           "pagePath": "/pages/company/index/index",
           "text": "首页",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_souye_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         },
@@ -110,7 +110,7 @@ App({
           "pagePath": "/pages/company/thirdParty/thirdParty",
           "text": "服务商",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_qiye_weidaoh_dianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_qiye_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_qiye_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         }
@@ -118,7 +118,7 @@ App({
           "pagePath": "/pages/company/jobApplicant/jobApplicant",
           "text": "招人",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_fuwushang_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         },
@@ -126,7 +126,7 @@ App({
           "pagePath": "/pages/company/cUserInfo/cUserInfo",
           "text": "我的",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_gerenzhongx_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_gerenzhongx_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_gerenzhongx_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         }
@@ -143,7 +143,7 @@ App({
           "pagePath": "/pages/thirdParty/index/index",
           "text": "首页",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_souye_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         },
@@ -151,7 +151,7 @@ App({
           "pagePath": "/pages/thirdParty/company/company",
           "text": "企业",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_qiye_weidaoh_dianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_qiye_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_qiye_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         },
@@ -159,7 +159,7 @@ App({
           "pagePath": "/pages/thirdParty/jobApplicant/jobApplicant",
           "text": "招人",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_fuwushang_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_fuwushang_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         },
@@ -167,7 +167,7 @@ App({
           "pagePath": "/pages/thirdParty/thirdInfo/thirdInfo",
           "text": "我的",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_gerenzhongx_daoh_weidianji.png",
-          "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_gerenzhongx_daoh_dianji.png",
+          "selectedIconPath": "/static/images/conpany/Xiaocxqiye_gerenzhongx_daoh_dianji.png",
           "clas": "menu-item",
           active: true
         }

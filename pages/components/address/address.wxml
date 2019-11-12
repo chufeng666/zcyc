@@ -7,13 +7,13 @@
     </view>
     <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key>
       <picker-view-column>
-        <view wx:for="{{provinces}}" class="picker-item" wx:key>{{item.area_name}}</view>
+        <view wx:for="{{provinces}}" class="picker-item" wx:key="index">{{item.area_name}}</view>
       </picker-view-column>
       <picker-view-column>
-        <view wx:for="{{citys}}" class="picker-item" wx:key>{{item.area_name}}</view>
+        <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.area_name}}</view>
       </picker-view-column>
       <picker-view-column>
-        <view wx:for="{{areas}}" class="picker-item" wx:key>{{item.area_name}}</view>
+        <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.area_name}}</view>
       </picker-view-column>
     </picker-view>
   </view>

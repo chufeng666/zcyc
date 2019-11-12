@@ -80,8 +80,6 @@
 }
 
 .d-c-list {
-  display: flex;
-  justify-content: space-between;
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
@@ -192,7 +190,9 @@
   justify-content: space-around;
   align-items: center;
 }
-
+.c-list-info-jinyan {
+  display: inline;
+}
 .footer-right {
   display: flex;
 }
@@ -202,7 +202,7 @@
 }
 
 .active {
-  color: #FFEEAB;
+  color: var(--themeColor);
 }
 
 .footer button {

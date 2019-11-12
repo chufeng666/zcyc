@@ -7,17 +7,11 @@ import ServerData from '../../../utils/serverData.js';
 
 Page({
   data: {
-    job_type: '',                 //选中的职位值
     jobArray: [],                 //职位列表
-    jobIndex: 0,                  //职位下标
     //地址三级开始
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
     site_show: false,             //是否选择人才
     showTST: true,         //是否选择地址
     mode: "scaleToFill",
-    statusBarHeight: app.globalData.statusBarHeight,
     arr: [],
     indexData: [],//游客首页数据
     indicatorDots: false,
@@ -34,8 +28,18 @@ Page({
   },
 
   onShow: function () {
-
-
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '是否完善个人信息',
+    //   success (res) {
+    //     if (res.confirm) {
+    //       wx.redirectTo({
+    //         url: '../userInfo2/editInfo/editInfo'
+    //       })
+    //     } else if (res.cancel) {
+    //     }
+    //   }
+    // })
   },
 
 	/**
@@ -60,6 +64,7 @@ Page({
         'district': that.data.aCode,
       }
     ServerData.userVisit(_opt).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         this.setData({
           indexData: res.data.data,
@@ -77,7 +82,7 @@ Page({
       ServerData._wxTost("数据请求失败!")
     })
     ServerData.recruitHot(_opt).then((res) => {
-      console.log(res);
+
       if (res.data.status == 1) {
         this.setData({
           popular: res.data.data,

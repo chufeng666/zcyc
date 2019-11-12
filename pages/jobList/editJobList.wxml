@@ -6,24 +6,12 @@
 <view class='inner'>
   <view class='edit-info'>
     <view class='edit-cont'>
-      <view class="ec_logo">
-        <view class="touxiang">
-          <view>广州建材企业有限公司</view>
-          <view class="tx_jianyi">
-            <text class="iconfont  icon-iconcopy"></text>
-            <view>我发布的职位</view>
-          </view>
-        </view>
-        <image bindtap="openActionsheet" class="por_img" src="{{logo||icCardPic.src}}" />
-      </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view class="ec_top">
             <view>职位名称</view>
           </view>
-          <picker class="ec_bt" value="{{cat_id}}" range="{{jobArray}}" range-key="cat_name" range-value="cat_id" bindchange="jobChange">
-            <view class="picker" style="text-align:left">{{jobArray[jobIndex].cat_name}}</view>
-          </picker>
+          <input class="ec_bt" bindinput="inputTitle" placeholder="请输入职位名称" value="{{title}}" />
         </view>
       </view>
       <view class="ec_lianxiren">
@@ -31,11 +19,12 @@
           <view class="jibenxinxi">
             <view>招聘岗位</view>
           </view>
-          <navigator url="../../public/companyContent/information/information">
-            <view class="ec_bt">
-              <view>选择证书要求</view>
+          <picker class="ec_bt" value="{{cat_id}}" range="{{jobArray}}" range-key="cat_name" range-value="cat_id" bindchange="jobChange">
+            <view wx:if="{{type===''}}" class="picker" style="text-align:left">
+              {{jobArray[0].cat_name}}
             </view>
-          </navigator>
+            <view wx:else class="picker" style="text-align:left">{{type}}</view>
+          </picker>
         </view>
       </view>
       <view class="ec_lianxiren">
@@ -43,8 +32,22 @@
           <view class="ec_top">
             <view>经验要求</view>
           </view>
-          <picker class="ec_bt" range="{{experienceList}}" bindchange="changeExperience">
-            <view class="picker" style="text-align:left">{{experienceList[experienceText]}}</view>
+          <picker class="ec_bt" mode="selector" range="{{experienceList}}" bindchange="changeExperience">
+            <view wx:if="{{work_age===''}}" class="picker" style="text-align:left">
+              {{experienceList[0]}}
+            </view>
+            <view wx:else class="picker" style="text-align:left">{{work_age}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="ec_lianxiren">
+        <view class="touxiang">
+          <view class="ec_top">
+            <view>学历要求</view>
+          </view>
+          <picker class="ec_bt" mode="selector" range="{{educationList}}" bindchange="changeEducation">
+            <view wx:if="{{education === ''}}" class="picker">{{educationList[0]}}</view>
+            <view wx:else class="picker">{{education}}</view>
           </picker>
         </view>
       </view>
@@ -53,17 +56,18 @@
           <view class="ec_top">
             <view>薪资范围</view>
           </view>
-          <picker class="ec_bt" mode="selector" range="{{salaryList}}" value="{{salaryText}}" bindchange="setiXinzi">
-            <view class="picker">{{salaryList[salaryText]}}</view>
+          <picker class="ec_bt" mode="selector" range="{{salaryList}}" bindchange="changeSalary">
+            <view wx:if="{{salary===''}}" class="picker">{{salaryList[0]}}</view>
+            <view wx:else class="picker">{{salary}}</view>
           </picker>
         </view>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>福利待遇</view>
-          <navigator url="../public/companyContent/welfare/welfare">
-            <view class="ec_bt">
-              <view>请选择福利待遇</view>
+          <navigator class="daiyu" open-type="navigate" url="../public/companyContent/welfare/welfare">
+            <view class="ec_bt" wx:for="{{welfare}}" wx:key="index">
+              <view>{{item}}/</view>
             </view>
           </navigator>
         </view>
@@ -72,30 +76,30 @@
         <view class="touxiang">
           <view>证书要求</view>
           <picker class="ec_bt" mode="selector" range="{{certificateList}}" value="{{certificateText}}" bindchange="changCertificate">
-            <view class="picker">{{certificateList[certificateText]}}</view>
+            <view class="picker">{{certificateList[require_cert]}}</view>
           </picker>
         </view>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>工作地点</view>
-          <view class="ec_bt">
-            <input placeholder="请选择工作地点"></input>
-          </view>
+          <view wx:if="{{province===''}}" class="ec_bt" bindtap="selectDistrict">请选择工作地址</view>
+          <view wx:else class="ec_bt" bindtap="selectDistrict">{{city}} - {{district}}</view>
         </view>
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
-          <view>公司介绍</view>
-          <textarea placeholder='职位描述' class="texa" value="{{details}}" bindinput="getDetails"></textarea>
+          <view>职位介绍</view>
+          <textarea placeholder='职位描述' class="texa" value="{{detail}}" bindinput="getDetails"></textarea>
         </view>
       </view>
       <view>
         <view class='set-option-1'>
-          <button class='s-1-option company-bg-' bindtap='saveEditInfo'>保存</button>
+          <button class='s-1-option company-bg-' bindtap='saveEditRecruit'>保存</button>
         </view>
       </view>
     </view>
   </view>
   <!-- footer -->
 </view>
+<address-form id='address' bind:tabEvent="tabEvent"></address-form>

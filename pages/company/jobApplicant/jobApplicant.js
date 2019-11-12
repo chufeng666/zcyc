@@ -13,17 +13,26 @@ Page({
     page: 1,                        //默认第一页
 
     //地址三级开始
+    province: '',
+    city: '',
+    district: '',
     pCode: '',                    //获取选中的省ID
     cCode: '',                    //获取选中的市ID
     aCode: '',                    //获取选中的区ID
     site_show: false,
     showTST: true,
-
+    job_intention: '请选择职位', //职位
     //
     pColor: '',                            //动态获z字体颜色 
     pBgC: '',                            //动态获背景颜色                 
   },
-
+  setXingzhi(e) {
+    let { jobArray } = this.data;
+    this.setData({
+      job_intention: jobArray[e.detail.value]
+    })
+    this.hiring()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,15 +49,21 @@ Page({
       pBgC: util.loginIdentity().pBgC,
     })
   },
-  hiring: function () {
-    var that = this
+  hiring: function (value) {
+    var that = this,
+      { job_intention } = that.data
+    if (job_intention === '请选择职位') {
+      job_intention = ''
+    }
     var _opt = {
+      'job_intention': job_intention,
+      'name': value,
       'rows': that.data.row,
       'page': that.data.page,
       'type': that.data.job_type,
-      'province': that.data.pCode,
-      'city': that.data.cCode,
-      'district': that.data.aCode,
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district,
 
     }
     ServerData.hiring(_opt).then((res) => {
@@ -66,14 +81,15 @@ Page({
       }
     })
   },
-  getCategoryList () {
+  getCategoryList() {
     var that = this
     ServerData.categoryList({}).then((res) => {
       if (res.data.status == 1) {
         var newArry = []
-        newArry.push({ cat_id: '', cat_name: "选择人才" })
-        var recl = [...newArry, ...res.data.data]
-        this.setData({ jobArray: recl })
+        for (let i in res.data.data) {
+          newArry.push(res.data.data[i].cat_name)
+        }
+        this.setData({ jobArray: newArry })
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -97,14 +113,18 @@ Page({
   /********************其他资料结束 */
 
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
       pCode: info.pCode,
       cCode: info.cCode,
       aCode: info.aCode,
-      showTST: info.showTST
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area,
+
     })
     this.hiring()             //主页信息
   },
@@ -113,5 +133,24 @@ Page({
   selectDistrict: function (e) {
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
+  },
+  // 1 定时器id
+  TimeId: -1,
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
+    // 3 简单做一些验证 trim() 
+    if (!value.trim()) {
+      this.setData({
+        hiringData: [],
+      })
+      // 不合法 
+      return;
+    }
+    // // 4 正常
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.hiring(value);
+    }, 1000);
   },
 })

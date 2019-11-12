@@ -7,6 +7,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  padding: 0 32rpx;
 }
 
 .i-header .h-left {
@@ -14,12 +16,12 @@
   font-weight: 500;
   padding-top: 30rpx;
   display: flex;
-  text-align: center;
-  margin-left: 20rpx;
+  align-items: center;
 }
 
 .i-header .h-left .icon-zuojiantou {
   font-size: 50rpx;
+  padding-left: -15rpx;
 }
 
 .i-header .h-left .l_qiye {
@@ -27,10 +29,15 @@
 }
 
 .i-header .h-bottom {
-  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
 }
 
-.i-header .h-bottom .search-cont {
+.search-cont {
   width: 702rpx;
   margin: 0 24rpx;
   background-color: #fff;
@@ -81,6 +88,8 @@
 }
 
 .newest-search .n-xiahuaxian .newest .province {
+  display: flex;
+  align-items: center;
   font-size: 26rpx;
   font-weight: 500;
   color: #686868;

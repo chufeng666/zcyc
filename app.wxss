@@ -10,6 +10,7 @@
 .stss-active {
   color: #ee331a;
   font-weight: 600;
+  margin-right: 32rpx;
 }
 
 page {
@@ -34,9 +35,11 @@ page {
 
 .w-bold {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 26rpx;
   color: #999;
+  margin-bottom: 31rpx;
 }
 
 .t-right {

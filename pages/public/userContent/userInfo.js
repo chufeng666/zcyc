@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    getUData: [],
+    getUData: {},
     // // 上传参数          
     name: '',                 // 姓名
     gender: '',               // 性别
@@ -26,7 +26,7 @@ Page({
     gender1: ['男', '女'],     // 性别
     // 现居住地址
     addressBoxShow: true,
-    tapIndex: '',
+    tapIndex: 0,
   },
   onShow () {
 
@@ -94,29 +94,30 @@ Page({
   // 接收基本信息
   initUserInfo1 () {
     let that = this;
-    let { getUData } = that.data
     ServerData.initUserInfo1({}).then(res => {
       if (res.data.status == 1) {
-        getUData = res.data.data
         that.setData({
-          name: getUData.name,
-          gender: getUData.gender,
-          school_type: getUData.school_type,
-          age: getUData.age,
-          nation: getUData.nation,
-          work_age: getUData.work_age,
-          province: getUData.province,
-          city: getUData.city,
-          district: getUData.district,
-          avatar: getUData.avatar
+          getUData: res.data.data,
+          name: res.data.data.name,
+          gender: res.data.data.gender,
+          school_type: res.data.data.school_type,
+          age: res.data.data.age,
+          nation: res.data.data.nation,
+          work_age: res.data.data.work_age,
+          province: res.data.data.province,
+          city: res.data.data.city,
+          district: res.data.data.district,
+          avatar: res.data.data.avatar
         })
       }
     })
   },
   // 上传基本信息
   initUserInfoOne () {
-    let { name, gender, age, nation, province, city, district, school_type, work_age } = this.data
-    ServerData.initUserInfoOne({ name, gender, age, nation, province, city, district, school_type, work_age }).then(res => {
+    let that = this
+    if (!that._verifyInfo()) { return }
+    let { name, gender, age, nation, province, avatar, city, district, school_type, work_age } = this.data
+    ServerData.initUserInfoOne({ name, gender, age, avatar, nation, province, city, district, school_type, work_age }).then(res => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
         setTimeout(function () {
@@ -169,7 +170,38 @@ Page({
       //
     })
   },
-
+  _verifyInfo () {
+    var that = this
+    if (that.data.name == "") {
+      ServerData._wxTost('请输入姓名');
+      return false
+    }
+    if (that.data.age == "") {
+      ServerData._wxTost('请输入年龄');
+      return false
+    }
+    if (that.data.nation == "") {
+      ServerData._wxTost('请输入民族');
+      return false
+    }
+    if (that.data.gender == "") {
+      ServerData._wxTost('请选择性别');
+      return false
+    }
+    if (that.data.province == "") {
+      ServerData._wxTost('请选择居住地址');
+      return false
+    }
+    if (that.data.school_type == "") {
+      ServerData._wxTost('请选择学历');
+      return false
+    }
+    if (that.data.work_age == "") {
+      ServerData._wxTost('请选择工作年限');
+      return false
+    }
+    return true
+  },
   /***********地址开始**************** */
   tabEvent (data) {      //接收传过来的参数
     var info = data.detail
@@ -181,7 +213,7 @@ Page({
       showTST: info.showTST,
       addressBoxShow: info.isShow,
       province: info.province,
-      city: info.city + '-',
+      city: info.city,
       district: info.area,
     })
     // this.hiring()             //主页信息

@@ -6,16 +6,24 @@ Page({
   data: {
     recList: [],
     //地址三级开始
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
-    site_show: true,              //
+    province: '',
+    city: '',
+    district: '',
+    site_show: true,        
     page: 1,
     rows: 10,
     isMore: true,
-    showTST: true
+    showTST: true,
+    xingzhi: ['国企', '民营', '私企'],
+    type: '请选择公司性质', //公司性质
   },
-
+  setXingzhi(e) {
+    let { xingzhi } = this.data;
+    this.setData({
+      type: xingzhi[e.detail.value]
+    })
+    this.getCompanyList()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -30,14 +38,14 @@ Page({
 
 
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
-      showTST: info.showTST
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area,
     })
     this.getCompanyList()             //主页信息
   },
@@ -47,24 +55,48 @@ Page({
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
   },
+  // 1 定时器id
+  TimeId: -1,
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
+    // 3 简单做一些验证 trim() 
+    if (!value.trim()) {
+      this.setData({
+        recList: [],
+      })
+      // 不合法 
+      return;
+    }
+    // // 4 正常
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.getCompanyList(value);
+    }, 1000);
+  },
 
-
-  lookMore () {
+  lookMore() {
     this.setData({
       page: this.data.page + 1
     })
     this.getCompanyList()
   },
-  getCompanyList () {
+  getCompanyList(value) {
     var that = this,
-      _opt = {
-        'regtype': 2,
-        'province': that.data.pCode,
-        'city': that.data.cCode,
-        'district': that.data.aCode,
-        'page': that.data.page,
-        'rows': that.data.rows
-      }
+      { type } = that.data
+    if (type === '请选择公司性质') {
+      type = ''
+    }
+    let _opt = {
+      "type": type,
+      "company_name": value,
+      'regtype': 2,
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district,
+      'page': that.data.page,
+      'rows': that.data.rows
+    }
     ServerData.companyList(_opt).then((res) => {
       var status = res.data.status,
         newArray = []
@@ -100,7 +132,5 @@ Page({
       }
     })
   },
-  onShareAppMessage: function () {
 
-  }
 })

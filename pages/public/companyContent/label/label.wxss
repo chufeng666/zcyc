@@ -26,9 +26,6 @@
 .main {
   font-size: 28rpx;
   color: #262626;
-  margin-bottom: 29rpx;
-  border-bottom: 1rpx solid #dedede;
-  padding-bottom: 29rpx;
 }
 
 .m_top {
@@ -52,6 +49,7 @@
 .sl_biaoqian {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: 48rpx;
   font-size: 30rpx;
 
@@ -66,20 +64,13 @@
   color: #fff;
   background-color: var(--thirdPartyColor);
   border-radius: 36rpx;
-  margin-right: 48rpx;
   margin-bottom: 34rpx;
 }
 
-.sl_bq_seconds {
-  position: relative;
-  width: 162tpx;
-  height: 72rpx;
-  line-height: 72rpx;
-  padding: 0 36rpx;
-  color: #686868;
+
+.active {
   background-color: #dedede;
-  border-radius: 36rpx;
-  margin-right: 48rpx;
+  color: #686868;
 }
 
 .icon-cuo {
@@ -96,6 +87,12 @@
   color: #fff;
   background-color: var(--thirdPartyColor);
 
+}
+
+.biaoqian {
+  padding-bottom: 29rpx;
+  margin-bottom: 29rpx;
+  border-bottom: 1rpx solid #dedede;
 }
 
 @import "../../../template/font";

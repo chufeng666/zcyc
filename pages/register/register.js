@@ -49,7 +49,7 @@ Page({
       }
     });
   },
-  saveRegister () {        //注册账号
+  saveRegister() {        //注册账号
     var that = this,
       type = 0;
     if (!that.verifyUserInfo()) { return }
@@ -70,11 +70,15 @@ Page({
         wx.setStorageSync('token', res.data.data.token);
         if (type == 3) {                               //跳转 3 跳转到个人信息录入 ，不是3就跳转到企业信息录入
           wx.redirectTo({
-            url: '../personalMessage/personalMessage'
+            url: '../userInfo2/editInfo/editInfo'
           })
-        } else {
+        } else if (type == 1) {
           wx.redirectTo({
-            url: '../register/fillInInformation/fillInInformation'
+            url: '../company/editInfo/editInfo'
+          })
+        } else { 
+          wx.redirectTo({
+            url: '../thirdParty/editInfo/editInfo'
           })
         }
       }
@@ -91,7 +95,7 @@ Page({
       }
     });
   },
-  verifyUserInfo () {             //验证输入信息
+  verifyUserInfo() {             //验证输入信息
     var mobile = this.data.mobile
     var mCode = this.data.mCode
     var password = this.data.password
@@ -164,13 +168,13 @@ Page({
     }
 
   },
-  getPassword (e) {
+  getPassword(e) {
     this.setData({
       password: e.detail.value
     })
   },
 
-  comfirnPasd (e) {
+  comfirnPasd(e) {
     this.setData({
       comPasd: e.detail.value
     })
@@ -182,14 +186,8 @@ Page({
     })
   },
 
-  // 点击下拉显示框
-  // selectTap () {
-  //   this.setData({
-  //     show: !this.data.show
-  //   });
-  // },
   // 点击下拉列表
-  selectData (e) {
+  selectData(e) {
     const { index } = e.currentTarget.dataset;
     let { selectData } = this.data;
     selectData.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);

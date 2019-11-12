@@ -82,16 +82,16 @@
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project">
+    <view class="us_wk_project" wx:if="{{getUData.experience !== ''}}" wx:for="{{getUData.experience}}" wx:key="index">
       <view class="us_wk_second">
         <view class="us_wk_sd_left">
           <text class="iconfont  icon-gongsi"></text>
-          <view>广州万宝有限公司</view>
+          <view>{{item.data1}}</view>
         </view>
       </view>
-      <view class="us_wk_third">岗位：安全员　　　　时间：2015.06-2018.10</view>
+      <view class="us_wk_third">岗位：{{item.data2}}　　　时间：{{item.data3}}-{{item.data4}}</view>
       <view class="us_wk_fourth">
-        <text>{{getUData.experience}}</text>
+        <text>{{item.data5}}</text>
       </view>
     </view>
   </view>
@@ -107,7 +107,7 @@
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project" wx:for="{{getUData.project}}" wx:key="">
+    <view class="us_wk_project" wx:if="{{getUData.project !== ''}}" wx:for="{{getUData.project}}" wx:key="index">
       <view class="us_wk_second">
         <view class="us_wk_sd_left">
           <text class="iconfont  icon-gongsi"></text>

@@ -1,29 +1,30 @@
-<!-- pages/template/company.wxml -->
 <template name="company">
-  <navigator url="{{url}}{{item.id}}" wx:for="{{recruit}}" wx:key="index">
-    <view class='global-search-wrap'>
-      <view class='search-job-list'>
-        <view class='c-info-title'>
-          <text>{{item.title}}安全员</text>
-          <text class="{{pColor}}">{{item.salary=='面议' ? item.salary : item.salary+'/月'}}</text>
-        </view>
-        <view class='s-portrait'>
-          <text class="posen-msg {{pBgC}}">{{typeMsg}}</text>
-          <view class='company-status {{pBgC}} fr'>{{item.regtype == 0 ? "无需证书":"需要证书"}}</view>
-        </view>
-        <view class='c-info-msg global-search-cont'>
-          <view>
-            <text class='c-msg2 '>{{item.city_str}}-{{item.district_str}}</text>
-            <text class='c-msg2 '>{{item.work_age}}年</text>
-            <text class='c-msg2 '>本科</text>
+  <view class="company_qiye" url="{{url}}{{item.id}}" wx:for="{{recruit}}" wx:key="index">
+    <navigator >
+      <view class='global-search-wrap'>
+        <view class='search-job-list'>
+          <view class='c-info-title'>
+            <text>{{item.title}}安全员</text>
+            <text class="{{pColor}}">{{item.salary=='面议' ? item.salary : item.salary+'/月'}}</text>
+          </view>
+          <view class='s-portrait'>
+            <text class="posen-msg {{pBgC}}">{{typeMsg}}</text>
+            <view class='company-status {{pBgC}} fr'>{{item.regtype == 0 ? "有证书":"无证书"}}</view>
+          </view>
+          <view class='c-info-msg global-search-cont'>
+            <view>
+              <text class='c-msg2 '>{{item.city_str}}-{{item.district_str}}</text>
+              <text class='c-msg2 '>{{item.work_age}}年</text>
+              <text class='c-msg2 '>{{}}</text>
+            </view>
+          </view>
+          <view class="s-company-information">
+            <image src='{{item.logo}}' class='portrait-icon' />
+            <text class="xianmujingli">项目经理•刘勇</text>
+            <text class="xueli">[{{item.company_name}}]</text>
           </view>
         </view>
-        <view class="s-company-information">
-          <image src='{{item.logo}}' class='portrait-icon' />
-          <text class="xianmujingli">项目经理•刘勇</text>
-          <text class="xueli">[{{item.company_name}}]</text>
-        </view>
       </view>
-    </view>
-  </navigator>
+    </navigator>
+  </view>
 </template>

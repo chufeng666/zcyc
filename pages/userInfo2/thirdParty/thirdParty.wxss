@@ -5,6 +5,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  padding: 0 32rpx;
 }
 
 .i-header .h-left {
@@ -12,8 +14,7 @@
   font-weight: 500;
   padding-top: 30rpx;
   display: flex;
-  text-align: center;
-  margin-left: 20rpx;
+  align-items: center;
 }
 
 .i-header .h-left .icon-zuojiantou {
@@ -25,7 +26,12 @@
 }
 
 .i-header .h-bottom {
-  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
 }
 
 .i-header .h-bottom .search-cont {
@@ -80,6 +86,8 @@
 }
 
 .newest-search .n-xiahuaxian .newest .province {
+  display: flex;
+  align-items: center;
   font-size: 26rpx;
   font-weight: 500;
   color: #686868;
@@ -96,15 +104,15 @@
 
 .newest-search .n-xiahuaxian .n-search .newsite_button {
   display: flex;
+  align-items: center;
   background-color: #eaeaea;
-  margin-right: 16rpx;
   height: 56rpx;
   line-height: 56rpx;
   border-radius: 8%;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
-  margin-left: 10rpx;
+ padding-left: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
@@ -117,7 +125,7 @@
   .newsite_button
   .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
-  margin: -2rpx 6rpx 0rpx 6rpx;
+  padding: 0 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
@@ -144,6 +152,7 @@
 
 .inner {
   padding: 0;
+  margin-bottom: 300rpx;
 }
 
 .container {

@@ -34,7 +34,14 @@
 .sousuolishi .popular {
   margin: 27rpx 33rpx;
 }
-
+.search-cont {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 36rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+}
 .sousuolishi .popular .popular_search {
   font-size: 30rpx;
   font-weight: 600;
@@ -125,4 +132,8 @@
 
 .stss-active {
   color: #262626;
+}
+.content-list{
+  padding: 32rpx;
+  border-bottom: 16rpx solid #dedede;
 }

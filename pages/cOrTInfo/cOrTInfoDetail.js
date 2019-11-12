@@ -34,44 +34,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.setData({
       companyId: options.company_id,
       pBgC: util.loginIdentity().pBgC,
       pColor: util.loginIdentity().pColor
     })
-    this.lookCompany()
     this.getRecruitList()
   },
-  onReady: function () {
 
-  },
-
-  lookCompany () {         // 要传给后台的参数
-    var _opt = {
-      company_id: this.data.companyId
-    }
-    ServerData.lookCompany(_opt).then((res) => {
-      if (res.data.status == 1) {
-        this.setData({
-          cList: res.data.data,
-        })
-      } else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../login/login'
-        })
-      } else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
   getRecruitList () {         // 要传给后台的参数
     var _opt = {
       company_id: this.data.companyId
     }
-    ServerData.getRecruitList(_opt).then((res) => {
+    ServerData.company_detail(_opt).then((res) => {
       if (res.data.status == 1) {
         this.setData({
-          pList: res.data.data,
+          cList: res.data.company,
+          pList: res.data.recruit_list
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({

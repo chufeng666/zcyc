@@ -207,21 +207,13 @@ page {
 
 .uscz_neirong .u-o-list .u-o_left,
 .user_qiehuan .u-o-list .u-o_left {
+  display: flex;
+  flex: 9;
+  justify-content: space-between;
   padding-bottom: 29rpx;
   border-bottom: 1rpx solid #dedede;
 }
 
-.uscz_neirong .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 494rpx;
-}
-
-.user_qiehuan .u-o-list .u-o_left .icon-youjiantou {
-  margin-left: 546rpx;
-}
-
-.uscz_neirong .u-o-list:last-child .u-o_left .icon-youjiantou {
-  margin-left: 466rpx;
-}
 
 .uscz_neirong .u-o-list:last-child .u-o_left {
   border: none;

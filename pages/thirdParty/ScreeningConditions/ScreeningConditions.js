@@ -1,4 +1,4 @@
-// pages/thirdParty/ScreeningConditions/ScreeningConditions.js
+// pages/company/ScreeningConditions/ScreeningConditions.js
 Page({
 
   /**
@@ -7,15 +7,21 @@ Page({
   data: {
     value: '',
     isShow: true,
+    index1: 0,
+    index2: 0,
+    index3: 0,
+    index4: 0,
+    index5: 0,
+    index6: 0,
     disanfang: [
       { id: 0, name: "全部", isShow: true },
-      { id: 1, name: "企业", isShow: false },
-      { id: 2, name: "服务商", isShow: false }
+      { id: 1, name: "服务商", isShow: false },
+      { id: 2, name: "个人", isShow: false }
     ],
     zhengshu: [
       { id: 0, name: "全部", isShow: true },
-      { id: 1, name: "需要证书", isShow: false },
-      { id: 2, name: "无须证书", isShow: false }
+      { id: 1, name: "有证书", isShow: false },
+      { id: 2, name: "无证书", isShow: false }
     ],
     zhiwei: [
       { id: 0, name: "全部", isShow: true },
@@ -46,19 +52,21 @@ Page({
       { id: 6, name: "5-10年", isShow: false },
       { id: 7, name: "10年以上", isShow: false }
     ],
+    xinzi: [
+      { id: 0, name: "不限", isShow: true },
+      { id: 1, name: "3k及以下", isShow: false },
+      { id: 2, name: "3-6k", isShow: false },
+      { id: 3, name: "6-10k", isShow: false },
+      { id: 4, name: "10-20k", isShow: false },
+      { id: 5, name: "20-50k", isShow: false },
+      { id: 6, name: "50k以上", isShow: false },
+    ],
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
 
@@ -68,40 +76,93 @@ Page({
   onShow: function () {
 
   },
-  slider4change (e) {
+  slider4change(e) {
     let value = e.detail.value
     this.setData({
       value
     })
   },
-  changIsActive (e) {
+  changIsActive(e) {
     let { index } = e.currentTarget.dataset;
     let { disanfang } = this.data
     disanfang.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ disanfang })
   },
-  changZhengshu (e) {
+  changZhengshu(e) {
     let { index } = e.currentTarget.dataset;
     let { zhengshu } = this.data
     zhengshu.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ zhengshu })
   },
-  changZhiwei (e) {
+  changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
     let { zhiwei } = this.data
     zhiwei.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ zhiwei })
   },
-  changXueli (e) {
+  changXueli(e) {
     let { index } = e.currentTarget.dataset;
     let { xueli } = this.data
     xueli.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ xueli })
   },
-  changJingyan (e) {
+  changJingyan(e) {
     let { index } = e.currentTarget.dataset;
     let { jingyan } = this.data;
     jingyan.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ jingyan })
+  },
+  changXinzi(e) {
+    let { index } = e.currentTarget.dataset;
+    let { xinzi } = this.data;
+    xinzi.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
+    this.setData({ xinzi })
+  },
+  editTel() {
+    let { index1, index2, index3, index4, index5, index6 } = this.data
+    let pages = getCurrentPages(); //获取上一个页面信息栈(a页面)
+    let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
+    prevPage.setData({
+      require_cert: this.data.zhengshu[index2].name,
+      type: this.data.zhiwei[index3].name,
+      education: this.data.xueli[index4].name,
+      work_age: this.data.jingyan[index5].name,
+      salary: this.data.xinzi[index6].name,
+    });
+    wx.navigateBack({}); //关闭当前页面，返回上一个页面
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

@@ -5,22 +5,24 @@
         <view>公司名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input class="inputSize" placeholder="请输入公司名称" bindinput="inputCorporate" value="{{item.data1}}" />
+      <input class="inputSize" type='text' placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
       <view></view>
     </view>
     <view class="zhiwei  gongsi">
       <text class="name_size">职位名称</text>
-      <input class="inputSize" type='text' placeholder="请输入职位名称" bindinput="inputGangwei" value="{{item.data2}}" />
+      <input class="inputSize" type='text' placeholder="请输入职位名称" data-index="{{index}}" bindinput="inputGangwei" value="{{item.data2}}" />
     </view>
     <view class="zaizhiDate">
       <text class="name_size">在职时间</text>
       <view class="zzd_bt">
-        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{item.data3}}" bindchange="setSameDay">
-          <view class="picker">{{item.data3}}</view>
+        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay}}" value="{{item.data3}}" bindchange="setSameDay">
+          <view wx:if="{{item.data3==''}}" class="picker">{{sameDay}}</view>
+          <view wx:else class="picker">{{item.data3}}</view>
         </picker>
         <text>—</text>
-        <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{item.data4}}" bindchange="setSameDay2">
-          <view class="picker">{{item.data4}}</view>
+        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay2}}" value="{{item.data4}}" bindchange="setSameDay2">
+          <view wx:if="{{item.data4==''}}" class="picker">{{sameDay2}}</view>
+          <view wx:else class="picker">{{item.data4}}</view>
         </picker>
       </view>
     </view>

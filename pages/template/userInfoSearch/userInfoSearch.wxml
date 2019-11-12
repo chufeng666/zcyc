@@ -1,0 +1,30 @@
+<template name="userInfoSearch">
+    <view class="content-list" wx:for="{{recList}}" wx:if='{{!hiddenhistory}}' wx:key="index">
+      <navigator url="{{url}}{{item.id}}">
+        <view class='global-search-wrap'>
+          <view class='search-job-list'>
+            <view class='c-info-title'>
+              <text>{{item.title}}</text>
+              <text class="pColor">{{item.salary==='面议' ? item.salary : item.salary+'/月'}}</text>
+            </view>
+            <view class='s-portrait'>
+              <text class="posen-msg-userInfoSearch">人才</text>
+              <view class='company-status'>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+            </view>
+            <view class='c-info-msg global-search-cont'>
+              <view>
+                <text class='c-msg2 '>{{item.city}} - {{item.district}}</text>
+                <text class='c-msg2 '>{{item.work_age}}年</text>
+                <text class='c-msg2 '>{{item.education}}</text>
+              </view>
+            </view>
+            <view class="s-company-information">
+              <image src='{{item.logo}}' class='portrait-icon' />
+              <text class="xianmujingli">求职岗位•刘勇</text>
+              <text class="gongsi">[{{item.contacts}}]</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </template>

@@ -1,12 +1,21 @@
 @import '../../template/font.wxss';
 @import '../../template/common.wxss';
+@import '../../template/jobApplicant/jobApplicant';
 
 .search-wrap {
   background-color: var(--themeColor) !important;
 }
 
 .sousuolishi {}
-
+.-header-cont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 36rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+}
 .sousuolishi .history {
   border-bottom: 10px solid #dedede;
 }
@@ -87,7 +96,12 @@
   color: #969696;
   padding: 18rpx 0;
 }
-
+.search_bt{
+  width: 100%;
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: #262626;
+}
 .search_concent .search_nav .n-search .newsite_button {
   display: flex;
   background-color: #eaeaea;
@@ -133,12 +147,34 @@
 
 }
 
-.inner-cont {
-  margin: 0 8rpx;
-}
 
+.content-list {
+  padding: 32rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+.pColor{
+  color: var(--themeColor);
+}
+.posen-msg-userInfoSearch{
+  background-color: var(--themeColor);
+  font-size: 28rpx ;
+  color: #fff;
+  padding: 6rpx 16rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+}
+.company-status{
+  background-color: var(--themeColor)
+}
+.gongsi{
+  color: #969696;
+}
+.company_qiye{
+  padding: 32rpx;
+  border-bottom: 16rpx solid #dedede;
+}
 .active {
-  color: #ee331a;
+  color: var(--themeColor);
   font-weight: 400;
 }
 

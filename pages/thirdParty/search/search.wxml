@@ -8,13 +8,13 @@
     </view>
     <view class='-header-cont'>
       <view class='search-cont'>
-        <input type='text' class='search {{pBC1}}' placeholder="一级建造师" bindinput='selecKeyWord' />
         <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+        <input type='text' class='search' placeholder="一级建造师" bindinput='handeSearchInput' />
       </view>
     </view>
   </view>
 </view>
-<view class="sousuolishi" wx:if="{{hiddenhistory}}">
+<view class="sousuolishi" wx:if="{{!isShowInfo}}">
   <view class="history">
     <view class="history_search">
       <view class="hs_top">
@@ -44,7 +44,7 @@
     </view>
   </view>
 </view>
-<view class="search_concent" wx:elif="{{!hiddenhistory}}">
+<view class="search_concent" wx:elif="{{isShowInfo}}">
   <view class="search_nav">
     <view class='subtitle overH search-subtitle'>
       <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">最新</text>
@@ -66,20 +66,24 @@
   </view>
 </view>
 <view class='inner-cont'>
-  <view class='wx-no-info' wx:if="{{isShowInfo}}">
-    <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
-    <view>暂无数据</view>
-  </view>
   <view wx:if="{{cStatus==0}}">
+    <view class='wx-no-info' wx:if="{{hiddenhistory}}">
+      <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+      <view>暂无数据</view>
+    </view>
     <!-- recruit content start -->
-    <import src="../../template/company.wxml" />
-    <template is="company" data="{{recruit:list.recruit, pColor: pColor,pBgC:pBgC,typeMsg:'企业',url:'../../postionDetail/postionDetail?id='}}" />
+    <import src="../../template/jobApplicant/jobApplicant" />
+    <template is="thirdParty" data="{{recList:list.recruit,url:'../../postionDetail/postionDetail?id='}}" />
     <!-- recruit content end -->
   </view>
   <view wx:if="{{cStatus==1}}">
+    <view class='wx-no-info' wx:if="{{hiddenhistory}}">
+      <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+      <view>暂无数据</view>
+    </view>
     <!-- recruit content start -->
-    <import src="../../template/company.wxml" />
-    <template is="company" data="{{recruit:list.person, pColor: pColor,pBgC:pBgC,typeMsg:'服务商',url:'../../postionDetail/postionDetail?id='}}" />
+    <import src="../../template/jobApplicant/jobApplicant" />
+    <template is="thirdParty" data="{{recList:list.person, url:'../../postionDetail/postionDetail?id='}}" />
     <!-- recruit content end -->
   </view>
 </view>

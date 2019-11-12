@@ -5,10 +5,8 @@
     <view class="l_qiye">招人</view>
   </view>
   <view class="h-bottom">
-    <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
-      <view class='search search-nosearch company-bColor-1'>一级建造师</view>
-      <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    </navigator>
+    <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+    <input class=' search-nosearch'  bindinput="handeSearchInput" placeholder="一级建造师"></input>
   </view>
 </view>
 <!-- 头部 -->
@@ -16,10 +14,17 @@
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="newest">
-      <view class="province">
-        <view>
-          {{recList[0].city_str}} — {{recList[0].district_str}}　|　建筑　|　{{recList[0].type}}
-        </view>
+      <view class="province" wx:if="{{showTST}}">
+        <text decode="{{true}}">广州市 - 海珠区&nbsp;&nbsp;|&nbsp;&nbsp;</text>
+        <picker mode="selector" range="{{jobArray}}" bindchange="setJobsearch">
+           {{job_intention}}
+        </picker>
+      </view>
+      <view class="province" wx:else>
+        <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|&nbsp;&nbsp;</text>
+        <picker mode="selector" range="{{jobArray}}" bindchange="setJobsearch">
+           {{job_intention}}
+        </picker>
       </view>
     </view>
     <view class="n-search">
@@ -38,8 +43,8 @@
 <!-- 数据展示 -->
 <view class="inner">
   <view class="container">
-    <import src="../../template/jobApplicant/jobApplicant" />
-    <template is="thirdParty" data="{{recList:hiringData,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
+    <import src="../../template/companyJobSearch/companyJobSearch" />
+    <template is="JobSearch" data="{{recList:hiringData,url:'../../cOrTInfo/cOrTInfoDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->

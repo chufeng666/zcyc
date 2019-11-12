@@ -5,10 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    project: [],
+    project: [{ data1: '', data2: '', data3: '', data4: '', data5: '' }],
     isShow: true,
     index1: '',
-    checked: false
+    checked: false,
+    sameDay2: '至今'
   },
 
   /**
@@ -17,6 +18,9 @@ Page({
   onLoad: function (options) {
     this.sameDay();
     this.initUserInfo4();// 请求数据
+
+  },
+  onShow: function (option) {
   },
   // 当天时间
   sameDay () {
@@ -31,13 +35,31 @@ Page({
     })
   },
   setSameDay (e) {
+    let { index } = e.currentTarget.dataset;
+    let data3 = e.detail.value
+    let { project } = this.data;
+    for (let i in project) {
+      if (i == index) {
+        project[i].data3 = data3
+      }
+    }
     this.setData({
-      sameDay: e.detail.value
+      sameDay: e.detail.value,
+      project
     })
   },
   setSameDay2 (e) {
+    let { index } = e.currentTarget.dataset;
+    let data4 = e.detail.value
+    let { project } = this.data;
+    for (let i in project) {
+      if (i == index) {
+        project[i].data4 = data4
+      }
+    }
     this.setData({
-      sameDay2: e.detail.value
+      sameDay2: e.detail.value,
+      project
     })
   },
   // 请求数据
@@ -61,7 +83,7 @@ Page({
   },
   addOption (e) {
     let { project, isShow } = this.data;
-    if (project.length > 3) {
+    if (project.length == 2) {
       isShow = false
     }
     project.push({ data1: '', data2: '', data3: '', data4: '', data5: '' })
@@ -86,74 +108,54 @@ Page({
     })
   },
   inputCorporate (e) {
+    let { index } = e.currentTarget.dataset;
+    let data1 = e.detail.value
+    let { project } = this.data;
+    for (let i in project) {
+      if (i == index) {
+        project[i].data1 = data1
+      }
+    }
     this.setData({
-      corporate: e.detail.value
+      corporate: e.detail.value,
+      project
     })
   },
   inputGangwei (e) {
+    let { index } = e.currentTarget.dataset;
+    let data2 = e.detail.value
+    let { project } = this.data;
+    for (let i in project) {
+      if (i == index) {
+        project[i].data2 = data2
+      }
+    }
     this.setData({
-      gangwei: e.detail.value
+      gangwei: e.detail.value,
+      project
     })
   },
 
   deleteitem (e) {
+    let that = this
     let { index } = e.currentTarget.dataset;
     let { project } = this.data;
-    for (let i = 0; i < project.length; i++) {
-      if (i == index) {
-        project.splice(i, 1);
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success (res) {
+        if (res.confirm) {
+          for (let i = 0; i < project.length; i++) {
+            if (i == index) {
+              project.splice(i, 1);
+              that.setData({
+                project,
+                isShow: true
+              })
+            }
+          }
+        }
       }
-    }
-    this.setData({
-      project
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

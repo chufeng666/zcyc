@@ -325,6 +325,8 @@ class ServerData {
   getAddress (_data, complete) {
     return this._promise_post(_data, api.userAPI.getAddress, complete);
   }
+
+
   // 个人版编辑信息请求
   // 获取基本信息
   initUserInfo1 (_data, complete) {
@@ -393,8 +395,60 @@ class ServerData {
     return this._promise_post(_data, api.userAPI.initUserInfo8, complete);
   }
 
-
-
+  // 企业用户编辑信息请求
+  // 行业标签
+  setCompanyInfo1 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo1, complete);
+  }
+  setCompanyInfoOne (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo1, complete);
+  }
+  // 联系人
+  setCompanyInfo2 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo2, complete);
+  }
+  setCompanyInfoTwo (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo2, complete);
+  }
+  // 基本信息
+  setCompanyInfo3 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo3, complete);
+  }
+  setCompanyInfoThree (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo3, complete);
+  }
+  // 公司照片
+  setCompanyInfo4 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo4, complete);
+  }
+  setCompanyInfoFour (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo4, complete);
+  }
+  // 上传营业执照
+  setCompanyInfo5 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo5, complete);
+  }
+  setCompanyInfoFive (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo5, complete);
+  }
+  // 公司资质
+  setCompanyInfo6 (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyInfo6, complete);
+  }
+  setCompanyInfoSix (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo6, complete);
+  }
+  // 上傳頭像
+  setCompanyInfo7 (_data, complete) {
+    return this._promise_post(_data, api.userAPI.setCompanyInfo7, complete);
+  }
+  setCompanyDaiyu (_data, complete) {
+    return this._promise_get(_data, api.userAPI.setCompanyDaiyu, complete);
+  }
+  // 获取公司信息
+  company_detail (_data, complete) {
+    return this._promise_get(_data, api.userAPI.company_detail, complete);
+  }
   // 轻提示
   _wxTost (msg) {
     wx.showToast({
@@ -411,14 +465,19 @@ class ServerData {
       duration: 400
     })
   }
-  _showModal (msg) {
-
-    wx.showModal({
-      title: '提示',
-      content: content,
-      success (res) {
-        resolve(res);
-      }
+  /**
+   * promise 形式的wx.showToast 提示框
+   * @param {object} param0 要传递的参数
+   */
+  showToast = ({ title }) => {
+    return new Promise((resolve, reject) => {
+      wx.showToast({
+        title: title,
+        icon: 'none',
+        success: (result) => {
+          resolve(result);
+        }
+      });
     })
   }
 

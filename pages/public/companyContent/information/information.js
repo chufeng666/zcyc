@@ -1,4 +1,4 @@
-// pages/public/companyContent/information/information.js
+import serverData from "../../../../utils/serverData";
 Page({
 
   /**
@@ -12,78 +12,116 @@ Page({
     guimo: ["请选择公司规模", "0-20人", "20-99人", "100-499人", "500-999人", "1000-9999人", "10000人以上"],
     // 公司性质
     index2: 0,
-    xingzhi: ['请选择公司性质', '国企', '民营', '私企']
+    xingzhi: ['请选择公司性质', '国企', '民营', '私企'],
+    company_name: '', // 公司名称
+    contacts_scale: '', // 公司规模
+    desc: '',          // 公司简介
+    open_time: '',   //成立时间
+    telephone: '',   //固定电话
+    type: '',         // 公司性质
+    province: '',         //省
+    city: '',         //市
+    district: '',         //区
+    showTST: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setCompanyInfo3();
+    /*********地址 */
+    if (wx.hideHomeButton) wx.hideHomeButton()
+    this.addressForm = this.selectComponent('#address');
+    /*********地址 */
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setCompanyInfo3 () {
+    let that = this
+    serverData.setCompanyInfo3({}).then((res) => {
+      console.log(res);
+      if (res.data.status == 1) {
+        that.setData({
+          company_name: res.data.data.company_name,
+          contacts_scale: res.data.data.contacts_scale,
+          desc: res.data.data.desc,
+          open_time: res.data.data.open_time,
+          telephone: res.data.data.telephone,
+          type: res.data.data.type,
+          province: res.data.data.province,
+          city: res.data.data.city,
+          district: res.data.data.district,
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  setCompanyInfoThree () {
+    let { province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
+    serverData.setCompanyInfoThree({ province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
+      console.log(res);
+      if (res.data.status == 1) {
+        serverData._wxTost(res.data.msg)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      }
+      serverData._wxTost(res.data.msg)
+    })
+  },
+  inputCompany_name (e) {
+    this.setData({
+      company_name: e.detail.value
+    })
+  },
+  inputTelephone (e) {
+    this.setData({
+      telephone: e.detail.value
+    })
+  },
+  setXingzhi (e) {
+    let { xingzhi } = this.data;
+    this.setData({
+      type: xingzhi[e.detail.value]
+    })
+  },
+  setGuimo (e) {
+    let { guimo } = this.data;
+    this.setData({
+      contacts_scale: guimo[e.detail.value]
+    })
   },
   setSameDay (e) {
     this.setData({
-      sameDay: e.detail.value
+      open_time: e.detail.value
     })
   },
-  // 公司规模
-  setGuimo (e) {
+  inputDesc (e) {
     this.setData({
-      index: e.detail.value
+      desc: e.detail.value
     })
   },
-  // 公司性质
-  setXingzhi (e) {
+  /***********地址开始**************** */
+  tabEvent (data) {      //接收传过来的参数
+    var info = data.detail
+    console.log(info);
     this.setData({
-      index2: e.detail.value
+      areaInfo: info.areaInfo,
+      pCode: info.pCode,
+      cCode: info.cCode,
+      aCode: info.aCode,
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area,
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+  // 点击所在地区弹出选择框
+  selectDistrict: function (e) {
+    this.addressForm.showPopup()
+    this.addressForm.startAddressAnimation(true)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  /***********地址结束**************** */
 })

@@ -91,7 +91,7 @@
 }
 
 .d-c-list {
-  display: flex;
+
 }
 
 .line {
@@ -113,10 +113,14 @@
 /* **************************** */
 
 .wm {
-  font-size: 34rpx;
+  font-weight: bold;
+  font-size: 38rpx;
   color: #262626;
 }
-
+.m-r20{
+  font-size: 38rpx;
+  font-weight: bold;
+}
 .mb_yaoqiu {
   display: flex;
   font-size: 26rpx;
@@ -137,6 +141,9 @@
 }
 
 .gs_dz {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #262626;
   margin-left: 19rpx;
 }
 
@@ -214,6 +221,7 @@
   box-sizing: border-box;
   font-size: 30rpx;
   color: #fff;
+  background-color: var(--themeColor);
 }
 
 .tuisongjianli {

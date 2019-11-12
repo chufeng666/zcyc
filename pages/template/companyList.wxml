@@ -1,13 +1,12 @@
 <template name="companyList">
-  <view class="content-list" wx:for="{{recList}}" wx:key>
-    <navigator url="{{url}}{{item.id}}">
+  <view class="content-list" wx:for="{{recList}}" wx:key="index">
+    <navigator url="{{url}}{{item.company_id}}">
       <view class='c-l-info'>
         <image src='{{item.logo}}' class="c-logo" />
         <view class='c-info-text'>
           <text class='c-info-title'>{{item.company_name}}</text>
-          <view class='c-info-msg'>
-            <text class='c-msg'>建筑</text>
-            <text class='c-msg'>水利水电</text>
+          <view class='c-info-msg' >
+            <text class='c-msg'wx:for="{{item.label}}" wx:key="index">{{item}}</text>
           </view>
           <view class='company-status'>{{item.city}} — {{item.district}}</view>
         </view>
@@ -15,7 +14,7 @@
       <!-- company info start -->
       <view class='company-info'>
         <image class="ci_img" src="../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png"></image>
-        <view class="ci_zuixin">最新招聘•安全员等21个职位</view>
+        <text decode="{{true}}" class="ci_zuixin">最新招聘&nbsp;•&nbsp;{{item.number}}个职位</text>
       </view>
     </navigator>
   </view>

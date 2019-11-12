@@ -26,6 +26,7 @@ Page({
   initUserInfo6 () {
     let that = this
     ServerData.initUserInfo6({}).then((res) => {
+      console.log(res);
       let images = res.data.data;
       that.setData({ images })
     })
@@ -95,9 +96,12 @@ Page({
   },
   deletProfessional (e) {
     let that = this
+    let { index } = e.currentTarget.dataset;
     let { images } = this.data;
     for (let i in images) {
-      images.splice(i, 1)
+      if (i == index) {
+        images.splice(i, 1)
+      }
     }
     that.setData({
       images

@@ -17,6 +17,7 @@ const userAPI = {
 
   recruitDetail: `${proxys}/company/recruit_detail`,  // 公司发布的职位详情
   lookCompany: `${proxys}/company/look_company`,      // 查看公司详情
+  company_detail: `${proxys}/company/company_detail`, // 查看公司详情(新)
 
   personalDetail: `${proxys}/person/detail`,          // 个人简历详情
   editRecruit: `${proxys}/company/edit_recruit`,      // 编辑、发布职位
@@ -68,7 +69,7 @@ const userAPI = {
   hiring: `${proxys}/person/person_list`,             // 公司招人信息列表
   booking: `${proxys}/company/reserve`,               // 公司点击预订
   bookingList: `${proxys}/company/reserve_list`,      // 公司预订列表
-
+  // 个人用户
   getAddress: `${proxys}/person/get_address`,             // 获取省/市/区列表
   initUserInfo1: `${proxys}/person/info1`,            // 基本信息
   initUserInfo2: `${proxys}/person/info2`,            // 工作经验
@@ -78,7 +79,16 @@ const userAPI = {
   initUserInfo6: `${proxys}/person/info6`,            // 职业证书上传
   initUserInfo7: `${proxys}/person/info7`,            // 求职意向
   initUserInfo8: `${proxys}/person/info8`,            // 個人説明
-
+  // 企业用户
+  setCompanyInfo1: `${proxys}/company/info1`,           // 行业标签
+  setCompanyInfo2: `${proxys}/company/info2`,           // 联系人
+  setCompanyInfo3: `${proxys}/company/info3`,           // 基本信息
+  setCompanyInfo4: `${proxys}/company/info4`,           // 公司照片
+  setCompanyInfo5: `${proxys}/company/info5`,           // 上传营业执照
+  setCompanyInfo6: `${proxys}/company/info6`,          // 公司资质
+  setCompanyInfo7: `${proxys}/company/info7`,          // 公司资质
+  setCompanyDaiyu: `${proxys}/company/daiyu`           // 公司待遇
+ 
 }
 
 module.exports = {

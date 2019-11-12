@@ -33,9 +33,6 @@ Page({
     // 接收id
     this.setData({
       id: options.id,
-      pColor: util.loginIdentity().pColor,
-      pBC: util.loginIdentity().pBC,
-      pBgC: util.loginIdentity().pBgC
     });
     this.reqDetails();
   },
@@ -47,9 +44,9 @@ Page({
     // 要传给后台的参数
     // this.data.id职位id
     var _opt = {
-      id: 109
+      id: this.data.id
     }
-    ServerData.personalDetail(_opt).then((res) => {
+    ServerData.recruitDetail(_opt).then((res) => {
       if (res.data.status == 1) {
         this.setData({
           recruitDetail: res.data.data,

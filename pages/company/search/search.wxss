@@ -30,7 +30,24 @@
   margin-left: 16rpx;
   font-size: 26rpx;
 }
+.search-cont{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 36rpx;
+  height: 56rpx;
+  line-height: 56rpx;
 
+}
+.subtitle text {
+  margin-right: 32rpx;
+}
+.company_search{
+  width: 100%;
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: #262626;
+}
 .sousuolishi .popular {
   margin: 27rpx 33rpx;
 }
@@ -117,13 +134,12 @@
   margin: -8rpx 6rpx 0rpx 6rpx;
 }
 
-.inner-cont {}
-
 .login_tab {
   font-size: 28rpx;
 }
 
 .stss-active {
+  margin-right: 32rpx;
   color: #262626;
 }
 
@@ -134,4 +150,116 @@
 
 .pColor {
   color: var(--thirdPartyColor);
+}
+/* 数据展示 */
+
+.inner {
+  padding: 0;
+}
+
+.container {}
+
+.content-list {
+  padding: 33rpx 32rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+
+.c-l-info {
+  display: flex;
+}
+
+.c-logo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+
+.c-info-text {
+  margin-left: 24rpx;
+}
+
+.c-info-title {
+  font-size: 36rpx;
+  color: #262626;
+  font-weight: 600;
+}
+
+.c-info-msg {
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 12rpx;
+}
+
+.c-msg {
+  background-color: var(--themeColor);
+  padding: 4rpx 16rpx;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+}
+
+.company-status {
+  color: #fff;
+  font-weight: 500;
+  background-color: var(--thirdPartyColor);
+}
+
+.company-info {
+  display: flex;
+  font-size: 24rpx;
+  color: #262626;
+  margin-top: 16rpx;
+}
+
+.ci_img {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.ci_zuixin {
+  padding-top: 5rpx;
+}
+
+/* 数据展示 */
+
+.active {
+  color: var(--thirdPartyColor);
+  font-weight: 400;
+}
+
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index: 12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 40vh;
+}
+
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+}
+
+.zhezhao {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+  z-index: 9;
+}
+
+.c-msg {
+  background-color: var(--thirdPartyColor);
 }

@@ -1,56 +1,28 @@
 import ServerData from '../../utils/serverData.js';
 const util = require('../../utils/util.js');  //通用方法
-
-const years = [];
-for (let i = 1; i < 12; i++) {
-  years.push(i);
-}
-
-const pays = []
-for (let i = 1; i < 12000; i++) {
-  i = i + 1000 - 1;
-  pays.push(i);
-}
-
-// 薪资范围
-const salaryArray = ["面议", "1k", "2k", "3k", "4k", "5k", "6k", "7k", "8k", "9k", "10k", "11k", "12k", "13k", "14k", "15k", "16k", "17k", "18k", "19k", "20k", "21k", "22k", "23k", "24k", "25k"]
-
 Page({
   data: {
-    id: '',                           //动态id 修改信息时才能获取到
-    styleBg: '',                      //动态颜色
-    pBgC: '',                          //动态背景
-    title: '',                        //标题
-    jobArray: [],                     //工种
-    jobIndex: 0,                      //工种索引
-    workAge: '',                       //工龄
-    salaryArray: salaryArray,         //薪资
-    salaryIndex: 0,                   //最低薪资索引
-    salaryIndex2: 1,                  //最高薪资索引
-    selectShow: false,                 //默认隐藏
-    isNeed: 0,                         //是否需要证书
-    certificate: [
-      { name: '0', value: '无需证书', checked: 'true' },
-      { name: '1', value: '需要证书' }
-    ],
-    details: '', //详情
-    styleBg: '',                            //动态获背景颜色  
-    pBgC: '',                            //动态获背景颜色    
-
-    postNameList: ['前端', '后端', '老板'], //职位名称
-    postNameText: '',
+    jobArray: [],                     //工种列表
+    company_id: 86,                   //动态id 修改信息时才能获取到
+    title: '',                         //职位名称
+    type: '',                        //招聘岗位
+    work_age: '',                     //经验要求
+    salary: '',                       //薪资
+    welfare: ['1'],                      //福利待遇
+    require_cert: 0,                  //证书要求
+    education: '',                     //学历要求
+    province: '',                     //省
+    city: '',                         //市
+    district: '',                     //区
+    //工作地点
+    detail: '',                         //職位介绍
+    certificate: [],
     experienceList: ["请选择经验要求", "在校生", "应届生", "1年以内", "1-3年", "3-5年", "5-10年", "10年以上"], //经验要求
-    experienceText: 0,
     educationList: ['大专', '本科', '专科', '硕士'],  //学历要求
-    educationText: '',
     salaryList: ['不限', '3k以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'], //薪资要求
-    salaryText: 0,
     welfareList: ['五险一金', '零食', '下午茶'],   //福利待遇
-    welfareText: 0,
     describeList: ['描述1', '描述2', '描述3'], //职位描述
-    describeText: '',
     certificateList: ['无须证书', '需要证书'],//证书要求
-    certificateText: 0
   },
 
   /**
@@ -58,80 +30,72 @@ Page({
  */
   onLoad: function (options) {
     this.getCategoryList();
-    if ('undefined' != typeof (options.id)) {
-      this.setData({
-        id: options.id
-      })
-      this.getJobData()
-    }
-    this.setData({
-      pBgC: util.loginIdentity().pBgC,
-      styleBg: util.loginIdentity().styleBg,
-    })
+    /*********地址 */
+    if (wx.hideHomeButton) wx.hideHomeButton()
+    this.addressForm = this.selectComponent('#address');
+    /*********地址 */
+    // this.setData({
+    //   company_id: options.id
+    // })
   },
-
-  getJobData () {
+  /**
+ * 保存数据
+ */
+  saveEditRecruit: function () {
     var that = this
-    ServerData.goEditRecruit({ 'id': that.data.id }).then((res) => {
+    // 传参到后台
+    var { company_id, type, title, work_age, salary, welfare, require_cert, education, province, city, district, detail } = this.data
+    // return
+    ServerData.editRecruit({ company_id, type, title, work_age, salary, welfare, require_cert, education, province, city, district, detail }).then((res) => {
       if (res.data.status == 1) {
-        var info = res.data.data,
-          slay = info.salary.split("—"),
-          salary = ServerData.returnIndex(slay[0], that.data.salaryArray),
-          newSalary = 1,
-          jobIndex = ServerData.returnIndex(info.type, that.data.jobArray, true)
-        if (salary > 0) {
-          newSalary = salary + 1
-        }
-        this.setData({
-          title: info.title,
-          isNeed: info.require_cert,
-          salaryIndex: salary,
-          salaryIndex2: newSalary,
-          jobIndex: jobIndex,
-          workAge: info.work_age,
-          details: info.detail
-        })
-      } else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      } else if (res.data.status == -2) {
+        ServerData._wxTost('保存成功,信息需管理员审核');
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
           })
-        }, 1500)
+        }, 2000)
+      } else {
         ServerData._wxTost(res.data.msg);
-      }
-      else {
-        ServerData._wxTost(res.data.msg)
       }
     })
   },
-
+  /**
+	 * 获取工种数据
+	 */
+  getCategoryList () {
+    ServerData.categoryList({}).then((res) => {
+      if (res.data.status == 1) {
+        this.setData({
+          jobArray: res.data.data
+        })
+      }
+    })
+  },
   //职位名称选择器
-  changePostName: function (e) {
-    // console.log('picker发送选择改变，携带值为', e)
+  inputTitle: function (e) {
     this.setData({
-      postNameText: this.data.postNameList[Number(e.detail.value)]
+      title: e.detail.value
     })
   },
   //经验要求选择器
   changeExperience: function (e) {
+    let { experienceList } = this.data
     this.setData({
-      experienceText: e.detail.value
+      work_age: experienceList[e.detail.value]
     })
   },
   //学历要求选择器
   changeEducation: function (e) {
+    let { educationList } = this.data
     this.setData({
-      educationText: this.data.educationList[Number(e.detail.value)]
+      education: educationList[e.detail.value]
     })
   },
   //薪资范围选择器
   changeSalary: function (e) {
+    let { salaryList } = this.data
     this.setData({
-      salaryText: e.detail.value
+      salary: salaryList[e.detail.value]
     })
   },
   //福利待遇选择器
@@ -140,20 +104,20 @@ Page({
       welfareText: e.detail.value
     })
   },
+  // 证书要求选择器
+  changCertificate (e) {
+    this.setData({
+      require_cert: e.detail.value
+    })
+  },
   //职位描述选择器
   changeDescribe: function (e) {
     this.setData({
       describeText: this.data.describeList[Number(e.detail.value)]
     })
   },
-  // 证书要求选择器
-  changCertificate (e) {
-    this.setData({
-      certificateText: e.detail.value
-    })
-  },
 	/**
-	 * 获取工种数据
+   * 获取工种数据
 	 */
   getCategoryList () {
     ServerData.categoryList({}).then((res) => {
@@ -171,19 +135,13 @@ Page({
     })
   },
 
-  // 拿到标题
-  getTitle: function (e) {
-    this.setData({
-      title: e.detail.value
-    });
-  },
-
 	/**
 	 * 选择工种
 	 */
   jobChange: function (e) {
+    let { jobArray } = this.data
     this.setData({
-      jobIndex: e.detail.value
+      type: jobArray[e.detail.value].cat_name
     })
   },
 
@@ -226,87 +184,51 @@ Page({
       isNeed: e.detail.value
     })
   },
-
 	/**
 	 * 职位描述
 	 */
   getDetails: function (e) {
-    console.log(e);
     this.setData({
-      details: e.detail.value
+      detail: e.detail.value
     })
   },
-
 	/**
 	 * 校验数据
 	 */
-  verifyData: function () {
-    if (!/^[\S\s]{2,50}$/.test(this.data.title)) {
-      ServerData._wxTost('公司名称2-50');
-      return false
-    }
-    else if (this.data.workAge == "") {
-      ServerData._wxTost('请输入工作年限');
-      return false
-    }
-    else if (!/^[\S\s]{10,200}$/.test(this.data.details)) {
-      ServerData._wxTost('职位描述长度10-200');
-      return false
-    }
-    else {
-      return true;
-    }
-  },
+  // verifyData: function () {
+  //   if (!/^[\S\s]{2,50}$/.test(this.data.title)) {
+  //     ServerData._wxTost('公司名称2-50');
+  //     return false
+  //   }
+  //   else if (this.data.workAge == "") {
+  //     ServerData._wxTost('请输入工作年限');
+  //     return false
+  //   }
+  //   else if (!/^[\S\s]{10,200}$/.test(this.data.details)) {
+  //     ServerData._wxTost('职位描述长度10-200');
+  //     return false
+  //   }
+  //   else {
+  //     return true;
+  //   }
+  // },
 
-	/**
-	 * 保存数据
-	 */
-  saveEditRecruit: function () {
-    var that = this
-    if (!that.verifyData()) {
-      return false
-    }
-    var salary = that.data.salaryArray[that.data.salaryIndex] + '—' + that.data.salaryArray[that.data.salaryIndex2]
-    if (that.data.salaryIndex == 0) {
-      salary = that.data.salaryArray[that.data.salaryIndex]
-    }
-    // 传参到后台
-    var _opt = {
-      id: that.data.id,
-      type: that.data.jobArray[that.data.jobIndex].cat_id,
-      work_age: that.data.workAge,
-      salary: salary,
-      title: that.data.title,
-      require_cert: that.data.isNeed,
-      detail: that.data.details,
-    }
-    // return
-    ServerData.editRecruit(_opt).then((res) => {
-      if (res.data.status == 1) {
-        ServerData._wxTost('保存成功,信息需管理员审核');
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 2000)
-      } else {
-        ServerData._wxTost(res.data.msg);
-      }
+  /***********地址开始**************** */
+  tabEvent (data) {      //接收传过来的参数
+    var info = data.detail
+    this.setData({
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area,
     })
   },
 
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-  onReachBottom: function () {
-
+  // 点击所在地区弹出选择框
+  selectDistrict: function (e) {
+    this.addressForm.showPopup()
+    this.addressForm.startAddressAnimation(true)
   },
-
-	/**
-	 * 用户点击右上角分享
-	 */
-  onShareAppMessage: function () {
-
-  }
+  /***********地址结束**************** */
 
 })

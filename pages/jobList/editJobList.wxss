@@ -117,3 +117,8 @@
 .ec_lianxiren:nth-child(8) {
   margin-bottom: 59rpx;
 }
+
+.daiyu {
+  display: flex;
+  align-items: center;
+}

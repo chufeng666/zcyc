@@ -68,24 +68,9 @@ Page({
     var that = this
     ServerData.getCompayInfo({}).then((res) => {
       if (res.data.status == 1) {
-        var info = res.data.data
-        var val = that.data.value
-        val[0] = that.selectDay(years, info.open_year)
-        val[1] = that.selectDay(months, info.open_month)
-        val[2] = that.selectDay(days, info.open_day)
-        var salary = that.returnIndex(info.salary, that.data.payArray, false)
         that.setData({
           userList: res.data.data,
-          companyName: info.company_name,
-          companyType: info.type,
-          companyScale: info.contacts_scale,
-          achiInfo: info.achievement,
-          personInfo: info.introduction,
-          companyIntroduce: info.desc,
-          value: val,
-          logo: info.logo
         })
-        // console.log(that.data.userList)
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -98,50 +83,22 @@ Page({
   },
   // 头像
   openActionsheet () {
-    var _this = this,
-      data = _this.data.icCardPic
-    wx.showActionSheet({
-      itemList: ['拍照', '从相册选择'],
-      itemColor: '#007aff',
-      success (res) {
-        if (res.tapIndex === 0) {
-          wx.chooseImage({
-            sizeType: ['original', 'compressed'],
-            sourceType: ['album', 'camera'],
-            success: function (res) {
-              var imgSrc = res.tempFilePaths[0];
-              data.src = imgSrc;
-              data.hiddenName = false;
-              _this.setData({
-                icCardPic: data
-              })
-              ServerData.uploadFile(imgSrc).then((res) => {
-                var dat = JSON.parse(res.data)
-                if (dat.status == 1) {
-                  data.newSrc = dat.data
-                  _this.setData({
-                    icCardPic: data
-                  })
-                }
-              })
-            }
-
-          })
-        } else if (res.tapIndex === 1) {
-          wx.chooseImage({
-            count: 1, // 设置最多三张
-            sizeType: ['original', 'compressed'],
-            sourceType: ['album', 'camera'],
-            success (res) {
-              var tempFilePaths = res.tempFilePaths;
-              // 图片预览
-              wx.previewImage({
-                current: res.tempFilePaths[0],
-                urls: res.tempFilePaths
-              })
-            }
-          })
-        }
+    var _this = this
+    let { logo } = _this.data;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        var imgSrc = res.tempFilePaths[0];
+        ServerData.uploadFile(imgSrc).then((res) => {
+          var dat = JSON.parse(res.data)
+          if (dat.status == 1) {
+            logo = dat.data
+            _this.setData({
+              logo, isShow2: false,
+            })
+          }
+        })
       }
     })
   },
@@ -288,39 +245,12 @@ Page({
     }
   },
 
-	/**
-	 * 保存数据
-	 */
+
   saveEditInfo: function () {
-
-    if (!this.verifyData()) {
-      return false
-    }
-    // 传参到后台
-    var _opt = {
-      company_name: this.data.companyName,
-      type: this.data.companyType,
-      open_year: this.data.year,
-      open_month: this.data.month,
-      open_day: this.data.day,
-      contacts_scale: this.data.companyScale,
-      introduction: this.data.personInfo,
-      achievement: this.data.achiInfo,
-      desc: this.data.companyIntroduce
-    }
-
-    ServerData.editCompany(_opt).then((res) => {
-      if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg);
-      } else {
-        ServerData._wxTost(res.data.msg);
-      }
-      setTimeout(() => {
-        wx.redirectTo({
-          url: '../cUserInfo/cUserInfo',
-        })
-      }, 1100)
-    })
+    setTimeout(() => {
+      wx.redirectTo({
+        url: '../cUserInfo/cUserInfo',
+      })
+    }, 1100)
   }
-
 })

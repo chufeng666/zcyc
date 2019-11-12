@@ -9,35 +9,19 @@
     </view>
     <view class="main">
       <view class="m_top"></view>
-      <input placeholder="请输入超过四个字符行业标签" />
+      <input maxlength="4" class="biaoqian" bindinput="inputBiaoqian" placeholder="请输入不超过四个字符行业标签" />
+      <view bindtap="addBiaoqian">添加标签</view>
     </view>
     <view class="setLabel">
-      <view>添加标签</view>
       <view class="sl_biaoqian">
-        <view class="sl_bq_list">
-          <view>建筑工</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_seconds">
-          <view>咨询管理</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_list">
-          <view>建筑工</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_seconds">
-          <view>建筑行业</view>
-          <text class="iconfont  .icon-cuo"></text>
-        </view>
-        <view class="sl_bq_list">
-          <view>服务咨询</view>
-          <text class="iconfont  .icon-cuo"></text>
+        <view class="sl_bq_list" wx:for="{{label}}" wx:key="index">
+          <view>{{item}}</view>
+          <text bindtap="deletBiaoqian" data-index="{{index}}" class="iconfont  .icon-cuo"></text>
         </view>
       </view>
     </view>
   </view>
   <view class="footer">
-    <button>确定</button>
+    <button bindtap="setCompanyInfoOne">确定</button>
   </view>
 </view>

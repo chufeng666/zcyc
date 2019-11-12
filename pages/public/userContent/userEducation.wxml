@@ -18,11 +18,13 @@
     <text class="name_size">就读时间</text>
     <view class="zzd_bt">
       <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{start_time}}" bindchange="setSameDay">
-        <view class="picker">{{start_time}}</view>
+        <view wx:if="{{start_time==''}}" class="picker">{{sameDay}}</view>
+        <view wx:else class="picker">{{start_time}}</view>
       </picker>
       <text>—</text>
       <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{graduate_time}}" bindchange="setSameDay2">
-        <view class="picker">{{graduate_time}}</view>
+        <view wx:if="{{graduate_time==''}}" class="picker">{{graduate_time}}</view>
+        <view wx:else class="picker">{{graduate_time}}</view>
       </picker>
     </view>
   </view>

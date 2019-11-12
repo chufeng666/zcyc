@@ -51,6 +51,7 @@
 
 .sl_biaoqian {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 48rpx;
   font-size: 30rpx;
@@ -58,36 +59,12 @@
 }
 
 .sl_bq_list {
-  position: relative;
-  width: 162tpx;
-  height: 72rpx;
-  line-height: 72rpx;
-  padding: 0 36rpx;
-  color: #fff;
-  background-color: var(--thirdPartyColor);
-  border-radius: 36rpx;
-  margin-right: 48rpx;
-  margin-bottom: 34rpx;
-}
-
-.sl_bq_seconds {
-  position: relative;
-  width: 162tpx;
-  height: 72rpx;
   line-height: 72rpx;
   padding: 0 36rpx;
   color: #686868;
   background-color: #dedede;
   border-radius: 36rpx;
-  margin-right: 48rpx;
-}
-
-.icon-cuo {
-  position: absolute;
-  right: -36rpx;
-  top: -20rpx;
-  color: #B1B1B1;
-
+  margin-bottom: 34rpx;
 }
 
 .footer button {
@@ -97,5 +74,16 @@
   background-color: var(--thirdPartyColor);
 
 }
+
+.active {
+  background-color: var(--thirdPartyColor);
+  color: #fff;
+}
+
+.checkbox checkbox {
+  display: none
+}
+
+
 
 @import "../../../template/font";

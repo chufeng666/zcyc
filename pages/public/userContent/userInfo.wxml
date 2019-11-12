@@ -11,7 +11,7 @@
         建议使用真实头像
       </view>
     </view>
-    <image bindtap="addIdCardPic" mode="aspectFit" class="por_img" src="{{avatar}}" />
+    <image bindtap="addIdCardPic" mode="aspectFit" class="por_img" src="{{getUData.avatar}}" />
   </view>
   <view class="name">
     <text class="name_size">姓名</text>
@@ -20,8 +20,8 @@
   </view>
   <view class="gender  name">
     <text class="name_size">性别</text>
-    <input wx:if="{{tapIndex==='' }}" bindtap="setgender" value="{{getUData.gender===1 ? '女':'男'}}" />
-    <input wx:else bindtap="setgender" placeholder="请选择性别" value="{{tapIndex}}" />
+    <input wx:if="{{gender=='' }}" bindtap="setgender" value="{{tapIndex}}" />
+    <input wx:else bindtap="setgender" placeholder="请选择性别" value="{{gender==1 ? '女':'男'}}" />
   </view>
   <view class="age  name">
     <text class="name_size">年龄</text>

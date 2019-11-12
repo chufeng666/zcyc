@@ -7,16 +7,17 @@
         <view>请完善公司资质</view>
       </view>
     </view>
-    <view class="main">
+    <view class="main" wx:for="{{seniority}}" wx:key="index">
       <view class="m_top">公司资质</view>
-      <input placeholder="请输入公司资质" />
+      <input wx:if="{{seniority===null}}" bindinput="inputSeniority" data-index="{{index}}" placeholder="请输入公司资质" />
+      <input wx:else bindinput="inputSeniority" data-index="{{index}}" value="{{item}}" placeholder="请输入公司资质" />
+    </view>
+    <view class="userId_shangchuang" bindtap="addSeniority">
+      <text class="iconfont  .icon-hao"></text>
+      <view>添加一份</view>
     </view>
   </view>
-  <view class="userId_shangchuang">
-    <text class="iconfont  .icon-hao"></text>
-    <view>添加一份</view>
-  </view>
   <view class="footer">
-    <button>确定</button>
+    <button bindtap="setCompanyInfoSix">确定</button>
   </view>
 </view>

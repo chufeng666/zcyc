@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -58,43 +58,64 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/register/register",
-					"pathName": "pages/register/register",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "pages/public/userContent/userInfo",
-					"pathName": "pages/public/userContent/userInfo",
+					"name": "联系人",
+					"pathName": "pages/public/companyContent/contacts/contacts",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/public/userContent/userId",
-					"pathName": "pages/public/userContent/userId",
+					"name": "基本信息",
+					"pathName": "pages/public/companyContent/information/information",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/public/userContent/Professional",
-					"pathName": "pages/public/userContent/Professional",
+					"name": "行业标签",
+					"pathName": "pages/public/companyContent/label/label",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/headPortrait/headPortrait",
-					"pathName": "pages/headPortrait/headPortrait",
+					"name": "公司资质",
+					"pathName": "pages/public/companyContent/qualification/qualification",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/public/userContent/userWork",
-					"pathName": "pages/public/userContent/userWork",
+					"name": "公司照片",
+					"pathName": "pages/public/companyContent/photo/photo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "营业执照",
+					"pathName": "pages/public/companyContent/license/license",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布职位",
+					"pathName": "pages/jobList/editJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "待遇",
+					"pathName": "pages/public/companyContent/welfare/welfare",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/company/search/search",
+					"pathName": "pages/company/search/search",
 					"query": "",
 					"scene": null
 				},
@@ -102,35 +123,6 @@
 					"id": -1,
 					"name": "pages/public/userContent/userJob",
 					"pathName": "pages/public/userContent/userJob",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userEducation",
-					"pathName": "pages/public/userContent/userEducation",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userProject",
-					"pathName": "pages/public/userContent/userProject",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userWork",
-					"pathName": "pages/public/userContent/userWork",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userCertificate",
-					"pathName": "pages/public/userContent/userCertificate",
-					"query": "",
 					"scene": null
 				}
 			]
