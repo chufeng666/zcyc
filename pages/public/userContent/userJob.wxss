@@ -8,11 +8,12 @@
   margin-top: 45rpx;
   font-size: 32rpx;
   color: #262626;
-  font-weight: bold;
   padding-bottom: 29rpx;
   border-bottom: 1rpx solid #dedede;
 }
-
+.inputXinxi{
+  opacity: 0.4;
+}
 .xizi {
   color: var(--themeColor);
 }
@@ -32,5 +33,18 @@
   margin-bottom: 48rpx;
   font-size: 28rpx;
   font-weight: normal;
-  color: #686868;
+  color: #262626;
+}
+.inputXinxi-real{
+  font-weight: bold;
+  color: #262626;
+}
+.inputXinxi-red{
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.job_whole {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

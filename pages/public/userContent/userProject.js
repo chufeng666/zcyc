@@ -5,11 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    project: [{ data1: '', data2: '', data3: '', data4: '', data5: '' }],
+    project: [],
     isShow: true,
     index1: '',
     checked: false,
-    sameDay2: '至今'
+    sameDay2: '',
+    sameDay: '1991.11'
   },
 
   /**
@@ -23,7 +24,7 @@ Page({
   onShow: function (option) {
   },
   // 当天时间
-  sameDay () {
+  sameDay() {
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
     //获取年份  
@@ -31,10 +32,10 @@ Page({
     //获取月份  
     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     this.setData({
-      sameDay: Y + '-' + M
+      sameDay2: Y + '-' + M
     })
   },
-  setSameDay (e) {
+  setSameDay(e) {
     let { index } = e.currentTarget.dataset;
     let data3 = e.detail.value
     let { project } = this.data;
@@ -48,7 +49,7 @@ Page({
       project
     })
   },
-  setSameDay2 (e) {
+  setSameDay2(e) {
     let { index } = e.currentTarget.dataset;
     let data4 = e.detail.value
     let { project } = this.data;
@@ -63,17 +64,18 @@ Page({
     })
   },
   // 请求数据
-  initUserInfo4 () {
+  initUserInfo4() {
     let that = this
     ServerData.initUserInfo4({}).then((res) => {
       if (res.data.status == 1) {
+
         that.setData({
           project: res.data.data
         })
       }
     })
   },
-  onContentChange (e) {
+  onContentChange(e) {
     let { index } = e.target.dataset
     let { project } = this.data
     project[index].data5 = e.detail.value
@@ -81,8 +83,11 @@ Page({
       project
     })
   },
-  addOption (e) {
+  addOption(e) {
     let { project, isShow } = this.data;
+    if (project == null) {
+      project = []
+    }
     if (project.length == 2) {
       isShow = false
     }
@@ -90,24 +95,40 @@ Page({
     this.setData({ project, isShow });
   },
   //上传数据
-  initUserInfoFour () {
+  initUserInfoFour() {
     let { project } = this.data
+    for (let i in project) {
+      if(project[i].data1 == '' || project[i].data1 == ''){
+        return  ServerData._wxTost('请填写完整的项目经验信息');
+      }
+    }
     ServerData.initUserInfoFour({ project }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-        setTimeout(function () {
           setTimeout(() => {
             wx.navigateBack({
               delta: 1
             })
           }, 1000)
-        }, 1500)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
       } else {
         ServerData._wxTost(res.data.msg);
       }
     })
   },
-  inputCorporate (e) {
+  inputCorporate(e) {
     let { index } = e.currentTarget.dataset;
     let data1 = e.detail.value
     let { project } = this.data;
@@ -121,7 +142,7 @@ Page({
       project
     })
   },
-  inputGangwei (e) {
+  inputGangwei(e) {
     let { index } = e.currentTarget.dataset;
     let data2 = e.detail.value
     let { project } = this.data;
@@ -136,14 +157,14 @@ Page({
     })
   },
 
-  deleteitem (e) {
+  deleteitem(e) {
     let that = this
     let { index } = e.currentTarget.dataset;
     let { project } = this.data;
     wx.showModal({
       title: '提示',
       content: '这是一个模态弹窗',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           for (let i = 0; i < project.length; i++) {
             if (i == index) {

@@ -50,5 +50,13 @@
   line-height: 72rpx;
   font-size: 30rpx;
 }
-
+.inpuTitle {
+  margin-top: 30rpx;
+  font-weight: normal;
+  color: #686868;
+}
+.inpuTitle-real{
+  margin-top: 30rpx;
+  color: #262626;
+}
 @import "userId";

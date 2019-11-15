@@ -13,11 +13,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setCompanyInfo7()
   },
-  initUserInfoSeven () {
-    let { logo } = this.data
-    ServerData.setCompanyInfo7({ logo }).then((res) => {
+  setCompanyInfo7() {
+    var that = this
+    ServerData.setCompanyInfo7({}).then((res) => {
+      console.log(res);
+      if (res.data.status == 1) {
+        that.setData({
+          logo: res.data.data.logo
+        })
+      }
+    })
+  },
+  setCompanyInfoSeven() {
+    var that = this,
+      logo = that.data.logo
+    console.log(logo);
+    if (logo == "") { return ServerData._wxTost("请选择头像") }
+    ServerData.setCompanyInfoSeven({ logo }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
         setTimeout(() => {
@@ -29,7 +43,7 @@ Page({
       ServerData._wxTost(res.data.msg)
     })
   },
-  addPosPic () {
+  addPosPic() {
     var _this = this
     let { logo } = _this.data;
     wx.chooseImage({
@@ -49,10 +63,5 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  }
 })

@@ -7,6 +7,7 @@ import ServerData from '../../../utils/serverData.js';
 
 Page({
   data: {
+    jobIndex:0,
     jobArray: [],                 //职位列表
     //地址三级开始
     site_show: false,             //是否选择人才
@@ -18,6 +19,9 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000,
+    province: '',
+    city: '',
+    district: '',
     tabs: [
       { id: 0, title: "最新", isActive: true },
       { id: 1, title: "最热", isActive: false },
@@ -25,6 +29,8 @@ Page({
     index: 0,
     popular: [],
     array: [],
+    job_type:'',
+    isShow:true
   },
 
   onShow: function () {
@@ -49,22 +55,23 @@ Page({
     this.messageList()
     this.reqIndex(); //请求数据
     util.getStorageItem('savePostion', app);   //
-    this.getCategoryList();
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
+    /*********职业 */
+    this.Occupational = this.selectComponent('#Occupational');
+    /*********职业 */
   },
-  reqIndex () {
+  reqIndex() {
     var that = this,
       _opt = {
         'job_type': that.data.job_type,
-        'province': that.data.pCode,
-        'city': that.data.cCode,
-        'district': that.data.aCode,
+        'province': that.data.province,
+        'city': that.data.city,
+        'district': that.data.district,
       }
     ServerData.userVisit(_opt).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         this.setData({
           indexData: res.data.data,
@@ -101,43 +108,32 @@ Page({
     })
 
   },
-
-  jobChange: function (e) {
-    var t = e.detail.value == 0 ? false : true
+  /***********职位选择**************** */
+  tabEvent1(data) {
+    let info = data.detail
+    console.log(info);
     this.setData({
-      jobIndex: e.detail.value,
-      job_type: this.data.jobArray[e.detail.value].cat_id,
-      site_show: t
+      job_type: info.job_careers,
+      isShow:false
     })
-    this.reqIndex()             //主页信息
+    this.reqIndex()
   },
-  getCategoryList () {
-    var that = this
-    ServerData.categoryList({}).then((res) => {
-      if (res.data.status == 1) {
-        var newArry = []
-        newArry.push({ cat_id: '', cat_name: "人才" })
-        var recl = [...newArry, ...res.data.data]
-        this.setData({ jobArray: recl })
-      }
-      else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      }
-      else {
-        ServerData._wxTost(res.data.msg)
-      }
+  selectOccupational: function (e) {
+    this.Occupational.showPopup()
+    this.Occupational.startAddressAnimation(true)
+    this.setData({
+      occupationalBoxShow: false
     })
   },
-  /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  /***********职位选择**************** */
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
+
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
+      province: info.province,
+      city: info.city,
+      district: info.area,
       showTST: info.showTST
     })
     this.reqIndex()
@@ -150,14 +146,14 @@ Page({
   },
   /***********地址结束**************** */
   // tabs栏
-  changeTitleByIndex (e) {
+  changeTitleByIndex(e) {
     console.log(e.currentTarget.dataset);
     const { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
     this.setData({ tabs, index });
   },
-  messageList () {
+  messageList() {
     var toke = wx.getStorage('token')
     ServerData.messageList({ toke }).then((res) => {
       if (res.data.code === 1) {

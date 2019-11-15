@@ -57,25 +57,26 @@
 .por_img {
   width: 112rpx;
   height: 112rpx;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .name {
   display: flex;
   flex-direction: column;
   font-size: 32rpx;
-  font-weight: bold;
   color: #262626;
   margin: 45rpx 0;
   padding-bottom: 10rpx;
   border-bottom: 1rpx solid #dedede;
 }
-
+.inputXinxi{
+  opacity: 0.4;
+}
 .name_size {
   margin-bottom: 48rpx;
   font-size: 28rpx;
   font-weight: normal;
-  color: #686868;
+  color: #262626;
 }
 
 .info_bt {
@@ -83,4 +84,8 @@
   color: #fff;
   font-size: 30rpx;
   border-radius: 36rpx;
+}
+.inputXinxi-real{
+  font-weight: bold;
+  color: #262626;
 }

@@ -11,12 +11,20 @@
         <navigator url="../../public/userContent/userInfo">
           <text class="iconfont  .icon-bianji"></text>
         </navigator>
+        <view class="yiwanshan">必填</view>
+        <view class="yiwanshan" wx:if="{{getUData.audit_status.status  == null}}">待审核</view>
+        <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == 0}}">审核中</view>
+        <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
+        <view class="yiwanshan" wx:else>已通过审核</view>
       </view>
-      <view class="us_l_bottom">
+      <view wx:if="{{getUData.work_age == '' || getUData.age==null || getUData.school_type == null}}"
+        class="us_l_bottom">
+      </view>
+      <view wx:else class="us_l_bottom">
         {{getUData.work_age}} 年经验 | {{getUData.age}} 岁 | {{getUData.school_type}}
       </view>
     </view>
-    <image mode="aspectFit" class="us_img" src="{{getUData.avatar}}" />
+    <image mode="aspectFit" bindtap="openActionsheet" class="us_img" src="{{getUData.avatar}}" />
   </view>
   <!-- 姓名部分 -->
   <!-- 身份验证 -->
@@ -24,7 +32,11 @@
     <view class="us_left">
       <view class="us_l_top">
         <view class="us_l_t_name">身份验证</view>
-        <text class="bitian">必填</text>
+        <view class="yiwanshan">必填</view>
+        <view class="yiwanshan" wx:if="{{getUData.audit_status.status  == null}}">待审核</view>
+        <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == 0}}">审核中</view>
+        <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
+        <view class="yiwanshan" wx:else>已通过审核</view>
       </view>
       <view class="us_l_bottom">
         <text class="iconfont  icon-lianjie"></text>
@@ -41,10 +53,11 @@
     <view class="us_left">
       <view class="us_l_top">
         <view class="us_l_t_name">职业证书</view>
+        <view class="yiwanshan">必填</view>
       </view>
-      <view class="us_l_bottom">
+      <view class="us_l_bottom" wx:for="{{getUData.images}}" wx:key="index">
         <text class="iconfont  icon-lianjie"></text>
-        <view>广东省初级专业资格证</view>
+        <view>{{item.title}}</view>
       </view>
     </view>
     <navigator url="../../public/userContent/Professional">
@@ -57,9 +70,13 @@
     <view class="us_left">
       <view class="us_l_top">
         <view class="us_l_t_name">求职意向</view>
-        <text class="bitian">必填</text>
+        <view class="yiwanshan">必填</view>
       </view>
-      <view class="us_l_bottom">
+      <view
+        wx:if="{{getUData.job_intention == null || getUData.salary == null || getUData.city == null || getUData.district==null || getUData.daogang_time == null}}"
+        class="us_l_bottom">
+      </view>
+      <view wx:else class="us_l_bottom">
         <view class="us_l_bt_top">{{getUData.job_intention}}　 {{getUData.salary}}</view>
         <view class="us_l_bt_oottom">
           {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time }}
@@ -76,13 +93,13 @@
     <view class="us_wk_first">
       <view class="us_wk_ft_left">
         <view class="us_l_t_name">工作经验</view>
-        <text class="bitian">必填</text>
+        <view class="yiwanshan">必填</view>
       </view>
       <navigator url="../../public/userContent/userWork">
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project" wx:if="{{getUData.experience !== ''}}" wx:for="{{getUData.experience}}" wx:key="index">
+    <view class="us_wk_project" wx:if="{{getUData.experience != null}}" wx:for="{{getUData.experience}}" wx:key="index">
       <view class="us_wk_second">
         <view class="us_wk_sd_left">
           <text class="iconfont  icon-gongsi"></text>
@@ -101,13 +118,13 @@
     <view class="us_wk_first">
       <view class="us_wk_ft_left">
         <view class="us_l_t_name">项目经验</view>
-        <text class="bitian">必填</text>
+        <view class="yiwanshan">必填</view>
       </view>
       <navigator url="../../public/userContent/userProject">
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project" wx:if="{{getUData.project !== ''}}" wx:for="{{getUData.project}}" wx:key="index">
+    <view class="us_wk_project" wx:if="{{getUData.project !=null}}" wx:for="{{getUData.project}}" wx:key="index">
       <view class="us_wk_second">
         <view class="us_wk_sd_left">
           <text class="iconfont  icon-gongsi"></text>
@@ -130,9 +147,15 @@
       </navigator>
     </view>
     <view class="us_l_bottom">
-      <view class="us_l_bt_top">{{getUData.school}}</view>
-      <view class="us_l_bt_oottom">
-        {{getUData.degree}} - {{getUData.major}} | {{getUData.start_time}}-{{getUData.graduate_time}}
+      <view wx:if="{{getUData.school==null}}" class="us_l_bt_top"></view>
+      <view wx:else class="us_l_bt_top">{{getUData.school}}</view>
+      <view
+        wx:if="{{getUData.school_type=='' || getUData.major==null || getUData.start_time=='' || getUData.graduate_time==null}}"
+        class="us_l_bt_oottom">
+
+      </view>
+      <view wx:else class="us_l_bt_oottom">
+        {{getUData.school_type}} | {{getUData.major}} | {{getUData.start_time}}-{{getUData.graduate_time}}
       </view>
     </view>
   </view>
@@ -145,10 +168,30 @@
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_l_bottom">
-      <text>{{desc}}</text>
+    <view wx:if="{{getUData.desc==null}}" class="us_l_bottom">
+      <text></text>
+    </view>
+    <view wx:else class="us_l_bottom">
+      <text>{{getUData.desc}}</text>
     </view>
   </view>
   <!-- 个人说明 -->
-  <button class="denglu" bindtap="">登录</button>
+  <view class="user_personal">
+    <view class="us_l_top">
+      <view class="us_l_t_name">审核状态</view>
+      <view class="yiwanshan" wx:if="{{getUData.audit_status.status  == null}}">待审核</view>
+      <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == 0}}">审核中</view>
+      <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
+      <view class="yiwanshan" wx:else>已通过审核</view>
+    </view>
+    <view wx:if="{{getUData.audit_status.status== -1}}" class="us_l_bottom">
+      <view>{{getUData.audit_status.remark}}</view>
+    </view>
+  </view>
+
+  <view class='set-option-1'>
+    <button wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status== -1}}"
+      class='s-1-option_yi'>提交审核</button>
+    <button wx:else class='s-1-option' bindtap='shenhe'>提交审核</button>
+  </view>
 </view>

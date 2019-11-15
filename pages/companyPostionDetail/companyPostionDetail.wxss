@@ -71,8 +71,8 @@
 
 .icon-nv {
   color: #F10180;
-  padding-top: 10rpx;
-  margin-left: 11rpx;
+  padding-top: 6rpx;
+  margin-left: 24rpx;
 }
 
 .icon-baobao {
@@ -80,6 +80,8 @@
 }
 
 .d-c-list {
+  display: flex;
+  justify-content: space-between;
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
@@ -121,6 +123,10 @@
 
 /* 求职期望 */
 /* 工作经验 */
+.d-c-list-jinyan{
+  padding: 40rpx 30rpx;
+  border-bottom: 16rpx solid #dedede;
+}
 .gongsi {
   display: flex;
   align-items: center;
@@ -191,7 +197,6 @@
   align-items: center;
 }
 .c-list-info-jinyan {
-  display: inline;
 }
 .footer-right {
   display: flex;
@@ -205,7 +210,7 @@
   color: var(--themeColor);
 }
 
-.footer button {
+.f-btn-1 {
   background-color: var(--thirdPartyColor);
   display: inline-block;
   padding: 0 50rpx;
@@ -217,4 +222,7 @@
   font-size: 28rpx;
   margin-left: 18rpx;
   color: #fff;
+}
+.f-btn-1_fou{
+  background-color: #686868;
 }

@@ -13,13 +13,13 @@
     <view class="newest">
       <view class="province" wx:if="{{showTST}}">
         <text decode="{{true}}">广州市 - 海珠区&nbsp;&nbsp;|</text>
-        <picker mode="selector" range="{{xingzhi}}"  bindchange="setXingzhi">
+        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
       <view class="province" wx:else>
         <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|</text>
-        <picker mode="selector" range="{{xingzhi}}"  bindchange="setXingzhi">
+        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
@@ -41,6 +41,9 @@
     <import src="../../template/companyList.wxml" />
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
   </view>
+</view>
+<view style="height: 120px;">
+
 </view>
 <!-- 所有城市三级联动列表 -->
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>

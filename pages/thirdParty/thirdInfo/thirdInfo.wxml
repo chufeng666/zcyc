@@ -59,7 +59,7 @@
       </view>
       <view class="user_caozuo">
         <view class="uscz_neirong">
-          <navigator url="../collect/collect" class='u-o-list'>
+          <navigator url="../uCollect/uCollect" class='u-o-list'>
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shouc.png" />
             <view class="u-o_left">
               <text>我的收藏</text>

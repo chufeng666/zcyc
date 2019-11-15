@@ -26,9 +26,9 @@ Page({
     gender1: ['男', '女'],     // 性别
     // 现居住地址
     addressBoxShow: true,
-    tapIndex: 0,
+    tapIndex: '',
   },
-  onShow () {
+  onShow() {
 
   },
   /**
@@ -41,39 +41,39 @@ Page({
     /*********地址 */
   },
   // 设置民族
-  bindKeyInputNation (e) {
+  bindKeyInputNation(e) {
     this.setData({
       nation: e.detail.value
     })
   },
   // 设置年龄
-  bindKeyInputAge (e) {
+  bindKeyInputAge(e) {
     this.setData({
       age: e.detail.value
     })
   },
   // 设置姓名
-  bindKeyInput (e) {
+  bindKeyInput(e) {
     this.setData({
       name: e.detail.value
     })
   },
   // 设置性别
-  setgender () {
+  setgender() {
     let { gender1 } = this.data;
     let that = this
     wx.showActionSheet({
       itemList: gender1,
       success: function (res) {
         that.setData({
-          tapIndex: gender1[res.tapIndex],
-          gender: res.tapIndex
+          gender: gender1[res.tapIndex],
+          tapIndex: gender1[res.tapIndex]
         })
       },
     })
   },
   // 设置学历
-  bindPickerChange (e) {
+  bindPickerChange(e) {
     let { educationList } = this.data
     let index = e.detail.value
     this.setData({
@@ -82,7 +82,7 @@ Page({
     })
   },
   // 设置工作年限
-  setWorkYear (e) {
+  setWorkYear(e) {
     let { workYearList } = this.data
     let index = e.detail.value
     this.setData({
@@ -92,14 +92,21 @@ Page({
   },
 
   // 接收基本信息
-  initUserInfo1 () {
+  initUserInfo1() {
     let that = this;
+    let { tapIndex } = that.data
     ServerData.initUserInfo1({}).then(res => {
       if (res.data.status == 1) {
+        tapIndex = res.data.data.gender
+        if (tapIndex == 0) {
+          tapIndex = '男'
+        }else {
+          tapIndex = '女'
+        }
         that.setData({
           getUData: res.data.data,
           name: res.data.data.name,
-          gender: res.data.data.gender,
+          tapIndex,
           school_type: res.data.data.school_type,
           age: res.data.data.age,
           nation: res.data.data.nation,
@@ -113,28 +120,43 @@ Page({
     })
   },
   // 上传基本信息
-  initUserInfoOne () {
+  initUserInfoOne() {
     let that = this
-    if (!that._verifyInfo()) { return }
-    let { name, gender, age, nation, province, avatar, city, district, school_type, work_age } = this.data
+    // if (!that._verifyInfo()) { return }
+    let { name, tapIndex, age, nation, province, avatar, city, district, school_type, work_age } = this.data
+    if (tapIndex == '男') {
+      tapIndex = 0
+    } else {
+      tapIndex = 1
+    }
+    let gender = tapIndex
     ServerData.initUserInfoOne({ name, gender, age, avatar, nation, province, city, district, school_type, work_age }).then(res => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-        setTimeout(function () {
           setTimeout(() => {
             wx.navigateBack({
               delta: 1
             })
           }, 1000)
-        }, 1500)
       } else if (res.data.status == -1) {
-        ServerData._wxTost('请随机修改一个信息');
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
       } else {
         ServerData._wxTost(res.data.msg);
       }
     })
   },
-  saveHeaderPic () {
+  saveHeaderPic() {
     var that = this,
       avatar = that.data.avatar
     ServerData.uploadHeadpic({ avatar }).then((res) => {
@@ -170,7 +192,7 @@ Page({
       //
     })
   },
-  _verifyInfo () {
+  _verifyInfo() {
     var that = this
     if (that.data.name == "") {
       ServerData._wxTost('请输入姓名');
@@ -203,7 +225,7 @@ Page({
     return true
   },
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,

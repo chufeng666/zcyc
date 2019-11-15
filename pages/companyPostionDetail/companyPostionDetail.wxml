@@ -51,7 +51,7 @@
       </view>
       <!-- <image src='../../static/images/public/big_portrait.png' class='c-list-portrait'/> -->
     </view>
-    <view class="d-c-list">
+    <view class="d-c-list-jinyan">
       <view class="c-list-info-jinyan">
         <view class='qiuzhiqiwang'>
           <text class="iconfont  icon-1"></text>
@@ -79,7 +79,7 @@
           <view>职业证书</view>
         </view>
         <view class="jinengzhengshu">
-          <view class="jnzs_list" wx:for="{{personalData.images}}">
+          <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
             <text class="iconfont  icon-1"></text>
             <view>{{item[index].title}}</view>
           </view>
@@ -98,10 +98,11 @@
         </view>
       </view>
       <view class="footer-right">
-        <navigator url="../company/Scheduled/Scheduled">
-          <button class='f-btn-1 {{pBgC}}'>马上预订</button>
-        </navigator>
-        <button class='f-btn-2 {{pBgC}}'>
+        <button wx:if="{{personalData.reserve == 1 && personalData.reserve_c != personalData.user_id}}" bindtap="yuDing" class='f-btn-1 {{pBgC}}'>马上预订</button>
+        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c === personalData.user_id}}"  class='f-btn-1_fou'>您已预订</button>
+        <button wx:elif="{{personalData.reserve == 0 }}"  class='f-btn-1_fou'>未开启预定</button>
+        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c ==0  }}"  class='f-btn-1_fou'>已被预订</button>
+        <button class='f-btn-1 {{pBgC}}'>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>

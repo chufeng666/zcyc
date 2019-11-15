@@ -36,7 +36,7 @@
 }
 
 .main input {
-  font-size: 36rpx;
+  font-size: 28rpx;
   opacity: 0.4;
 }
 
@@ -64,5 +64,8 @@
   background-color: var(--thirdPartyColor);
 
 }
-
+.picker{
+  font-size: 28rpx;
+  opacity: 0.4; 
+}
 @import "../../../template/font";

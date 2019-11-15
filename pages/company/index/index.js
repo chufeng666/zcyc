@@ -27,11 +27,12 @@ Page({
     site_show: false,             //是否选择人才
     showTST: true,                  //是否选择地址
     tabs: [
-      { id: 0, title: "最新", isActive: true },
-      { id: 1, title: "最热", isActive: false },
+      { id: 0, title: "人才", isActive: true },
+      { id: 1, title: "服务商", isActive: false },
     ],
     index: 0,
-    popular: []
+    popular: [],
+    isShow:true
   },
 
   onShow: function () {
@@ -58,38 +59,18 @@ Page({
   onLoad: function () {
     this.reqIndex(); //请求数据
     util.getStorageItem('savePostion', app)   //
-    this.getCategoryList()
-
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
+    /*********职业 */
+    this.Occupational = this.selectComponent('#Occupational');
+    /*********职业 */
   },
-
-  getCategoryList () {
-    var that = this
-    ServerData.categoryList({}).then((res) => {
-      if (res.data.status == 1) {
-        var newArry = []
-        newArry.push({ cat_id: '', cat_name: "人才" })
-        var recl = [...newArry, ...res.data.data]
-        this.setData({ jobArray: recl })
-      }
-      else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      }
-      else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
-
 	/**
 	 * 请求数据
 	 */
-  reqIndex () {
+  reqIndex() {
     var that = this,
       _opt = {
         'job_type': that.data.job_type,
@@ -116,38 +97,25 @@ Page({
       ServerData._wxTost("数据请求失败!")
     })
   },
-
-  jobChange: function (e) {
-    var t = e.detail.value == 0 ? false : true
+  /***********职位选择**************** */
+  tabEvent1(data) {
+    let info = data.detail
+    console.log(info);
     this.setData({
-      jobIndex: e.detail.value,
-      job_type: this.data.jobArray[e.detail.value].cat_id,
-      site_show: t
+      job_type: info.job_careers,
+      isShow: false
     })
-    this.reqIndex()             //主页信息
+    this.reqIndex()
   },
-
-	/**
-	 * 
-	 * 跳转到详情
-	 */
-  jumpDetails: function (e) {
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../company/postionDetail?id=' + id
-    })
-  },
-
-  getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
+  selectOccupational: function (e) {
+    this.Occupational.showPopup()
+    this.Occupational.startAddressAnimation(true)
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      occupationalBoxShow: false
     })
   },
-  /********************其他资料结束 */
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
@@ -166,7 +134,7 @@ Page({
   },
   /***********地址结束**************** */
   // tabs栏
-  changeTitleByIndex (e) {
+  changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);

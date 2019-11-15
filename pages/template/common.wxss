@@ -2,8 +2,7 @@
 
 /* USER STYLE START */
 
-.user-bg-,
-.user-active- {
+.user-bg-, .user-active- {
   background: var(--themeColor) !important;
 }
 
@@ -26,8 +25,7 @@
 
 /* COMPANY STYLE START */
 
-.company-bg-,
-.company-active- {
+.company-bg-, .company-active- {
   background: var(--themeColor);
 }
 
@@ -37,6 +35,7 @@
 
 .company-bColor- {
   /* border: 2rpx solid #be4cff !important; */
+  background-color: var(--thirdPartyColor);
 }
 
 .company-bColor-1 {
@@ -49,8 +48,7 @@
 
 /* THIRDPARTH SRTAR */
 
-.third-bg-,
-.third-active- {
+.third-bg-, .third-active- {
   border-radius: 4rpx;
   background: #54b9ff;
 }
@@ -60,7 +58,7 @@
 }
 
 .third-bColor- {
-  border: 2rpx solid #54b9ff !important;
+  background-color: 2rpx solid #54b9ff !important;
 }
 
 .third-bColor-1 {
@@ -100,8 +98,8 @@
 
 .-header-cont {
   display: flex;
-   justify-content: center;
-   align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-cont {
@@ -181,8 +179,7 @@
   vertical-align: top;
 }
 
-.subtitle text,
-.subtitle-msg {
+.subtitle text, .subtitle-msg {
   text-align: center;
   font-size: 30rpx;
 }
@@ -243,15 +240,15 @@
   padding: 25rpx 10rpx 25rpx;
 }
 
-.c-info-xinxi .c-logo,
-.new-c-l-info .c-logo {
+.c-info-xinxi .c-logo, .new-c-l-info .c-logo {
   width: 140rpx;
   height: 140rpx;
   flex: 0 0 1;
   border-radius: 10rpx;
 }
 
-.c-info-text {}
+.c-info-text {
+}
 
 .c-info-title {
   font-weight: 600;
@@ -261,7 +258,8 @@
   margin-bottom: 16rpx;
 }
 
-.c-info-msg {}
+.c-info-msg {
+}
 
 .c-info-msg .c-msg:nth-child(1) {
   display: flex;
@@ -284,7 +282,8 @@
 
 /* search style stert */
 
-.global-search-wrap {}
+.global-search-wrap {
+}
 
 .global-search-cont {
   align-items: center;
@@ -360,8 +359,7 @@
   height: 100%;
 }
 
-.more-recommond,
-.more-recommond2 {
+.more-recommond, .more-recommond2 {
   text-align: center;
   margin: 11rpx 0;
   color: #5d5d5d;
@@ -441,7 +439,7 @@
 /**/
 
 .set-option-1 {
-margin-top: 150rpx;
+  margin-top: 100rpx;
 }
 
 .header-heigh {
@@ -533,8 +531,8 @@ textarea {
   width: 639rpx;
   height: 480rpx;
   font-size: 24rpx;
-	border-radius: 10rpx;
-	border: solid 2rpx #eeeeee;
+  border-radius: 10rpx;
+  border: solid 2rpx #eee;
   margin-top: 18rpx;
   padding: 10rpx;
   box-sizing: border-box;
@@ -575,10 +573,8 @@ textarea {
 }
 
 .c-list-info {
-  display: flex;
-  flex-direction: column;
- font-size: 38rpx;
- font-weight: normal;
+  font-size: 38rpx;
+  font-weight: normal;
 }
 
 .edit-tips {
@@ -749,7 +745,8 @@ textarea {
   border-radius: 4rpx;
 }
 
-.global-c-body {}
+.global-c-body {
+}
 
 .global-c-msg {
   font-size: 26rpx;

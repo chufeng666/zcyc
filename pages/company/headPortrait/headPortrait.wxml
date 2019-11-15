@@ -4,9 +4,9 @@
   </view>
   <view class='id-card-top'>
     <view class='-add-img-'>
-      <image wx:if="{{logo===''}}" class='addPic' bindtap='addPosPic' src='../../../static/images/public/plus.png' />
+      <image wx:if="{{logo==null}}" class='addPic' bindtap='addPosPic' src='../../../static/images/public/plus.png' />
       <image wx:else class='card-top' bindtap='addPosPic' src='{{logo}}' />
     </view>
   </view>
-  <button class="set-option  user-top" bindtap='initUserInfoSeven'>保存</button>
+  <button class="set-option  user-top" bindtap='setCompanyInfoSeven'>保存</button>
 </view>

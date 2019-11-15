@@ -92,31 +92,31 @@ Page({
     let { index } = e.currentTarget.dataset;
     let { zhengshu } = this.data
     zhengshu.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhengshu })
+    this.setData({ zhengshu,index2:index })
   },
   changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
     let { zhiwei } = this.data
     zhiwei.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhiwei })
+    this.setData({ zhiwei,index3:index })
   },
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
     let { xueli } = this.data
     xueli.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xueli })
+    this.setData({ xueli,index4:index })
   },
   changJingyan(e) {
     let { index } = e.currentTarget.dataset;
     let { jingyan } = this.data;
     jingyan.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ jingyan })
+    this.setData({ jingyan,index5:index })
   },
   changXinzi(e) {
     let { index } = e.currentTarget.dataset;
     let { xinzi } = this.data;
     xinzi.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xinzi })
+    this.setData({ xinzi,index6:index })
   },
   editTel() {
     let { index1, index2, index3, index4, index5, index6 } = this.data

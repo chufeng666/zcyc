@@ -1,5 +1,6 @@
 <view class="header">
-  <text class="iconfont    icon-zuojiantou"></text>
+
+  <text bindtap="delta" class="iconfont    icon-zuojiantou"></text>
   <view class="yuding">预定人才</view>
 </view>
 <view class="inner">
@@ -15,7 +16,7 @@
       <view class="mf_middle">
         <view class="mf_m_left">
           <image src="" class="mf_m_l_img" />
-          <view>刘小姐</view>
+          <view>{{name}}</view>
         </view>
         <view class="mf_m_right">
           <icon type="success" color="#19CF66" class="dagou" size="22" />
@@ -23,26 +24,23 @@
       </view>
       <view class="mf_bt">
         <view class="mf_bt_top">
-          <view class="mf_bt_top_left">
+          <view class="mf_bt_top_left" wx:for="{{images}}" wx:key="index">
             <text class="iconfont  icon-yanzhengma"></text>
-            <view>广东省初级专业资格证</view>
+            <view>{{item.title}}</view>
           </view>
-          <view class="mf_bt_top_right">一级证书</view>
         </view>
       </view>
     </view>
     <view class="main_seconds">
       <view class="ms_top">支付优米</view>
       <view class="ms_middle">
-        <input placeholder="请输入支付金额" />
+        {{money}}
       </view>
       <view class="ms_bt">
         <image class="ms_bt_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-        <view>优米余额: 3000</view>
+        <view>优米余额: {{balance}}</view>
       </view>
-      <navigator url="../myPurse/payment/payment" class="ms_footer">
-        <button class="ms_ft_but">确定支付</button>
-      </navigator>
+      <button bindtap="setPersonZhifu" class="ms_footer">确定支付</button>
     </view>
   </view>
 </view>

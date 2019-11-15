@@ -5,5 +5,5 @@
   </view>
 </view>
 <footer class="baocun">
-  <button class="bc_shuoming" bindtap="initUserInfo8">保存</button>
+  <button class="bc_shuoming" bindtap="initUserInfoEight">保存</button>
 </footer>

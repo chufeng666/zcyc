@@ -1,5 +1,5 @@
 <view class="header" wx:if="{{isShow}}">
-  <navigator url="../../Scheduled/Scheduled">
+  <navigator url="../../../companyPostionDetail/companyPostionDetail?id={{id}}">
     <text class="iconfont    icon-zuojiantou"></text>
   </navigator>
   <view class="yuding">开通会员</view>
@@ -15,7 +15,7 @@
       <view class="success">支付成功</view>
       <view class="gouchu">
         <image mode="aspectFill" class="ms_bt_img" src="../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-        <view>-20</view>
+        <view>-{{money}}</view>
       </view>
     </view>
     <view class="main_moddle">
@@ -28,7 +28,7 @@
       </view>
     </view>
     <view class="main_bt">
-      <navigator url="../../../companyPostionDetail/companyPostionDetail">
+      <navigator url="/pages/company/index/index">
         <button class="wancheng">完成</button>
       </navigator>
     </view>
@@ -41,13 +41,12 @@
       <view class="success">支付失败</view>
       <view class="shibai">
         <text class="iconfont icon-iconcopy"></text>
-        <view>非常抱歉，支付过程中发生未知错误，此操作无效</view>
-        <view>你可以选择返回首页或继续支付</view>
+        <view>{{msg}}</view>
+        <!-- <view>你可以选择返回首页或继续支付</view> -->
       </view>
     </view>
     <view class="main_bt">
-      <button class="wancheng">返回</button>
-      <button class="jixu">继续支付</button>
+      <button bindtap="detail" class="wancheng">返回</button>
     </view>
   </view>
 </view>

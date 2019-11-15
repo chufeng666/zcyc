@@ -20,8 +20,8 @@ Page({
     site_show: false,
     showTST: true,
     tabs: [
-      { id: 0, title: "最新", isActive: true },
-      { id: 1, title: "最热", isActive: false },
+      { id: 0, title: "人才", isActive: true },
+      { id: 1, title: "服务商", isActive: false },
     ],
     index: 0
 

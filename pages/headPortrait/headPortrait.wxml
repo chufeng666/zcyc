@@ -4,9 +4,12 @@
     <text>上传头像</text>
   </view>
   <view class='id-card-top'>
-    <view class='-add-img-'>
-      <image class='addPic' bindtap='addPosPic' src='../../static/images/public/plus.png' />
+    <view class='-add-img-' wx:if="{{logo==''}}">
+      <image class='addPic' mode="aspectFit" bindtap='addIdCardPic' src='../../static/images/public/plus.png' />
+    </view>
+    <view class='-add-img-'  wx:else>
+      <image mode="aspectFit" bindtap='addIdCardPic' src='{{logo}}' />
     </view>
   </view>
-  <button class="set-option  user-top" bindtap='initUserInfoSeven'>保存</button>
+  <button class="set-option  user-top" bindtap='setCompanyInfoSeven'>保存</button>
 </view>

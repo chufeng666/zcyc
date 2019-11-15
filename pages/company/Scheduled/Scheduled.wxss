@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   background-color: #333233;
-  padding: 66rpx 36rpx 24rpx 36rpx;
+  padding: 66rpx 20rpx 24rpx 20rpx;
   color: #fff;
   font-size: 36rpx;
 }
@@ -66,8 +66,7 @@
 
 .inner .main .main_first .mf_bt .mf_bt_top {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
 .inner .main .main_first .mf_bt .mf_bt_top .mf_bt_top_left {
@@ -87,7 +86,6 @@
 .inner .main .main_seconds .ms_top {
   font-size: 30rpx;
   color: #686868;
-  margin-bottom: 38rpx;
 }
 
 .inner .main .main_seconds .ms_middle {

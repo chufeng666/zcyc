@@ -10,69 +10,88 @@ Page({
   data: {
     tempFilePaths: [],
     bookListData: [],
-    isShowR: false,                       // 没有数据是显示 
-    pageNum: 1,                         // 设置加载的第几次，默认是第一次  
-    searchLoading: false,               //"上拉加载"的变量，默认false，隐藏  
-    noMoreData: false,       //“没有数据”的变量，默认false，隐藏  
-    pColor: '',                          //动态获取字体颜色
-    pBgC: '',                            //动态获背景颜色                 
-    pBC1: ''                             //动态获边框颜色   
+    isShowR: false,                     // 没有数据是显示 
+    searchLoading: false,               // 显示删除按钮和复选框
+    isShowR: false,               // 显示删除按钮和复选框
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.bookList();
-    this.setData({
-      pBgC: util.loginIdentity().pBgC,
-      pColor: util.loginIdentity().pColor,
-      pBC1: util.loginIdentity().pBC1
-    })
-  },
-  onShow () {
-    wx.getSystemInfo({
-      success: (res) => { // 用这种方法调用，this指向Page
-        this.setData({
-          scrollHeight: res.windowHeight
-        });
-      }
-    });
-  },
-
-  bookList: function () {
-    var that = this
-    ServerData.bookingList({ 'page': that.data.pageNum }).then((res) => {
-      if (res.data.status == 1) {
-        var sstatus = false,
-          nodata = false
-        if (res.data.data.length < 1) {
-          if (that.data.pageNum == 1) {
-            sstatus = true
-          } else {
-            nodata = true
-          }
-        }
-        this.setData({
-          bookListData: res.data.data,
-          isShowR: sstatus,
-          noMoreData: nodata
-        })
-      } else if (status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      }
-      else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
-  scrollLower () {
-    var that = this
-    if (that.data.listArry == "") {
-      return
+    this.companyResume_list();
+    let { bookListData } = this.data
+    if (bookListData == []) {
+      this.setData({
+        isShowR: true
+      })
     }
-    ServerData._showLoading('加载中')
-    that.bookList()
+  },
+  companyResume_list() {
+    let page = 1
+    let that = this
+    ServerData.companyResume_list({ page }).then((res) => {
+      if (res.data.status == 1) {
+        that.setData({
+          bookListData: res.data.data
+        })
+      }
+    })
+  },
+  bianji() {
+    let { bookListData } = this.data
+    if (bookListData == '') {
+      return ServerData._wxTost('没有推送简历')
+    }
+    this.setData({
+      searchLoading: true
+    })
+  },
+  detel() {
+    let { bookListData } = this.data
+    let that = this
+    let index = -1
+    let delnum = 0
+    let arr = ''
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗',
+      success(res) {
+        if (res.confirm) {
+          for (let i in bookListData) {
+            if (bookListData[i].selected) {
+              if (index == -1) {
+                index = i
+              }
+              arr = arr + ',' + bookListData[i].id
+              delnum++
+            }
+          }
+          arr = arr.substr(1)
+          if (arr == "") {
+            return ServerData._wxTost('请选择要删除的信息')
+          }
+          bookListData.splice(index, delnum)
+          ServerData.companyDel_resume({ id: arr }).then((res) => {
+            if (res.data.status == 1) {
+              ServerData._wxTost(res.data.msg)
+            } else {
+              ServerData._wxTost(res.data.msg)
+            }
+          })
+          that.setData({ bookListData, searchLoading: false })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    this.companyResume_list()
+  },
+  changItemStatus(e) {
+    var index = e.currentTarget.dataset.index; // 获取data- 传进来的index
+    let bookListData = this.data.bookListData
+    bookListData[index].selected = !bookListData[index].selected; // 改变状态
+    this.setData({
+      bookListData
+    });
   }
 })

@@ -2,21 +2,22 @@
 <view class='inner'>
   <view class="yuding">
     <view class="bianji">
-      <view class="bj_left">编辑</view>
-      <view class="bj_right">取消预订</view>
+      <view bindtap="bianji" data-aa="0" class="bj_left">编辑</view>
+      <view bindtap="detel" wx:if="{{searchLoading}}" class="bj_right">取消预订</view>
     </view>
   </view>
   <view class='c-l-info'>
-    <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" wx:if="{{!isShowR}}" bindscrolltolower="scrollLower">
+    <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" wx:if="{{!isShowR}}"
+      bindscrolltolower="scrollLower">
       <!-- personal content start -->
       <import src="../template/personal.wxml" />
-      <template is="personal" data="{{person:bookListData, pColor: pColor,pBgC:pBgC,url:'../personalDetail/personalDetail?id='}}" />
+      <template is="personal"
+        data="{{person:bookListData, searchLoading:searchLoading,url:'/pages/companyPostionDetail/companyPostionDetail?id='}}" />
       <!-- personal content end -->
     </scroll-view>
   </view>
-  <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view>
+  <!-- <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view> -->
   <view class='wx-no-info' wx:if="{{isShowR}}">
-    <image class='wx-no-icon' src='../../../static/images/public/none.png'></image>
     <view>暂无数据</view>
   </view>
 </view>

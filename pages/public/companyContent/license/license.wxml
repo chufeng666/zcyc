@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class="main_img">
-    <image wx:if="{{c_img ==''}}" mode="aspectFit" bindtap="openActionsheet" class="userId_img" src="../../../../static/images/conpany/xiaochengxu_sahngchuannyingyezhizhao.png" />
+    <image wx:if="{{c_img ==null}}" mode="aspectFit" bindtap="openActionsheet" class="userId_img" src="../../../../static/images/conpany/xiaochengxu_sahngchuannyingyezhizhao.png" />
     <image wx:else mode="aspectFit" bindtap="openActionsheet" class="userId_img" src="{{c_img}}" />
   </view>
   <view class="footer">

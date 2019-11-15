@@ -16,15 +16,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initUserInfo();
+
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initUserInfo();
   },
-  initUserInfo () {
+  initUserInfo() {
     ServerData.initUserInfo({}).then((res) => {
       console.log(res);
       if (res.data.status == 1) {
@@ -50,5 +50,15 @@ Page({
       }
     })
   },
+  shenhe() {
+    ServerData.shenhe({}).then((res) => {
+      if (res.data.status == 1) {
+        wx.navigateBack({
+          url:'../userCenter/userCenter'
+        })
+      }
+      ServerData._wxTost(res.data.msg)
+    })
 
+  }
 })

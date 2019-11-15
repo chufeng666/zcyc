@@ -1,7 +1,7 @@
 <view class='search-wrap'>
   <view class='g-header-'>
     <view class="h-left">
-      <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+      <text bindtap="detal" class="iconfont icon-zuojiantou"></text>
       <view class="l_qiye">搜索</view>
     </view>
     <view class='-header-cont'>

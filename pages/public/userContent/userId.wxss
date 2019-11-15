@@ -32,11 +32,12 @@
   color: #fff;
   border-radius: 36rpx;
 }
-
+.us_hd_id{
+  margin-top: 49rpx;
+}
 .name_size {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 48rpx;
   font-size: 28rpx;
   font-weight: normal;
   color: #686868;
@@ -47,10 +48,17 @@
   margin-left: 19rpx;
   font-weight: normal;
   font-size: 28rpx;
-  color: #FDBA0B;
+  color: #fdba0b;
+}
+
+.us_hd_zjh {
+  display: flex;
+  align-items: center;
 }
 
 .us_hd_id_num {
+  font-size: 26rpx;
+  opacity: 0.4;
   margin-top: 51rpx;
 }
 
@@ -61,7 +69,7 @@
   padding: 0 6rpx;
   margin-left: 7rpx;
   color: #fff;
-  background-color: #FF730E;
+  background-color: #ff730e;
   font-weight: normal;
   border-radius: 10rpx 4rpx 10rpx 0;
 }
@@ -74,4 +82,7 @@
   border: 1rp solid #dedede;
 }
 
+.shenhe {
+  background-color: #686868;
+}
 @import "../../template/font"

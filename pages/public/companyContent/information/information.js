@@ -22,6 +22,7 @@ Page({
     province: '',         //省
     city: '',         //市
     district: '',         //区
+    head: '',            //公司环境
     showTST: true
   },
 
@@ -36,10 +37,9 @@ Page({
     /*********地址 */
   },
 
-  setCompanyInfo3 () {
+  setCompanyInfo3() {
     let that = this
     serverData.setCompanyInfo3({}).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           company_name: res.data.data.company_name,
@@ -51,59 +51,95 @@ Page({
           province: res.data.data.province,
           city: res.data.data.city,
           district: res.data.data.district,
+          head: res.data.data.head,
+
         })
       }
     })
   },
-  setCompanyInfoThree () {
-    let { province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
-    serverData.setCompanyInfoThree({ province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
-      console.log(res);
+  setCompanyInfoThree() {
+    let {head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
+    let regtype =wx.getStorageSync("savePostion")
+    serverData.setCompanyInfoThree({regtype,head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
       if (res.data.status == 1) {
-        serverData._wxTost(res.data.msg)
+        serverData._wxTost(res.data.msg);
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
           })
         }, 1000)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
+      } else {
+        serverData._wxTost(res.data.msg);
       }
-      serverData._wxTost(res.data.msg)
     })
   },
-  inputCompany_name (e) {
+  inputCompany_name(e) {
     this.setData({
       company_name: e.detail.value
     })
   },
-  inputTelephone (e) {
+  inputTelephone(e) {
     this.setData({
       telephone: e.detail.value
     })
   },
-  setXingzhi (e) {
+  setXingzhi(e) {
     let { xingzhi } = this.data;
     this.setData({
       type: xingzhi[e.detail.value]
     })
   },
-  setGuimo (e) {
+  setGuimo(e) {
     let { guimo } = this.data;
     this.setData({
       contacts_scale: guimo[e.detail.value]
     })
   },
-  setSameDay (e) {
+  setSameDay(e) {
     this.setData({
       open_time: e.detail.value
     })
   },
-  inputDesc (e) {
+  inputDesc(e) {
     this.setData({
       desc: e.detail.value
     })
   },
+  addIdCardPic2() {                                    //头像上传1
+    var _this = this
+    let { head } = _this.data;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        var imgSrc = res.tempFilePaths[0];
+        serverData.uploadFile(imgSrc).then((res) => {
+          var dat = JSON.parse(res.data)
+          if (dat.status == 1) {
+            head = dat.data
+            _this.setData({
+              head, isShow2: false,
+            })
+          }
+        })
+      }
+    })
+  },
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     console.log(info);
     this.setData({

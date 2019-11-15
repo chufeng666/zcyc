@@ -27,18 +27,17 @@ Page({
       }
     })
   },
-
   addDaiyu (e) {
     let { index } = e.currentTarget.dataset;
     let { daiyu } = this.data
-    daiyu[index].checked = !daiyu[index].checked
+    daiyu[index].ccc = !daiyu[index].ccc
     this.setData({ daiyu })
   },
   checkboxChange (e) {
     var daiyu1 = e.detail.value;
-    if (daiyu1.length > 3) {
-      return ServerData._wxTost('只能选三个')
-    }
+    // if (daiyu1.length <= 3) {
+    //   return ServerData._wxTost('只能选三个')
+    // }
     this.setData({
       daiyu1
     });

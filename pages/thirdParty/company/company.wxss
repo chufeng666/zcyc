@@ -113,7 +113,7 @@
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
-  padding-left:10rpx;
+  padding-left: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
@@ -122,7 +122,7 @@
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
- padding: 10rpx;
+  padding: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
@@ -176,8 +176,7 @@
 
 .c-info-msg {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  align-items: center;
   font-size: 28rpx;
   color: #fff;
   margin-top: 12rpx;

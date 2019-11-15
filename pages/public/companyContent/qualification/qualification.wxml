@@ -8,11 +8,14 @@
       </view>
     </view>
     <view class="main" wx:for="{{seniority}}" wx:key="index">
-      <view class="m_top">公司资质</view>
+      <view class="main_gongsizizhi">
+        <view class="m_top">公司资质</view>
+        <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
+      </view>
       <input wx:if="{{seniority===null}}" bindinput="inputSeniority" data-index="{{index}}" placeholder="请输入公司资质" />
       <input wx:else bindinput="inputSeniority" data-index="{{index}}" value="{{item}}" placeholder="请输入公司资质" />
     </view>
-    <view class="userId_shangchuang" bindtap="addSeniority">
+    <view class="userId_shangchuang" bindtap="addSeniority" wx:if="{{isShow}}">
       <text class="iconfont  .icon-hao"></text>
       <view>添加一份</view>
     </view>

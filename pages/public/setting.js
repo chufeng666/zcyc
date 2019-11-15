@@ -15,14 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.openid);
     var t = ''
-    if ('undefined' != typeof (options.openid)) {
+    if ('undefined' != typeof (options.mobile)) {
       t = options.openid.replace(/^(\d{3})\d{4}(\d+)/, "$1****$2");
-      console.log(t);
     }
     this.setData({
-      pBgC: util.loginIdentity().pBgC,
       mobile: t
     })
   },

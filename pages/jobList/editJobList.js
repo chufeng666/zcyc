@@ -8,7 +8,7 @@ Page({
     type: '',                        //招聘岗位
     work_age: '',                     //经验要求
     salary: '',                       //薪资
-    welfare: ['1'],                      //福利待遇
+    welfare: [],                      //福利待遇
     require_cert: 0,                  //证书要求
     education: '',                     //学历要求
     province: '',                     //省
@@ -29,14 +29,13 @@ Page({
  * 生命周期函数--监听页面加载
  */
   onLoad: function (options) {
-    this.getCategoryList();
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-    // this.setData({
-    //   company_id: options.id
-    // })
+    /*********工种 */
+    this.OccupationalForm = this.selectComponent('#Occupational');
+    /*********工种 */
   },
   /**
  * 保存数据
@@ -59,24 +58,7 @@ Page({
       }
     })
   },
-  /**
-	 * 获取工种数据
-	 */
-  getCategoryList () {
-    ServerData.categoryList({}).then((res) => {
-      if (res.data.status == 1) {
-        this.setData({
-          jobArray: res.data.data
-        })
-      }
-    })
-  },
-  //职位名称选择器
-  inputTitle: function (e) {
-    this.setData({
-      title: e.detail.value
-    })
-  },
+
   //经验要求选择器
   changeExperience: function (e) {
     let { experienceList } = this.data
@@ -105,7 +87,7 @@ Page({
     })
   },
   // 证书要求选择器
-  changCertificate (e) {
+  changCertificate(e) {
     this.setData({
       require_cert: e.detail.value
     })
@@ -116,35 +98,6 @@ Page({
       describeText: this.data.describeList[Number(e.detail.value)]
     })
   },
-	/**
-   * 获取工种数据
-	 */
-  getCategoryList () {
-    ServerData.categoryList({}).then((res) => {
-      if (res.data.status == 1) {
-        this.setData({
-          jobArray: res.data.data
-        })
-      } else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      } else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
-
-	/**
-	 * 选择工种
-	 */
-  jobChange: function (e) {
-    let { jobArray } = this.data
-    this.setData({
-      type: jobArray[e.detail.value].cat_name
-    })
-  },
-
 	/**
 	 * 获取工龄
 	 */
@@ -212,9 +165,23 @@ Page({
   //     return true;
   //   }
   // },
-
+  /* 职位 */
+  tabEvent1(data) {
+    let info = data.detail
+    this.setData({
+      type: info.job_careers,
+      title: info.job_intention,
+    })
+  },
+  selectOccupational: function (e) {
+    this.OccupationalForm.showPopup()
+    this.OccupationalForm.startAddressAnimation(true)
+    this.setData({
+      occupationalBoxShow: false
+    })
+  },
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       showTST: info.showTST,

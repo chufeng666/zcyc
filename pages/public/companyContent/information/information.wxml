@@ -9,45 +9,53 @@
     </view>
     <view class="main">
       <view class="m_top">公司名称</view>
-      <input bindinput="inputCompany_name" placeholder="请输入公司名称" value="{{company_name}}" />
+      <input bindinput="inputCompany_name" class="picker" placeholder="请输入公司名称" value="{{company_name}}" />
     </view>
     <view class="main">
       <view class="m_top">公司固定电话</view>
-      <input bindinput="inputTelephone" placeholder="请输入公司固定电话" value="{{telephone}}" />
+      <input bindinput="inputTelephone" class="picker" placeholder="请输入公司固定电话" value="{{telephone}}" />
     </view>
     <view class="main">
       <view class="m_top">公司性质</view>
       <picker mode="selector" range="{{xingzhi}}" value="{{index2}}" bindchange="setXingzhi">
-        <view class="picker">{{type}}</view>
+        <view wx:if="{{type==''}}" class="picker">请选择公司性质</view>
+        <view wx:else class="picker">{{type}}</view>
       </picker>
     </view>
     <view class="main">
       <view class="m_top">公司规模</view>
       <picker mode="selector" range="{{guimo}}" value="{{index}}" bindchange="setGuimo">
-        <view class="picker">{{contacts_scale}}</view>
+        <view wx:if="{{contacts_scale==''}}" class="picker">请选择公司规模</view>
+        <view wx:else class="picker">{{contacts_scale}}</view>
       </picker>
     </view>
     <view class="main">
       <view class="m_top">公司成立时间</view>
       <picker fields="month" mode="date" value="" bindchange="setSameDay">
-        <view class="picker">{{open_time}}</view>
+        <view wx:if="{{open_time==''}}" class="picker">请选择公司成立时间</view>
+        <view wx:else class="picker">{{open_time}}</view>
       </picker>
     </view>
     <view class="main">
       <view class="m_top">公司地址</view>
-      <view wx:if="{{showTST &&  province ===''}}" bindtap="selectDistrict" class="picker">
+      <view wx:if="{{showTST &&  province == null}}" bindtap="selectDistrict" class="picker">
         请选择地址
       </view>
-      <view wx:if="{{!showTST  &&  province ===''}}" bindtap="selectDistrict" class="picker">
-        {{city}} - {{district}}
-      </view>
-      <view wx:if="{{province !==''}}" bindtap="selectDistrict" class="picker">
+      <view wx:else bindtap="selectDistrict" class="picker">
         {{city}} - {{district}}
       </view>
     </view>
     <view class="main">
       <view class="m_top">公司简介</view>
-      <textarea class="ql-container" bindinput="inputDesc" placeholder="1.请填写公司简介" value="{{desc}}"></textarea>
+      <textarea class="ql-container" bindinput="inputDesc" placeholder="请填写公司简介" value="{{desc}}"></textarea>
+    </view>
+    <view class="main">
+      <view class="m_top">公司环境</view>
+      <view class="main_img">
+        <image mode="aspectFit" wx:if="{{head == null}}" bindtap="addIdCardPic2" class="userId_img"
+          src="../../../../static/images/conpany/xiaochengxu_shangchuanggongszhaop.png" />
+        <image mode="aspectFit" wx:else bindtap="addIdCardPic2" class="userId_img" src="{{head}}" />
+      </view>
     </view>
   </view>
   <view class="footer">

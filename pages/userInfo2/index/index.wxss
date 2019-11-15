@@ -172,7 +172,7 @@ border-radius: none;
 }
 
 .n-information {
-  margin-bottom: 95rpx;
+  margin-bottom: 120rpx;
 }
 
 .n-information .c_info {

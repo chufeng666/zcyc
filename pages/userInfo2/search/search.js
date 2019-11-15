@@ -114,6 +114,11 @@ Page({
       cStatus: e.currentTarget.dataset.status
     })
   },
+  detal() {
+    wx.navigateBack({
+      delta: 1
+    });
+  },
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail

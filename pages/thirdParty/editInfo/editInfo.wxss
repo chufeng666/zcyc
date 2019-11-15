@@ -1,5 +1,5 @@
 /* pages/userInfo/editInfo.wxss */
-@import "../../template/common";
+@import "/pages/template/common.wxss";
 
 .user_header {
   display: flex;
@@ -60,7 +60,7 @@
 .por_img {
   width: 112rpx;
   height: 112rpx;
-  border-radius: 50%;
+  // border-radius: 50%;
 }
 
 .ec_lianxiren {
@@ -109,4 +109,20 @@
 
 .ec_lianxiren:nth-child(8) {
   margin-bottom: 59rpx;
+}
+.tp_bitian{
+  width: 68rpx;
+  height: 28rpx;
+}
+.s-1-option_yi{
+  background-color: #686868;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+.ec_shenhe{
+  font-size: 38rpx;
+  font-weight: bold;
+  color: var(--themeColor);
+  margin-top: 50rpx;
 }

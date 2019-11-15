@@ -86,8 +86,15 @@ const userAPI = {
   setCompanyInfo4: `${proxys}/company/info4`,           // 公司照片
   setCompanyInfo5: `${proxys}/company/info5`,           // 上传营业执照
   setCompanyInfo6: `${proxys}/company/info6`,          // 公司资质
-  setCompanyInfo7: `${proxys}/company/info7`,          // 公司资质
-  setCompanyDaiyu: `${proxys}/company/daiyu`           // 公司待遇
+  setCompanyInfo7: `${proxys}/company/info7`,          // 企業頭像
+  setCompanyDaiyu: `${proxys}/company/daiyu`,           // 公司待遇
+  shenhe: `${proxys}/person/shenhe` ,          // 个人版审核
+  companyShenhe: `${proxys}/company/shenhe`,           // 个人版审核
+  setPersonYuding: `${proxys}/person/yuding`,           // 預定
+  companyPush_resume: `${proxys}/company/push_resume` ,  // 推送簡歷
+  companyResume_list: `${proxys}/company/resume_list` ,  // 企業和第三方展示推送簡歷
+  companyDel_resume: `${proxys}/company/del_resume`,   // 推送删除
+  companyDel_reserve: `${proxys}/company/del_reserve`   // 取消预订
  
 }
 

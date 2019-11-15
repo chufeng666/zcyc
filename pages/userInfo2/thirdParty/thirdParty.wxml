@@ -48,6 +48,9 @@
   </view>
 </view>
 <!-- 数据展示 -->
+<view style="height: 120px;">
+
+</view>
 <!-- 所有城市三级联动列表 -->
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <!-- 底部tabbar栏 -->

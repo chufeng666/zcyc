@@ -172,7 +172,7 @@ page {
 }
 
 .user_caozuo {
-  border-bottom: 87rpx solid #dedede;
+  border-bottom: 16rpx solid #dedede;
 }
 
 .u-o-qianbao {

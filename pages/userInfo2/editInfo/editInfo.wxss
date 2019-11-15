@@ -61,7 +61,7 @@
 .inner .user_name .us_img {
   width: 112rpx;
   height: 112rpx;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .inner .user_name:nth-child(2) {
@@ -89,6 +89,7 @@
 
 .inner .user_name:nth-child(4) .us_left .us_l_bottom .us_l_bt_top {
   margin-bottom: 10rpx;
+  font-weight: bold;
   font-size: 30rpx;
   color: #262626;
 }
@@ -202,6 +203,7 @@
 
 .inner .user_personal .us_l_top {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 30rpx;
 }
@@ -255,6 +257,40 @@
   font-size: 32rpx;
   margin-top: 180rpx;
 }
+.ws_img{
+  margin-left: 20rpx;
+  width:62rpx ;
+  height: 28rpx;
+}
+.denglu-shenhe{
+  background-color: #686868;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
 
+  color: #fff;
+  font-size: 32rpx;
+  margin-top: 180rpx;
+}
+.s-1-option_yi{
+  background-color: #686868;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+.yiwanshan {
+  font-size: 18rpx;
+  margin-left: 12rpx;
+  font-weight: normal;
+  line-height: 28rpx;
+  text-align: center;
+  color: #fff;
+  width: 68rpx;
+  height: 28rpx;
+  background-color: #FF730E;
+  border-radius: 10rpx 5rpx 10rpx 0;
+}
 @import '../../template/font.wxss';
+@import '../../template/common';
 @import '../../public/userContent/userInfo';
+

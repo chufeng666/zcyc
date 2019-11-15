@@ -8,8 +8,8 @@ Page({
     // 学历
     educationList: ['初中及以下', '高中', '中专', '大专', '本科', '硕士', '博士'],
     // 当天时间
-    sameDay: '',
-    sameDay2: '至今',
+    sameDay: '1991.11',
+    sameDay2: '',
     // 上传数据
     graduate_time: '', // 毕业时间
     major: '', // 专业
@@ -45,14 +45,28 @@ Page({
     let { graduate_time, major, school, school_type, start_time } = this.data;
     ServerData.initUserInfoThree({ graduate_time, major, school, school_type, start_time }).then((res) => {
       if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg)
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 1000)
+        ServerData._wxTost(res.data.msg);
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
+      } else {
+        ServerData._wxTost(res.data.msg);
       }
-      ServerData._wxTost(res.data.msg)
     })
   },
   // 当天时间
@@ -64,7 +78,7 @@ Page({
     //获取月份  
     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     this.setData({
-      sameDay: Y + '-' + M,
+      sameDay2: Y + '-' + M,
 
     })
   },

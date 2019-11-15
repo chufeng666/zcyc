@@ -23,15 +23,16 @@ Page({
   onReady: function () {
 
   },
-  initUserInfo6 () {
+  initUserInfo6() {
     let that = this
     ServerData.initUserInfo6({}).then((res) => {
-      console.log(res);
-      let images = res.data.data;
-      that.setData({ images })
+      if (res.data.status == 1) {
+        let images = res.data.data;
+        that.setData({ images })
+      }
     })
   },
-  initUserInfoSix () {
+  initUserInfoSix() {
     let that = this
     let { images } = that.data;
     ServerData.initUserInfoSix({ images }).then((res) => {
@@ -42,12 +43,26 @@ Page({
             delta: 1
           })
         }, 1000)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
+      } else {
+        ServerData._wxTost(res.data.msg)
       }
-      ServerData._wxTost(res.data.msg)
     })
 
   },
-  addIdCardPic (e) {                                    //头像上传
+  addIdCardPic(e) {                                    //头像上传
     var _this = this
     let path
     let { images } = _this.data;
@@ -76,11 +91,14 @@ Page({
   // 点击添加证件
   addOption: function (e) {
     let images = this.data.images;
+    if (images == null) {
+      images = []
+    }
     images.push({ path: '', title: '' })
     this.setData({ images });
 
   },
-  inpuTitle (e) {
+  inpuTitle(e) {
     let title = e.detail.value
     let index = e.target.dataset.index
     // console.log(e);
@@ -94,17 +112,25 @@ Page({
       images
     })
   },
-  deletProfessional (e) {
+  deletProfessional(e) {
     let that = this
     let { index } = e.currentTarget.dataset;
     let { images } = this.data;
-    for (let i in images) {
-      if (i == index) {
-        images.splice(i, 1)
+    wx.showModal({
+      title: '提示',
+      content: '您确定要删除吗',
+      success(res) {
+        if (res.confirm) {
+          for (let i in images) {
+            if (i == index) {
+              images.splice(i, 1)
+            }
+          }
+          that.setData({
+            images
+          })
+        }
       }
-    }
-    that.setData({
-      images
     })
   },
   /**

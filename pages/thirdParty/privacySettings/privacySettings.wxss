@@ -10,7 +10,6 @@
   justify-content: space-between;
   padding: 26rpx 0;
   border-bottom: 1rpx solid #dedede;
-
   align-items: center;
   font-size: 30rpx;
 }
@@ -20,7 +19,7 @@
 }
 
 .bj_right {
-  color: #B0B0B0;
+  color: #b0b0b0;
 }
 
 .search-job-list {
@@ -36,7 +35,8 @@
 }
 
 .name {
-  font-weight: 40rpx;
+  font-weight: bold;
+  font-size: 40rpx;
   color: #262626;
 }
 
@@ -63,21 +63,23 @@
   margin: 20rpx 0;
   font-size: 26rpx;
   color: #686868;
-
 }
 
 .c-msg2 {
-  margin: 0 32px;
+  margin: 0 20px;
 }
 
 .c-info-title {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #262626;
   font-size: 26rpx;
 }
-
+.ci_left{
+  display: flex;
+  align-items: center;
+}
 .ci_img {
   width: 48rpx;
   height: 48rpx;
@@ -96,4 +98,8 @@
 .icon-shizhong {
   margin-right: 8rpx;
   font-size: 30rpx;
+}
+.wx-no-info{
+  display: flex;
+  justify-content: center;
 }

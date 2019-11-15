@@ -1,33 +1,31 @@
 <view class="inner">
   <view class="leixing">
     <text class="name_size">职业类型</text>
-    <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
-      <view wx:if="{{job_intention===''}}" class="picker">请选择职位类型</view>
-      <view wx:else class="picker">{{job_intention}}</view>
-    </picker>
+    <view wx:if="{{job_intention=='' || careers==''}}" class="inputXinxi" bindtap="selectOccupational">请选择岗位</view>
+    <view wx:else class="inputXinxi-real" bindtap="selectOccupational">{{job_intention}}-{{careers}}</view>
+    <!-- 职位列表 -->
+    <Occupational-form id='Occupational' bind:tabEvent1="tabEvent1"></Occupational-form>
   </view>
   <view class="chengshi  leixing">
     <text class="name_size">工作城市</text>
-    <view bindtap="selectDistrict">{{city}}{{district}}</view>
+    <view wx:if="{{city=='' || district==''}}" class="inputXinxi" bindtap="selectDistrict">请选择工作城市</view>
+    <view wx:else class="inputXinxi-real" bindtap="selectDistrict">{{city}}-{{district}}</view>
     <!-- 所有城市三级联动列表 -->
     <address-form id='address' bind:tabEvent="tabEvent"></address-form>
     <!-- 地址选择接受 -->
   </view>
-  <view class="ganwei  leixing">
-    <text class="name_size">期望岗位</text>
-    <input type='text' bindinput="inputGangwei" value="{{careers}}" />
-  </view>
   <view class="xizi  leixing">
     <text class="name_size">期望薪资</text>
     <picker class="" mode="selector" range="{{xinzi}}" value="{{index}}" bindchange="setiXinzi">
-      <view class="picker">{{salary}}</view>
+      <view wx:if="{{salary==null}}" class="inputXinxi">请选择期望薪资}</view>
+      <view wx:else class="inputXinxi-red">{{salary}}</view>
     </picker>
   </view>
   <view class="leixing">
     <text class="name_size">工作状态</text>
     <picker class="" mode="selector" range="{{workJob}}" value="{{index}}" bindchange="setiworkJob">
-        <view wx:if="{{daogang_time===''}}">请选工作状态</view>
-        <view wx:else>{{daogang_time}}</view>
+      <view class="inputXinxi" wx:if="{{daogang_time==null}}">请选工作状态</view>
+      <view class="inputXinxi-real" wx:else>{{daogang_time}}</view>
     </picker>
   </view>
   <button class="job_bt" bindtap="initUserInfoSeven">保存</button>

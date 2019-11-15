@@ -22,7 +22,8 @@
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="newest">
-      <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex" class="lively {{item.isActive?'active':''}}">
+      <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex"
+        class="lively {{item.isActive?'active':''}}">
         {{item.title}}
       </view>
     </view>
@@ -32,29 +33,32 @@
         <view class="newsite_city ">{{areaInfo}}</view>
         <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
       </view>
-      <navigator class="newsite_button  active" url="../ScreeningConditions/ScreeningConditions">
-        <view class="newsite_view subtitle-msg  ">更多</view>
+      <view class="newsite_button {{isShow?'':'active'}}" bindtap="selectOccupational">
+        <view class="newsite_view subtitle-msg" wx:if="{{isShow}}">人才</view>
+        <view class="newsite_city">{{job_type}}</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-      </navigator>
+        <Occupational-form id="Occupational" bind:tabEvent1="tabEvent1"></Occupational-form>
+      </view>
     </view>
   </view>
 </view>
 <!-- 搜寻部分 -->
 <view class="n-information">
   <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
-    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id" url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
+      url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.job_type}}</view>
-        <view class="l_price">6-7/月</view>
+        <view class="l_price">{{item.salary}}/月</view>
       </view>
       <view class="i_second">
         <view>人才</view>
         <view>{{item.images == 1 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
-        <view class="t_weizhi">广州 - 海珠区</view>
-        <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">本科</view>
+        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+        <view class="t_zhili">{{item.work_age}}</view>
+        <view class="t_xueli">{{item.school_type}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.avatar}}' class="f_logo" />
@@ -63,24 +67,25 @@
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
-    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
+      url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.title}}</view>
         <view class="l_price">{{item.salary}}/月</view>
       </view>
       <view class="i_second">
-        <view>企业</view>
+        <view>服务商</view>
         <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
-        <view class="t_weizhi">广州 - 海珠区</view>
-        <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">本科</view>
+        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+        <view class="t_zhili">{{item.work_age}}</view>
+        <view class="t_xueli">{{item.education}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.logo}}' class="f_logo" />
-        <view class="f_zhiwei">项目经理●{{item.name}}</view>
-        <view class="f_gongsi">[广州建材企业有限公司]</view>
+        <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+        <view class="f_gongsi">[{{item.company_name}}]</view>
       </view>
     </navigator>
   </block>

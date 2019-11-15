@@ -28,7 +28,7 @@ page {
 #wrap {
   background-color: #fff;
   margin-top: 127rpx;
-  margin-bottom: 300rpx;
+  margin-bottom: 120rpx;
 }
 
 /* <!-- TITLE START --> */
@@ -80,9 +80,9 @@ page {
 
 .main_top .c-l-info .u-o-list {
   display: flex;
+  align-items: center;
   font-size: 22rpx;
   color: #999;
-  align-items: flex-end;
 }
 
 .info_huiyuan .u-o-list view {

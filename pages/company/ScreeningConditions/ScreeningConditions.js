@@ -86,40 +86,41 @@ Page({
     let { index } = e.currentTarget.dataset;
     let { disanfang } = this.data
     disanfang.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ disanfang })
+    this.setData({ disanfang, })
   },
   changZhengshu(e) {
     let { index } = e.currentTarget.dataset;
     let { zhengshu } = this.data
     zhengshu.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhengshu })
+    this.setData({ zhengshu, index2:index})
   },
   changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
     let { zhiwei } = this.data
     zhiwei.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhiwei })
+    this.setData({ zhiwei,index3:index })
   },
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
     let { xueli } = this.data
     xueli.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xueli })
+    this.setData({ xueli,index4:index })
   },
   changJingyan(e) {
     let { index } = e.currentTarget.dataset;
     let { jingyan } = this.data;
     jingyan.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ jingyan })
+    this.setData({ jingyan,index5:index })
   },
   changXinzi(e) {
     let { index } = e.currentTarget.dataset;
     let { xinzi } = this.data;
     xinzi.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xinzi })
+    this.setData({ xinzi,index6:index })
   },
   editTel() {
     let { index1, index2, index3, index4, index5, index6 } = this.data
+    console.log('111111111111111111111111111',this.data.zhengshu[index2].name,);
     let pages = getCurrentPages(); //获取上一个页面信息栈(a页面)
     let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
     prevPage.setData({

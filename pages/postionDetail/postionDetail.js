@@ -23,20 +23,39 @@ Page({
       { name: '包吃包住', id: 1 },
       { name: '餐补', id: 2 },
       { name: '包吃包住', id: 3 }
-    ]
+    ],
+    isShow: true,
+    bgc: '',
+    resume_status:''
   },
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
+    let regtype = wx.getStorageSync('savePostion')
+    console.log(regtype);
     // 接收id
     this.setData({
       id: options.id,
     });
     this.reqDetails();
+    if (regtype == 1 || regtype == 2) {
+      this.setData({
+        isShow: false,
+        bgc: util.loginIdentity().pBC
+      })
+    }
   },
+  onShow: function (params) {
 
+    // if (regtype == 1 || regtype == 2) {
+    //   this.setData({
+    //     isShow: false,
+    //     bgc: 'var(--thirdPartyColor)'
+    //   })
+    // }
+  },
 	/**
 	 * 公司职位详情数据
 	 */
@@ -50,7 +69,8 @@ Page({
       if (res.data.status == 1) {
         this.setData({
           recruitDetail: res.data.data,
-          isCollect: res.data.data.is_collection
+          isCollect: res.data.data.is_collection,
+          resume_status:res.data.resume_status
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({
@@ -98,11 +118,15 @@ Page({
     })
   },
 
-
-	/**
-	 * 用户点击右上角分享
-	 */
-  onShareAppMessage: function () {
-
+  // 推送簡歷
+  tuisong() {
+    let { company_id } = this.data.recruitDetail
+    ServerData.companyPush_resume({ company_id }).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg)
+        this.reqDetails()
+      }
+      ServerData._wxTost(res.data.msg)
+    })
   }
 })

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    desc: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
+    desc: '',
   },
 
   /**
@@ -14,19 +14,44 @@ Page({
   onLoad: function (options) {
     this.initUserInfo8()
   },
-  initUserInfo8 () {
+  initUserInfo8() {
+    let that = this
     ServerData.initUserInfo8({}).then((res) => {
-      console.log(res);
+      if (res.data.status == 1) {
+        that.setData({ desc: res.data.data.desc })
+      }
     })
   },
-  initUserInfo8 () {
+  initUserInfoEight() {
     let that = this
     let { desc } = that.data
-    ServerData.initUserInfo8({ desc }).then((res) => {
-      console.log(res);
+    ServerData.initUserInfoEight({ desc }).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg);
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
+      } else {
+        ServerData._wxTost(res.data.msg);
+      }
     })
   },
-  onContentChange (e) {
+  onContentChange(e) {
     this.setData({
       desc: e.detail.value
     })

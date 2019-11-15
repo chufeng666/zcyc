@@ -2,37 +2,42 @@
 <template name="personal">
   <view>
     <block wx:for="{{person}}" wx:key="index">
-      <navigator url='{{url}}{{item.id ? item.id : item.person_id}}'>
-        <view class='global-search-wrap'>
-          <view class='search-job-list'>
+      <view class='global-search-wrap'>
+        <view class='search-job-list'>
+          <navigator url='{{url}}{{item.id ? item.id : item.person_id}}'>
             <view class='s-portrait global-search-cont'>
               <text class="name">{{item.name}}</text>
-              <text class="pColor">6-7k月</text>
+              <text class="pColor">{{item.salary}}月</text>
             </view>
             <view class="zhenghsu">
               <view class="company-status">人才</view>
-              <view class='company-status {{pBgC}} fr'>{{item.images == 0 ? "无证书":"有证书"}}</view>
+              <view class='company-status {{pBgC}} fr'>{{item.images == '' ? "无证书":"有证书"}}</view>
             </view>
             <view class="xuqiu">
-              <text class="dizhi">广州 - 海珠区</text>
-              <text class='c-msg2'>{{item.work_age}}年</text>
-              <text class="xueli">本科</text>
+              <text class="dizhi">{{item.city}} - {{item.district}}</text>
+              <text class='c-msg2'>{{item.work_age}}</text>
+              <text class="xueli">{{item.school_type}}</text>
             </view>
-            <view class='c-info-title'>
-              <image class="ci_img" src="../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png" />
-              <text>求职岗位•{{item.job_type}}</text>
-              <view class="dqdate">
-                <text class="iconfont  .icon-shizhong"></text>
-                <view class="daoqi">2019-12-21 到期</view>
-              </view>
-              <view class="group">
-                <icon type="success" color="var(--thirdPartyColor)" class="dagou" size="22" />
-                <!-- <icon type="success" color="var(--thirdPartyColor)" class="dagou" size="22" /> -->
-              </view>
+          </navigator>
+          <view class='c-info-title'>
+            <view class="ci_left">
+              <image class="ci_img" src="{{item.avatar}}" />
+              <text>求职岗位 • {{item.job_intention}}</text>
+            </view>
+            <view class="dqdate">
+              <text class="iconfont  .icon-shizhong"></text>
+              <view class="daoqi">{{item.reserve_c_time}} 到期</view>
+            </view>
+            <view class="group" wx:if="{{searchLoading}}">
+              <icon wx:if="{{item.selected}}" type="success" color="{{styleBg}}" bindtap="changItemStatus"
+                data-index="{{index}}" class="dagou" size="22" />
+              <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="{{styleBg}}"
+                class="dagou" size="22" data-goodid="{{item.id}}" />
             </view>
           </view>
         </view>
-      </navigator>
+      </view>
+
     </block>
   </view>
 </template>

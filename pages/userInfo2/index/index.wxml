@@ -7,7 +7,8 @@
     </navigator>
   </view>
   <view class="new">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-active-color="#ff54b5">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
+      circular="true" indicator-active-color="#ff54b5">
       <block wx:for="{{array}}" wx:key="index">
         <swiper-item style="border-radius: 10rpx;">
           <navigator class="new_xiaoxi" url="../../information/information">
@@ -25,28 +26,30 @@
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="newest">
-      <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex" class="lively {{item.isActive?'active':''}}">
+      <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex"
+        class="lively {{item.isActive?'active':''}}">
         {{item.title}}
       </view>
     </view>
     <view class="n-search">
       <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
         <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
-        <view class="newsite_city ">{{areaInfo}}</view>
+        <view class="newsite_city">{{areaInfo}}</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </view>
-      <picker value="{{cat_id}}" range="{{jobArray}}" bindchange="jobChange" range-key="cat_name" range-value="cat_id">
-        <view class="picker  subtitle-msg {{site_show?'active':''}}" data-id='{{jobArray[jobIndex].cat_id}}'>
-          {{jobArray[jobIndex].cat_name}}
-          <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-        </view>
-      </picker>
+      <view class="newsite_button {{isShow?'':'active'}}" bindtap="selectOccupational">
+        <view class="newsite_view subtitle-msg" wx:if="{{isShow}}">人才</view>
+        <view class="newsite_city">{{job_type}}</view>
+        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+        <Occupational-form id="Occupational" bind:tabEvent1="tabEvent1"></Occupational-form>
+      </view>
     </view>
   </view>
 </view>
 <view class="n-information">
   <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
-    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id" url="../../postionDetail/postionDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
+      url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.title}}</view>
         <view class="l_price">{{item.salary}}/月</view>
@@ -68,7 +71,8 @@
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
-    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id" url="../../personalDetail/personalDetail?id={{item.id}}">
+    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
+      url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
         <view class="l_yuan">{{item.title}}</view>
         <view class="l_price">{{item.salary}}/月</view>
@@ -89,6 +93,10 @@
       </view>
     </navigator>
   </block>
+
+</view>
+<view style="height: 120px;">
+
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <!-- 底部tabbar栏 -->

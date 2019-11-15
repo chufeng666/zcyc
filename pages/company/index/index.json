@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "Occupational-form": "/pages/components/Occupational/Occupational",
+    "address-form": "/pages/components/address/address"
+  },
   "navigationStyle": "custom"
 }

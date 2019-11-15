@@ -20,16 +20,6 @@ Page({
   data: {
     // 头像
     logo: '',
-    icCardPic: { src: '', hiddenName: true, newSrc: '' },
-    companyName: '', //名称
-    companyType: '', //公司类型
-    years: years, //年份数组
-    year: date.getFullYear(),
-    months: months, //月份数组
-    month: 2,
-    days: days, // 天数组
-    day: 2,
-    value: [9999, 0, 0],
     companyScale: '', //公司规模
     companyIntroduce: '', //公司介绍
     isAchievement: false, //是否显示成就
@@ -42,9 +32,13 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
+    // this.getCompanyInfo()
+  },
+  onShow: function (options) {
     this.getCompanyInfo()
   },
-  returnIndex (flag, arry, isN) {
+
+  returnIndex(flag, arry, isN) {
     for (var i in arry) {
       if (isN) {
         if (arry[i].cat_id == flag) {
@@ -57,14 +51,14 @@ Page({
       }
     }
   },
-  selectDay (arry, flag) {
+  selectDay(arry, flag) {
     for (var i in arry) {
       if (arry[i] == flag) {
         return i
       }
     }
   },
-  getCompanyInfo () {
+  getCompanyInfo() {
     var that = this
     ServerData.getCompayInfo({}).then((res) => {
       if (res.data.status == 1) {
@@ -82,7 +76,7 @@ Page({
 
   },
   // 头像
-  openActionsheet () {
+  openActionsheet() {
     var _this = this
     let { logo } = _this.data;
     wx.chooseImage({
@@ -247,10 +241,18 @@ Page({
 
 
   saveEditInfo: function () {
-    setTimeout(() => {
-      wx.redirectTo({
-        url: '../cUserInfo/cUserInfo',
-      })
-    }, 1100)
+    ServerData.companyShenhe({}).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg);
+        setTimeout(() => {
+          wx.redirectTo({
+            url: '../cUserInfo/cUserInfo',
+          })
+        }, 1000);
+
+      } else {
+        ServerData._wxTost(res.data.msg);
+      }
+    })
   }
 })

@@ -1,8 +1,8 @@
 <view class="inner">
-  <view wx:for="{{project}}" wx:key="index" class="inner_main">
+  <view wx:if="{{project != ''}}" wx:for="{{project}}" wx:key="index" class="inner_main">
     <view class="gongsi">
       <view class="name_size">
-        <view>公司名称</view>
+        <view>项目名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
       <input class="inputSize" type='text' placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
@@ -31,7 +31,7 @@
       <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao" placeholder="请输入项目经历"></textarea>
     </view>
   </view>
-  <view class="userId_main" wx:if="{{isShow}}">
+  <view  class="userId_main" wx:if="{{isShow}}">
     <view class="userId_shangchuang" bindtap="addOption">
       <text class="iconfont  .icon-hao"></text>
       <view>添加项目经验</view>

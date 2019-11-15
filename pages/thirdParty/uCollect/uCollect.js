@@ -19,6 +19,7 @@ Page({
       'regtype': this.data.currentTab
     }
     ServerData.Ucollect(_opt).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         this.setData({
           collData: res.data.data

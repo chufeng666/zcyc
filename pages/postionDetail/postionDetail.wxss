@@ -213,8 +213,10 @@
   font-weight: 600;
 }
 
-.footer button {
+.f-btn-2 {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 254rpx;
   line-height: 88rpx;
   border-radius: 4;
@@ -223,7 +225,17 @@
   color: #fff;
   background-color: var(--themeColor);
 }
-
+.f-btn-2_hui{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 88rpx;
+  border-radius: 4;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #686868;
+}
 .tuisongjianli {
   background-color: var(--themeColor);
 }

@@ -31,14 +31,28 @@ Page({
     let { contacts, mobile } = this.data;
     serverData.setCompanyInfoTwo({ contacts, mobile }).then((res) => {
       if (res.data.status == 1) {
-        serverData._wxTost(res.data.msg)
+        ServerData._wxTost(res.data.msg);
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
           })
         }, 1000)
+      } else if (res.data.status == -1) {
+        wx.showModal({
+          title: '提示',
+          content: '是否不修改信息',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            } else if (res.cancel) {
+            }
+          }
+        })
+      } else {
+        ServerData._wxTost(res.data.msg);
       }
-      serverData._wxTost(res.data.msg)
     })
   },
   inputContactsName (e) {

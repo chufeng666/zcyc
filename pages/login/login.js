@@ -61,7 +61,7 @@ Page({
     })
   },
 
-  wxLogin (e) {
+  wxLogin(e) {
     if (e.detail.userInfo) {//点击了“允许”按钮，
       var that = this
       wx.login({
@@ -134,18 +134,22 @@ Page({
       }
     });
   },
-  comeInInfoRegist (type) {
+  comeInInfoRegist(type) {
     if (type == 3) {
       wx.redirectTo({                   //跳转个人信息注册
-        url: '../personalMessage/personalMessage'
+        url: '../userInfo2/index/index'
+      })
+    } else if (type == 1) {
+      wx.redirectTo({                   //跳转公司信息注册
+        url: '../company/index/index'
       })
     } else {
-      wx.redirectTo({                   //跳转公司信息注册
-        url: '../register/fillInInformation/fillInInformation'
+      wx.redirectTo({
+        url: '../thirdParty/index/index'
       })
     }
   },
-  comeIndex (type) {      //判断进入那个首页
+  comeIndex(type) {      //判断进入那个首页
     if (type == 3) {    //个人首页
       wx.redirectTo({
         url: '../userInfo2/index/index'
@@ -167,7 +171,7 @@ Page({
       })
     }
   },
-  visitorLogin () {
+  visitorLogin() {
     wx.redirectTo({         //跳转至首页
       url: '../index/index'
     })

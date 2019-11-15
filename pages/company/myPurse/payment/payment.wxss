@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   background-color: #333233;
-  padding: 66rpx 36rpx 24rpx 36rpx;
+  padding: 66rpx 20rpx 24rpx 20rpx;
   color: #fff;
   font-size: 36rpx;
 }

@@ -1,14 +1,13 @@
 <view class="header">
-  <navigator url="../cUserInfo/cUserInfo">
-    <text class="iconfont    icon-zuojiantou"></text>
-  </navigator>
+  <text bindtap="delta" class="iconfont    icon-zuojiantou"></text>
   <view class="yuding">我的谷仓</view>
 </view>
 <view class="inner">
   <view class="main">
     <view class="main_top">
       <view class="m_top_top">
-        <image mode="aspectFill" class="ms_bt_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+        <image mode="aspectFill" class="ms_bt_img"
+          src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
         <view>优米余额( 个 )</view>
       </view>
       <view class="m_top_bt">5000</view>

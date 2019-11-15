@@ -1,21 +1,20 @@
 {
   "pages": [
+    "pages/userInfo2/index/index", 
     "pages/thirdParty/index/index",
-    
-    "pages/thirdParty/uCollect/uCollect",
-    
-    "pages/userInfo2/collect/collect",
-    
-    "pages/company/collect/collect",
     "pages/company/index/index",
-    
-    
-    "pages/userInfo2/index/index",
-    
-    
-    
-    "pages/userInfo2/thirdParty/thirdParty",
+    "pages/userInfo2/editInfo/editInfo",
+    "pages/components/Occupational/Occupational",
+    "pages/thirdParty/editInfo/editInfo",
     "pages/userInfo2/company/company",
+    "pages/userInfo2/thirdParty/thirdParty",
+    "pages/userInfo2/userCenter/userCenter",
+    "pages/userInfo2/collect/collect",
+    "pages/userInfo2/privacySettings/privacySettings",
+    "pages/userInfo2/ScreeningConditions/ScreeningConditions",
+    "pages/userInfo2/search/search",
+    "pages/thirdParty/uCollect/uCollect",
+    "pages/company/collect/collect",
     "pages/thirdParty/jobApplicant/jobApplicant",
     "pages/thirdParty/company/company",
     "pages/thirdParty/search/search",
@@ -27,7 +26,6 @@
     "pages/thirdParty/thirdInfo/thirdInfo",
     "pages/company/uCollect/uCollect",
     "pages/login/login",
-    "pages/thirdParty/editInfo/editInfo",
     "pages/thirdParty/ScreeningConditions/ScreeningConditions",
     "pages/thirdParty/myPurse/goldDeposits",
     "pages/thirdParty/myPurse/myPurse",
@@ -44,11 +42,6 @@
     "pages/company/myPurse/myPurse",
     "pages/company/myPurse/goldDeposits/goldDeposits",
     "pages/company/postJobPostings/postJobPostings",
-    "pages/userInfo2/editInfo/editInfo",
-    "pages/userInfo2/userCenter/userCenter",
-    "pages/userInfo2/privacySettings/privacySettings",
-    "pages/userInfo2/ScreeningConditions/ScreeningConditions",
-    "pages/userInfo2/search/search",
     "pages/jobList/jobList",
     "pages/components/address/address",
     "pages/register/register",
@@ -87,7 +80,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
   },
   "networkTimeout": {
     "request": 10000,

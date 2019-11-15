@@ -67,17 +67,20 @@
 }
 
 .c-msg2 {
-  margin: 0 32px;
+  margin: 0 16px;
 }
 
 .c-info-title {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #262626;
   font-size: 26rpx;
 }
-
+.ci_left{
+  display: flex;
+  align-items: center;
+}
 .ci_img {
   width: 48rpx;
   height: 48rpx;
@@ -90,7 +93,6 @@
   align-items: center;
   color: #969696;
   font-size: 24rpx;
-  margin-left: 86rpx;
 }
 
 .icon-shizhong {

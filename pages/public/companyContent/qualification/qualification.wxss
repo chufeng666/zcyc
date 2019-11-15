@@ -32,7 +32,7 @@
 }
 
 .m_top {
-  margin-bottom: 49rpx;
+  
 }
 
 .main input {
@@ -68,5 +68,10 @@
   background-color: var(--thirdPartyColor);
 
 }
-
+.main_gongsizizhi{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 49rpx;
+}
 @import "../../../template/font";

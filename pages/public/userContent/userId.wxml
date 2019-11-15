@@ -8,7 +8,7 @@
   </view>
   <view class="userId_header">
     <view class="us_hd_zjh">
-      <text class="name_size">证件类型</text>
+      <text class="name_size">证件号</text>
       <text class="bitian">必填</text>
     </view>
     <view class="us_hd_id">
@@ -18,13 +18,16 @@
   <view class="userId_main">
     <text class="iconfont  icon-iconcopy">身份证照片可根据自己意愿填写</text>
     <view class="userId_img_zheng">
-      <image mode="aspectFit" wx:if="{{idcard_back===''}}" bindtap="addIdCardPic1" class="userId_img" src="../../../static/images/bar_icon/user/edit/shengfengzheng_zhnegmian.png" />
+      <image mode="aspectFit" wx:if="{{idcard_back==null}}" bindtap="addIdCardPic1" class="userId_img"
+        src="../../../static/images/bar_icon/user/edit/shengfengzheng_zhnegmian.png" />
       <image mode="aspectFit" wx:else bindtap="addIdCardPic1" class="userId_img" src="{{idcard_back}}" />
     </view>
     <view class="userId_img_fan">
-      <image mode="aspectFit" wx:if="{{idcard_front===''}}" bindtap="addIdCardPic2" class="userId_img" src="../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
+      <image mode="aspectFit" wx:if="{{idcard_front==null}}" bindtap="addIdCardPic2" class="userId_img"
+        src="../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
       <image mode="aspectFit" wx:else bindtap="addIdCardPic2" class="userId_img" src="{{idcard_front}}" />
     </view>
-    <button class="userId_bt" bindtap="initUserInfoFive">确定上传</button>
+    <button wx:if="{{status==0 || status==-1}}" class="userId_bt" bindtap="initUserInfoFive">确定上传</button>
+    <button wx:else class="userId_bt shenhe">审核成功</button>
   </view>
 </view>

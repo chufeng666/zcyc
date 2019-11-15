@@ -25,7 +25,8 @@
             <view class="yiwanshan">已完善</view>
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
-            <view class="size-28">{{userList.contacts}}/{{userList.type}}....</view>
+            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-28">请填写来联系人</view>
+            <view wx:else class="size-28">{{userList.contacts}}/{{userList.mobile}}</view>
           </navigator>
         </view>
       </view>
@@ -37,7 +38,8 @@
           </view>
           <navigator url="../../public/companyContent/information/information">
             <view class="ec_bt">
-              <view class="size-28">{{userList.company_name}}/{{userList.telephone}}</view>
+              <view wx:if="{{userList.company_name==null || userList.type==''}}" class="size-28">请填写公司基本信息</view>
+              <view wx:else class="size-28">{{userList.company_name}}/{{userList.type}}</view>
             </view>
           </navigator>
         </view>
@@ -50,7 +52,8 @@
           </view>
           <navigator url="../../public/companyContent/label/label">
             <view class="ec_bt">
-              <view class="size-28">{{userList.label}}</view>
+              <view wx:if="{{userList.label==null}}" class="size-28">请填写行业标签</view>
+              <view wx:else class="size-28">{{userList.label}}</view>
             </view>
           </navigator>
         </view>
@@ -63,18 +66,8 @@
           </view>
           <navigator url="../../public/companyContent/qualification/qualification">
             <view class="ec_bt">
-              <view class="size-28">{{userList.seniority}}</view>
-            </view>
-          </navigator>
-        </view>
-      </view>
-      <view class="ec_lianxiren">
-        <view class="touxiang">
-          <view>公司照片</view>
-          <navigator url="../../public/companyContent/photo/photo">
-            <view class="ec_bt">
-              <view wx:if="{{userList.head == null}}">未上传</view>
-              <view wx:else>已上传</view>
+              <view wx:if="{{userList.seniority == null}}" class="size-28">请填写公司资质</view>
+              <view wx:else class="size-28">{{userList.seniority}}</view>
             </view>
           </navigator>
         </view>
@@ -84,15 +77,17 @@
           <view>营业执照</view>
           <navigator url="../../public/companyContent/license/license">
             <view class="ec_bt">
-              <view wx:if="{{userList.c_img == ''}}">未上传</view>
-              <view wx:else>已上传</view>
+              <view  class="size-28" wx:if="{{userList.c_img == null}}">未上传</view>
+              <view  class="size-28" wx:else>已上传</view>
             </view>
           </navigator>
         </view>
       </view>
       <view>
         <view class='set-option-1'>
-          <button class='s-1-option company-bg-' bindtap='saveEditInfo'>登录</button>
+            <button wx:if="{{userList.status==-1}}" class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
+            <button wx:elif="{{userList.status==0}}" class='s-1-option' bindtap='saveEditInfo'>审核中</button>
+            <button wx:else class='s-1-option_yi'>已审核</button>
         </view>
       </view>
     </view>

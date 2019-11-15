@@ -65,7 +65,7 @@ function loginIdentity () {
     var info = {
       pColor: 'third-color-',
       pBgC: 'third-bg-',
-      pBC: 'third-bColor-',
+      pBC: 'company-bColor-',
       pBC1: 'third-bColor-1ss',
       gActive: 'third-active-',
       styleBg: '#54b9ff',

@@ -76,11 +76,15 @@
         </view>
       </view>
     </view>
-    <button class="tuisongjianli">
+    <button wx:if="{{resume_status ==0 && isShow}}" class="f-btn-2 {{bgc}}"  bindtap="tuisong">
       <text class="iconfont  icon-tuisong"></text>
       <view>推送简历</view>
     </button>
-    <button class='f-btn-2 {{pBgC}}' open-type="contact">
+    <button wx:else class="f-btn-2_hui" bindtap="tuisong">
+      <text class="iconfont  icon-tuisong"></text>
+      <view>已推送简历</view>
+    </button>
+    <button class='f-btn-2 {{bgc}}' open-type="contact">
       <text class="iconfont    icon-lianxi"></text>
       <view>联系客服</view>
     </button>
