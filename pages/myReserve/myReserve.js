@@ -140,4 +140,9 @@ Page({
   //   ServerData._showLoading('加载中')
   //   that.bookList()
   // }
+  detil(){
+    wx.navigateBack({
+      delta: 2
+    });
+  }
 })

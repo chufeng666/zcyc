@@ -138,6 +138,7 @@ border-radius: none;
 
 .newest-search .n-xiahuaxian .n-search .newsite_button {
   display: flex;
+  align-items: center;
   background-color: #eaeaea;
   margin-right: 16rpx;
   height: 56rpx;
@@ -287,7 +288,9 @@ border-radius: none;
   opacity: 0.4;
   z-index: 9;
 }
-
+.zhanwushuju {
+  margin-top: 120rpx;  
+}
 /* 所在地区 */
 /* @font-face {
     font-family: 'iconfont';

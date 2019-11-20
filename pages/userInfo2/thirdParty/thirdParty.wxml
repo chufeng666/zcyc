@@ -6,7 +6,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input bindinput="handeSearchInput" placeholder="请输入公司名称" class='search-nosearch '></input>
+    <input bindconfirm="handeSearchInput" placeholder="请输入公司名称" class='search-nosearch '></input>
   </view>
 </view>
 <!-- 头部 -->
@@ -38,9 +38,9 @@
 <!-- 筛选 -->
 <!-- 数据展示 -->
 <view class="inner">
-  <view class='wx-no-info' wx:if="{{site_show}}">
+  <view class='zhanwushuju' wx:if="{{site_show}}">
     <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
-    <view>暂无数据</view>
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
   </view>
   <view class="container" wx:else>
     <import src="../../template/companyList.wxml" />

@@ -120,11 +120,13 @@
   font-size: 25rpx;
   margin: -8rpx 6rpx 0rpx -6rpx;
 }
+
 .wx-no-info {
   text-align: center;
   font-size: 30rpx;
   color: #666;
 }
+
 /* 筛选 */
 
 /* 数据展示 */
@@ -240,6 +242,10 @@
   background: #000;
   opacity: 0.4;
   z-index: 9;
+}
+
+.zhanwushuju {
+  margin-top: 120rpx;
 }
 
 /* @font-face {

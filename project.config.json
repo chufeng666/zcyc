@@ -58,15 +58,22 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/company/privacySettings/privacySettings",
-					"pathName": "pages/company/privacySettings/privacySettings",
+					"name": "pages/information/information",
+					"pathName": "pages/information/information",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/myReserve/myReserve",
-					"pathName": "pages/myReserve/myReserve",
+					"name": "pages/company/cUserInfo/cUserInfo",
+					"pathName": "pages/company/cUserInfo/cUserInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/thirdParty/thirdInfo/thirdInfo",
+					"pathName": "pages/thirdParty/thirdInfo/thirdInfo",
 					"query": "",
 					"scene": null
 				}

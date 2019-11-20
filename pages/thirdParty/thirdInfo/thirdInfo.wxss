@@ -35,7 +35,8 @@ page {
 
 /* <!-- TITLE START --> */
 
-.content-list {}
+.content-list {
+}
 
 .main_top {
   padding: 24rpx;
@@ -141,7 +142,8 @@ page {
   line-height: 80rpx;
 }
 
-.sy_ceshi .icon-hao {}
+.sy_ceshi .icon-hao {
+}
 
 .c-l-info .u-o-list {
   margin-bottom: 24rpx;
@@ -154,6 +156,7 @@ page {
 .user_img {
   width: 36rpx;
   height: 36rpx;
+  padding: 29rpx 0;
   margin-right: 22rpx;
 }
 
@@ -194,30 +197,32 @@ page {
   margin-top: 4rpx;
 }
 
-.uscz_neirong,
-.user_qiehuan {
+.uscz_neirong, .user_qiehuan {
   font-size: 28rpx;
-  padding: 26rpx 32rpx 0 32rpx;
+  padding: 0 32rpx;
 }
 
-.uscz_neirong .u-o-list,
-.user_qiehuan .u-o-list {
-  margin-bottom: 28rpx;
+.uscz_neirong .u-o-list, .user_qiehuan .u-o-list {
+ 
 }
 
-.uscz_neirong .u-o-list .u-o_left,
-.user_qiehuan .u-o-list .u-o_left {
+.uscz_neirong .u-o-list .u-o_left, .user_qiehuan .u-o-list .u-o_left {
   display: flex;
   flex: 9;
   justify-content: space-between;
-  padding-bottom: 29rpx;
+  padding: 29rpx 0;
   border-bottom: 1rpx solid #dedede;
 }
 
+.u-o-qianbao  .user_img {
+  width: 36rpx;
+  height: 36rpx;
+  padding: 0;
+  margin-right: 22rpx;
+}
 
 .uscz_neirong .u-o-list:last-child .u-o_left {
   border: none;
-  padding: 0;
   margin: 0;
 }
 

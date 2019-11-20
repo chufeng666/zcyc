@@ -1,6 +1,6 @@
 <view class="xiaoxi_header">
   <view class="h-left">
-    <navigator url="../userInfo2/index/index" class="iconfont icon-zuojiantou"></navigator>
+    <view bindtap="fanhui" class="iconfont icon-zuojiantou"></view>
     <view class="l_qiye">消息(24)</view>
   </view>
 </view>
@@ -15,7 +15,7 @@
     <navigator url="infoDetail?id={{item.id}}" wx:for="{{array}}" class='t-info-list' bindtap='changNew' wx:key="{{index}}" data-index="{{index}}">
       <image src='../../static/images/public/big_portrait.png' class='t-info-img' />
       <view class='t-info-msg'>
-        <view class='f-bold m-b20'>{{item.title}}</view>
+        <view class='f-bold'>{{item.title}}</view>
         <!-- <view class='-info-msg-exp'>{{item.content}}</view> -->
         <!-- <view class='-info-msg-exp' wx:else>
           <import src="../wxParse/wxParse.wxml" />

@@ -26,7 +26,8 @@ Page({
     ],
     isShow: true,
     bgc: '',
-    resume_status:''
+    resume_status: '',
+    companyShow: false // 隐藏推荐按钮
   },
 
 	/**
@@ -43,7 +44,13 @@ Page({
     if (regtype == 1 || regtype == 2) {
       this.setData({
         isShow: false,
-        bgc: util.loginIdentity().pBC
+        bgc: util.loginIdentity().pBC,
+        companyShow:false
+      })
+    } else {
+      this.setData({
+        bgc: util.loginIdentity().pBgC,
+        companyShow:true
       })
     }
   },
@@ -70,7 +77,7 @@ Page({
         this.setData({
           recruitDetail: res.data.data,
           isCollect: res.data.data.is_collection,
-          resume_status:res.data.resume_status
+          resume_status: res.data.resume_status
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({

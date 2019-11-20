@@ -6,71 +6,25 @@ Page({
    * 页面的初始数据
    */
 	data: {
-		savaStatus: 1,
-		saveMoney: 10, 
-		selectMsg: '月',
-    num:'',
-		moneyData:{},
-    vip_type:1
+		moneyData: {},
 	},
 
   /**
    * 生命周期函数--监听页面加载
    */
 	onLoad: function (options) {
-		this.getMyPurse()
+		this.myPurse()
 	},
 
-	getMyPurse() {
+	myPurse() {
 		ServerData.myPurse({}).then((res) => {
-			console.log(res)
-			this.setData({
-				moneyData: res.data.data,
-				saveMoney: res.data.data.month_money,
-        num: res.data.data.month_num
-			})
+			if (res.data.status == 1) {
+				this.setData({
+					moneyData: res.data.data
+				})
+			}
 		})
 	},
-
-	setInfo() {
-      
-	},
-
-	changSelect: function (e) {
-    console.log(this.data.moneyData)
-		var that = this,
-			status = e.currentTarget.dataset.status,
-			money = "",
-			msg = "",
-      num = '',
-      vip_type
-		if (status == 1) {
-			money = that.data.moneyData.month_money
-			msg = "月",
-      num = that.data.moneyData.month_num
-      vip_type=1
-		}
-		if (status == 2) {
-			money = that.data.moneyData.quarter_money
-			msg = "季"
-      num = that.data.moneyData.quarter_num
-      vip_type=2
-		}
-		if (status == 3) {
-			money = that.data.moneyData.year_money
-      num = that.data.moneyData.year_num
-			msg = "年"
-      vip_type=3
-		}
-		this.setData({
-			savaStatus: status,
-			saveMoney: money,
-			selectMsg: msg,
-      num: num,
-      vip_type: vip_type
-		});
-	},
-	
 	toPays: function (e) {
 		wx.showLoading({
 			title: '跳转中...',
@@ -80,10 +34,22 @@ Page({
 			wx.hideLoading()
 		}, 2000)
 	},
-	delta(){
-    wx.navigateBack({ 
-      delta: 1, 
-      });//返回上一页面
-  }
+	delta() {
+		let regpyte = wx.getStorageSync('savePostion')
+		console.log(regpyte);
+		if (regpyte == 3) {
+			wx.redirectTo({
+				url: '/pages/userInfo2/userCenter/userCenter'
+			});//返回上一页面
+		} else if (regpyte == 2) {
+			wx.redirectTo({
+				url: '/pages/thirdParty/thirdInfo/thirdInfo'
+			});//返回上一页面
+		} else {
+			wx.redirectTo({
+				url: '/pages/company/cUserInfo/cUserInfo'
+			});//返回上一页面
+		}
+	}
 })
 

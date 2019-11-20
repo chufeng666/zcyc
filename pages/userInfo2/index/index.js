@@ -7,10 +7,6 @@ import ServerData from '../../../utils/serverData.js';
 
 Page({
   data: {
-    jobIndex:0,
-    jobArray: [],                 //职位列表
-    //地址三级开始
-    site_show: false,             //是否选择人才
     showTST: true,         //是否选择地址
     mode: "scaleToFill",
     arr: [],
@@ -29,8 +25,13 @@ Page({
     index: 0,
     popular: [],
     array: [],
-    job_type:'',
-    isShow:true
+    job_type: '',
+    isShow: true,
+    require_cert: '', //证书
+    type: '',        //工种
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
   },
 
   onShow: function () {
@@ -46,6 +47,10 @@ Page({
     //     }
     //   }
     // })
+    let { require_cert, type, education, work_age, salary } = this.data;
+    if (require_cert && type && education && work_age && salary !== '') {
+      this.reqIndex()
+    }
   },
 
 	/**
@@ -64,13 +69,31 @@ Page({
     /*********职业 */
   },
   reqIndex() {
+    let { require_cert, type, education, work_age, salary, province, city, district } = this.data
+    if (require_cert == '需要证书') {
+      require_cert = 1
+    } else {
+      require_cert = 0
+    }
+    if (type && education && work_age === '全部' || salary === '不限') {
+      type = '';
+      education = '';
+      work_age = '';
+      salary = ''
+    }
     var that = this,
       _opt = {
         'job_type': that.data.job_type,
         'province': that.data.province,
         'city': that.data.city,
         'district': that.data.district,
+        'require_cert': require_cert,
+        'type': type,
+        'education': education,
+        'work_age': work_age,
+        'salary': salary,
       }
+
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
         this.setData({
@@ -108,24 +131,22 @@ Page({
     })
 
   },
-  /***********职位选择**************** */
+
   tabEvent1(data) {
     let info = data.detail
     console.log(info);
     this.setData({
       job_type: info.job_careers,
-      isShow:false
+      isShow: false
     })
     this.reqIndex()
   },
   selectOccupational: function (e) {
-    this.Occupational.showPopup()
-    this.Occupational.startAddressAnimation(true)
-    this.setData({
-      occupationalBoxShow: false
+    wx.navigateTo({
+      url: '../ScreeningConditions/ScreeningConditions'
     })
   },
-  /***********职位选择**************** */
+
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
 

@@ -25,7 +25,7 @@ Page({
   getDtailInfo () {
     var that = this,
       time = ''
-    ServerData.messageDetail({ id: that.data.dId }).then((res) => {
+    ServerData.messageDetail({ id: that.data.dId}).then((res) => {
       let info = res.data.data;
       console.log(info);
       if (res.data.code == 1) {
@@ -49,6 +49,11 @@ Page({
         ServerData._wxTost(res.data.msg)
       }
     })
+  },
+  fanhui(){
+    wx.navigateBack({
+      delta: 1
+    });
+      
   }
-
 })

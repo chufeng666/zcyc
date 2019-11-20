@@ -6,7 +6,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input class=' search-nosearch'  bindinput="handeSearchInput" placeholder="一级建造师"></input>
+    <input class=' search-nosearch'  bindconfirm="handeSearchInput" placeholder="一级建造师"></input>
   </view>
 </view>
 <!-- 头部 -->

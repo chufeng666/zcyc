@@ -15,7 +15,10 @@
             <view>微信</view>
             <view class="zhanghao">（微信号：ky15815836096）</view>
           </view>
-          <icon type="success" size="20" />
+          <icon wx:if="{{selected}}" type="success" color="var(--thirdPartyColor)" bindtap="changItemStatus"
+            data-index="{{index}}" class="dagou" size="22" />
+          <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="var(--thirdPartyColor)"
+            class="dagou" size="22" data-goodid="{{item.id}}" />
         </view>
       </view>
     </view>
@@ -24,7 +27,7 @@
         <view class="czje_left">提现金额</view>
         <view class="czje_right">
           <text class="iconfont  icon-iconcopy"></text>
-          <view>提现到微信会收取0.10%的手续费</view>
+          <view>提现到微信会收取{{info.percent}}%的手续费</view>
         </view>
       </view>
       <view class="jine">
@@ -32,18 +35,16 @@
         <input type='number' placeholder='请输入提现金额' bindinput='changMoney' />
       </view>
       <view class="shouxufeng">
-        <view class="sxf_left">1000×0.10%＝1</view>
-        <view class="sxf_right">手续费 ￥1</view>
+        <view class="sxf_left">1000×{{info.percent}}%＝1</view>
+        <view class="sxf_right">手续费 ￥{{sxf}}</view>
       </view>
       <view class="ms_bt">
         <image class="ms_bt_img" src="../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-        <view>优米余额:  {{saveMoney}}</view>
+        <view>优米余额: {{info.balance}}</view>
       </view>
     </view>
     <view class='foot-info'>
-      <navigator url="../../myPurse/withdrawal/payment/payment">
-        <button class='set-option'>确定提现</button>
-      </navigator>
+      <button class='set-option' bindtap="setInfo">确定提现</button>
     </view>
   </view>
 </view>

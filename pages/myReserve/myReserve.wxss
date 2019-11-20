@@ -1,5 +1,10 @@
 /* pages/company/uCollect.wxss */
-@import "../template/font";
+@import "/pages/template/font";
+@import "/pages/template/common1/common1";
+
+.inner {
+  margin-top: 128rpx;
+}
 
 .yuding {
   padding: 0 24rpx;
@@ -77,10 +82,12 @@
   color: #262626;
   font-size: 26rpx;
 }
-.ci_left{
+
+.ci_left {
   display: flex;
   align-items: center;
 }
+
 .ci_img {
   width: 48rpx;
   height: 48rpx;

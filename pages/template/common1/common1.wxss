@@ -1,0 +1,25 @@
+.i-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 73rpx;
+  padding: 27rpx 20rpx;
+  background-color: var(--thirdPartyColor);
+  display: flex;
+  align-items: flex-end;
+}
+
+.i-header .icon-zuojiantou {
+  font-size: 50rpx;
+  color: #fff;
+}
+
+.i-header .h-left {
+  flex: 1;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  padding-right: 54rpx;
+  margin-bottom: 3rpx;
+}

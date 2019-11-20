@@ -12,8 +12,7 @@
         <view class="wxh_bt">
           <view class="wxh_left">
             <text class="iconfont  icon-weixin"></text>
-            <view>微信</view>
-            <view class="zhanghao">（微信号：ky15815836096）</view>
+            <view>微信方式支付</view>
           </view>
           <icon type="success" size="20" />
         </view>
@@ -33,13 +32,11 @@
       </view>
       <view class="ms_bt">
         <image class="ms_bt_img" src="../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-        <view>优米余额:  {{saveMoney}}</view>
+        <view>优米余额: {{balance}}</view>
       </view>
     </view>
     <view class='foot-info'>
-      <navigator url="../../myPurse/goldDeposits/payment/payment">
-        <button class='set-option'>确定充值</button>
-      </navigator>
+      <button bindtap='saveInfo' class='set-option'>确定充值</button>
     </view>
   </view>
 </view>

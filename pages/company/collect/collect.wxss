@@ -1,9 +1,11 @@
 /* pages/userInfo/collect.wxss */
-@import "../../template/common";
+@import "/pages/template/common";
+@import "/pages/template/common1/common1";
 
 /* 数据展示 */
 
 .inner {
+  margin-top: 128rpx;
   margin-bottom: 111rpx;
   padding: 0;
   background-color: #fff;

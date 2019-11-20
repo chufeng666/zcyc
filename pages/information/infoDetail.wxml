@@ -1,4 +1,9 @@
-<!-- pages/information/infoDetail.wxml -->
+<view class="xiaoxi_header">
+  <view class="h-left">
+    <view bindtap="fanhui" class="iconfont icon-zuojiantou"></view>
+    <view class="l_qiye">消息(24)</view>
+  </view>
+</view>
 <view class='info-detail-wrap'>
   <view class='title'>{{info.title}}</view>
   <view class='time'>{{addTime}}</view>

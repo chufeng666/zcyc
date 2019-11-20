@@ -8,19 +8,19 @@
       </view>
     </view>
     <view class="setLabel">
-      <!-- <view class="sl_biaoqian">
-        <view class="sl_bq_list {{item.checked?'active':''}}" wx:for="{{daiyu}}" wx:key="index" data-index="{{index}}" bindtap="addDaiyu">
+      <view class="sl_biaoqian">
+        <view class="sl_bq_list {{item.checd?'active':''}}" wx:for="{{daiyu}}" wx:key="index" data-index="{{index}}" bindtap="addDaiyu">
           {{item.name}}
         </view>
-      </view> -->
-      <checkbox-group bindchange="checkboxChange" class="sl_biaoqian">
-        <view class="sl_bq_list  {{item.checked?'active':''}}" wx:for="{{daiyu}}" wx:key="index">
+      </view>
+      <!-- <checkbox-group bindchange="checkboxChange" class="sl_biaoqian">
+        <view class="sl_bq_list  {{item.ccc?'active':''}}" wx:for="{{daiyu}}" wx:key="index">
           <label class="checkbox " bindtap='addDaiyu' data-index="{{index}}">
             <checkbox value="{{item.name}}" checked="{{item.checked}}" />
             {{item.name}}
           </label>
         </view>
-      </checkbox-group>
+      </checkbox-group> -->
     </view>
   </view>
   <view class="footer">

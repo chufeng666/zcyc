@@ -10,8 +10,8 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
       circular="true" indicator-active-color="#ff54b5">
       <block wx:for="{{array}}" wx:key="index">
-        <swiper-item style="border-radius: 10rpx;">
-          <navigator class="new_xiaoxi" url="../../information/information">
+        <swiper-item>
+          <navigator class="new_xiaoxi" url="/pages/information/infoDetail?id={{item.id}}">
             <view class="n-lfet">
               消息
               <view>|</view>
@@ -37,17 +37,18 @@
         <view class="newsite_city">{{areaInfo}}</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </view>
-      <view class="newsite_button {{isShow?'':'active'}}" bindtap="selectOccupational">
-        <view class="newsite_view subtitle-msg" wx:if="{{isShow}}">人才</view>
-        <view class="newsite_city">{{job_type}}</view>
+      <view class="newsite_button" bindtap="selectOccupational">
+        <view class="newsite_view subtitle-msg">更多</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-        <Occupational-form id="Occupational" bind:tabEvent1="tabEvent1"></Occupational-form>
       </view>
     </view>
   </view>
 </view>
 <view class="n-information">
   <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
+    <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
     <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
       url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
@@ -59,18 +60,21 @@
         <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
-        <view class="t_weizhi">广州 - 海珠区</view>
+        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
         <view class="t_zhili">{{item.work_age}}年</view>
         <view class="t_xueli">{{item.education}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.logo}}' class="f_logo" />
-        <view class="f_zhiwei">项目经理●刘勇</view>
-        <view class="f_gongsi">[{{item.contacts}}]</view>
+        <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+        <view class="f_gongsi">[{{item.company_name}}]</view>
       </view>
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
+    <view class="zhanwushuju" wx:if="{{indexData.person == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
     <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
       url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
@@ -82,14 +86,14 @@
         <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
-        <view class="t_weizhi">广州 - 海珠区</view>
+        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
         <view class="t_zhili">{{item.work_age}}年</view>
         <view class="t_xueli">{{item.education}}</view>
       </view>
       <view class="i_fourth">
         <image src='{{item.logo}}' class="f_logo" />
-        <view class="f_zhiwei">项目经理●{{item.name}}</view>
-        <view class="f_gongsi">[{{item.contacts}}]</view>
+        <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+        <view class="f_gongsi">[{{item.company_name}}]</view>
       </view>
     </navigator>
   </block>

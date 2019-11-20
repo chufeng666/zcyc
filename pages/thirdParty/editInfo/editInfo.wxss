@@ -60,12 +60,9 @@
 .por_img {
   width: 112rpx;
   height: 112rpx;
-  // border-radius: 50%;
 }
 
 .ec_lianxiren {
-  display: flex;
-  align-items: center;
   padding: 33rpx 0;
   border-bottom: 1rpx solid #dedede;
 }

@@ -5,7 +5,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input placeholder="请输入公司名称" bindinput="handeSearchInput" class='search-nosearch'></input>
+    <input placeholder="请输入公司名称" bindconfirm="handeSearchInput" class='search-nosearch'></input>
   </view>
 </view>
 <view class="newest-search">
@@ -13,13 +13,13 @@
     <view class="newest">
       <view class="province" wx:if="{{showTST}}">
         <text decode="{{true}}">广州市 - 海珠区&nbsp;&nbsp;|</text>
-        <picker mode="selector" range="{{xingzhi}}"  bindchange="setXingzhi">
+        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
       <view class="province" wx:else>
         <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|</text>
-        <picker mode="selector" range="{{xingzhi}}"  bindchange="setXingzhi">
+        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
@@ -33,10 +33,16 @@
   </view>
 </view>
 <view class="inner">
-  <view class="container">
+  <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
+  <view wx:else class="container">
     <import src="../../template/companyList.wxml" />
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
   </view>
+</view>
+<view style="height: 120px;">
+
 </view>
 <!-- 所有城市三级联动列表 -->
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>

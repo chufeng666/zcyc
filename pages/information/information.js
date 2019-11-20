@@ -22,7 +22,6 @@ Page({
   },
   // lookMore () {
   //   if (this.data.isMore === true) {
-
   //     this.setData({
   //       page: this.data.page++
   //     })
@@ -36,7 +35,7 @@ Page({
     })
     this.messageList()
   },
-  messageList () {
+  messageList() {
     var that = this,
       newArray = []
     ServerData.messageList({ page: that.data.page, limit: that.data.rows }).then((res) => {
@@ -71,5 +70,21 @@ Page({
         })
       }
     })
+  },
+  fanhui() {
+    let regpyte = wx.getStorageInfo('savePostion')
+    if (regpyte == 3) {
+      wx.redirectTo({
+        url: '/pages/userInfo2/index/index'
+      });//返回上一页面
+    } else if (regpyte == 2) {
+      wx.redirectTo({
+        url: '/pages/thirdParty/index/index'
+      });//返回上一页面
+    } else {
+      wx.redirectTo({
+        url: '/pages/company/index/index'
+      });//返回上一页面
+    }
   }
 })

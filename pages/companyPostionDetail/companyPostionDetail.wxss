@@ -9,7 +9,8 @@
 
 /* SRARCH INFO START */
 
-.inner {}
+.inner {
+}
 
 .search-inner {
   margin: 25rpx 0 10rpx;
@@ -57,10 +58,13 @@
   top: 30rpx;
 }
 
-.collect_tab {}
+.collect_tab {
+}
 
 /* CONTENT STAT */
+
 /* list */
+
 .d-content {
   border-top: 16rpx solid #dedede;
 }
@@ -70,7 +74,7 @@
 }
 
 .icon-nv {
-  color: #F10180;
+  color: #f10180;
   padding-top: 6rpx;
   margin-left: 24rpx;
 }
@@ -85,11 +89,15 @@
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
-.d-c-list:nth-child(4){
+
+.d-c-list:nth-child(4) {
   border-bottom: none;
 }
+
 /* list */
+
 /* 求职期望 */
+
 .qiuzhiqiwang {
   display: flex;
   align-items: center;
@@ -99,7 +107,7 @@
 }
 
 .icon-1 {
-  color: #F10180;
+  color: #f10180;
   margin-right: 16rpx;
 }
 
@@ -122,11 +130,14 @@
 }
 
 /* 求职期望 */
+
 /* 工作经验 */
-.d-c-list-jinyan{
+
+.d-c-list-jinyan {
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
+
 .gongsi {
   display: flex;
   align-items: center;
@@ -151,7 +162,9 @@
 }
 
 /* 工作经验 */
+
 /* 职业证书 */
+
 .jinengzhengshu {
   margin-bottom: 163rpx;
 }
@@ -160,6 +173,7 @@
   display: flex;
   align-items: center;
   color: var(--thirdPartyColor);
+  font-size: 30rpx;
 }
 
 .jinengzhengshu .icon-1 {
@@ -167,6 +181,7 @@
 }
 
 /* 职业证书 */
+
 .line {
   margin: 0 0 25rpx;
   margin-right: 16rpx;
@@ -182,22 +197,19 @@
 .search2-inner {
   padding: 0 50rpx;
   font-size: 22rpx;
-  color: #B6B6B6;
+  color: #b6b6b6;
 }
 
 .footer {
   padding: 0 32rpx;
-  width: 100%;
-  z-index: 1;
-  text-align: right;
-  box-sizing: border-box;
-  overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .c-list-info-jinyan {
 }
+
 .footer-right {
   display: flex;
 }
@@ -223,6 +235,15 @@
   margin-left: 18rpx;
   color: #fff;
 }
-.f-btn-1_fou{
-  background-color: #686868;
+
+.f-btn-1_fou {
+  border-radius: 4rpx;
+  padding: 0 50rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  color: #686868;
+  background-color: #e3e3e3;
+}
+.zhanshi{
+  margin-bottom: 46rpx;
 }

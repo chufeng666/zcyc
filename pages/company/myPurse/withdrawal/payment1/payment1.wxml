@@ -1,25 +1,19 @@
-<view class="header" wx:if="{{isShow}}">
-  <navigator url="../withdrawal">
-    <text class="iconfont    icon-zuojiantou"></text>
-  </navigator>
-  <view class="yuding">开通会员</view>
+<view class="header">
+  <text bindtap="datil" class="iconfont    icon-zuojiantou"></text>
+  <view class="yuding">提现</view>
 </view>
-<view class="header" wx:else>
-  <text class="iconfont    icon-zuojiantou"></text>
-  <view class="yuding">支付</view>
-</view>
-<view class="inner" wx:if="{{isShow}}">
+<view class="inner" wx:if="{{satus==1}}">
   <view class="main">
     <view class="main_top">
       <icon class="gou" type="success" size="70" />
       <view class="success">提现成功</view>
       <view class="gouchu">
-        <view>￥5000.00</view>
+        <view>￥{{txmoney}}</view>
       </view>
       <view class="date">我们会在3个工作日内提现到账</view>
     </view>
     <view class="main_bt">
-      <navigator url="../../../myPurse/myPurse">
+      <navigator url="/pages/company/myPurse/myPurse">
         <button class="wancheng">完成</button>
       </navigator>
     </view>
@@ -37,10 +31,10 @@
       </view>
     </view>
     <view class="main_bt">
-      <navigator url="../../myPurse">
+      <navigator url="/pages/company/myPurse/myPurse">
         <button class="wancheng">返回钱包</button>
       </navigator>
-      <navigator url="../withdrawal">
+      <navigator url="/pages/company/myPurse/withdrawal/withdrawal">
         <button class="jixu">继续提现</button>
       </navigator>
     </view>

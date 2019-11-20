@@ -18,10 +18,9 @@ Page({
   setCompanyInfo7() {
     var that = this
     ServerData.setCompanyInfo7({}).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
          that.setData({
-          logo:res.data.data.logo
+          logo:res.data.data
          })
       }
     })
@@ -30,8 +29,9 @@ Page({
     var that = this,
       logo = that.data.logo
       console.log(logo);
-    // if (logo == "") { return ServerData._wxTost("请选择头像") }
-    ServerData.setCompanyInfoSeven({ logo }).then((res) => {
+    if (logo == "") { return ServerData._wxTost("请选择头像") }
+    ServerData.setCompanyInfoSeven({ 'logo':logo }).then((res) => {
+      console.log();
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
         setTimeout(() => {
@@ -46,7 +46,6 @@ Page({
   addIdCardPic: function (e) {                                    //头像上传
     var _this = this,
       logo = _this.data.logo
-
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
@@ -62,7 +61,6 @@ Page({
           }
         })
       }
-      //
     })
   },
 

@@ -4,9 +4,15 @@
       <view class='c-l-info'>
         <image src='{{item.logo}}' class="c-logo" />
         <view class='c-info-text'>
-          <text class='c-info-title'>{{item.company_name}}</text>
-          <view class='c-info-msg' >
-            <text class='c-msg'wx:for="{{item.label}}" wx:key="index">{{item}}</text>
+          <text wx:if="{{item.company_name == null || item.company_name == ''}}" class='c-info-title'>暂无</text>
+          <text wx:else class='c-info-title'>{{item.company_name}}</text>
+          <view class='c-info-msg' wx:if="{{item.label.length > 3}}">
+            <text class='c-msg'>{{item.label[0]}}</text>
+            <text class='c-msg'>{{item.label[1]}}</text>
+            <text class='c-msg'>{{item.label[2]}}</text>
+          </view>
+          <view class='c-info-msg' wx:else>
+            <text class='c-msg' wx:for="{{item.label}}" wx:key="inedx">{{item}}</text>
           </view>
           <view class='company-status'>{{item.city}} — {{item.district}}</view>
         </view>

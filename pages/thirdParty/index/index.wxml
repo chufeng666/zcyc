@@ -8,7 +8,7 @@
     </navigator>
   </view>
   <view class="new">
-    <navigator class="new_xiaoxi" url="../../information/information">
+    <navigator class="new_xiaoxi" url="/pages/information/infoDetail?id={{item.id}}">
       <view class="n-lfet">
         消息
         <view>|</view>
@@ -44,6 +44,9 @@
 </view>
 <!-- 搜寻部分 -->
 <view class="n-information">
+  <view class="zhanwushuju" wx:if="{{list.person == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
   <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
     <navigator class="c_info" wx:for="{{list.person}}" wx:key="id"
       url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">

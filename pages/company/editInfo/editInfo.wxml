@@ -34,7 +34,6 @@
         <view class="touxiang">
           <view class="jibenxinxi">
             <view>公司基本信息</view>
-            <view class="buwanzheng">[ 公司信息不完整 ]</view>
           </view>
           <navigator url="../../public/companyContent/information/information">
             <view class="ec_bt">
@@ -86,7 +85,7 @@
       <view>
         <view class='set-option-1'>
             <button wx:if="{{userList.status==-1}}" class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
-            <button wx:elif="{{userList.status==0}}" class='s-1-option' bindtap='saveEditInfo'>审核中</button>
+            <button wx:elif="{{userList.status==0}}" class='s-1-option' >审核中</button>
             <button wx:else class='s-1-option_yi'>已审核</button>
         </view>
       </view>

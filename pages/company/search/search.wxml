@@ -9,7 +9,7 @@
     <view class='-header-cont'>
       <view class='search-cont'>
         <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-        <input type='text' class='company_search' placeholder="一级建造师" bindinput='handeSearchInput' />
+        <input type='text' class='company_search' placeholder="一级建造师" bindconfirm='handeSearchInput' />
       </view>
     </view>
   </view>
@@ -58,7 +58,7 @@
       </view>
       <navigator url="../ScreeningConditions/ScreeningConditions">
         <view class="picker">
-          人才
+          更多
           <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
         </view>
       </navigator>

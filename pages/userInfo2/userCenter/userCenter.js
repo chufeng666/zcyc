@@ -1,6 +1,6 @@
 const app = getApp();
 const util = require('../../../utils/util.js');  //通用方法
-import ServerData from '../../../utils/serverData.js';
+import ServerData from '../../../utils/serverData';
 Page({
 
   /**

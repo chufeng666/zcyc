@@ -8,9 +8,9 @@
 }
 
 .stss-active {
-  color: #ee331a;
+  /* color: #ee331a;
   font-weight: 600;
-  margin-right: 32rpx;
+  margin-right: 32rpx; */
 }
 
 page {

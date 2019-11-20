@@ -16,7 +16,18 @@
       </view>
     </view>
   </view>
-  <view class='global-company-list2'>
+  <view wx:if="{{cList.label.length > 3}}" class='global-company-list2'>
+    <view class="global-c-body" wx:key="id">
+      {{cList.label[0]}}
+    </view>
+    <view class="global-c-body" wx:key="id">
+      {{cList.label[1]}}
+    </view>
+    <view class="global-c-body" wx:key="id">
+      {{cList.label[2]}}
+    </view>
+  </view>
+  <view wx:else class='global-company-list2'>
     <view class="global-c-body" wx:for="{{cList.label}}" wx:key="id">{{item}}</view>
   </view>
   <view class='cOrTInfo-cont global-cOrTInfo-'>
@@ -77,7 +88,7 @@
         </view>
         <view class="i_second">
           <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+          <view>{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>

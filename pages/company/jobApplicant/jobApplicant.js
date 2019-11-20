@@ -6,25 +6,21 @@ import ServerData from '../../../utils/serverData.js';
 Page({
   data: {
     hiringData: [],
-    job_type: '',                 //选中的职位值
-    jobArray: [],                 //职位列表
-    jobIndex: 0,                  //职位下标
-    row: 300,                     //默认拿一百条
-    page: 1,                        //默认第一页
+    row: 10,                      //默认拿10条
+    page: 1,                      //默认第一页
 
     //地址三级开始
     province: '',
     city: '',
     district: '',
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
     site_show: false,
     showTST: true,
-    job_intention: '请选择职位', //职位
-    //
-    pColor: '',                            //动态获z字体颜色 
-    pBgC: '',                            //动态获背景颜色                 
+    // 筛选
+    require_cert: '', //证书
+    type: '',        //工种
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资           
   },
   setXingzhi(e) {
     let { jobArray } = this.data;
@@ -39,32 +35,46 @@ Page({
   onLoad: function (options) {
     util.getStorageItem('savePostion', app)
     this.hiring()
-    this.getCategoryList()         //职位列表
     if (wx.hideHomeButton) wx.hideHomeButton();
     /*********地址 */
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-    this.setData({
-      pColor: util.loginIdentity().pColor,
-      pBgC: util.loginIdentity().pBgC,
-    })
+  },
+  onShow: function () {
+    let { require_cert, type, education, work_age, salary } = this.data;
+    if (require_cert && type && education && work_age && salary !== '') {
+      this.hiring()
+    }
   },
   hiring: function (value) {
-    var that = this,
-      { job_intention } = that.data
-    if (job_intention === '请选择职位') {
-      job_intention = ''
+    var that = this
+    let { require_cert, type, education, work_age, salary, province, city, district } = this.data
+    if (require_cert == '有证书') {
+      require_cert = 1
+    } else if(require_cert == '无证书'){
+      require_cert = 0
+    } else {
+      require_cert = ''
+    }
+    if (type && education && work_age === '全部' || salary === '不限') {
+      type = '';
+      education = '';
+      work_age = '';
+      salary = ''
     }
     var _opt = {
-      'job_intention': job_intention,
       'name': value,
-      'rows': that.data.row,
-      'page': that.data.page,
-      'type': that.data.job_type,
+      'province': that.data.pCode,
+      'city': that.data.cCode,
+      'district': that.data.aCode,
+      'type': type,
+      'education': education,
+      'work_age': work_age,
+      'salary': salary,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,
-
+      'require_cert': require_cert,
     }
     ServerData.hiring(_opt).then((res) => {
       if (res.data.status == 1) {
@@ -81,35 +91,6 @@ Page({
       }
     })
   },
-  getCategoryList() {
-    var that = this
-    ServerData.categoryList({}).then((res) => {
-      if (res.data.status == 1) {
-        var newArry = []
-        for (let i in res.data.data) {
-          newArry.push(res.data.data[i].cat_name)
-        }
-        this.setData({ jobArray: newArry })
-      } else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      } else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
-  jobChange: function (e) {
-    var t = e.detail.value == 0 ? false : true
-    this.setData({
-      jobIndex: e.detail.value,
-      job_type: this.data.jobArray[e.detail.value].cat_id,
-      site_show: t
-    })
-    this.data.page = 1
-    this.hiring()             //主页信息
-  },
-
   /********************其他资料结束 */
 
   /***********地址开始**************** */
@@ -136,7 +117,7 @@ Page({
   },
   // 1 定时器id
   TimeId: -1,
-  handeSearchInput(e) {
+  bindconfirm(e) {
     // 2 输入框的值
     const { value } = e.detail;
     // 3 简单做一些验证 trim() 

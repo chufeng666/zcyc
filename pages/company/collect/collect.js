@@ -10,7 +10,7 @@ Page({
     currentTab: 1,
     collData: [],
   },
-  onLoad:function () {
+  onLoad: function () {
     this.UcList()
   },
   UcList: function () {
@@ -28,7 +28,12 @@ Page({
       }
     })
   },
-  onPullDownRefresh:function () {
+  onPullDownRefresh: function () {
     this.collectionList()
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 2,
+    });
   }
 })

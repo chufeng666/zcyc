@@ -57,18 +57,20 @@
           <text class="iconfont  icon-1"></text>
           <view>工作经验</view>
         </view>
-        <view class="gongsi">
-          <text class="iconfont  icon-gongsi"></text>
-          <view>{{experience[0].data1}}</view>
-        </view>
-        <view class="gangwei">
-          <view class="gw_left">岗位: {{experience[0].data2}}</view>
-          <view class="gw_right">时间: {{experience[0].data3}}-{{experience[0].data4}}</view>
-        </view>
-        <view class="gongzuoneirong">
-          <text>
-            {{experience[0].data5}}
-          </text>
+        <view class="zhanshi" wx:for="{{experience}}" wx:key="index">
+          <view class="gongsi">
+            <text class="iconfont  icon-gongsi"></text>
+            <view>{{item.data1}}</view>
+          </view>
+          <view class="gangwei">
+            <view class="gw_left">岗位: {{item.data2}}</view>
+            <view class="gw_right">时间: {{item.data3}}-{{item.data4}}</view>
+          </view>
+          <view class="gongzuoneirong">
+            <text>
+              {{item.data5}}
+            </text>
+          </view>
         </view>
       </view>
     </view>
@@ -81,7 +83,7 @@
         <view class="jinengzhengshu">
           <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
             <text class="iconfont  icon-1"></text>
-            <view>{{item[index].title}}</view>
+            <view>{{item.title}}</view>
           </view>
         </view>
       </view>
@@ -98,11 +100,16 @@
         </view>
       </view>
       <view class="footer-right">
-        <button wx:if="{{personalData.reserve == 1 && personalData.reserve_c != personalData.user_id}}" bindtap="yuDing" class='f-btn-1 {{pBgC}}'>马上预订</button>
-        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c === personalData.user_id}}"  class='f-btn-1_fou'>您已预订</button>
-        <button wx:elif="{{personalData.reserve == 0 }}"  class='f-btn-1_fou'>未开启预定</button>
-        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c ==0  }}"  class='f-btn-1_fou'>已被预订</button>
-        <button class='f-btn-1 {{pBgC}}'>
+        <button wx:if="{{personalData.reserve == 1 && personalData.reserve_c != personalData.company_id}}"
+          bindtap="yuDing" class='f-btn-1'>马上预订</button>
+        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c == personalData.company_id}}"
+          class='f-btn-1_fou'>您已预订</button>
+        <button wx:elif="{{personalData.reserve == 0 }}" class='f-btn-1_fou'>未开启预定</button>
+        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c ==0  }}"
+          class='f-btn-1_fou'>已被预订</button>
+      </view>
+      <view class="footer-right">
+        <button class='f-btn-1'>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
           <contact-button class='wx-contact-button' size='32' session-from="weapp"></contact-button>
@@ -110,6 +117,7 @@
           联系客服
         </button>
       </view>
+
     </view>
   </view>
 </view>

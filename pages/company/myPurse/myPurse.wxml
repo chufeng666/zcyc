@@ -10,14 +10,14 @@
           src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
         <view>优米余额( 个 )</view>
       </view>
-      <view class="m_top_bt">5000</view>
+      <view class="m_top_bt">{{moneyData.balance}}</view>
     </view>
     <view class="main_moddle">
       <view class="main_bt">
-        <navigator url="goldDeposits/goldDeposits">
+        <navigator url="goldDeposits/goldDeposits?balance={{moneyData.balance}}&openid={{moneyData.openid}}">
           <button class="wancheng">充值</button>
         </navigator>
-        <navigator url="withdrawal/withdrawal">
+        <navigator url="withdrawal/withdrawal?balance={{moneyData.balance}}">
           <button class="jixu">提现</button>
         </navigator>
       </view>

@@ -1,39 +1,47 @@
-<!-- pages/company/jobList.wxml -->
+<!-- 头部 -->
+<view class='i-header'>
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">我发布的职位</view>
+</view>
 <view id='jobWrap' class='jobWrap'>
   <view class='inner'>
     <view class="main_top">
-      <view class='delect-btn' bindtap="showDelectBox" data-aa="0">
-        <view class="delect-btn_left">编辑</view>
-        <view class='delect-btn_right' wx:if="{{dStatus==1}}" data-aa="1">
-          <view class="delet">删除</view>
-          <view class="stop">停用</view>
+      <view class='delect-btn'>
+        <view wx:if="{{dStatus==0}}" data-aa="0" bindtap="showDelectBox" class="delect-btn_left">编辑</view>
+        <view wx:else data-aa="1" bindtap="showDelectBox" class="delect-btn_left">完成</view>
+        <view class='delect-btn_right' wx:if="{{moreDataBtn}}">
+          <view bindtap="detel" class="delet">删除</view>
         </view>
       </view>
     </view>
-    <view class='c-l-info' wx:for="{{recruitData}}" wx:for-index="index" wx:key>
+    <view class='c-l-info' wx:for="{{recruitData}}" wx:for-index="index" wx:key="index">
       <view class="main_bt">
         <navigator url="editJobList?id={{item.id}}" class='c-info-text'>
           <view class='c-info-msg'>
             <text class='c-info-title'>{{item.title}}</text>
             <text class='c-msg'>{{item.salary}}/月</text>
           </view>
-          <text class="zhengshu">需要证书</text>
+          <view class="main_bt_mob">
+            <text class="zhengshu">{{item.require_cert==0?'无需证书':'需要证书'}}</text>
+          </view>
           <view class="xuqiu">
-            <text class="dizhi">广州 - 海珠区</text>
-            <text class='c-msg2'>{{item.work_age}}年</text>
-            <text class="xueli">本科</text>
+            <text class="dizhi">{{item.city}} - {{item.city}}</text>
+            <text class='c-msg2'>{{item.work_age}}</text>
+            <text class="xueli">{{item.education}}</text>
           </view>
         </navigator>
         <view class="shenhe">
-          <view class="date">2019-10-23</view>
+          <view class="date">{{item.create_time}}</view>
           <view class="guocheng">
             <text class='' wx:if="{{item.status === 0}}">审核中</text>
-            <text class='' wx:if="{{item.status === 1}}">审核通过</text>
-            <text class='' wx:if="{{item.status === -1}}">审核失败</text>
+            <text class='' wx:elif="{{item.status === 1}}">审核通过</text>
+            <text class='' wx:elif="{{item.status === -1}}">审核失败</text>
           </view>
-          <view class="group" wx:if="{{dStatus==1}}">
-            <icon wx:if="{{item.selected}}" type="success" color="var(--thirdPartyColor)" bindtap="changItemStatus" data-index="{{index}}" class="dagou" size="22" />
-            <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="var(--thirdPartyColor)" class="dagou" size="22" data-goodid="{{item.id}}" />
+          <view class="group" wx:if="{{noData}}">
+            <icon wx:if="{{item.selected}}" type="success" color="var(--thirdPartyColor)" bindtap="changItemStatus"
+              data-index="{{index}}" class="dagou" size="22" />
+            <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="var(--thirdPartyColor)"
+              class="dagou" size="22" data-goodid="{{item.id}}" />
           </view>
         </view>
       </view>

@@ -223,7 +223,6 @@
   box-sizing: border-box;
   font-size: 30rpx;
   color: #fff;
-  background-color: var(--themeColor);
 }
 .f-btn-2_hui{
   display: flex;

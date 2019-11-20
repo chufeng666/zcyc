@@ -1,6 +1,26 @@
 @import "../wxParse/wxParse.wxss";
+@import "/pages/template/font.wxss";
 
-/* pages/information/infoDetail.wxss */
+/* 头部 */
+.xiaoxi_header {
+  background-color: var(--themeColor);
+  height: 127rpx;
+  line-height: 170rpx;
+}
+
+.h-left {
+  display: flex;
+  font-size: 36rpx;
+  margin-left: 10rpx;
+  color: #fff;
+  align-items: center;
+}
+
+.icon-zuojiantou {
+  font-size: 48rpx;
+}
+
+/* 头部 */
 .info-detail-wrap {
   padding: 24rpx;
 }

@@ -15,23 +15,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var t = ''
+    var t = '',
+      openid = ''
     if ('undefined' != typeof (options.mobile)) {
-      t = options.openid.replace(/^(\d{3})\d{4}(\d+)/, "$1****$2");
+      t = options.mobile.replace(/^(\d{3})\d{4}(\d+)/, "$1****$2");
+
+    }
+    if ('undefined' != typeof (options.openid)) {
+      openid = options.openid
     }
     this.setData({
-      mobile: t
+      mobile: t,
+      openid
     })
   },
 
-  binWx () {
+  binWx() {
     var that = this
     wx.login({
       success: res => {
+        console.log(res);
         var _opt = {
           code: res.code
         }
         ServerData.bindWeixin(_opt).then((res) => {
+          console.log(res);
           if (res.data.status == 1) {
             ServerData._wxTost(res.data.msg)
             setTimeout(() => {
@@ -62,7 +70,7 @@ Page({
       url: '../public/password'
     })
   },
-  unLogin () {
+  unLogin() {
     wx.removeStorageSync('token')
     wx.removeStorageSync('savePostion')
     wx.navigateTo({

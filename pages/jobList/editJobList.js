@@ -3,7 +3,8 @@ const util = require('../../utils/util.js');  //通用方法
 Page({
   data: {
     jobArray: [],                     //工种列表
-    company_id: 86,                   //动态id 修改信息时才能获取到
+    company_id: '',                    //发布人id
+    id: '',                           //动态id 修改信息时才能获取到
     title: '',                         //职位名称
     type: '',                        //招聘岗位
     work_age: '',                     //经验要求
@@ -11,6 +12,7 @@ Page({
     welfare: [],                      //福利待遇
     require_cert: 0,                  //证书要求
     education: '',                     //学历要求
+    status: 0,                        //審核狀態
     province: '',                     //省
     city: '',                         //市
     district: '',                     //区
@@ -36,10 +38,20 @@ Page({
     /*********工种 */
     this.OccupationalForm = this.selectComponent('#Occupational');
     /*********工种 */
+    this.setData({
+      id: options.id,
+      company_id: options.company_id
+    })
+    console.log(options.id);
+    if (options.id != undefined || options.id != '') {
+      return false
+    } else {
+      this.goEditRecruit()
+    }
   },
   /**
- * 保存数据
- */
+  * 第一次发布职位保存数据
+  */
   saveEditRecruit: function () {
     var that = this
     // 传参到后台
@@ -48,6 +60,71 @@ Page({
     ServerData.editRecruit({ company_id, type, title, work_age, salary, welfare, require_cert, education, province, city, district, detail }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost('保存成功,信息需管理员审核');
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 2000)
+      } else {
+        ServerData._wxTost(res.data.msg);
+      }
+    })
+  },
+  // 修改发布职位数据的请求
+  goEditRecruit: function () {
+    var that = this
+    // 传参到后台
+    let _opt = {
+      'id': that.data.id,
+    }
+    // return
+    ServerData.goEditRecruit(_opt).then((res) => {
+      console.log(res);
+      let info = res.data.data
+      if (res.data.status == 1) {
+        that.setData({
+          city: info.city,
+          detail: info.detail,
+          district: info.district,
+          province: info.province,
+          require_cert: info.require_cert,
+          salary: info.salary,
+          title: info.title,
+          type: info.type,
+          welfare: info.welfare,
+          work_age: info.work_age,
+          company_id: info.company_id,
+          id: info.id,
+          status: info.status,
+        })
+      } else {
+        console.log('111111111111111111111111111111111111111');
+        ServerData._wxTost(res.data.msg);
+      }
+    })
+  },
+  // 修改发布职位点击保存传递修改后的发布职位数据
+  amendEditRecruit: function () {
+    var that = this
+    // 传参到后台
+    let _opt = {
+      'id': that.data.id,
+      'company_id': that.data.company_id,
+      'type': that.data.type,
+      'title': that.data.title,
+      'work_age': that.data.work_age,
+      'salary': that.data.salary,
+      'welfare': that.data.welfare,
+      'require_cert': that.data.require_cert,
+      'education': that.data.education,
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district,
+      'detail': that.data.detail,
+    }
+    ServerData.amendEditRecruit(_opt).then((res) => {
+      if (res.data.status == 1) {
+        ServerData._wxTost(res.data.msg);
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
@@ -98,18 +175,18 @@ Page({
       describeText: this.data.describeList[Number(e.detail.value)]
     })
   },
-	/**
-	 * 获取工龄
-	 */
+  /**
+   * 获取工龄
+   */
   getWorkAge: function (e) {
     this.setData({
       workAge: e.detail.value
     })
   },
 
-	/**
-	 * 选择薪资范围
-	 */
+  /**
+   * 选择薪资范围
+   */
   salaryChange: function (e) {
     this.setData({
       salaryIndex: e.detail.value,
@@ -129,25 +206,25 @@ Page({
 
   },
 
-	/**
-	 * 是否需要证书
-	 */
+  /**
+   * 是否需要证书
+   */
   radioChange: function (e) {
     this.setData({
       isNeed: e.detail.value
     })
   },
-	/**
-	 * 职位描述
-	 */
+  /**
+   * 职位描述
+   */
   getDetails: function (e) {
     this.setData({
       detail: e.detail.value
     })
   },
-	/**
-	 * 校验数据
-	 */
+  /**
+   * 校验数据
+   */
   // verifyData: function () {
   //   if (!/^[\S\s]{2,50}$/.test(this.data.title)) {
   //     ServerData._wxTost('公司名称2-50');

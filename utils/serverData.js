@@ -161,9 +161,13 @@ class ServerData {
     return this._promise_post(_data, api.userAPI.editRecruit, complete);
   }
 
-  // 初始化职位
-  goEditRecruit(_data, complete) {
+  // 修改发布职位点击保存传递修改后的发布职位数据
+  amendEditRecruit(_data, complete) {
     return this._promise_post(_data, api.userAPI.goEditRecruit, complete);
+  }
+  // 修改发布职位数据的请求
+  goEditRecruit(_data, complete) {
+    return this._promise_get(_data, api.userAPI.goEditRecruit, complete);
   }
 
   // 编辑公司信息
@@ -485,6 +489,18 @@ class ServerData {
   // 取消预订
   companyDel_reserve(_data, complete) {
     return this._promise_post(_data, api.userAPI.companyDel_reserve, complete);
+  }
+  //支付金额和支付类型上传
+  rechargePay(_data, complete) {
+    return this._promise_post(_data, api.userAPI.rechargePay, complete);
+  }
+  //吊起支付
+  payRecharge_pay(_data, complete) {
+    return this._promise_post(_data, api.userAPI.payRecharge_pay, complete);
+  }
+  //支付成功的回调
+  payPay_callback(_data, complete) {
+    return this._promise_post(_data, api.userAPI.payPay_callback, complete);
   }
   // 轻提示
   _wxTost(msg) {

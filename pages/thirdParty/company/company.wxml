@@ -5,7 +5,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input url='../search/search' bindinput="inputSearch" placeholder="请输入公司名称"
+    <input url='../search/search' bindconfirm="inputSearch" placeholder="请输入公司名称"
       class='search-cont s-nosearch-wrap'></input>
   </view>
 </view>

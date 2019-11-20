@@ -434,6 +434,7 @@
   bottom: 38%;
   font-size: 32rpx;
   z-index: 11;
+  background-color: var(--themeColor);
 }
 
 /**/
@@ -502,7 +503,6 @@
 .t-info-img {
   width: 112rpx;
   height: 112rpx;
-  margin-right: 24rpx;
 }
 
 .t-info-msg {
@@ -767,4 +767,9 @@ textarea {
   font-size: 28rpx;
   color: #999;
   margin-top: 24rpx;
+}
+.zhanwushuju {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30rpx;
 }

@@ -1,4 +1,10 @@
 <!-- pages/company/uCollect.wxml -->
+<!-- 头部 -->
+<view class='i-header'>
+    <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+    <view class="h-left">我的收藏</view>
+  </view>
+  <!-- 头部 -->
 <view class='inner'>
   <view class="yuding">
     <view class="bianji">

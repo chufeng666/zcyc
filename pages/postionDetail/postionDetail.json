@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "职位详情"
+  "navigationBarTitleText": "职位详情",
+  "navigationStyle": "default"
 }

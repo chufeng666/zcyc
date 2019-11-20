@@ -1,6 +1,4 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "简历推送",
-  "navigationBarBackgroundColor": "#1487F1",
-  "navigationBarTextStyle": "white"
+  "navigationStyle": "default"
 }

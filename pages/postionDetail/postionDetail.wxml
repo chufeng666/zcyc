@@ -62,7 +62,7 @@
       <view class="-desc-msg">{{recruitDetail.detail}}</view>
     </view>
   </view>
-  <view class='footer'>
+  <view class='footer' wx:if="{{companyShow}}">
     <!-- <button class='f-btn-1' bindtap="callWithHim">马上预订</button> -->
     <view class='search2-inner'>
       <view class="si_shoucang">
@@ -76,14 +76,14 @@
         </view>
       </view>
     </view>
-    <button wx:if="{{resume_status ==0 && isShow}}" class="f-btn-2 {{bgc}}"  bindtap="tuisong">
-      <text class="iconfont  icon-tuisong"></text>
-      <view>推送简历</view>
-    </button>
-    <button wx:else class="f-btn-2_hui" bindtap="tuisong">
-      <text class="iconfont  icon-tuisong"></text>
-      <view>已推送简历</view>
-    </button>
+      <button wx:if="{{resume_status ==0 && isShow}}" class="f-btn-2 {{bgc}}"  bindtap="tuisong">
+        <text class="iconfont  icon-tuisong"></text>
+        <view>推送简历</view>
+      </button>
+      <button wx:else class="f-btn-2_hui">
+        <text class="iconfont  icon-tuisong"></text>
+        <view>已推送简历</view>
+      </button>
     <button class='f-btn-2 {{bgc}}' open-type="contact">
       <text class="iconfont    icon-lianxi"></text>
       <view>联系客服</view>

@@ -1,18 +1,18 @@
 <view class='search-wrap    user-top'>
   <view class="h-left">
-    <text  bindtap="editTel" class="iconfont icon-zuojiantou"></text>
+    <text bindtap="fanhui" class="iconfont icon-zuojiantou"></text>
     <view class="l_qiye">筛选</view>
   </view>
 </view>
 <view class="salary">
-  <view class="s_gongsi">
+  <!-- <view class="s_gongsi">
     <view class="title-color">对象</view>
     <view class="gs_waiwei">
       <view class="si_qiye" wx:for="{{disanfang}}" data-index="{{index}}" bindtap="changIsActive" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class="s_gongsi">
     <view class="title-color">证书</view>
     <view class="gs_waiwei">
@@ -46,11 +46,12 @@
     </view>
   </view>
   <view class="s_gongsi">
-    <view class="title-color">经验要求</view>
+    <view class="title-color">薪资要求</view>
     <view class="gs_waiwei">
       <view class="si_qiye" wx:for="{{xinzi}}" data-index="{{index}}" bindtap="changXinzi" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
       </view>
     </view>
   </view>
+  <button bindtap="editTel" class="saixuan_bt">确认</button>
 </view>

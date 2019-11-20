@@ -14,7 +14,8 @@ Page({
     experience: [],
     balance: '', // 预定用户的余额
     money: '',
-    reserve:{}
+    reserve: {},
+    user_id: 0
   },
 
 	/**
@@ -27,7 +28,7 @@ Page({
     });
     this.reqPersonal(); //请求数据
   },
-  onUnload:function () {
+  onUnload: function () {
     // let regtype = wx.getStorageSync('savePostion')
     // console.log(regtype);
     // if(regtype == 1 ) {
@@ -39,7 +40,7 @@ Page({
     //     url: '/pages/thirdParty/index/index'
     //   })
     // }
-    
+
   },
 	/**
 	 * 个人简历详情数据
@@ -57,6 +58,7 @@ Page({
           isCollect: res.data.data.is_collection,
           experience: res.data.data.experience,
           reserve: res.data.reserve,
+          user_id: res.data.user_id,
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({
@@ -72,6 +74,15 @@ Page({
 	 * 收藏/取消收藏
 	 */
   onCollection: function (e) {
+    let status = e.currentTarget.dataset.stu;
+    if (status == 0) {
+      status = 1
+    } else {
+      status = 0
+    }
+    this.setData({
+      isCollect: status
+    })
     // 要传给后台的参数
     var _opt = {
       'type': 2,
@@ -102,7 +113,6 @@ Page({
     images = JSON.stringify(personalData.images)
     id = personalData.id
     ServerData.setPersonYuding({ id }).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           balance: res.data.data.balance,
@@ -121,56 +131,6 @@ Page({
         } else if (res.cancel) {
 
         }
-      }
-    })
-  },
-  // 预定
-  toReservation: function () {
-    var that = this
-    var _opt = {
-      id: this.data.id
-    }
-    ServerData.booking(_opt).then((res) => {
-      if (res.data.status == 1) {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'success',
-          duration: 2000
-        })
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 1,
-          })
-        }, 1500)
-      } else if (res.data.status == 5) {
-        var id = res.data.data
-        wx.showModal({
-          title: '提示',
-          confirmText: '购买vip',
-          cancelText: '预订人才',
-          content: '您当前还不是vip用户或者vip预订次数用完,是否去购买vip？',
-          success(res) {
-            // console.log(res)
-            if (res.confirm) {
-              // console.log('用户点击确定')
-              wx.redirectTo({
-                url: '../myPurse/cyPurse'
-              })
-
-            } else if (res.cancel) {
-              // console.log('用户点击取消')
-              wx.redirectTo({
-                url: '../public/pay/payWay?pType=2&money=' + that.data.personalData.reserve_money + '&id=' + id
-              })
-
-            }
-          }
-        })
-
-
-
-      } else {
-        ServerData._wxTost(res.data.msg)
       }
     })
   },

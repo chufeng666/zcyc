@@ -1,5 +1,5 @@
 <view class="user_header">
-  <view class="liaojie">请完写职位信息</view>
+  <view class="liaojie">请填写职位信息</view>
   <text class="iconfont  .icon-cha"></text>
 </view>
 <!-- pages/userInfo/editInfo.wxml -->
@@ -55,10 +55,11 @@
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>福利待遇</view>
-          <navigator class="daiyu" open-type="navigate" url="../public/companyContent/welfare/welfare">
+          <navigator wx:if="{{welfare == ''}}" class="daiyu" open-type="navigate"
+            url="../public/companyContent/welfare/welfare">
             <view class="ec_bt" wx:key="index">请选择福利待遇</view>
           </navigator>
-          <navigator class="daiyu" open-type="navigate" url="../public/companyContent/welfare/welfare">
+          <navigator wx:else class="daiyu" open-type="navigate" url="../public/companyContent/welfare/welfare">
             <view class="ec_bt" wx:for="{{welfare}}" wx:key="index">
               <view>{{item}}</view>
             </view>
@@ -89,7 +90,12 @@
       </view>
       <view>
         <view class='set-option-1'>
-          <button class='s-1-option company-bg-' bindtap='saveEditRecruit'>保存</button>
+          <button wx:if="{{id == ''}}" class='s-1-option company-bg-' bindtap='saveEditRecruit'>保存</button>
+          <view wx:else>
+            <button wx:if="{{status==0}}" class='s-1-option company-bg-hui'>审核中</button>
+            <button wx:elif="{{status==1}}" class='s-1-option company-bg-hui'>审核通过</button>
+            <button wx:elif="{{status==-1}}" class='s-1-option company-bg-hui'>拒绝审核</button>
+          </view>
         </view>
       </view>
     </view>

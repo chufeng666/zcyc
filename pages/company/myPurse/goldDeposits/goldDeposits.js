@@ -2,71 +2,99 @@
 import ServerData from '../../../../utils/serverData.js';
 Page({
   data: {
-    arr: [
-      {
-        "isShow": true,
-        "money": 10,
-        "id": 0
-      },
-      {
-        "isShow": false,
-        "money": 20,
-        "id": 1
-      },
-      {
-        "isShow": false,
-        "money": 50,
-        "id": 2
-      },
-      {
-        "isShow": false,
-        "money": 100,
-        "id": 3
-      }
-    ],
-    saveStatus: 0,
-    saveMoney: 10
+    saveMoney: '', // 充值金额
+    balance: '',     // 用户余额
+    recharge_id: '',
+    openid: ''
   },
   changMoney: function (e) {
     var val = e.detail.value;
     this.setData({ saveMoney: val })
   },
-  selectGoldNumber: function (e) {
-    let query = e.currentTarget.dataset['index'];
-    var that = this.data
-    this.setData({
-      saveStatus: query,
-      saveMoney: e.currentTarget.dataset.money
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      balance: options.balance,
+      openid: options.openid
+    })
   },
-  toGoldDeposits(){
-    ServerData._showLoading('该功能正在建设中...')
-    setTimeout(()=>{
-      wx.redirectTo({
-        url: '../../cUserInfo/cUserInfo'
-      })
-    },1000)
+  saveInfo(){
+    this.toDeposits()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  toDeposits() {   //充值
+    var that = this
+    var _opt = {
+      'money': new Number(this.data.saveMoney),
+      'pay_type': 1
+    }
+    ServerData.rechargePay(_opt).then((res) => {
+      if (res.data.status == 5) {
+        console.log(res.data.data);
+        that.getPayUrl(res.data.data)
+        that.setData({
+          recharge_id: res.data.data
+        })
+      }
+      else if (res.data.status == -1) {
+        wx.redirectTo({
+          url: '../../login/login'
+        })
+      }
+      else {
+        ServerData._wxTost(res.data.msg)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  }
-
+  getPayUrl(id) {
+    ServerData.payRecharge_pay({ 'recharge_id': id }).then((res) => {
+      console.log(res)
+      var info = res.data.data
+      if (res.data.status == 1) {   //吊起外部链接
+        wx.requestPayment({
+          timeStamp: info.timeStamp,
+          nonceStr: info.nonceStr,
+          package: info.package,
+          signType: info.signType,
+          paySign: info.paySign,
+          success(res) {
+            console.log(res);
+            if (res.errMsg == 'requestPayment:ok') {
+              ServerData.payPay_callback({ 'recharge_id': id }).then((res) => {
+                console.log(res);
+                if (res.data.status == 1) {
+                  ServerData._wxTost('支付成功')
+                  wx.navigateBack({
+                    delta: 2,
+                  })
+                } else {
+                  ServerData._wxTost(res.data.msg)
+                  wx.redirectTo({
+                    url: '/pages/company/myPurse/goldDeposits/payment/payment'
+                  })
+                }
+              })
+            }
+          },
+          fail(res) {
+            ServerData._wxTost('支付失败')
+          }
+        })
+      }
+      else if (res.data.status == 8) {      //未绑定微信支付，跳去绑定
+        wx.redirectTo({
+          url: '/pages/public/setting'
+        })
+      }
+      else if (res.data.status == -1) {
+        wx.redirectTo({
+          url: '../../login/login'
+        })
+      }
+      else {
+        ServerData._wxTost(res.data.msg)
+      }
+    })
+  },
 })

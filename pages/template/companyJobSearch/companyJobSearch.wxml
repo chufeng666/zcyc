@@ -9,7 +9,7 @@
           </view>
           <view class='s-portrait'>
             <text class="posen-msg">人才</text>
-            <view class='posen-msg'>{{item.images != '' ? "有证书":"无证书"}}</view>
+            <view class='posen-msg'>{{item.images == null ? "无证书":"有证书"}}</view>
           </view>
           <view class='c-info-msg global-search-cont'>
             <view>
@@ -21,8 +21,7 @@
           </view>
           <view class="s-company-information">
             <image src='../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png' class='portrait-icon' />
-            <text wx:if="{{item.job_intention == ''}}" class="xianmujingli">求职岗位• {{item.job_intention}}</text>
-            <text wx:else class="xianmujingli">求职岗位• {{item.careers}}</text>
+            <text class="xianmujingli">求职岗位• {{item.job_intention}}</text>
           </view>
         </view>
       </view>

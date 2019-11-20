@@ -29,13 +29,12 @@
 }
 
 .t-info-list {
-  position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .create-time {
-  line-height: 127rpx;
-  margin-left: auto;
   font-size: 24rpx;
   color: #999;
 }
@@ -46,7 +45,6 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   white-space: nowrap;
-  margin-bottom: 0;
 }
 
 .-info-msg-exp {

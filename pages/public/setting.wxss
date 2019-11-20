@@ -47,4 +47,5 @@
   font-size:24rpx;
   color:#E4FEFF;
   border-radius: 38rpx;
+  background-color: var(--themeColor);
 }

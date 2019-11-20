@@ -1,11 +1,11 @@
-// pages/company/myPurse/payment/payment.js
+// pages/company/jobApplicantSwarch/jobApplicantSwarch.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShow: true
+
   },
 
   /**

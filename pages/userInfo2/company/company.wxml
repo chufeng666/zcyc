@@ -5,7 +5,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input placeholder="请输入公司名称" bindinput='handeSearchInput' class='search-nosearch'></input>
+    <input placeholder="请输入公司名称" bindconfirm='handeSearchInput' class='search-nosearch'></input>
   </view>
 </view>
 <view class="newest-search">
@@ -33,9 +33,9 @@
   </view>
 </view>
 <view class="inner">
-  <view class='wx-no-info' wx:if="{{site_show}}">
+  <view class='zhanwushuju' wx:if="{{site_show}}">
     <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
-    <view>暂无数据</view>
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
   </view>
   <view class="container" wx:else>
     <import src="../../template/companyList.wxml" />

@@ -53,4 +53,5 @@
       </view>
     </view>
   </view>
+  <button bindtap="editTel" class="saixuan_bt">确认</button>
 </view>

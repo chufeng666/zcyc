@@ -66,8 +66,6 @@
 }
 
 .ec_lianxiren {
-  display: flex;
-  align-items: center;
   padding: 33rpx 0;
   border-bottom: 1rpx solid #dedede;
 }
@@ -121,4 +119,7 @@
 .daiyu {
   display: flex;
   align-items: center;
+}
+.company-bg-hui{
+  background-color: #686868;
 }

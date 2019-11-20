@@ -32,7 +32,8 @@ Page({
     ],
     index: 0,
     popular: [],
-    isShow:true
+    isShow: true,
+    arry: []
   },
 
   onShow: function () {
@@ -57,6 +58,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function () {
+    this.messageList()
     this.reqIndex(); //请求数据
     util.getStorageItem('savePostion', app)   //
     /*********地址 */
@@ -82,7 +84,6 @@ Page({
       if (res.data.status == 1) {
         this.setData({
           indexData: res.data.data,
-
         })
       }
       else if (res.data.status == -1) {
@@ -124,7 +125,7 @@ Page({
       aCode: info.aCode,
       showTST: info.showTST
     })
-    this.getUserInfo()
+    this.reqIndex()
   },
 
   // 点击所在地区弹出选择框
@@ -141,5 +142,14 @@ Page({
     this.setData({ tabs, index });
     this.reqIndex();
   },
-
+  messageList() {
+    ServerData.messageList({}).then((res) => {
+      console.log(res);
+      if (res.data.code === 1) {
+        this.setData({
+          array: res.data.data
+        })
+      }
+    })
+  },
 })

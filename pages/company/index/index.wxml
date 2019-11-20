@@ -8,13 +8,20 @@
     </navigator>
   </view>
   <view class="new">
-    <navigator class="new_xiaoxi" url="../../information/information">
-      <view class="n-lfet">
-        消息
-        <view>|</view>
-      </view>
-      <view class="n-right">著名企业今天新发布160个职业</view>
-    </navigator>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
+      circular="true" indicator-active-color="#ff54b5">
+      <block wx:for="{{array}}" wx:key="index">
+        <swiper-item>
+          <navigator class="new_xiaoxi" url="/pages/information/infoDetail?id={{item.id}}">
+            <view class="n-lfet">
+              消息
+              <view>|</view>
+            </view>
+            <view class="n-right">{{item.title}}</view>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>
 <!-- 头部搜索 -->
@@ -33,18 +40,21 @@
         <view class="newsite_city ">{{areaInfo}}</view>
         <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
       </view>
-      <view class="newsite_button {{isShow?'':'active'}}" bindtap="selectOccupational">
+      <!-- <view class="newsite_button {{isShow?'':'active'}}" bindtap="selectOccupational">
         <view class="newsite_view subtitle-msg" wx:if="{{isShow}}">人才</view>
         <view class="newsite_city">{{job_type}}</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
         <Occupational-form id="Occupational" bind:tabEvent1="tabEvent1"></Occupational-form>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>
 <!-- 搜寻部分 -->
 <view class="n-information">
   <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
+    <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
     <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
       url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
       <view class="i_list">
@@ -67,6 +77,9 @@
     </navigator>
   </block>
   <block class="n-zhaopinxinxi" wx:else>
+    <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
     <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
       url="../../postionDetail/postionDetail?id={{item.id}}">
       <view class="i_list">
@@ -89,6 +102,10 @@
       </view>
     </navigator>
   </block>
+</view>
+
+<view style="height: 120px;">
+
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <!-- 底部tabbar栏 -->

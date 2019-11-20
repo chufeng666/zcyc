@@ -48,7 +48,7 @@
 .icon-bianji {
   margin-left: 19rpx;
   color: var(--themeColor);
-  font-size: 36rpx;
+  font-size: 40rpx;
 }
 
 .inner .user_name .us_left .us_l_bottom {

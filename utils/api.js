@@ -20,8 +20,8 @@ const userAPI = {
   company_detail: `${proxys}/company/company_detail`, // 查看公司详情(新)
 
   personalDetail: `${proxys}/person/detail`,          // 个人简历详情
-  editRecruit: `${proxys}/company/edit_recruit`,      // 编辑、发布职位
-  goEditRecruit: `${proxys}/company/go_edit_recruit`, // 初始化职位
+  editRecruit: `${proxys}/company/edit_recruit`,      // 第一次发布职位
+  goEditRecruit: `${proxys}/company/go_edit_recruit`, // 编辑发布职位
   editCompany: `${proxys}/company/edit`,              // 编辑公司信息
   setCompanyInfo: `${proxys}/company/info`,           // 初始化公司信息
 
@@ -45,9 +45,11 @@ const userAPI = {
   categoryList: `${proxys}/person/category_list`,     // 工种列表
 
   myPurse: `${proxys}/person/my_wallet`,              // 我的钱包
-  registerVip: `${proxys}/person/buy_vip`,             // 开通会员
+  registerVip: `${proxys}/person/buy_vip`,            // 开通会员
   goWithdrawal: `${proxys}/person/go_withdrawal`,     // 提现
   withdrawal: `${proxys}/person/withdrawal`,          // 提现保存
+  rechargePay: `${proxys}/person/recharge`,           // 支付金额和支付类型上传
+  payRecharge_pay: `${proxys}/pay/recharge_pay`,      // 吊起支付
 
   messageList: `${proxys}/message/message_list`,      // 消息列表
   messageDetail: `${proxys}/message/message_detail`,  // 消息详情
@@ -94,7 +96,9 @@ const userAPI = {
   companyPush_resume: `${proxys}/company/push_resume` ,  // 推送簡歷
   companyResume_list: `${proxys}/company/resume_list` ,  // 企業和第三方展示推送簡歷
   companyDel_resume: `${proxys}/company/del_resume`,   // 推送删除
-  companyDel_reserve: `${proxys}/company/del_reserve`   // 取消预订
+  companyDel_reserve: `${proxys}/company/del_reserve` ,  // 取消预订
+  personRecharge: `${proxys}/person/recharge`,   // 取消预订
+  payPay_callback: `${proxys}/pay/pay_callback`   // 支付成功的回調
  
 }
 
