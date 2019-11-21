@@ -122,4 +122,9 @@ Page({
       idcard: e.detail.value
     })
   },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  }
 })

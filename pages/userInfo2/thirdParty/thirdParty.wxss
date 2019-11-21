@@ -73,7 +73,6 @@
   background-color: #fff;
   text-align: center;
   margin-top: 208rpx;
-  border-bottom: 1px solid #ccc;
 }
 
 .newest-search .n-xiahuaxian {
@@ -81,8 +80,9 @@
   justify-content: space-between;
   line-height: 88rpx;
   height: 88rpx;
-  width: 95%;
-  margin-left: 16rpx;
+  margin:0 16rpx;
+  border-bottom: 1px solid #ccc;
+
 }
 
 .newest-search .n-xiahuaxian .newest .province {
@@ -95,8 +95,7 @@
 
 .newest-search .n-xiahuaxian .n-search {
   display: flex;
-  justify-content: space-between;
-  align-content: center;
+  align-items: center;
   font-size: 28rpx;
   color: #969696;
   padding: 18rpx 0;

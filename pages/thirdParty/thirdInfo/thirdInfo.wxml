@@ -16,10 +16,11 @@
           </navigator>
           <view class='c-info-text'>
             <view class='c-info-title'>
-              <text class="info_name">{{userData.contacts}}</text>
+              <text wx:if="{{userData.contacts=='' || userData.contacts==null}}" class="info_name">请完善姓名</text>
+              <text wx:else class="info_name">{{userData.contacts}}</text>
               <image class="info_huiyuan" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_huiyuan1.png" />
             </view>
-            <view class='c-msg m-b10'>用户 ID:{{info.user_id}}</view>
+            <view class='c-msg m-b10'>用户 ID:{{userData.user_id}}</view>
           </view>
           <navigator url="../editInfo/editInfo" class='u-o-list'>
             <view>编辑信息</view>
@@ -36,7 +37,7 @@
           <text class="iconfont  icon-baobao"></text>
           <view class="sy_aq_smart">发布职位信息</view>
         </view>
-        <navigator class="sy_ceshi" url="../../jobList/editJobList?id={{userData.id}}">
+        <navigator class="sy_ceshi" url="../../jobList/editJobList?company_id={{userData.id}}">
           <text class="iconfont    .icon-hao"></text>
         </navigator>
       </view>
@@ -121,6 +122,9 @@
   </view>
 </view>
 <!-- 主体 -->
+<view style="height: 120rpx;">
+
+  </view>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

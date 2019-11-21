@@ -77,5 +77,10 @@ Page({
     wx.redirectTo({
       url: '../../../jobList/editJobList',//指定界面
     })
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

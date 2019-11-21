@@ -1,10 +1,10 @@
 <!-- pages/company/uCollect.wxml -->
 <!-- 头部 -->
 <view class='i-header'>
-    <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
-    <view class="h-left">我的收藏</view>
-  </view>
-  <!-- 头部 -->
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">简历推送</view>
+</view>
+<!-- 头部 -->
 <view class='inner'>
   <view class="yuding">
     <view class="bianji">
@@ -12,7 +12,10 @@
       <view bindtap="detel" wx:if="{{searchLoading}}" class="bj_right">删除</view>
     </view>
   </view>
-  <view class='c-l-info'>
+  <view class="zhanwushuju" wx:if="{{bookListData == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
+  <view wx:else class='c-l-info'>
     <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="scrollLower">
       <block wx:for="{{bookListData}}" wx:key="index">
         <view class='global-search-wrap'>
@@ -55,7 +58,4 @@
     </scroll-view>
   </view>
   <!-- <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view> -->
-  <view class='wx-no-info' wx:if="{{isShowR}}">
-    <view>暂无数据</view>
-  </view>
 </view>

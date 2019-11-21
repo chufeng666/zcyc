@@ -9,7 +9,6 @@ Page({
   data: {
     showTST: true,         //是否选择地址
     mode: "scaleToFill",
-    arr: [],
     indexData: [],//游客首页数据
     indicatorDots: false,
     autoplay: true,
@@ -25,38 +24,23 @@ Page({
     index: 0,
     popular: [],
     array: [],
-    job_type: '',
     isShow: true,
-    require_cert: '', //证书
-    type: '',        //工种
-    education: '',  // 学历
-    work_age: '',   // 工龄
-    salary: '',     // 薪资
+    audit_status: [],//是否完善信息
   },
 
   onShow: function () {
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '是否完善个人信息',
-    //   success (res) {
-    //     if (res.confirm) {
-    //       wx.redirectTo({
-    //         url: '../userInfo2/editInfo/editInfo'
-    //       })
-    //     } else if (res.cancel) {
-    //     }
-    //   }
-    // })
     let { require_cert, type, education, work_age, salary } = this.data;
     if (require_cert && type && education && work_age && salary !== '') {
       this.reqIndex()
     }
+    this.initUserInfo()
   },
-
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function () {
+
+
     this.messageList()
     this.reqIndex(); //请求数据
     util.getStorageItem('savePostion', app);   //
@@ -69,7 +53,7 @@ Page({
     /*********职业 */
   },
   reqIndex() {
-    let { require_cert, type, education, work_age, salary, province, city, district } = this.data
+    let { require_cert, type, education, work_age, salary, province, city, district, audit_status } = this.data
     if (require_cert == '需要证书') {
       require_cert = 1
     } else {
@@ -84,9 +68,9 @@ Page({
     var that = this,
       _opt = {
         'job_type': that.data.job_type,
-        'province': that.data.province,
-        'city': that.data.city,
-        'district': that.data.district,
+        'province': province,
+        'city': city,
+        'district': district,
         'require_cert': require_cert,
         'type': type,
         'education': education,
@@ -112,7 +96,6 @@ Page({
       ServerData._wxTost("数据请求失败!")
     })
     ServerData.recruitHot(_opt).then((res) => {
-
       if (res.data.status == 1) {
         this.setData({
           popular: res.data.data,
@@ -131,7 +114,33 @@ Page({
     })
 
   },
-
+  // 是否完善信息请求
+  initUserInfo() {
+    ServerData.initUserInfo({}).then((res) => {
+      if (res.data.status == 1) {
+        var info = res.data.data
+        console.log(info.audit_status);
+        if (info.audit_status == null) {
+          wx.showModal({
+            title: '提示',
+            content: '是否完善个人信息',
+            success(res) {
+              if (res.confirm) {
+                console.log('11111111111111111111111');
+                wx.redirectTo({
+                  url: '/pages/userInfo2/editInfo/editInfo'
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
+        }
+        this.setData({
+          audit_status: info.audit_status,
+        })
+      }
+    })
+  },
   tabEvent1(data) {
     let info = data.detail
     console.log(info);

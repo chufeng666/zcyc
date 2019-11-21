@@ -1,4 +1,5 @@
-@import "../../template/font";
+@import "/pages/template/font";
+@import "/pages/template/common1/common1";
 
 
 .info_header {
@@ -9,6 +10,7 @@
   height: 56rpx;
   color: #FF730E;
   font-size: 24rpx;
+  margin-top: 12rpx;
 }
 
 .liaojie {
@@ -80,7 +82,7 @@
 }
 
 .info_bt {
-  background-color: #1487F1;
+  background-color: var(--themeColor);
   color: #fff;
   font-size: 30rpx;
   border-radius: 36rpx;

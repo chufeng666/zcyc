@@ -63,22 +63,25 @@ Page({
       'register': that.data.register,
       'token': that.data.toke
     }
+    console.log(type);
     ServerData._register(_opt).then((res) => {       //保存注册信息
+      console.log(res);
       wx.removeStorageSync('token')
       wx.removeStorageSync('savePostion')
       if (res.data.status == 1) {
         wx.setStorageSync('token', res.data.data.token);
+        wx.setStorageSync('savePostion', type);
         if (type == 3) {                               //跳转 3 跳转到个人信息录入 ，不是3就跳转到企业信息录入
           wx.redirectTo({
-            url: '../userInfo2/editInfo/editInfo'
+            url: '../userInfo2/index/index'
           })
         } else if (type == 1) {
           wx.redirectTo({
-            url: '../company/editInfo/editInfo'
+            url: '../company/index/index'
           })
         } else { 
           wx.redirectTo({
-            url: '../thirdParty/editInfo/editInfo'
+            url: '../thirdParty/index/index'
           })
         }
       }
@@ -186,7 +189,7 @@ Page({
     })
   },
 
-  // 点击下拉列表
+  // 点击选择身份
   selectData(e) {
     const { index } = e.currentTarget.dataset;
     let { selectData } = this.data;

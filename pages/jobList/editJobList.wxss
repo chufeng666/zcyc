@@ -1,6 +1,7 @@
 /* pages/userInfo/editInfo.wxss */
-@import "../template/font";
-@import "../template/common";
+@import "/pages/template/font";
+@import "/pages/template/common";
+@import "/pages/template/common1/common1.wxss";
 
 
 .user_header {
@@ -9,6 +10,7 @@
   height: 56rpx;
   background-color: #FFE4CC;
   color: #FF730E;
+  margin-top: 127rpx;
 }
 
 .user_header .liaojie {

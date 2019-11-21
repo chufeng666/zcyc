@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">个人信息</view>
+</view>
 <view class="user_header">
   <view class="liaojie">请完善公司信息</view>
   <text class="iconfont  .icon-cha"></text>
@@ -76,17 +80,18 @@
           <view>营业执照</view>
           <navigator url="../../public/companyContent/license/license">
             <view class="ec_bt">
-              <view  class="size-28" wx:if="{{userList.c_img == null}}">未上传</view>
-              <view  class="size-28" wx:else>已上传</view>
+              <view class="size-28" wx:if="{{userList.c_img == null}}">未上传</view>
+              <view class="size-28" wx:else>已上传</view>
             </view>
           </navigator>
         </view>
       </view>
       <view>
         <view class='set-option-1'>
-            <button wx:if="{{userList.status==-1}}" class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
-            <button wx:elif="{{userList.status==0}}" class='s-1-option' >审核中</button>
-            <button wx:else class='s-1-option_yi'>已审核</button>
+          <button
+            wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status == -1 ||getUData.audit_status.status == null}}"
+            class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
+          <button wx:else class='s-1-option_yi'>审核通过</button>
         </view>
       </view>
     </view>

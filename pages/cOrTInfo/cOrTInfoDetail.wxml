@@ -32,7 +32,9 @@
   </view>
   <view class='cOrTInfo-cont global-cOrTInfo-'>
     <view class='cOrTInfo-option'>
-      <icon class="iconfont icon-1 {{pColor}}" />
+      <image wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
+      </image>
+      <image wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
       <text class='cOrTInfo-msg'>公司资质</text>
     </view>
     <view class='-cOrTInfo' wx:for="{{cList.seniority}}" wx:key="id">
@@ -51,11 +53,13 @@
   </view>
   <!-- 公司介绍部分 -->
   <view class='cOrTInfo-cont' wx:if="{{index===0}}">
-    <image mode="aspectFit" class="c-first" src="{{cList.logo}}" />
+    <image mode="aspectFit" class="c-first" src="{{cList.head}}" />
     <view class="cc_desx">
       <view class='c-second'>
         <view class='cOrTInfo-option'>
-          <icon class="iconfont icon-1 {{pColor}}" />
+          <image wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
+          </image>
+          <image wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <text class='cOrTInfo-msg'>公司简介</text>
         </view>
         <view class="cs_time">
@@ -68,7 +72,8 @@
     </view>
     <view class="company_nav">
       <view class='cOrTInfo-option'>
-        <icon class="iconfont icon-1 {{pColor}}" />
+        <image  wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png"></image>
+        <image  wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
         <text class='cOrTInfo-msg'>公司地址</text>
       </view>
       <navigator class="company_map" url="">
@@ -80,6 +85,9 @@
   <!-- 公司介绍部分 -->
   <!-- 招聘部分 -->
   <view class="third" wx:if="{{index===1}}">
+    <view class="zhanwushuju" wx:if="{{pList == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
     <navigator url="../postionDetail/postionDetail?id={{item.id}}" wx:for="{{pList}}" wx:key="index">
       <view class='c-l-info'>
         <view class="i_list">

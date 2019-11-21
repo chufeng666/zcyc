@@ -14,20 +14,11 @@ Page({
     pColor: '',                          //动态获取字体颜色   
     pBgC: '',                     //动态获背景颜色               
     pBC: '',                           //动态获边框颜色   
-    yaoqiu: [
-      { name: '需要证书', id: 1 },
-      { name: '经验不限', id: 2 },
-      { name: '学历不限', id: 3 }
-    ],
-    welfare: [
-      { name: '包吃包住', id: 1 },
-      { name: '餐补', id: 2 },
-      { name: '包吃包住', id: 3 }
-    ],
     isShow: true,
     bgc: '',
     resume_status: '',
-    companyShow: false // 隐藏推荐按钮
+    companyShow: false, // 隐藏推荐按钮
+    regtype: 0,
   },
 
 	/**
@@ -35,10 +26,16 @@ Page({
 	 */
   onLoad: function (options) {
     let regtype = wx.getStorageSync('savePostion')
-    console.log(regtype);
+     // 更改图标
+     if (regtype == 1 || regtype == 2) {
+      regtype = 1
+    }else {
+      regtype = 3
+    }
     // 接收id
     this.setData({
       id: options.id,
+      regtype
     });
     this.reqDetails();
     if (regtype == 1 || regtype == 2) {

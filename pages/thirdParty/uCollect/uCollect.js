@@ -31,5 +31,10 @@ Page({
   },
   onPullDownRefresh:function () {
     this.collectionList()
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

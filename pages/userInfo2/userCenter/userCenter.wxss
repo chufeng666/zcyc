@@ -8,12 +8,12 @@ page {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   background-color: var(--themeColor);
   height: 127rpx;
   font-size: 36rpx;
   color: #fff;
-  line-height: 127rpx;
+  line-height: 156rpx;
   z-index: 10;
 }
 
@@ -53,13 +53,16 @@ page {
 
 .c-info-text {
   flex: 2;
-  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  padding: 16rpx 40rpx;
 }
 
 .c-info-title {
   display: flex;
   align-items: center;
-  margin-bottom: 39rpx;
+  margin-bottom: 27rpx;
 }
 
 .info_name {
@@ -144,7 +147,7 @@ page {
 }
 
 .c-l-info .u-o-list {
-  margin-bottom: 24rpx;
+ 
 }
 
 .u-o-list {
@@ -155,6 +158,14 @@ page {
 .user_img {
   width: 36rpx;
   height: 36rpx;
+  padding: 26rpx 0;
+  margin-right: 22rpx;
+}
+
+.youmihuobi .user_img {
+  width: 36rpx;
+  height: 36rpx;
+  padding: 0;
   margin-right: 22rpx;
 }
 
@@ -168,8 +179,7 @@ page {
   font-weight: 500;
 }
 
-.youmihuobi,
-.user_caozuo {
+.youmihuobi, .user_caozuo {
   border-bottom: 16rpx solid #dedede;
 }
 
@@ -197,10 +207,9 @@ page {
   margin-top: 4rpx;
 }
 
-.uscz_neirong,
-.user_qiehuan {
+.uscz_neirong, .user_qiehuan {
   font-size: 28rpx;
-  padding: 26rpx 32rpx 0 32rpx;
+  padding: 0 32rpx;
 }
 
 .u-o_left1 {
@@ -210,14 +219,8 @@ page {
   align-items: center;
 }
 
-.uscz_neirong .u-o-list,
-.user_qiehuan .u-o-list {
-  margin-bottom: 28rpx;
-}
-
-.uscz_neirong .u-o-list .u-o_left1,
-.user_qiehuan .u-o-list .u-o_left1 {
-  padding-bottom: 28rpx;
+.uscz_neirong .u-o-list .u-o_left1, .user_qiehuan .u-o-list .u-o_left1 {
+  padding: 26rpx 0;
   border-bottom: 1rpx solid #dedede;
 }
 

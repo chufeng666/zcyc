@@ -50,7 +50,9 @@
   border-radius: 20rpx;
   height: 33rpx;
 }
-
+.salary .s_gongsi:first-child {
+  margin-top: 0;
+}
 .salary .s_gongsi {
   margin-top: 62rpx;
 }

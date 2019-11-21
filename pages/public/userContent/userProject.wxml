@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">项目经验</view>
+</view>
 <view class="inner">
   <view wx:if="{{project != ''}}" wx:for="{{project}}" wx:key="index" class="inner_main">
     <view class="gongsi">
@@ -5,36 +9,41 @@
         <view>项目名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input class="inputSize" type='text' placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
+      <input class="inputSize" type='text' placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate"
+        value="{{item.data1}}" />
       <view></view>
     </view>
     <view class="zhiwei  gongsi">
       <text class="name_size">职位名称</text>
-      <input class="inputSize" type='text' placeholder="请输入职位名称" data-index="{{index}}" bindinput="inputGangwei" value="{{item.data2}}" />
+      <input class="inputSize" type='text' placeholder="请输入职位名称" data-index="{{index}}" bindinput="inputGangwei"
+        value="{{item.data2}}" />
     </view>
     <view class="zaizhiDate">
       <text class="name_size">在职时间</text>
       <view class="zzd_bt">
-        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay}}" value="{{item.data3}}" bindchange="setSameDay">
+        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay}}"
+          value="{{item.data3}}" bindchange="setSameDay">
           <view wx:if="{{item.data3==''}}" class="picker">{{sameDay}}</view>
           <view wx:else class="picker">{{item.data3}}</view>
         </picker>
         <text>—</text>
-        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay2}}" value="{{item.data4}}" bindchange="setSameDay2">
+        <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay2}}"
+          value="{{item.data4}}" bindchange="setSameDay2">
           <view wx:if="{{item.data4==''}}" class="picker">{{sameDay2}}</view>
           <view wx:else class="picker">{{item.data4}}</view>
         </picker>
       </view>
     </view>
     <view class="jingli  gongsi">
-      <text class="name_size">工作经历</text>
-      <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao" placeholder="请输入项目经历"></textarea>
+      <text class="name_size">开始结束时间</text>
+      <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao"
+        placeholder="请输入项目经历"></textarea>
     </view>
   </view>
-  <view  class="userId_main" wx:if="{{isShow}}">
+  <view class="userId_main" wx:if="{{isShow}}">
     <view class="userId_shangchuang" bindtap="addOption">
       <text class="iconfont  .icon-hao"></text>
-      <view>添加项目经验</view>
+      <view>项目描述</view>
     </view>
   </view>
 </view>

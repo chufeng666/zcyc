@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">职业证书</view>
+</view>
 <view class="inner">
   <view class="" wx:for="{{images}}" data-index="{{index}}" wx:key="index">
     <view class="userId_header">
@@ -5,11 +9,15 @@
         <view>证件类型</view>
         <text class="iconfont icon-lajitong" data-index='{{index}}' bindtap="deletProfessional"></text>
       </view>
-      <input wx:if='{{item.title == ""}}'  bindinput="inpuTitle" class="inpuTitle" data-index="{{index}}" placeholder="请输入证件名称" />
-      <input wx:else bindinput="inpuTitle" class="inpuTitle-real" data-index="{{index}}" placeholder="请输入证件名称" value="{{item.title}}" />
+      <input wx:if='{{item.title == ""}}' type='text' bindinput="inpuTitle" class="inpuTitle" data-index="{{index}}"
+        placeholder="请输入证件名称" />
+      <input wx:else bindinput="inpuTitle"  type='text' class="inpuTitle-real" data-index="{{index}}" placeholder="请输入证件名称"
+        value="{{item.title}}" />
     </view>
-    <image wx:if="{{item.path===''}}" mode="aspectFit" catchtap="addIdCardPic" data-index="{{index}}" class="userId_img" src="../../../static/images/bar_icon/user/edit/shengfengzheng_zhnegmian.png" />
-    <image wx:else mode="aspectFit" catchtap="addIdCardPic" data-index="{{index}}" class="userId_img" src="{{item.path}}" />
+    <image wx:if="{{item.path===''}}" mode="aspectFit" catchtap="addIdCardPic" data-index="{{index}}" class="userId_img"
+      src="../../../static/images/bar_icon/user/edit/zhiyezhengshu.png" />
+    <image wx:else mode="aspectFit" catchtap="addIdCardPic" data-index="{{index}}" class="userId_img"
+      src="{{item.path}}" />
   </view>
   <view class="userId_main">
     <view class="userId_shangchuang" bindtap="addOption">

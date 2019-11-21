@@ -13,37 +13,33 @@ Page({
     companyId: '',
     pColor: '',                            //动态获z字体颜色 
     pBgC: '',                            //动态获背景颜色 
-    jishu: [
-      { name: '建筑', id: 1 },
-      { name: '机电', id: 2 },
-      { name: '水利水电', id: 3 }
-    ],
-    zizhi: [
-      { name: '建筑工程施工总承包资质二级', id: 1 },
-      { name: '电力工程施工总承包资质三级', id: 2 }
-    ],
     tabs: [
       { id: 0, name: '公司介绍', isActive: true },
       { id: 1, name: '最新招聘', isActive: false }
     ],
     index: 0,
-
+    savePostion: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    let savePostion = wx.getStorageSync("savePostion");
+    // 更改图标
+    if (savePostion == 1 || savePostion == 2) {
+      savePostion = 1
+    }else {
+      savePostion = 3
+    }
     this.setData({
       companyId: options.company_id,
-      pBgC: util.loginIdentity().pBgC,
-      pColor: util.loginIdentity().pColor
+      savePostion
     })
-    this.getRecruitList()
+    this.getRecruitList();
   },
 
-  getRecruitList () {         // 要传给后台的参数
+  getRecruitList() {         // 要传给后台的参数
     var _opt = {
       company_id: this.data.companyId
     }
@@ -63,7 +59,7 @@ Page({
     })
   },
   // tabs
-  handleItemChange (e) {
+  handleItemChange(e) {
     let { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)

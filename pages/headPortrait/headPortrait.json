@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "保存头像"
+  "navigationBarTitleText": "保存头像",
+  "navigationStyle":"default"
 }

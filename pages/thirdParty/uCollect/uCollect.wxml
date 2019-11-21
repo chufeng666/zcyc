@@ -1,6 +1,16 @@
+<!-- 头部 -->
+<view class='i-header'>
+        <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+        <view class="h-left">我的收藏</view>
+      </view>
+      <!-- 头部 -->
 <view class='inner'>
-    <view>
+    <view class="zhanwushuju" wx:if="{{collData == ''}}">
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
+    <view wx:else>
         <import src="../../template/companyJobSearch/companyJobSearch" />
-        <template is="JobSearch" data="{{recList:collData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
+        <template is="JobSearch"
+            data="{{recList:collData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
     </view>
 </view>

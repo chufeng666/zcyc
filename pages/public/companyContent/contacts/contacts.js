@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     this.setCompanyInfo2()
   },
-  setCompanyInfo2 () {
+  setCompanyInfo2() {
     let that = this
     serverData.setCompanyInfo2({}).then((res) => {
       console.log(res);
@@ -27,7 +27,7 @@ Page({
       }
     })
   },
-  setCompanyInfoTwo () {
+  setCompanyInfoTwo() {
     let { contacts, mobile } = this.data;
     serverData.setCompanyInfoTwo({ contacts, mobile }).then((res) => {
       if (res.data.status == 1) {
@@ -55,14 +55,19 @@ Page({
       }
     })
   },
-  inputContactsName (e) {
+  inputContactsName(e) {
     this.setData({
       contacts: e.detail.value
     })
   },
-  inputContactsMobile (e) {
+  inputContactsMobile(e) {
     this.setData({
       mobile: e.detail.value
     })
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

@@ -3,5 +3,6 @@
     "address-form": "/pages/components/address/address",
     "Occupational-form": "/pages/components/Occupational/Occupational"
   },
-  "navigationBarTitleText": "求职意向"
+  "navigationBarTitleText": "求职意向",
+  "navigationStyle":"default"
 }

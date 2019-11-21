@@ -6,7 +6,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input class=' search-nosearch'  bindconfirm="handeSearchInput" placeholder="一级建造师"></input>
+    <input class=' search-nosearch' bindconfirm="handeSearchInput" placeholder="一级建造师"></input>
   </view>
 </view>
 <!-- 头部 -->
@@ -17,13 +17,13 @@
       <view class="province" wx:if="{{showTST}}">
         <text decode="{{true}}">广州市 - 海珠区&nbsp;&nbsp;|&nbsp;&nbsp;</text>
         <picker mode="selector" range="{{jobArray}}" bindchange="setJobsearch">
-           {{job_intention}}
+          {{job_intention}}
         </picker>
       </view>
       <view class="province" wx:else>
         <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|&nbsp;&nbsp;</text>
         <picker mode="selector" range="{{jobArray}}" bindchange="setJobsearch">
-           {{job_intention}}
+          {{job_intention}}
         </picker>
       </view>
     </view>
@@ -42,12 +42,18 @@
 <!-- 筛选 -->
 <!-- 数据展示 -->
 <view class="inner">
-  <view class="container">
+  <view class="zhanwushuju" wx:if="{{hiringData == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
+  <view wx:else class="container">
     <import src="../../template/companyJobSearch/companyJobSearch" />
     <template is="JobSearch" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->
+<view style="height: 120rpx;">
+
+</view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

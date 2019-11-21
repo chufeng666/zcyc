@@ -37,7 +37,11 @@ Page({
   onShow: function (options) {
     this.getCompanyInfo()
   },
-
+  detil() {
+    wx.redirectTo({
+      url: '/pages/company/cUserInfo/cUserInfo'
+    })
+  },
   returnIndex(flag, arry, isN) {
     for (var i in arry) {
       if (isN) {

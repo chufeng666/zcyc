@@ -10,8 +10,8 @@ Page({
     // 职位名称
     gangwei: '安全员',
     // 当天时间
-    sameDay: '1991.11',
-    sameDay2: '',
+    sameDay: '请选择在职时间',
+    sameDay2: '请选择在职时间',
     jingli: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
     experience: [],   // 工作经验上传  
     isShow: true
@@ -25,17 +25,17 @@ Page({
     this.sameDay();
   },
   // 当天时间
-  sameDay() {
-    var timestamp = Date.parse(new Date());
-    var date = new Date(timestamp);
-    //获取年份  
-    var Y = date.getFullYear();
-    //获取月份  
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-    this.setData({
-      sameDay2: Y + '.' + M
-    })
-  },
+  // sameDay() {
+  //   var timestamp = Date.parse(new Date());
+  //   var date = new Date(timestamp);
+  //   //获取年份  
+  //   var Y = date.getFullYear();
+  //   //获取月份  
+  //   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  //   this.setData({
+  //     sameDay2: Y + '.' + M
+  //   })
+  // },
   setSameDay(e) {
     let { index } = e.currentTarget.dataset;
     let data3 = e.detail.value
@@ -178,52 +178,9 @@ Page({
       experience
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

@@ -99,7 +99,7 @@
   </block>
 
 </view>
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>

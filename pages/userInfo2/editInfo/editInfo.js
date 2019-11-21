@@ -60,5 +60,11 @@ Page({
       ServerData._wxTost(res.data.msg)
     })
 
+  },
+  detil() {
+    wx.redirectTo({
+      url: '/pages/userInfo2/index/index'
+    })
   }
+
 })

@@ -11,7 +11,16 @@
 
 .inner {
 }
-
+.yuangongfuliguanli{
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 16rpx;
+}
+.zhengshuicon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+}
 .search-inner {
   margin: 25rpx 0 10rpx;
   display: flex;
@@ -174,6 +183,7 @@
   align-items: center;
   color: var(--thirdPartyColor);
   font-size: 30rpx;
+  margin-bottom: 32rpx;
 }
 
 .jinengzhengshu .icon-1 {
@@ -201,10 +211,11 @@
 }
 
 .footer {
-  padding: 0 32rpx;
+  padding: 20rpx 32rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
 
 .c-list-info-jinyan {

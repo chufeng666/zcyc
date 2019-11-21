@@ -1,3 +1,7 @@
+<view class='i-header'>
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">发布职位</view>
+</view>
 <view class="user_header">
   <view class="liaojie">请填写职位信息</view>
   <text class="iconfont  .icon-cha"></text>
@@ -90,11 +94,11 @@
       </view>
       <view>
         <view class='set-option-1'>
-          <button wx:if="{{id == ''}}" class='s-1-option company-bg-' bindtap='saveEditRecruit'>保存</button>
+          <button wx:if="{{status == ''&& id==''}}" class='s-1-option company-bg-' bindtap='saveEditRecruit'>发布</button>
           <view wx:else>
-            <button wx:if="{{status==0}}" class='s-1-option company-bg-hui'>审核中</button>
+            <button wx:if="{{status==0}}"  class='s-1-option company-bg-hui' bindtap='amendEditRecruit'>审核中</button>
             <button wx:elif="{{status==1}}" class='s-1-option company-bg-hui'>审核通过</button>
-            <button wx:elif="{{status==-1}}" class='s-1-option company-bg-hui'>拒绝审核</button>
+            <button wx:elif="{{status==-1}}" class='s-1-option company-bg-hui' bindtap='amendEditRecruit'>拒绝审核</button>
           </view>
         </view>
       </view>

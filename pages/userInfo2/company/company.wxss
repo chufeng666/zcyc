@@ -55,9 +55,7 @@
 
 .newest-search {
   background-color: #fff;
-  text-align: center;
   margin-top: 208rpx;
-  border-bottom: 1px solid #ccc;
 }
 
 .newest-search .n-xiahuaxian {
@@ -65,8 +63,8 @@
   justify-content: space-between;
   line-height: 88rpx;
   height: 88rpx;
-  width: 95%;
-  margin-left: 16rpx;
+  border-bottom: 1px solid #ccc;
+  margin: 0 16rpx;
 }
 
 .newest-search .n-xiahuaxian .newest .province {
@@ -89,9 +87,7 @@
   display: flex;
   align-items: center;
   background-color: #eaeaea;
-  margin-right: 16rpx;
   height: 56rpx;
-  line-height: 56rpx;
   border-radius: 8%;
 }
 
@@ -209,7 +205,6 @@
 
 .active {
   color: var(--themeColor);
-  font-weight: 400;
 }
 
 .picker-view {

@@ -25,7 +25,7 @@
     <view class="d-c-list">
       <view class='c-list-info'>
         <view class='qiuzhiqiwang'>
-          <text class="iconfont  icon-1"></text>
+          <image  class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>求职期望</view>
         </view>
         <view class="qiwang">
@@ -54,7 +54,7 @@
     <view class="d-c-list-jinyan">
       <view class="c-list-info-jinyan">
         <view class='qiuzhiqiwang'>
-          <text class="iconfont  icon-1"></text>
+          <image  class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>工作经验</view>
         </view>
         <view class="zhanshi" wx:for="{{experience}}" wx:key="index">
@@ -77,12 +77,12 @@
     <view class="d-c-list">
       <view class="c-list-info">
         <view class='qiuzhiqiwang'>
-          <text class="iconfont  icon-1"></text>
+          <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>职业证书</view>
         </view>
         <view class="jinengzhengshu">
           <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
-            <text class="iconfont  icon-1"></text>
+            <image  class="zhengshuicon" src="/static/images/index/zhengshuicon.png"></image>
             <view>{{item.title}}</view>
           </view>
         </view>

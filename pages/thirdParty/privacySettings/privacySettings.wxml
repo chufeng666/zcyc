@@ -1,55 +1,58 @@
-<!-- pages/company/uCollect.wxml -->
+<view class='i-header'>
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">简历推送</view>
+</view>
 <view class='inner'>
-    <view class="yuding">
-      <view class="bianji">
-        <view bindtap="bianji" class="bj_left">编辑</view>
-        <view bindtap="detel" wx:if="{{searchLoading}}" class="bj_right">删除</view>
-      </view>
+  <view class="yuding">
+    <view class="bianji">
+      <view bindtap="bianji" class="bj_left">编辑</view>
+      <view bindtap="detel" wx:if="{{searchLoading}}" class="bj_right">删除</view>
     </view>
-    <view class='c-l-info'>
-      <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="scrollLower">
-        <block wx:for="{{bookListData}}" wx:key="index">
-          <view class='global-search-wrap'>
-            <view class='search-job-list'>
-              <navigator url='/pages/companyPostionDetail/companyPostionDetail?id={{item.person_id}}'>
-                <view class='s-portrait global-search-cont'>
-                  <text class="name">{{item.name}}</text>
-                  <text class="pColor">{{item.salary}}/月</text>
-                </view>
-                <view class="zhenghsu">
-                  <view class="company-status">人才</view>
-                  <view class='company-status {{pBgC}} fr'>{{item.images == '' ? "无证书":"有证书"}}</view>
-                </view>
-                <view class="xuqiu">
-                  <text class="dizhi">{{item.city}} - {{item.district}}</text>
-                  <text class='c-msg2'>{{item.work_age}}</text>
-                  <text class="xueli">{{item.school_type}}</text>
-                </view>
-              </navigator>
-              <view class='c-info-title'>
-                <view class="ci_left">
-                  <image class="ci_img" src="{{item.avatar}}" />
-                  <text>求职岗位 • {{item.job_intention}}</text>
-                </view>
-                <view class="dqdate">
-                  <text class="iconfont  .icon-shizhong"></text>
-                  <view class="daoqi">{{item.time}}</view>
-                </view>
-                <view class="group" wx:if="{{searchLoading}}">
-                  <icon wx:if="{{item.selected}}" type="success" color="{{styleBg}}" bindtap="changItemStatus"
-                    data-index="{{index}}" class="dagou" size="22" />
-                  <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="{{styleBg}}"
-                    class="dagou" size="22" data-goodid="{{item.id}}" />
-                </view>
+  </view>
+  <view class="zhanwushuju" wx:if="{{bookListData == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
+  <view wx:else class='c-l-info'>
+    <scroll-view class="list" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="scrollLower">
+      <block wx:for="{{bookListData}}" wx:key="index">
+        <view class='global-search-wrap'>
+          <view class='search-job-list'>
+            <navigator url='/pages/companyPostionDetail/companyPostionDetail?id={{item.person_id}}'>
+              <view class='s-portrait global-search-cont'>
+                <text class="name">{{item.name}}</text>
+                <text class="pColor">{{item.salary}}/月</text>
+              </view>
+              <view class="zhenghsu">
+                <view class="company-status">人才</view>
+                <view class='company-status {{pBgC}} fr'>{{item.images == '' ? "无证书":"有证书"}}</view>
+              </view>
+              <view class="xuqiu">
+                <text class="dizhi">{{item.city}} - {{item.district}}</text>
+                <text class='c-msg2'>{{item.work_age}}</text>
+                <text class="xueli">{{item.school_type}}</text>
+              </view>
+            </navigator>
+            <view class='c-info-title'>
+              <view class="ci_left">
+                <image class="ci_img" src="{{item.avatar}}" />
+                <text>求职岗位 • {{item.job_intention}}</text>
+              </view>
+              <view class="dqdate">
+                <text class="iconfont  .icon-shizhong"></text>
+                <view class="daoqi">{{item.time}}</view>
+              </view>
+              <view class="group" wx:if="{{searchLoading}}">
+                <icon wx:if="{{item.selected}}" type="success" color="{{styleBg}}" bindtap="changItemStatus"
+                  data-index="{{index}}" class="dagou" size="22" />
+                <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="{{styleBg}}"
+                  class="dagou" size="22" data-goodid="{{item.id}}" />
               </view>
             </view>
           </view>
-  
-        </block>
-      </scroll-view>
-    </view>
-    <!-- <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view> -->
-    <view class='wx-no-info' wx:if="{{isShowR}}">
-      <view>暂无数据</view>
-    </view>
+        </view>
+
+      </block>
+    </scroll-view>
   </view>
+  <!-- <view class="loading-complete" wx:if="{{noMoreData}}">我有底线哦...</view> -->
+</view>

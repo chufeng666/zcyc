@@ -47,7 +47,6 @@ Page({
       return ServerData._wxTost('两次密码不相符')
     }
 
-
     var _opt={
       'password1': pasw,
       'password2': pswd2,

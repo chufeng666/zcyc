@@ -5,7 +5,7 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input url='../search/search' bindconfirm="inputSearch" placeholder="请输入公司名称"
+    <input url='../search/search' bindconfirm="handeSearchInput" placeholder="请输入公司名称"
       class='search-cont s-nosearch-wrap'></input>
   </view>
 </view>
@@ -33,13 +33,16 @@
     </view>
   </view>
 </view>
-<view class="inner">
+<view class="zhanwushuju" wx:if="{{recList == ''}}">
+  <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+</view>
+<view wx:else class="inner">
   <view class="container">
     <import src="../../template/companyList.wxml" />
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
   </view>
 </view>
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <!-- 所有城市三级联动列表 -->

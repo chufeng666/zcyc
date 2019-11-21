@@ -6,7 +6,10 @@
 </view>
 <!-- 头部 -->
 <view class='inner'>
-  <view>
+  <view class="zhanwushuju" wx:if="{{collData == ''}}">
+    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+  </view>
+  <view wx:else>
     <import src="../../template/companyJobSearch/companyJobSearch" />
     <template is="JobSearch" data="{{recList:collData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>

@@ -1,4 +1,5 @@
-@import "../../template/font";
+@import "/pages/template/font";
+@import "/pages/template/common1/common1";
 
 
 .userId_main .userId_img {
@@ -44,7 +45,7 @@
 .add {
   width: 442rpx;
   height: 72rpx;
-  background-color: #1487F1;
+  background-color: var(--themeColor);
   color: #fff;
   border-radius: 36rpx;
   line-height: 72rpx;

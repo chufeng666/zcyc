@@ -37,23 +37,33 @@ Page({
   },
 
   onShow: function () {
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '是否完善个人信息',
-    //   success (res) {
-    //     if (res.confirm) {
-    //       wx.redirectTo({
-    //         url: '../company/editInfo/editInfo'
-    //       })
-    //     } else if (res.cancel) {
-    //       wx.redirectTo({
-    //         url:'../company/index'
-    //       })
-    //     }
-    //   }
-    // })
+    this.initUserInfo()
   },
-
+  // 是否完善信息请求
+  initUserInfo() {
+    ServerData.initUserInfo({}).then((res) => {
+      if (res.data.status == 1) {
+        var info = res.data.data
+        if (info.audit_status == null) {
+          wx.showModal({
+            title: '提示',
+            content: '是否完善个人信息',
+            success(res) {
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: '/pages/company/editInfo/editInfo'
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
+        }
+        this.setData({
+          audit_status: info.audit_status,
+        })
+      }
+    })
+  },
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -75,7 +85,6 @@ Page({
   reqIndex() {
     var that = this,
       _opt = {
-        'job_type': that.data.job_type,
         'province': that.data.pCode,
         'city': that.data.cCode,
         'district': that.data.aCode,

@@ -48,9 +48,11 @@ Page({
     var sxf = new Number(this.data.info.percent / 100) * new Number(e.detail.value).toFixed(2)
     this.setData({ txmoney: e.detail.value, sxf: sxf })
   },
+  // 提现
   getWithdrawal() {
     var that = this
     ServerData.goWithdrawal({}).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           info: res.data.data,

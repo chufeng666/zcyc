@@ -12,7 +12,7 @@ Page({
     welfare: [],                      //福利待遇
     require_cert: 0,                  //证书要求
     education: '',                     //学历要求
-    status: 0,                        //審核狀態
+    status: '',                        //審核狀態
     province: '',                     //省
     city: '',                         //市
     district: '',                     //区
@@ -42,10 +42,8 @@ Page({
       id: options.id,
       company_id: options.company_id
     })
-    console.log(options.id);
-    if (options.id != undefined || options.id != '') {
-      return false
-    } else {
+    let { company_id } = this.data
+    if (company_id == '' || company_id == undefined || company_id == null) {
       this.goEditRecruit()
     }
   },
@@ -79,7 +77,6 @@ Page({
     }
     // return
     ServerData.goEditRecruit(_opt).then((res) => {
-      console.log(res);
       let info = res.data.data
       if (res.data.status == 1) {
         that.setData({
@@ -274,5 +271,9 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-
+  detil() {
+    wx.navigateBack({
+      delta: 2
+    });
+  }
 })

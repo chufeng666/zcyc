@@ -45,7 +45,10 @@
   color: #686868;
   font-weight: 600;
 }
-
+.yuangongfuliguanli{
+  width: 28rpx;
+  height: 28rpx;
+}
 /* 第一部分 */
 
 /* 第二部分 */
@@ -155,14 +158,14 @@
 /* 第二部分 */
 .cOrTInfo-,
 .cOrTInfo-option {
+  margin-top: 32rpx;
   font-weight: 600;
   margin-bottom: 20rpx;
-  font-size: 28rpx;
-  color: #151515;
+  display: flex ;
+  align-items: center;
 }
 .cOrTInfo-msg {
   font-size: 26rpx;
-  margin-bottom: 20rpx;
   margin-left: 12rpx;
 }
 .cOrTInfo-2 {

@@ -1,6 +1,7 @@
 @import "userWork";
 
 .inner {
+  margin-top: 127rpx;
   padding: 68rpx 54rpx;
 }
 
@@ -15,5 +16,5 @@
   font-size: 30rpx;
   color: #fff;
   line-height: 72rpx;
-  background-color: #1487F1;
+  background-color: var(--themeColor);
 }

@@ -1,6 +1,9 @@
 /* pages/company/uCollect.wxss */
-@import "../../template/font";
-
+@import "/pages/template/font";
+@import "/pages/template/common1/common1";
+.inner{
+  margin-top: 127rpx;
+}
 .yuding {
   padding: 0 24rpx;
 }

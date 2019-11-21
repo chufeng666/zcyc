@@ -93,5 +93,10 @@ Page({
     this.setData({
       bookListData
     });
+  },
+  detil(){
+    wx.navigateBack({
+      delta: 2
+    });
   }
 })

@@ -1,7 +1,11 @@
 <view class='inner'>
   <view>
     <block class="n-zhaopinxinxi">
-      <navigator class="c_info" wx:for="{{collData}}" wx:key="id" url="../../postionDetail/postionDetail?id={{item.id}}">
+      <view class="zhanwushuju" wx:if="{{collData == ''}}">
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+      </view>
+      <navigator class="c_info" wx:for="{{collData}}" wx:key="id"
+        url="../../postionDetail/postionDetail?id={{item.id}}">
         <view class="i_list">
           <view class="l_yuan">{{item.title}}</view>
           <view class="l_price">{{item.salary}}/月</view>

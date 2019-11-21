@@ -1,5 +1,5 @@
 page {
-  background-color: #e0d9d7;
+  
 }
 
 /* <!-- 头部 --> */
@@ -19,8 +19,8 @@ page {
 }
 
 .icon-zuojiantou {
-  margin-top: 4.5rpx;
-  font-size: 48rpx;
+  margin-top: -0.5rpx;
+  font-size: 56rpx;
 }
 
 /* <!-- 头部 --> */
@@ -55,6 +55,7 @@ page {
 .c-info-text {
   flex: 2;
   margin-left: 40rpx;
+  padding: 16rpx 0;
 }
 
 .c-info-title {
@@ -81,9 +82,9 @@ page {
 
 .main_top .c-l-info .u-o-list {
   display: flex;
+  align-items: center;
   font-size: 22rpx;
   color: #999;
-  align-items: flex-end;
 }
 
 .info_huiyuan .u-o-list view {
@@ -203,7 +204,6 @@ page {
 }
 
 .uscz_neirong .u-o-list, .user_qiehuan .u-o-list {
- 
 }
 
 .uscz_neirong .u-o-list .u-o_left, .user_qiehuan .u-o-list .u-o_left {

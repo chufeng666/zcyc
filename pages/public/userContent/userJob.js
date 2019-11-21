@@ -135,5 +135,10 @@ Page({
     this.setData({
       daogang_time: workJob[e.detail.value]
     })
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   height: 56rpx;
-  background-color: #FFE4CC;
-  color: #FF730E;
+  background-color: #ffe4cc;
+  color: #ff730e;
+  margin-top: 127rpx;
 }
 
 .user_header .liaojie {
@@ -71,7 +72,6 @@
 
 .inner .user_name:nth-child(3) {
   margin-top: 56rpx;
-  padding-bottom: 56rpx;
 }
 
 .inner .user_name:nth-child(3) .icon-bianji {
@@ -109,7 +109,6 @@
   justify-content: space-between;
   align-items: center;
   font-size: 36rpx;
-
 }
 
 .inner .user_work .us_wk_first .us_wk_ft_left {
@@ -219,6 +218,13 @@
 .inner .user_personal .us_l_bottom {
   color: #686868;
   font-size: 30rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .inner .bitian {
@@ -257,27 +263,30 @@
   font-size: 32rpx;
   margin-top: 180rpx;
 }
-.ws_img{
+
+.ws_img {
   margin-left: 20rpx;
-  width:62rpx ;
+  width: 62rpx;
   height: 28rpx;
 }
-.denglu-shenhe{
+
+.denglu-shenhe {
   background-color: #686868;
   height: 72rpx;
   line-height: 72rpx;
   border-radius: 36rpx;
-
   color: #fff;
   font-size: 32rpx;
   margin-top: 180rpx;
 }
-.s-1-option_yi{
+
+.s-1-option_yi {
   background-color: #686868;
   font-size: 30rpx;
-  border-radius: 10rpx;
+  border-radius: 36rpx;
   color: #fff;
 }
+
 .yiwanshan {
   font-size: 18rpx;
   margin-left: 12rpx;
@@ -287,10 +296,10 @@
   color: #fff;
   width: 68rpx;
   height: 28rpx;
-  background-color: #FF730E;
+  background-color: #ff730e;
   border-radius: 10rpx 5rpx 10rpx 0;
 }
-@import '../../template/font.wxss';
-@import '../../template/common';
-@import '../../public/userContent/userInfo';
-
+@import '/pages/template/font.wxss';
+@import '/pages/template/common';
+@import '/pages/public/userContent/userInfo';
+@import '/pages/template/common1/common1.wxss';

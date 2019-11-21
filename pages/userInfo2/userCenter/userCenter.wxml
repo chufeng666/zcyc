@@ -10,7 +10,7 @@
     <view class='content-list'>
       <view class="main_top">
         <view class='c-l-info'>
-          <navigator url='../../headPortrait/headPortrait'>
+          <navigator class="c-logo" url='../../headPortrait/headPortrait'>
             <image src='{{info.avatar}}' class="c-logo" />
           </navigator>
           <view class='c-info-text'>
@@ -54,7 +54,7 @@
           </view>
           <view class="user_price">
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-            <view class="usp_yuer">600</view>
+            <view class="usp_yuer">{{info.balance}}</view>
             <text class='iconfont icon-youjiantou user-color-'></text>
           </view>
         </navigator>
@@ -118,7 +118,7 @@
   </view>
 </view>
 <!-- 主体 -->
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <!-- 底部tabbar栏 -->

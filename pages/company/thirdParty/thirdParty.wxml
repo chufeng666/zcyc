@@ -41,7 +41,7 @@
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
   </view>
 </view>
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <!-- 所有城市三级联动列表 -->

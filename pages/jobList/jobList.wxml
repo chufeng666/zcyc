@@ -14,8 +14,11 @@
         </view>
       </view>
     </view>
-    <view class='c-l-info' wx:for="{{recruitData}}" wx:for-index="index" wx:key="index">
-      <view class="main_bt">
+    <view class="zhanwushuju" wx:if="{{recruitData == ''}}">
+      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+    </view>
+    <view wx:else class='c-l-info'>
+      <view class="main_bt" wx:for="{{recruitData}}" wx:for-index="index" wx:key="index">
         <navigator url="editJobList?id={{item.id}}" class='c-info-text'>
           <view class='c-info-msg'>
             <text class='c-info-title'>{{item.title}}</text>

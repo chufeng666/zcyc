@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "职业证书"
+  "navigationBarTitleText": "职业证书",
+  "navigationStyle":"default"
 }

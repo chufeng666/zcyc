@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
 }
 
 .i-header .h-left {
@@ -50,7 +51,7 @@
 }
 
 .i-header .new {
-  border-bottom: 16rpx solid #dedede;
+  /* border-bottom: 16rpx solid #dedede; */
 }
 
 .i-header .new .new_xiaoxi {
@@ -85,8 +86,9 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 306rpx;
+  margin-top: 292rpx;
   padding: 0 30rpx;
+  border-top: 16rpx solid #dedede;
 }
 
 .newest-search .n-xiahuaxian {

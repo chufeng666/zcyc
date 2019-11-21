@@ -139,7 +139,6 @@
 
 .inner {
   padding: 0;
-  margin-bottom: 300rpx;
 }
 
 .container {

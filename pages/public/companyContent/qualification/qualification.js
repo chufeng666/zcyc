@@ -95,7 +95,7 @@ Page({
     let { seniority } = this.data;
     wx.showModal({
       title: '提示',
-      content: '这是一个模态弹窗',
+      content: '确定要删除吗',
       success(res) {
         if (res.confirm) {
           for (let i = 0; i < seniority.length; i++) {
@@ -111,4 +111,9 @@ Page({
       }
     })
   },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  }
 })

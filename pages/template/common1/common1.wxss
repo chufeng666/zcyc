@@ -8,6 +8,7 @@
   background-color: var(--thirdPartyColor);
   display: flex;
   align-items: flex-end;
+  z-index: 3;
 }
 
 .i-header .icon-zuojiantou {
@@ -19,6 +20,31 @@
   flex: 1;
   font-size: 36rpx;
   color: #fff;
+  text-align: center;
+  padding-right: 54rpx;
+  margin-bottom: 3rpx;
+
+}
+
+.information {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 73rpx;
+  padding: 27rpx 20rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.information .icon-zuojiantou {
+  font-size: 50rpx;
+}
+.information .in_left{
+  flex: 1;
+  font-size: 36rpx;
   text-align: center;
   padding-right: 54rpx;
   margin-bottom: 3rpx;

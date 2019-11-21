@@ -1,6 +1,11 @@
 @import '../template/common';
 
+page {
+  background-color: #fff;
+}
+
 #wrap {
+  border-bottom: 16rpx solid #dedede;
   background: #fff;
   font-size: 26rpx;
   width: 100%;
@@ -61,11 +66,9 @@
 }
 
 .collect_tab {
-  display: inline-block;
-  vertical-align: middle;
   font-size: 28rpx;
   color: #151515;
-  flex: 0 0 1;
+  margin-right: 0 !important;
 }
 
 /* CONTENT STAT */
@@ -90,9 +93,7 @@
   color: #686868;
 }
 
-.d-c-list {
-
-}
+.d-c-list {}
 
 .line {
   margin: 0 0 25rpx;
@@ -117,10 +118,12 @@
   font-size: 38rpx;
   color: #262626;
 }
-.m-r20{
+
+.m-r20 {
   font-size: 38rpx;
   font-weight: bold;
 }
+
 .mb_yaoqiu {
   display: flex;
   font-size: 26rpx;
@@ -159,15 +162,16 @@
 
 .wf_top {
   display: flex;
+  align-items: center;
   font-size: 30rpx;
   color: #262626;
   font-weight: 500;
 }
 
-.icon-yuangongfuliguanli {
-  color: var(--themeColor);
-  font-weight: 600;
-  font-size: 38rpx;
+.yuangongfuliguanli {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 12rpx;
 }
 
 .wf_bottom {
@@ -206,10 +210,12 @@
 
 .footer-height {
   padding: 40rpx 32rpx;
-  border-top: 16rpx solid #f0f0f0;
+  border-top: 16rpx solid #dedede;
 }
 
 .dcd_top {
+  display: flex;
+  align-items: center;
   font-weight: 600;
 }
 
@@ -224,7 +230,8 @@
   font-size: 30rpx;
   color: #fff;
 }
-.f-btn-2_hui{
+
+.f-btn-2_hui {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,6 +242,7 @@
   color: #fff;
   background-color: #686868;
 }
+
 .tuisongjianli {
   background-color: var(--themeColor);
 }
@@ -251,6 +259,7 @@
 }
 
 .icon-wuxiaoxing-kong {
+  color: #B6B6B6;
   font-size: 46rpx;
 }
 
@@ -260,7 +269,7 @@
 }
 
 .active {
-  color: #f4ea2a;
+  color: var(--themeColor);
 }
 
 @import '../template/font.wxss';

@@ -1,3 +1,7 @@
+<view class="information">
+    <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+    <view class="in_left">个人信息</view>
+  </view>
 <view class="user_header">
   <view class="liaojie">请填写真实信息，方便企业了解</view>
   <text class="iconfont  .icon-cha"></text>
@@ -7,7 +11,8 @@
   <view class="user_name">
     <view class="us_left">
       <view class="us_l_top">
-        <view class="us_l_t_name">{{getUData.name}}</view>
+        <view wx:if="{{getUData.name=='' || getUData.name==null }}"  class="us_l_t_name">请完善个人信息</view>
+        <view wx:else class="us_l_t_name">{{getUData.name}}</view>
         <navigator url="../../public/userContent/userInfo">
           <text class="iconfont  .icon-bianji"></text>
         </navigator>
@@ -38,7 +43,11 @@
         <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
         <view class="yiwanshan" wx:else>已通过审核</view>
       </view>
-      <view class="us_l_bottom">
+      <view class="us_l_bottom"
+        wx:if="{{getUData.idcard_front==''&&getUData.idcard_back==''|| getUData.idcard_front==null&&getUData.idcard_back==null}}">
+        <text>未上传身份证</text>
+      </view>
+      <view wx:else class="us_l_bottom">
         <text class="iconfont  icon-lianjie"></text>
         <view>身份证[正] [反]面</view>
       </view>
@@ -55,9 +64,14 @@
         <view class="us_l_t_name">职业证书</view>
         <view class="yiwanshan">必填</view>
       </view>
-      <view class="us_l_bottom" wx:for="{{getUData.images}}" wx:key="index">
-        <text class="iconfont  icon-lianjie"></text>
-        <view>{{item.title}}</view>
+      <view class="us_l_bottom" wx:if="{{getUData.images==null || getUData.images ==''}}">
+        <view>暂无</view>
+      </view>
+      <view>
+        <view class="us_l_bottom" wx:for="{{getUData.images}}" wx:key="index">
+          <text class="iconfont  icon-lianjie"></text>
+          <view>{{item.title}}</view>
+        </view>
       </view>
     </view>
     <navigator url="../../public/userContent/Professional">
@@ -75,6 +89,7 @@
       <view
         wx:if="{{getUData.job_intention == null || getUData.salary == null || getUData.city == null || getUData.district==null || getUData.daogang_time == null}}"
         class="us_l_bottom">
+        <text>暂无</text>
       </view>
       <view wx:else class="us_l_bottom">
         <view class="us_l_bt_top">{{getUData.job_intention}}　 {{getUData.salary}}</view>
@@ -99,16 +114,21 @@
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project" wx:if="{{getUData.experience != null}}" wx:for="{{getUData.experience}}" wx:key="index">
-      <view class="us_wk_second">
-        <view class="us_wk_sd_left">
-          <text class="iconfont  icon-gongsi"></text>
-          <view>{{item.data1}}</view>
+    <view class="us_wk_project" wx:if="{{getUData.experience == null ||getUData.experience==''}}">
+      <text>暂无</text>
+    </view>
+    <view wx:else>
+      <view class="us_wk_project" wx:for="{{getUData.experience}}" wx:key="index">
+        <view class="us_wk_second">
+          <view class="us_wk_sd_left">
+            <text class="iconfont  icon-gongsi"></text>
+            <view>{{item.data1}}</view>
+          </view>
         </view>
-      </view>
-      <view class="us_wk_third">岗位：{{item.data2}}　　　时间：{{item.data3}}-{{item.data4}}</view>
-      <view class="us_wk_fourth">
-        <text>{{item.data5}}</text>
+        <view class="us_wk_third">岗位：{{item.data2}}　　　时间：{{item.data3}}-{{item.data4}}</view>
+        <view class="us_wk_fourth">
+          <text>{{item.data5}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -124,16 +144,21 @@
         <text class="iconfont  icon-bianji"></text>
       </navigator>
     </view>
-    <view class="us_wk_project" wx:if="{{getUData.project !=null}}" wx:for="{{getUData.project}}" wx:key="index">
-      <view class="us_wk_second">
-        <view class="us_wk_sd_left">
-          <text class="iconfont  icon-gongsi"></text>
-          <view>{{item.data1}}</view>
+    <view class="us_wk_project" wx:if="{{getUData.project == null || getUData.project == ''}}">
+      <text>暂无</text>
+    </view>
+    <view wx:else>
+      <view class="us_wk_project" wx:for="{{getUData.project}}" wx:key="index">
+        <view class="us_wk_second">
+          <view class="us_wk_sd_left">
+            <text class="iconfont  icon-gongsi"></text>
+            <view>{{item.data1}}</view>
+          </view>
         </view>
-      </view>
-      <view class="us_wk_third">岗位：{{item.data2}}　　　　时间：{{item.data3}}-{{item.data4}}</view>
-      <view class="us_wk_fourth">
-        <text>{{item.data5}}</text>
+        <view class="us_wk_third">岗位：{{item.data2}}　　　　时间：{{item.data3}}-{{item.data4}}</view>
+        <view class="us_wk_fourth">
+          <text>{{item.data5}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -152,7 +177,7 @@
       <view
         wx:if="{{getUData.school_type=='' || getUData.major==null || getUData.start_time=='' || getUData.graduate_time==null}}"
         class="us_l_bt_oottom">
-
+        暂无
       </view>
       <view wx:else class="us_l_bt_oottom">
         {{getUData.school_type}} | {{getUData.major}} | {{getUData.start_time}}-{{getUData.graduate_time}}
@@ -169,7 +194,7 @@
       </navigator>
     </view>
     <view wx:if="{{getUData.desc==null}}" class="us_l_bottom">
-      <text></text>
+      <text>暂无</text>
     </view>
     <view wx:else class="us_l_bottom">
       <text>{{getUData.desc}}</text>
@@ -190,8 +215,9 @@
   </view>
 
   <view class='set-option-1'>
-    <button wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status== -1}}"
-      class='s-1-option_yi'>提交审核</button>
-    <button wx:else class='s-1-option' bindtap='shenhe'>提交审核</button>
+    <button
+      wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status == -1 ||getUData.audit_status == null}}"
+      class='s-1-option' bindtap='shenhe'>提交审核</button>
+    <button wx:else class='s-1-option_yi'>审核通过</button>
   </view>
 </view>

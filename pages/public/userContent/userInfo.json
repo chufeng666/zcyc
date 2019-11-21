@@ -2,5 +2,6 @@
   "usingComponents": {
     "address-form": "../../components/address/address"
   },
-  "navigationBarTitleText": "基本信息"
+  "navigationBarTitleText": "基本信息",
+  "navigationStyle":"default"
 }

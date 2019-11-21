@@ -48,7 +48,7 @@
   </view>
 </view>
 <!-- 数据展示 -->
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <!-- 所有城市三级联动列表 -->

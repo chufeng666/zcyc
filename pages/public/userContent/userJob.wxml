@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">求职意向</view>
+</view>
 <view class="inner">
   <view class="leixing">
     <text class="name_size">职业类型</text>
@@ -8,7 +12,8 @@
   </view>
   <view class="chengshi  leixing">
     <text class="name_size">工作城市</text>
-    <view wx:if="{{city=='' || district==''}}" class="inputXinxi" bindtap="selectDistrict">请选择工作城市</view>
+    <view wx:if="{{city=='' || district=='' || city==null|| district==null}}" class="inputXinxi"
+      bindtap="selectDistrict">请选择工作城市</view>
     <view wx:else class="inputXinxi-real" bindtap="selectDistrict">{{city}}-{{district}}</view>
     <!-- 所有城市三级联动列表 -->
     <address-form id='address' bind:tabEvent="tabEvent"></address-form>
@@ -17,7 +22,7 @@
   <view class="xizi  leixing">
     <text class="name_size">期望薪资</text>
     <picker class="" mode="selector" range="{{xinzi}}" value="{{index}}" bindchange="setiXinzi">
-      <view wx:if="{{salary==null}}" class="inputXinxi">请选择期望薪资}</view>
+      <view wx:if="{{salary==null || salary==''}}" class="inputXinxi">请选择期望薪资</view>
       <view wx:else class="inputXinxi-red">{{salary}}</view>
     </picker>
   </view>

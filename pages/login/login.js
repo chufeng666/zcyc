@@ -14,7 +14,8 @@ Page({
     input2text: '',
     color: '#ee291a',
     password: "",
-    mobile: ''
+    mobile: '',
+
   },
   getMobile: function (e) {
     var color = '#ee291a';

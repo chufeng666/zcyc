@@ -69,6 +69,7 @@
       </view>
     </navigator>
   </block>
+  
   <block class="n-zhaopinxinxi" wx:else>
     <navigator class="c_info" wx:for="{{list.recruit}}" wx:key="id"
       url="../../postionDetail/postionDetail?id={{item.id}}">
@@ -93,7 +94,7 @@
     </navigator>
   </block>
 </view>
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>

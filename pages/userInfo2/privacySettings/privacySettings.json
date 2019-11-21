@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "隐私设置"
+  "navigationBarTitleText": "隐私设置",
+  "navigationStyle":"default"
 }

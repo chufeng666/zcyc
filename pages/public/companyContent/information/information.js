@@ -160,4 +160,9 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  }
 })

@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">工作经历</view>
+</view>
 <view class="inner">
   <view wx:for="{{experience}}" wx:key="index">
     <view class="gongsi">
@@ -14,12 +18,14 @@
     <view class="zaizhiDate">
       <text class="name_size">在职时间</text>
       <view class="zzd_bt">
-        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay}}" value="{{item.data3}}" bindchange="setSameDay">
+        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay}}"
+          value="{{item.data3}}" bindchange="setSameDay">
           <view wx:if="{{item.data3==''}}" class="picker">{{sameDay}}</view>
           <view wx:else class="picker">{{item.data3}}</view>
         </picker>
         <text>—</text>
-        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay2}}" value="{{item.data4}}" bindchange="setSameDay2">
+        <picker class="zzd_bt_data" fields="month" data-index="{{index}}" mode="date" range="{{sameDay2}}"
+          value="{{item.data4}}" bindchange="setSameDay2">
           <view wx:if="{{item.data4==''}}" class="picker">{{sameDay2}}</view>
           <view wx:else class="picker">{{item.data4}}</view>
         </picker>
@@ -27,7 +33,8 @@
     </view>
     <view class="jingli  gongsi">
       <text class="name_size">工作经历</text>
-      <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao" placeholder="请输入项目经历"></textarea>
+      <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao"
+        placeholder="请输入项目经历"></textarea>
     </view>
   </view>
   <view class="userId_main" wx:if="{{isShow}}">

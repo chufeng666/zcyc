@@ -23,35 +23,21 @@ Page({
       { id: 0, title: "人才", isActive: true },
       { id: 1, title: "服务商", isActive: false },
     ],
-    index: 0
-
+    index: 0,
+    audit_status: [],//是否完善信息
   },
   onLoad: function () {
     util.getStorageItem('savePostion', app)   //获取底部导航
     this.getUserInfo()             //主页信息
     this.getCategoryList()         //职位列表
-
+    this.initUserInfo()         //职位列表
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
   },
-  onShow:function () {
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '是否完善个人信息',
-    //   success (res) {
-    //     if (res.confirm) {
-    //       wx.redirectTo({
-    //         url: '../thirdParty/editInfo/editInfo'
-    //       })
-    //     } else if (res.cancel) {
-    //       wx.redirectTo({
-    //         url:'../thirdParty/index'
-    //       })
-    //     }
-    //   }
-    // })
+  onShow: function () {
+
   },
   getUserInfo: function () {
     var that = this,
@@ -77,7 +63,33 @@ Page({
       }
     })
   },
-  getCategoryList () {
+  // 是否完善信息请求
+  initUserInfo() {
+    ServerData.initUserInfo({}).then((res) => {
+      if (res.data.status == 1) {
+        var info = res.data.data
+        console.log(info.audit_status);
+        if (info.audit_status == null) {
+          wx.showModal({
+            title: '提示',
+            content: '是否完善个人信息',
+            success(res) {
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: '/pages/thirdParty/editInfo/editInfo'
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
+        }
+        this.setData({
+          audit_status: info.audit_status,
+        })
+      }
+    })
+  },
+  getCategoryList() {
     var that = this
     ServerData.categoryList({}).then((res) => {
 
@@ -108,7 +120,7 @@ Page({
     return
   },
   /***********地址开始**************** */
-  tabEvent (data) {      //接收传过来的参数
+  tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
@@ -127,7 +139,7 @@ Page({
   },
   /***********地址结束**************** */
   // tabs栏
-  changeTitleByIndex (e) {
+  changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);

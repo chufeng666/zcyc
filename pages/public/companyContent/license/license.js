@@ -72,4 +72,9 @@ Page({
       }
     })
   },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  }
 })

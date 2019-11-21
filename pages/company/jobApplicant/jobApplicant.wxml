@@ -1,7 +1,7 @@
 <view class='i-header'>
   <view class="h-left">
     <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
-    <view class="l_qiye">企业</view>
+    <view class="l_qiye">招人</view>
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
@@ -37,7 +37,7 @@
     <template is="JobSearch" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
   </view>
 </view>
-<view style="height: 120px;">
+<view style="height: 120rpx;">
 
 </view>
 <!-- 所有城市三级联动列表 -->

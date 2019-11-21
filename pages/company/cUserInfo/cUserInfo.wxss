@@ -55,6 +55,9 @@ page {
 
 .c-info-text {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
   margin-left: 40rpx;
 }
 
@@ -198,7 +201,7 @@ page {
 }
 
 .usp_yuer {
-  color: var(--themeColor);
+  color: var(--thirdPartyColor);
 }
 
 .user_price .icon-youjiantou {

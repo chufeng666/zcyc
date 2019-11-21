@@ -10,7 +10,8 @@
           src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
         <view>优米余额( 个 )</view>
       </view>
-      <view class="m_top_bt">{{moneyData.balance}}</view>
+      <view wx:if='{{moneyData.balance==""||moneyData.balance==null}}' class="m_top_bt">0</view>
+      <view wx:else class="m_top_bt">{{moneyData.balance}}</view>
     </view>
     <view class="main_moddle">
       <view class="main_bt">

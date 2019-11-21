@@ -1,4 +1,5 @@
 .inner {
+  margin-top: 127rpx;
   padding: 48rpx 54rpx;
 }
 
@@ -95,4 +96,5 @@
   border-bottom: 1rpx solid #dedede;
 }
 
-@import "../../../template/font";
+@import "/pages/template/font";
+@import "/pages/template/common1/common1.wxss";

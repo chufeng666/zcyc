@@ -111,6 +111,7 @@
 
 .inner .main .main_seconds .ms_footer {
   margin-top: 294rpx;
+  background-color: #E8B05F;
 }
 
 .inner .main .main_seconds .ms_footer button.ms_ft_but {

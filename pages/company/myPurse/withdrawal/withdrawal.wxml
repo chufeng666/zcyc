@@ -40,7 +40,8 @@
       </view>
       <view class="ms_bt">
         <image class="ms_bt_img" src="../../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-        <view>优米余额: {{info.balance}}</view>
+        <view wx:if="{{info.balance=='' || info.balance==null }}">优米余额: 0</view>
+        <view wx:else>优米余额: {{info.balance}}</view>
       </view>
     </view>
     <view class='foot-info'>

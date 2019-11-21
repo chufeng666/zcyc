@@ -18,9 +18,10 @@ Page({
   setCompanyInfo7() {
     var that = this
     ServerData.setCompanyInfo7({}).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
          that.setData({
-          logo:res.data.data
+          logo:res.data.data.logo
          })
       }
     })

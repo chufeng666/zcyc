@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">基本信息</view>
+</view>
 <view class="info_header">
   <view class="liaojie">个人信息非常重要，请认真填写</view>
   <text class="iconfont  icon-cha"></text>
@@ -25,13 +29,14 @@
   </view>
   <view class="age  name">
     <text class="name_size">年龄</text>
-    <input wx:if="{{age==null || age == ''}}" class="inputXinxi" bindinput="bindKeyInputAge" placeholder="请输入年龄"/>
+    <input wx:if="{{age==null || age == ''}}" class="inputXinxi" bindinput="bindKeyInputAge" placeholder="请输入年龄" />
     <input wx:else type="number" bindinput="bindKeyInputAge" class="inputXinxi-real" value="{{age}}" />
   </view>
   <view class="nation  name">
     <text class="name_size">民族</text>
-    
-    <input wx:if="{{nation==null || nation == ''}}" class="inputXinxi" placeholder="请输入民族" bindinput="bindKeyInputNation"/>
+
+    <input wx:if="{{nation==null || nation == ''}}" class="inputXinxi" placeholder="请输入民族"
+      bindinput="bindKeyInputNation" />
     <input wx:else class="inputXinxi-real" bindinput="bindKeyInputNation" value="{{nation}}" />
   </view>
   <view class="education  name">

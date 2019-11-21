@@ -1,7 +1,12 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">个人说明</view>
+</view>
 <view class="inner">
   <view class="jingli  gongsi">
     <text class="name_size">个人说明</text>
-    <textarea bindinput="onContentChange" data-index="{{index}}" value="{{desc}}" class="jieshao" placeholder="请输入项目经历"></textarea>
+    <textarea bindinput="onContentChange" data-index="{{index}}" value="{{desc}}" class="jieshao"
+      placeholder="请输入项目经历"></textarea>
   </view>
 </view>
 <footer class="baocun">

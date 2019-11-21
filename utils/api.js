@@ -32,7 +32,7 @@ const userAPI = {
   privacySetting: `${proxys}/person/secret_list`,     //隐私设置
   changPSetting: `${proxys}/person/secret`,           //隐私设置操作
   editMobile: `${proxys}/user/change_mobile`,         //修改手机
-  password: `${proxys}/user/reset_pwd`,               //修改密码
+  password: `${proxys}/user/reset_pwd2`,               //修改密码
 
   userInfo: `${proxys}/user/index`,                   //用户中心
   uploadHeadpic: `${proxys}/user/upload_headpic`,     // 保存头像
