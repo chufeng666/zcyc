@@ -1,10 +1,11 @@
 <view class='i-header'>
-  <view class="h-left">筑城优才</view>
   <view class="h-bottom">
-    <navigator url='../search/search' class='search-cont s-nosearch-wrap'>
-      <view class='search search-nosearch company-bColor-1'>一级建造师</view>
+    <view class="h-left">筑城优才</view>
+    <view class='search-cont s-nosearch-wrap'>
       <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    </navigator>
+      <input bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
+        class='search-nosearch' placeholder="一级建造师" />
+    </view>
   </view>
   <view class="new">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
@@ -23,82 +24,117 @@
     </swiper>
   </view>
 </view>
-<view class="newest-search">
-  <view class="n-xiahuaxian">
-    <view class="newest">
-      <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex"
-        class="lively {{item.isActive?'active':''}}">
-        {{item.title}}
+<view wx:if="{{!isShow}}">
+  <view class="newest-search">
+    <view class="n-xiahuaxian">
+      <view class="newest">
+        <view wx:for="{{tabs}}" wx:key="id" data-index="{{index}}" bindtap="changeTitleByIndex"
+          class="lively {{item.isActive?'active':''}}">
+          {{item.title}}
+        </view>
       </view>
-    </view>
-    <view class="n-search">
-      <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
-        <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
-        <view class="newsite_city">{{areaInfo}}</view>
-        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-      </view>
-      <view class="newsite_button" bindtap="selectOccupational">
-        <view class="newsite_view subtitle-msg">更多</view>
-        <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+      <view class="n-search">
+        <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
+          <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
+          <view wx:else class="newsite_city">{{areaInfo}}</view>
+          <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+        </view>
+        <navigator url="/pages/userInfo2/ScreeningConditions/ScreeningConditions" class="newsite_button">
+          <view class="newsite_view">更多</view>
+          <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
+        </navigator>
       </view>
     </view>
   </view>
-</view>
-<view class="n-information">
-  <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
-    <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
-      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
-    </view>
-    <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
-      url="../../postionDetail/postionDetail?id={{item.id}}">
-      <view class="i_list">
-        <view class="l_yuan">{{item.title}}</view>
-        <view class="l_price">{{item.salary}}/月</view>
+  <view class="n-information">
+    <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
+      <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
       </view>
-      <view class="i_second">
-        <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-        <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+      <navigator class="c_info" wx:for="{{indexData.recruit}}" wx:key="id"
+        url="../../postionDetail/postionDetail?id={{item.id}}">
+        <view class="i_list">
+          <view class="l_yuan">{{item.title}}</view>
+          <view class="l_price">{{item.salary}}/月</view>
+        </view>
+        <view class="i_second">
+          <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
+          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+        </view>
+        <view class="i_third">
+          <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+          <view class="t_zhili">{{item.work_age}}年</view>
+          <view class="t_xueli">{{item.education}}</view>
+        </view>
+        <view class="i_fourth">
+          <image src='{{item.logo}}' class="f_logo" />
+          <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+          <view class="f_gongsi">[{{item.company_name}}]</view>
+        </view>
+      </navigator>
+    </block>
+    <block class="n-zhaopinxinxi" wx:else>
+      <view class="zhanwushuju" wx:if="{{indexData.person == ''}}">
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
       </view>
-      <view class="i_third">
-        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
-        <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">{{item.education}}</view>
-      </view>
-      <view class="i_fourth">
-        <image src='{{item.logo}}' class="f_logo" />
-        <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
-        <view class="f_gongsi">[{{item.company_name}}]</view>
-      </view>
-    </navigator>
-  </block>
-  <block class="n-zhaopinxinxi" wx:else>
-    <view class="zhanwushuju" wx:if="{{indexData.person == ''}}">
-      <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
-    </view>
-    <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
-      url="../../postionDetail/postionDetail?id={{item.id}}">
-      <view class="i_list">
-        <view class="l_yuan">{{item.title}}</view>
-        <view class="l_price">{{item.salary}}/月</view>
-      </view>
-      <view class="i_second">
-        <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-        <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
-      </view>
-      <view class="i_third">
-        <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
-        <view class="t_zhili">{{item.work_age}}年</view>
-        <view class="t_xueli">{{item.education}}</view>
-      </view>
-      <view class="i_fourth">
-        <image src='{{item.logo}}' class="f_logo" />
-        <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
-        <view class="f_gongsi">[{{item.company_name}}]</view>
-      </view>
-    </navigator>
-  </block>
+      <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
+        url="../../postionDetail/postionDetail?id={{item.id}}">
+        <view class="i_list">
+          <view class="l_yuan">{{item.title}}</view>
+          <view class="l_price">{{item.salary}}/月</view>
+        </view>
+        <view class="i_second">
+          <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
+          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+        </view>
+        <view class="i_third">
+          <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+          <view class="t_zhili">{{item.work_age}}年</view>
+          <view class="t_xueli">{{item.education}}</view>
+        </view>
+        <view class="i_fourth">
+          <image src='{{item.logo}}' class="f_logo" />
+          <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+          <view class="f_gongsi">[{{item.company_name}}]</view>
+        </view>
+      </navigator>
+    </block>
 
+  </view>
 </view>
+
+<!-- 搜索历史部分 -->
+<view class="sousuolishi" wx:else>
+  <view class="history">
+    <view class="history_search">
+      <view class="hs_top">
+        <view class="t_left">历史搜索</view>
+        <view class="iconfont icon-lajitong"></view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+      <view class="hs_content">
+        <view class="iconfont  icon-shizhong"></view>
+        <view class="con_zhiye">一级建造师</view>
+      </view>
+    </view>
+  </view>
+  <view class="popular">
+    <view class="popular_search">热门搜索</view>
+    <view class="p_zhiwei">
+      <view class="zw_security-officer">安全员</view>
+      <view class="zw_executive-secretary">行政秘书</view>
+      <view class="zw_security-officer">安全员</view>
+    </view>
+  </view>
+</view>
+<!-- 搜索历史部分 -->
 <view style="height: 120rpx;">
 
 </view>

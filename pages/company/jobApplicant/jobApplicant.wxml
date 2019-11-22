@@ -29,7 +29,7 @@
   </view>
 </view>
 <view class="inner">
-  <view class="zhanwushuju" wx:if="{{indexData.recruit == ''}}">
+  <view class="zhanwushuju" wx:if="{{hiringData == ''}}">
     <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
   </view>
   <view wx:else class="container">

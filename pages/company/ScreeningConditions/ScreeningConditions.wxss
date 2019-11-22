@@ -2,6 +2,10 @@
 
 .search-wrap {
   background-color: var(--thirdPartyColor) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .search-wrap .h-left {
@@ -22,6 +26,7 @@
 }
 
 .salary {
+  margin-top: 127rpx;
   padding: 40rpx 30rpx;
 }
 
@@ -47,10 +52,12 @@
   height: 33rpx;
 }
 
+.salary .s_gongsi:first-child {
+  margin-top: 0;
+}
 .salary .s_gongsi {
   margin-top: 62rpx;
 }
-
 .salary .s_gongsi .gs_waiwei {
   display: flex;
   flex-wrap: wrap;

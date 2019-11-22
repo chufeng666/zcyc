@@ -9,22 +9,23 @@
 }
 
 .i-header .h-left {
-  margin-left: 34rpx;
+ font-size: 40rpx;
   color: #fff;
-  font-weight: 500;
+  font-weight: normal;
   padding-top: 30rpx;
 }
 
 .i-header .h-bottom {
   margin-bottom: 24rpx;
+  padding: 0 31rpx;
 }
 
 .i-header .h-bottom .search-cont {
-  width: 702rpx;
-  margin: 0 24rpx;
   background-color: #fff;
   border-radius: 36px;
-  position: relative;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
 }
 
 .i-header .h-bottom .search-cont .search {
@@ -37,17 +38,15 @@
 }
 
 .i-header .h-bottom .search-cont .search-nosearch {
-  line-height: 58rpx;
-  color: #808080;
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
 }
 
 .i-header .h-bottom .search-cont .search-icon {
-  width: 24rpx;
-  height: 24rpx;
-  position: absolute;
-  left: 22rpx;
-  top: 22%;
-  margin-top: 7rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 16rpx;
 }
 
 .i-header .new, swiper {
@@ -155,13 +154,17 @@ swiper-item {
   border-radius: 8%;
 }
 
+.newsite_city {
+  margin-left: 16rpx;
+}
+
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
   padding-left: 16rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
-  padding:0 16rpx;
+  padding: 0 16rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
@@ -297,7 +300,69 @@ swiper-item {
 .zhanwushuju {
   margin-top: 120rpx;
 }
+.sousuolishi{
+  margin-top: 308rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+.sousuolishi .history {
+  border-bottom: 10px solid #dedede;
+}
 
+.sousuolishi .history .history_search {
+  padding: 0 34rpx;
+}
+
+.sousuolishi .history .history_search .hs_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .history .history_search .hs_top .t_left {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sousuolishi .history .history_search .hs_content {
+  display: flex;
+  color: #686868;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .history .history_search .hs_content .con_zhiye {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+.sousuolishi .popular {
+  margin: 27rpx 33rpx;
+}
+
+.sousuolishi .popular .popular_search {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .popular .p_zhiwei {
+  display: flex;
+}
+
+.sousuolishi .popular .p_zhiwei .zw_security-officer {
+  background-color: var(--thirdPartyColor);
+  padding: 22rpx 35rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+}
+
+.sousuolishi .popular .p_zhiwei .zw_executive-secretary {
+  background-color: #fda531;
+  padding: 22rpx 35rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  margin: 0 24rpx;
+}
 /* 所在地区 */
 
 /* @font-face {

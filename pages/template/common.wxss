@@ -92,7 +92,6 @@
 }
 
 .search2-inner .collect_tab {
-  margin-right: 18rpx;
   text-align: center;
 }
 

@@ -57,7 +57,7 @@
     <view class="cc_desx">
       <view class='c-second'>
         <view class='cOrTInfo-option'>
-          <image wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
+          <image wx:if="{{savePostion==3}}"  class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
           </image>
           <image wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <text class='cOrTInfo-msg'>公司简介</text>
@@ -72,8 +72,9 @@
     </view>
     <view class="company_nav">
       <view class='cOrTInfo-option'>
-        <image  wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png"></image>
-        <image  wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
+        <image wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
+        </image>
+        <image wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
         <text class='cOrTInfo-msg'>公司地址</text>
       </view>
       <navigator class="company_map" url="">
@@ -107,5 +108,24 @@
     </navigator>
   </view>
   <!-- 招聘部分 -->
+</view>
+<view class='footer'>
+  <!-- <button class='f-btn-1' bindtap="callWithHim">马上预订</button> -->
+  <view class='search2-inner'>
+    <view class="si_shoucang">
+      <view class="ss_weishoucang" bindtap="onCollection" data-stu="0" wx:if="{{is_collection==0}}">
+        <text class="iconfont icon-wuxiaoxing-kong"></text>
+        <view class='collect_tab'>收藏公司</view>
+      </view>
+      <view class="ss_weishoucang" bindtap="onCollection" data-stu="1" wx:else>
+        <text class="iconfont icon-wuxiaoxing-kong {{is_collection==0?'':'active'}}"></text>
+        <view class='collect_tab'>已收藏</view>
+      </view>
+    </view>
+  </view>
+  <button class='f-btn-2 {{pBgC}}' open-type="contact">
+    <text class="iconfont    icon-lianxi"></text>
+    <view>联系客服</view>
+  </button>
 </view>
 <!-- bottom -->

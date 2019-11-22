@@ -10,43 +10,69 @@ Page({
     autoplay: true,               //自动播放
     interval: 3000,               //播放间隔
     duration: 1000,               //停留时间
-    job_type: '',                 //选中的职位值
-    jobArray: [],                 //职位列表
-    jobIndex: 0,                  //职位下标
-
-    pCode: '',                    //获取选中的省ID
-    cCode: '',                    //获取选中的市ID
-    aCode: '',                    //获取选中的区ID
-    site_show: false,
-    showTST: true,
     tabs: [
       { id: 0, title: "人才", isActive: true },
-      { id: 1, title: "服务商", isActive: false },
+      { id: 1, title: "企业", isActive: false },
     ],
     index: 0,
     audit_status: [],//是否完善信息
+    isShow: false,
+    // 更多返回的数据
+    require_cert: '', //证书
+    type: '',        //工种
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
+    //地址
+    showTST: true,                  //是否选择地址
+    province: '',
+    city: '',
+    district: '',
   },
   onLoad: function () {
     util.getStorageItem('savePostion', app)   //获取底部导航
-    this.getUserInfo()             //主页信息
-    this.getCategoryList()         //职位列表
-    this.initUserInfo()         //职位列表
+    this.getUserInfo()           //主页信息
+    this.initUserInfo()          //完善信息请求
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
   },
   onShow: function () {
-
+    let { require_cert, type, education, work_age, salary } = this.data;
+    if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.getUserInfo()
+    }
   },
-  getUserInfo: function () {
-    var that = this,
-      _opt = {
-        'job_type': that.data.job_type,
-        'province': that.data.pCode,
-        'city': that.data.cCode,
-        'district': that.data.aCode,
-      }
+  //主页信息请求
+  getUserInfo: function (value) {
+    let { province, city, district, require_cert, type, education, work_age, salary } = this.data
+    var that = this
+    if (require_cert == '有证书') {
+      require_cert = 0
+    } else if (require_cert == '无证书') {
+      require_cert = 1
+    } else {
+      require_cert = ''
+    }
+    if (type && education && work_age === '全部' || salary === '不限') {
+      type = '';
+      education = '';
+      work_age = '';
+      salary = ''
+    }
+    let _opt = {
+      'title': value,
+      'province': province,
+      'city': city,
+      'district': district,
+      'regtype': 2,
+      'require_cert': require_cert,
+      'type': type,
+      'education': education,
+      'work_age': work_age,
+      'salary': salary,
+    }
     ServerData.userVisit(_opt).then((res) => {
       // console.log(res.data)
       if (res.data.status == 1) {
@@ -65,10 +91,10 @@ Page({
   },
   // 是否完善信息请求
   initUserInfo() {
-    ServerData.initUserInfo({}).then((res) => {
+    let regtype = wx.getStorageSync("savePostion")
+    ServerData.setCompanyInfo({ regtype }).then((res) => {
       if (res.data.status == 1) {
         var info = res.data.data
-        console.log(info.audit_status);
         if (info.audit_status == null) {
           wx.showModal({
             title: '提示',
@@ -89,36 +115,32 @@ Page({
       }
     })
   },
-  getCategoryList() {
-    var that = this
-    ServerData.categoryList({}).then((res) => {
-
-      if (res.data.status == 1) {
-        var newArry = []
-        newArry.push({ cat_id: '', cat_name: "选择人才" })
-        var recl = [...newArry, ...res.data.data]
-        this.setData({ jobArray: recl })
-      } else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      } else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
-  jobChange: function (e) {
-    var t = e.detail.value == 0 ? false : true
+  //主页信息请求
+  /* 搜索内容传递给请求部分 */
+  handeSearchInput(e) {
+    // 2 输入框的值
+    const { value } = e.detail;
     this.setData({
-      jobIndex: e.detail.value,
-      job_type: this.data.jobArray[e.detail.value].cat_id,
-      site_show: t
+      isShow: false,
     })
-    this.getUserInfo()             //主页信息
+    // // 4 正常
+    setTimeout(() => {
+      this.getUserInfo(value);
+    }, 1000);
   },
-  onShareAppMessage: function () {
-    return
+  bindfocus(e) {
+    this.setData({
+      isShow: true,
+    })
   },
+  bindblur(e) {
+    this.setData({
+      isShow: false,
+    })
+  },
+  /* 搜索内容传递给请求部分 */
+
+
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
@@ -131,13 +153,14 @@ Page({
     })
     this.getUserInfo()
   },
-
   // 点击所在地区弹出选择框
   selectDistrict: function (e) {
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
+
+
   // tabs栏
   changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;

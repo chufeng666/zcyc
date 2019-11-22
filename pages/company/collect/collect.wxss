@@ -2,16 +2,48 @@
 @import "/pages/template/common";
 @import "/pages/template/common1/common1";
 
+.inner_top {
+  display: flex;
+  align-items: center;
+  margin: 0 31rpx;
+  border-bottom: 1rpx solid #dedede;
+  border-top: 1rpx solid #dedede;
+}
+
+.name {
+  flex: 2;
+  padding: 31rpx 0;
+}
+
+.name_company {
+  position: relative;
+  text-align: center;
+  color: #686868;
+  font-size: 30rpx;
+}
+
+.name_company_active {
+  color: #ee291a;
+  font-weight: bold;
+}
+
+.active {
+  position: absolute;
+  right: 134rpx;
+  bottom: -30rpx;
+  width: 89rpx;
+  height: 4rpx;
+  background-color: var(--themeColor);
+  text-align: center;
+}
+
 /* 数据展示 */
 
 .inner {
-  margin-top: 128rpx;
-  margin-bottom: 111rpx;
+  margin-top: 124rpx;
   padding: 0;
   background-color: #fff;
 }
-
-.container {}
 
 .content-list {
   padding: 33rpx 32rpx;
@@ -21,5 +53,72 @@
 .pColor {
   color: var(--thirdPartyColor);
 }
+
+/* 数据展示 */
+
+.c-l-info {
+  display: flex;
+  align-items: center;
+}
+
+.c-logo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+
+.c-info-text {
+  margin-left: 24rpx;
+}
+
+.c-info-title {
+  font-size: 36rpx;
+  color: #262626;
+  font-weight: 600;
+}
+
+.c-info-msg {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+  margin-top: 12rpx;
+}
+
+.c-msg {
+  background-color: var(--thirdPartyColor);
+  padding: 4rpx 16rpx;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+  color: #fff;
+}
+
+.company-status {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  color: #686868;
+  font-weight: 500;
+  padding: 0;
+}
+
+.company-info {
+  display: flex;
+  font-size: 24rpx;
+  color: #262626;
+  margin-top: 16rpx;
+}
+
+.ci_img {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.ci_zuixin {
+  padding-top: 5rpx;
+}
+
+/* 数据展示 */
 
 /* 数据展示 */

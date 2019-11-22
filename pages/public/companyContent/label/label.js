@@ -29,7 +29,7 @@ Page({
     let { label } = this.data;
     serverData.setCompanyInfoOne({ label }).then((res) => {
       if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg);
+        serverData._wxTost(res.data.msg);
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
@@ -49,7 +49,7 @@ Page({
           }
         })
       } else {
-        ServerData._wxTost(res.data.msg);
+        serverData._wxTost(res.data.msg);
       }
     })
   },

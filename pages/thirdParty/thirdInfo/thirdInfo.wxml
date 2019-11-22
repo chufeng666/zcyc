@@ -53,7 +53,8 @@
           </view>
           <view class="user_price">
             <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-            <view class="usp_yuer">{{userData.balance}}</view>
+            <view wx:if="{{userData.balance == '' || userData.balance ==null}}" class="usp_yuer">未有优米币，请先充值</view>
+            <view wx:else class="usp_yuer">{{userData.balance}}</view>
             <text class='iconfont icon-youjiantou user-color-'></text>
           </view>
         </navigator>

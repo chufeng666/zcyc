@@ -1,6 +1,7 @@
 <view class='i-header'>
   <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
-  <view class="h-left">发布职位</view>
+  <view wx:if="{{id == '' || id == undefined || id == null}}" class="h-left">发布职位</view>
+  <view wx:else class="h-left">编辑职位</view>
 </view>
 <view class="user_header">
   <view class="liaojie">请填写职位信息</view>
@@ -40,7 +41,7 @@
             <view>学历要求</view>
           </view>
           <picker class="ec_bt" mode="selector" range="{{educationList}}" bindchange="changeEducation">
-            <view wx:if="{{education === ''}}" class="picker">请选择学历要求</view>
+            <view wx:if="{{education == ''}}" class="picker">请选择学历要求</view>
             <view wx:else class="picker">{{education}}</view>
           </picker>
         </view>
@@ -96,9 +97,9 @@
         <view class='set-option-1'>
           <button wx:if="{{status == ''&& id==''}}" class='s-1-option company-bg-' bindtap='saveEditRecruit'>发布</button>
           <view wx:else>
-            <button wx:if="{{status==0}}"  class='s-1-option company-bg-hui' bindtap='amendEditRecruit'>审核中</button>
+            <button wx:if="{{status==0}}"  class='s-1-option company-bg-' bindtap='amendEditRecruit'>审核中</button>
             <button wx:elif="{{status==1}}" class='s-1-option company-bg-hui'>审核通过</button>
-            <button wx:elif="{{status==-1}}" class='s-1-option company-bg-hui' bindtap='amendEditRecruit'>拒绝审核</button>
+            <button wx:elif="{{status==-1}}" class='s-1-option company-bg-' bindtap='amendEditRecruit'>重新审核</button>
           </view>
         </view>
       </view>

@@ -17,7 +17,7 @@ Page({
     zhengshu: [
       { id: 0, name: "全部", isShow: true },
       { id: 1, name: "需要证书", isShow: false },
-      { id: 2, name: "无须证书", isShow: false }
+      { id: 2, name: "无需证书", isShow: false }
     ],
     index3: 0,
     zhiwei: [

@@ -22,7 +22,7 @@
       </view>
       <view class="province" wx:else>
         <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|</text>
-        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
+        <picker bindcancel="bindcancel" mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
@@ -38,7 +38,7 @@
 <!-- 筛选 -->
 <!-- 数据展示 -->
 <view class="inner">
-  <view class='zhanwushuju' wx:if="{{site_show}}">
+  <view class='zhanwushuju' wx:if="{{recList==''}}">
     <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
     <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
   </view>

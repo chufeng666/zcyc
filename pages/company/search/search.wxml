@@ -47,8 +47,8 @@
 <view class="search_concent" wx:elif="{{isShowInfo}}">
   <view class="search_nav">
     <view class='subtitle overH search-subtitle'>
-      <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">最新</text>
-      <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">最热</text>
+      <text bindtap='changStatus' class="{{cStatus==0?'stss-active':''}}" data-status="0">人才</text>
+      <text bindtap='changStatus' class="{{cStatus==1?'stss-active':''}}" data-status="1">服务商</text>
     </view>
     <view class="n-search">
       <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">

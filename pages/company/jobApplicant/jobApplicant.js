@@ -42,7 +42,7 @@ Page({
   },
   onShow: function () {
     let { require_cert, type, education, work_age, salary } = this.data;
-    if (require_cert && type && education && work_age && salary !== '') {
+    if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
       this.hiring()
     }
   },
@@ -64,9 +64,6 @@ Page({
     }
     var _opt = {
       'name': value,
-      'province': that.data.pCode,
-      'city': that.data.cCode,
-      'district': that.data.aCode,
       'type': type,
       'education': education,
       'work_age': work_age,
@@ -98,14 +95,10 @@ Page({
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
       showTST: info.showTST,
       province: info.province,
       city: info.city,
       district: info.area,
-
     })
     this.hiring()             //主页信息
   },

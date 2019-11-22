@@ -1,10 +1,18 @@
 <view class='inner'>
+  <view class="inner_top">
+    <view class="name" wx:for="{{tabs}}" wx:key="index" bindtap="tabs" data-index="{{item.id}}">
+      <view class="name_company {{item.isActive?'name_company_active':''}}">
+        {{item.name}}
+        <text class=" {{item.isActive?'active':''}}"></text>
+      </view>
+    </view>
+  </view>
   <view>
-    <block class="n-zhaopinxinxi">
-      <view class="zhanwushuju" wx:if="{{collData == ''}}">
+    <block class="n-zhaopinxinxi" wx:if="{{index==1}}">
+      <view class="zhanwushuju" wx:if="{{data == ''}}">
         <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
       </view>
-      <navigator class="c_info" wx:for="{{collData}}" wx:key="id"
+      <navigator class="c_info" wx:for="{{data}}" wx:key="id"
         url="../../postionDetail/postionDetail?id={{item.id}}">
         <view class="i_list">
           <view class="l_yuan">{{item.title}}</view>
@@ -26,5 +34,15 @@
         </view>
       </navigator>
     </block>
+    <view wx:else>
+      <view class='zhanwushuju' wx:if="{{data2==''}}">
+        <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+      </view>
+      <view class="container" wx:else>
+        <import src="../../template/companyList.wxml" />
+        <template is="companyList" data="{{recList:data2,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
+      </view>
+    </view>
   </view>
 </view>

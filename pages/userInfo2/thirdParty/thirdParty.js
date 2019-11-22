@@ -16,6 +16,8 @@ Page({
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
     type: '请选择公司性质', //公司性质
+    row: 10,
+    page: 1
   },
 
   /**
@@ -68,7 +70,7 @@ Page({
       type = ''
     }
     let _opt = {
-      'type':type,
+      'type': type,
       'title': value,
       'regtype': 2,
       'province': that.data.province,
@@ -78,12 +80,14 @@ Page({
     ServerData.companyList(_opt).then((res) => {
       if (res.data.status == 1) {
         if (res.data.data == '') {
-          that.setData({ site_show: true })
+          ServerData._wxTost('没有数据了');
+          that.setData({
+            recList: res.data.data
+          })
         } else {
           that.setData({
             recList: res.data.data
           })
-
         }
       } else if (res.data.status == -1) {
         wx.redirectTo({
@@ -101,7 +105,9 @@ Page({
     })
     this.getCompanyList()
   },
-
+  bindcancel(e) {
+    console.log(e);
+  },
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail

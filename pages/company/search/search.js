@@ -71,30 +71,29 @@ Page({
 	 */
   reqIndex(value) {
     let { require_cert, type, education, work_age, salary, province, city, district } = this.data
-    var that = this,
-      _opt = {
-        'name': value,
-        'province': that.data.pCode,
-        'city': that.data.cCode,
-        'district': that.data.aCode,
-        'type': that.data.type,
-        'education': that.data.education,
-        'work_age': that.data.work_age,
-        'salary': that.data.salary,
-        'province': that.data.province,
-        'city': that.data.city,
-        'district': that.data.district,
-      }
+    var that = this
     if (require_cert == '需要证书') {
       require_cert = 0
-    } else {
+    } else if (require_cert == '无需证书') {
       require_cert = 1
+    } else {
+      require_cert = ''
     }
     if (type && education && work_age === '全部' || salary === '不限') {
       type = '';
       education = '';
       work_age = '';
       salary = ''
+    }
+    let _opt = {
+      'name': value,
+      'type': type,
+      'education': education,
+      'work_age': work_age,
+      'salary': salary,
+      'province': province,
+      'city': city,
+      'district': district,
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {

@@ -47,10 +47,12 @@
   height: 33rpx;
 }
 
+.salary .s_gongsi:first-child {
+  margin-top: 0;
+}
 .salary .s_gongsi {
   margin-top: 62rpx;
 }
-
 .salary .s_gongsi .gs_waiwei {
   display: flex;
   flex-wrap: wrap;
@@ -85,4 +87,12 @@
   color: #262626;
   font-size: 36rpx;
   font-weight: 600;
+}
+.saixuan_bt {
+  margin-top: 70rpx;
+  border-radius: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: var(--thirdPartyColor);
+  color: #fff;
 }

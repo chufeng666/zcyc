@@ -28,11 +28,12 @@
 }
 
 .c-l-info {
-  border-bottom: 16rpx solid #dedede;
+
 }
 
 .main_bt {
   padding: 20rpx 32rpx;
+  border-bottom: 16rpx solid #dedede;
 }
 
 .c-info-text {

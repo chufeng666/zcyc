@@ -20,8 +20,11 @@
             </view>
           </view>
           <view class="s-company-information">
-            <image src='../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png' class='portrait-icon' />
-            <text class="xianmujingli">求职岗位• {{item.job_intention}}</text>
+            <image src='../../../static/images/bar_icon/company/Xiaocx_qiye_remenzhaoptubiao.png'
+              class='portrait-icon' />
+            <view wx:if="{{item.job_intention==''||item.job_intention==null}}" class="xianmujingli">求职岗位•
+              {{item.careers}}</view>
+            <view wx:else class="xianmujingli">求职岗位• {{item.job_intention}}</view>
           </view>
         </view>
       </view>

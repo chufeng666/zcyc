@@ -54,7 +54,7 @@ Page({
     ServerData.shenhe({}).then((res) => {
       if (res.data.status == 1) {
         wx.navigateBack({
-          url:'../userCenter/userCenter'
+          url: '../userCenter/userCenter'
         })
       }
       ServerData._wxTost(res.data.msg)
@@ -62,8 +62,8 @@ Page({
 
   },
   detil() {
-    wx.redirectTo({
-      url: '/pages/userInfo2/index/index'
+    wx.navigateBack({
+      detil: 1
     })
   }
 

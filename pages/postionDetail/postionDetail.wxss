@@ -73,7 +73,6 @@ page {
 
 /* CONTENT STAT */
 
-.d-content {}
 
 .d-c-list,
 .d-c-desc {
@@ -93,7 +92,6 @@ page {
   color: #686868;
 }
 
-.d-c-list {}
 
 .line {
   margin: 0 0 25rpx;

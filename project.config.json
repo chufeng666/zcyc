@@ -55,7 +55,21 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/userInfo2/collect/collect",
+					"pathName": "pages/userInfo2/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/company/collect/collect",
+					"pathName": "pages/company/collect/collect",
+					"scene": null
+				}
+			]
 		}
 	}
 }

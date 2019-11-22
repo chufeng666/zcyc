@@ -5,12 +5,37 @@
   <view class="h-left">我的收藏</view>
 </view>
 <!-- 头部 -->
-<view class='inner'>
-  <view class="zhanwushuju" wx:if="{{collData == ''}}">
-    <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+<view>
+  <view class='inner'>
+    <view class="inner_top">
+      <view class="name" wx:for="{{tabs}}" wx:key="index" bindtap="tabs" data-index="{{item.id}}">
+        <view class="name_company {{item.isActive?'name_company_active':''}}">
+          {{item.name}}
+          <text class=" {{item.isActive?'active':''}}"></text>
+        </view>
+      </view>
+    </view>
   </view>
-  <view wx:else>
-    <import src="../../template/companyJobSearch/companyJobSearch" />
-    <template is="JobSearch" data="{{recList:collData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
+  <view>
+    <view wx:if="{{index == 1}}">
+      <view class="zhanwushuju" wx:if="{{data == ''}}">
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+      </view>
+      <view wx:else>
+        <import src="../../template/companyJobSearch/companyJobSearch" />
+        <template is="JobSearch"
+          data="{{recList:data,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
+      </view>
+    </view>
+    <view wx:else>
+      <view class='zhanwushuju' wx:if="{{data2==''}}">
+        <!-- <image class="wx-no-icon" src='../../../static/images/public/none.png'/> -->
+        <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
+      </view>
+      <view class="container" wx:else>
+        <import src="../../template/companyList.wxml" />
+        <template is="companyList" data="{{recList:data2,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
+      </view>
+    </view>
   </view>
 </view>

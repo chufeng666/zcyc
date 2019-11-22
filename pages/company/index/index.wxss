@@ -5,55 +5,43 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  padding-top: 26rpx;
 }
 
 .i-header .h-left {
-  margin-left: 34rpx;
   color: #fff;
   font-weight: 500;
-  padding-top: 30rpx;
+  font-size: 40rpx;
 }
 
 .i-header .h-bottom {
-  margin-bottom: 50rpx;
+  padding: 0 32rpx;
+  margin: 24rpx 0;
 }
 
 .i-header .h-bottom .search-cont {
-  width: 702rpx;
-  margin: 0 24rpx;
+  display: flex;
+  align-items: center;
+  height: 56rpx;
   background-color: #fff;
-  border-radius: 36px;
-  position: relative;
-}
-
-.i-header .h-bottom .search-cont .search {
-  width: 100%;
-  border-radius: 36px;
-  height: 60rpx;
-  padding-left: 55rpx;
-  box-sizing: border-box;
-  font-size: 24rpx;
+  border-radius: 28rpx;
 }
 
 .i-header .h-bottom .search-cont .search-nosearch {
-  line-height: 58rpx;
-  color: #808080;
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
 }
 
 .i-header .h-bottom .search-cont .search-icon {
-  width: 24rpx;
-  height: 24rpx;
-  position: absolute;
-  left: 22rpx;
-  top: 22%;
-  margin-top: 7rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 26rpx;
 }
 
-
-.i-header .new,
-swiper {
+.i-header .new, swiper {
   height: 74rpx;
-
 }
 
 swiper-item {
@@ -100,8 +88,9 @@ swiper-item {
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 321rpx;
+  margin-top: 308rpx;
   padding: 0 30rpx;
+  border-top: 16rpx solid #dedede;
 }
 
 .newest-search .n-xiahuaxian {
@@ -109,7 +98,6 @@ swiper-item {
   justify-content: space-between;
   align-items: center;
   padding: 20rpx 0;
-
   border-bottom: 1px solid #dedede;
 }
 
@@ -140,14 +128,17 @@ swiper-item {
   display: flex;
   align-items: center;
   background-color: #eaeaea;
-  margin-right: 16rpx;
   height: 56rpx;
   line-height: 56rpx;
   border-radius: 8%;
 }
 
+.newest-search .n-xiahuaxian .n-search .newsite_button:first-child {
+  margin-right: 16rpx;
+}
+
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
-  margin-left: 10rpx;
+  margin:0 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
@@ -156,6 +147,7 @@ swiper-item {
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
+  margin-right: 16rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
@@ -295,5 +287,67 @@ swiper-item {
   font-weight: bold;
   font-size: 30rpx;
 }
+.sousuolishi{
+  margin-top: 308rpx;
+  border-bottom: 16rpx solid #dedede;
+}
+.sousuolishi .history {
+  border-bottom: 10px solid #dedede;
+}
 
+.sousuolishi .history .history_search {
+  padding: 0 34rpx;
+}
+
+.sousuolishi .history .history_search .hs_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .history .history_search .hs_top .t_left {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sousuolishi .history .history_search .hs_content {
+  display: flex;
+  color: #686868;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .history .history_search .hs_content .con_zhiye {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+.sousuolishi .popular {
+  margin: 27rpx 33rpx;
+}
+
+.sousuolishi .popular .popular_search {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 47rpx;
+}
+
+.sousuolishi .popular .p_zhiwei {
+  display: flex;
+}
+
+.sousuolishi .popular .p_zhiwei .zw_security-officer {
+  background-color: var(--thirdPartyColor);
+  padding: 22rpx 35rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+}
+
+.sousuolishi .popular .p_zhiwei .zw_executive-secretary {
+  background-color: #fda531;
+  padding: 22rpx 35rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  margin: 0 24rpx;
+}
 @import "../../template/font";

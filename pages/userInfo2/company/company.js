@@ -13,6 +13,9 @@ Page({
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
     type: '请选择公司性质', //公司性质
+    page: 1,
+    rows: 10,
+
   },
   setXingzhi(e) {
     let { xingzhi } = this.data;
@@ -83,7 +86,7 @@ Page({
   getCompanyList(value) {
     var that = this,
       { type } = this.data
-    if (type === '请选择公司性质') {
+    if (type == '请选择公司性质') {
       type = ''
     }
     let _opt = {
@@ -93,17 +96,14 @@ Page({
       'city': that.data.city,
       'district': that.data.district,
       'page': that.data.page,
-      'rows': that.data.rows
+      'rows': that.data.rows,
+      'type': type,
     }
     ServerData.companyList(_opt).then((res) => {
       if (res.data.status == 1) {
-        if (res.data.data == '') {
-          that.setData({ site_show: true })
-        } else {
-          that.setData({
-            recList: res.data.data
-          })
-        }
+        that.setData({
+          recList: res.data.data
+        })
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'

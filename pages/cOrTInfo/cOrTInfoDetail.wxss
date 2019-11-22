@@ -77,7 +77,7 @@
 }
 .c-first {
   margin-top: 40rpx;
-  height: 300rpx;
+  width: 100%;
 }
 .cc_desx {
   padding-bottom: 41rpx;
@@ -175,6 +175,85 @@
   margin-top: 40rpx;
   border-top: 2rpx solid #f8f8f8;
   padding-top: 40rpx;
+}
+.footer {
+  z-index: 1;
+  text-align: right;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.search2-inner {
+  flex:1;
+}
+
+.footer-height {
+  padding: 40rpx 32rpx;
+  border-top: 16rpx solid #dedede;
+}
+
+.dcd_top {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.f-btn-2 {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76%;
+  line-height: 88rpx;
+  border-radius: 4;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.f-btn-2_hui {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 88rpx;
+  border-radius: 4;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #686868;
+}
+
+.tuisongjianli {
+  background-color: var(--themeColor);
+}
+
+.icon-tuisong {
+  margin-right: 17rpx;
+}
+
+.ss_weishoucang {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wuxiaoxing-kong {
+  color: #B6B6B6;
+  font-size: 46rpx;
+}
+
+.icon-lianxi {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+}
+
+.active {
+  color: var(--themeColor);
 }
 
 @import '../template/font';

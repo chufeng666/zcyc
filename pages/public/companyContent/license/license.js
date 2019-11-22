@@ -30,7 +30,7 @@ Page({
     let { c_img } = this.data
     serverData.setCompanyInfoFive({ c_img }).then((res) => {
       if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg);
+        serverData._wxTost(res.data.msg);
         setTimeout(() => {
           wx.navigateBack({
             delta: 1
@@ -50,7 +50,7 @@ Page({
           }
         })
       } else {
-        ServerData._wxTost(res.data.msg);
+        serverData._wxTost(res.data.msg);
       }
     })
   },

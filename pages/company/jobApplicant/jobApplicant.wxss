@@ -135,6 +135,7 @@
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 25rpx;
+  margin-right: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
