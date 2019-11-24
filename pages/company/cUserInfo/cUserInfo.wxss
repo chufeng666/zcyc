@@ -1,5 +1,5 @@
 page {
-  background-color: #e0d9d7;
+  background-color: #fff;
 }
 
 /* <!-- 头部 --> */
@@ -12,7 +12,7 @@ page {
   display: flex;
   align-items: flex-end;
   background-color: var(--thirdPartyColor);
-  height: 87rpx;
+  height: 127rpx;
   font-size: 36rpx;
   color: #fff;
   padding: 20rpx 15rpx;
@@ -30,7 +30,7 @@ page {
 
 #wrap {
   background-color: #fff;
-  margin-top: 127rpx;
+  margin-top: 168rpx;
   margin-bottom: 200rpx;
 }
 

@@ -245,4 +245,7 @@ page {
   background-color: var(--themeColor);
   border: none;
 }
+.active1 {
+  color: var(--themeColor);
+}
 @import '../template//font.wxss';

@@ -38,9 +38,9 @@ Page({
     this.getCompanyInfo()
   },
   detil() {
-    wx.redirectTo({
-      url: '/pages/company/cUserInfo/cUserInfo'
-    })
+    wx.navigateBack({
+      delta: 1,
+    });
   },
   returnIndex(flag, arry, isN) {
     for (var i in arry) {

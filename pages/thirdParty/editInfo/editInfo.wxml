@@ -1,3 +1,7 @@
+<view class="information">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">个人信息</view>
+</view>
 <view class="user_header">
   <view class="liaojie">请完善公司信息</view>
   <text class="iconfont  .icon-cha"></text>

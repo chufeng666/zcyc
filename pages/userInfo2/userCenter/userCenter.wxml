@@ -10,9 +10,9 @@
     <view class='content-list'>
       <view class="main_top">
         <view class='c-l-info'>
-          <navigator class="c-logo" url='../../headPortrait/headPortrait'>
-            <image src='{{info.avatar}}' class="c-logo" />
-          </navigator>
+
+          <image src='{{info.avatar}}' class="c-logo" />
+
           <view class='c-info-text'>
             <view class='c-info-title'>
               <text class="info_name">{{info.name}}</text>

@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/thirdParty/index/index",
-    "pages/thirdParty/uCollect/uCollect",
     "pages/company/index/index",
+    "pages/thirdParty/index/index",
     "pages/userInfo2/index/index",
+    "pages/login/login",
+    "pages/thirdParty/uCollect/uCollect",
     "pages/userInfo2/company/company",
     "pages/userInfo2/editInfo/editInfo",
     "pages/userInfo2/ScreeningConditions/ScreeningConditions",
@@ -37,7 +38,6 @@
     "pages/thirdParty/search/search",
     "pages/thirdParty/ScreeningConditions/ScreeningConditions",
     "pages/thirdParty/postJobPostings/postJobPostings",
-    "pages/login/login",
     "pages/public/pay/payWay",
     "pages/public/password",
     "pages/public/setting",

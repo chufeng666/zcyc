@@ -19,8 +19,8 @@
   </view>
   <view class="name">
     <text class="name_size">姓名</text>
-    <input wx:if="{{name == ''}}" placeholder="请输入姓名" class="inputXinxi" bindinput="bindKeyInput" />
-    <input wx:else class="inputXinxi-real" bindinput="bindKeyInput" value="{{name}}" />
+    <input placeholder="请输入姓名" placeholder-style="opacity: 0.4;font-weight: normal" class="inputXinxi-real" bindinput="bindKeyInput" value="{{name}}"/>
+    <!-- <input wx:else class="inputXinxi-real" bindinput="bindKeyInput" value="{{name}}" /> -->
   </view>
   <view class="gender  name">
     <text class="name_size">性别</text>
@@ -29,15 +29,15 @@
   </view>
   <view class="age  name">
     <text class="name_size">年龄</text>
-    <input wx:if="{{age==null || age == ''}}" class="inputXinxi" bindinput="bindKeyInputAge" placeholder="请输入年龄" />
-    <input wx:else type="number" bindinput="bindKeyInputAge" class="inputXinxi-real" value="{{age}}" />
+    <!-- <input wx:if="{{age==null || age == ''}}" type="number"  class="inputXinxi" bindinput="bindKeyInputAge" placeholder="请输入年龄" />
+    <input wx:else type="number"  bindinput="bindKeyInputAge" class="inputXinxi-real" value="{{age}}" /> -->
+    <input  type="number"  class="inputXinxi-real" placeholder-style="opacity: 0.4;font-weight: normal" bindinput="bindKeyInputAge" placeholder="请输入年龄"  value="{{age}}"/>
   </view>
   <view class="nation  name">
     <text class="name_size">民族</text>
-
-    <input wx:if="{{nation==null || nation == ''}}" class="inputXinxi" placeholder="请输入民族"
-      bindinput="bindKeyInputNation" />
-    <input wx:else class="inputXinxi-real" bindinput="bindKeyInputNation" value="{{nation}}" />
+    <input placeholder-style="opacity: 0.4;font-weight: normal" class="inputXinxi-real" placeholder="请输入民族"
+      bindinput="bindKeyInputNation" value="{{nation}}" />
+    <!-- <input wx:else class="inputXinxi-real" bindinput="bindKeyInputNation" value="{{nation}}" /> -->
   </view>
   <view class="education  name">
     <text class="name_size">学历</text>

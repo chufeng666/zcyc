@@ -10,7 +10,7 @@
   height: 56rpx;
   color: #FF730E;
   font-size: 24rpx;
-  margin-top: 12rpx;
+  margin-top: 180rpx;
 }
 
 .liaojie {

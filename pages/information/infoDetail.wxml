@@ -1,4 +1,4 @@
-<view class="xiaoxi_header">
+<view class="xiaoxi_header   {{bgc}}">
   <view class="h-left">
     <view bindtap="fanhui" class="iconfont icon-zuojiantou"></view>
     <view class="l_qiye">消息(24)</view>

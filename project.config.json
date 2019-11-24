@@ -13,6 +13,9 @@
 		"coverView": true,
 		"nodeModules": false,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -67,6 +70,48 @@
 					"id": -1,
 					"name": "pages/company/collect/collect",
 					"pathName": "pages/company/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/help",
+					"pathName": "pages/public/help",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/company/myPurse/myPurse",
+					"pathName": "pages/company/myPurse/myPurse",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userEducation",
+					"pathName": "pages/public/userContent/userEducation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/thirdParty/editInfo/editInfo",
+					"pathName": "pages/thirdParty/editInfo/editInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/company/editInfo/editInfo",
+					"pathName": "pages/company/editInfo/editInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/password",
+					"pathName": "pages/public/password",
 					"scene": null
 				}
 			]

@@ -58,7 +58,7 @@ App({
       "borderStyle": "#d6d6d6",
       "list": [
         {
-          "pagePath": "/pages/userInfo2/index",
+          "pagePath": "/pages/login/login",
           "text": "首页",
           "iconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_weidianji.png",
           "selectedIconPath": "/static/images/bar_icon/company/Xiaocx_souye_daoh_dianji.png",

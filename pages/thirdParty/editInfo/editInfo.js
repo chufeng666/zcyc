@@ -136,5 +136,10 @@ Page({
       }
       ServerData._wxTost(res.data.msg);
     })
+  },
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
   }
 })

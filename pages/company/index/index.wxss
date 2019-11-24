@@ -1,5 +1,5 @@
 .i-header {
-  height: 245rpx;
+  height: 208rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;

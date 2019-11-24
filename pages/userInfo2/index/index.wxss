@@ -1,5 +1,5 @@
 .i-header {
-  height: 245rpx;
+  height: 214rpx;
   background-color: var(--themeColor);
   line-height: 104rpx;
   position: fixed;
@@ -9,7 +9,7 @@
 }
 
 .i-header .h-left {
- font-size: 40rpx;
+  font-size: 40rpx;
   color: #fff;
   font-weight: normal;
   padding-top: 30rpx;
@@ -51,6 +51,7 @@
 
 .i-header .new, swiper {
   height: 74rpx;
+  z-index: 3;
 }
 
 swiper-item {
@@ -300,10 +301,12 @@ swiper-item {
 .zhanwushuju {
   margin-top: 120rpx;
 }
-.sousuolishi{
+
+.sousuolishi {
   margin-top: 308rpx;
   border-bottom: 16rpx solid #dedede;
 }
+
 .sousuolishi .history {
   border-bottom: 10px solid #dedede;
 }
@@ -333,6 +336,7 @@ swiper-item {
   margin-left: 16rpx;
   font-size: 26rpx;
 }
+
 .sousuolishi .popular {
   margin: 27rpx 33rpx;
 }
@@ -363,6 +367,7 @@ swiper-item {
   border-radius: 50rpx;
   margin: 0 24rpx;
 }
+
 /* 所在地区 */
 
 /* @font-face {

@@ -26,7 +26,7 @@ Page({
     this.initUserInfo3();
   },
   // 请求
-  initUserInfo3 () {
+  initUserInfo3() {
     let that = this;
     ServerData.initUserInfo3({}).then((res) => {
       console.log(res);
@@ -41,16 +41,16 @@ Page({
       }
     })
   },
-  initUserInfoThree () {
+  initUserInfoThree() {
     let { graduate_time, major, school, school_type, start_time } = this.data;
     ServerData.initUserInfoThree({ graduate_time, major, school, school_type, start_time }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
       } else if (res.data.status == -1) {
         wx.showModal({
           title: '提示',
@@ -70,7 +70,7 @@ Page({
     })
   },
   // 当天时间
-  sameDay () {
+  sameDay() {
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
     //获取年份  
@@ -82,36 +82,42 @@ Page({
 
     })
   },
-  setSameDay (e) {
+  setSameDay(e) {
     this.setData({
       start_time: e.detail.value
     })
   },
-  setSameDay2 (e) {
+  setSameDay2(e) {
+    let t=this;
+    let date_1 = e.detail.value , i = new Date(date_1.replace(/-/g, '/'));;
+    console.log(date_1)
+    console.log(i)
+    let year = i.getFullYear();
+    let date = year + "年"
     this.setData({
       graduate_time: e.detail.value
     })
   },
   // 设置学历
-  bindPickerChange (e) {
+  bindPickerChange(e) {
     this.setData({
       school_type: e.detail.value
     })
   },
   // 学校
-  inputSchool (e) {
+  inputSchool(e) {
     this.setData({
       school: e.detail.value
     })
   },
   // 专业
-  inputMajor (e) {
+  inputMajor(e) {
     this.setData({
       major: e.detail.value
     })
   },
   // 学历
-  bindPickerChange (e) {
+  bindPickerChange(e) {
     let { educationList } = this.data
     let index = e.detail.value
     this.setData({
@@ -123,7 +129,7 @@ Page({
       delta: 1,
     });
   }
-  
+
 
 
 })

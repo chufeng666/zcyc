@@ -8,7 +8,7 @@
   height: 56rpx;
   background-color: #FFE4CC;
   color: #FF730E;
-  margin-top: 127rpx;
+  margin-top: 180rpx;
 }
 
 .user_header .liaojie {

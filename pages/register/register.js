@@ -20,6 +20,10 @@ Page({
     index: 0,                   //选择的下拉列表下标
     toke: '',                //微信登陆后台返回的toke
     register: '',
+    status: false,
+    status1: false,
+    status2: false,
+    status3: false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -156,7 +160,8 @@ Page({
     this.data.mCode = ''
     if (e.detail.value != '') {
       this.setData({
-        mCode: e.detail.value
+        mCode: e.detail.value,
+        status1: true,
       })
     }
     if (this.data.mobile != '' && e.detail.value != '') {
@@ -173,13 +178,15 @@ Page({
   },
   getPassword(e) {
     this.setData({
-      password: e.detail.value
+      password: e.detail.value,
+      status2: true,
     })
   },
 
   comfirnPasd(e) {
     this.setData({
-      comPasd: e.detail.value
+      comPasd: e.detail.value,
+      status3: true,
     })
   },
   deletetext: function (e) {

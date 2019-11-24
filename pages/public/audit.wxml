@@ -1,3 +1,7 @@
+<view class="inner_top">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">审核提示</view>
+</view>
 <view class='inner'>
   <view class='content'>
     <image class="audit-img" src='../../static/images/public/load-icon.png'/>

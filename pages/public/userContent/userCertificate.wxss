@@ -1,7 +1,7 @@
 @import "userWork";
 
 .inner {
-  margin-top: 127rpx;
+  margin-top: 180rpx;
   padding: 68rpx 54rpx;
 }
 

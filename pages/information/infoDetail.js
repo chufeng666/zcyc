@@ -1,6 +1,7 @@
 // pages/information/infoDetail.js
 var WxParse = require('../wxParse/wxParse.js');
 import ServerData from '../../utils/serverData.js';
+const util = require('../../utils/util.js');  //通用方法
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
   data: {
     dId: '',
     info: {},
-    addTime: ''
+    addTime: '',
+    bgc:''
   },
 
   /**
@@ -17,24 +19,31 @@ Page({
    */
   onLoad: function (options) {
     if (options) {
-      this.setData({ dId: options.id })
+      this.setData({ dId: options.id });
     }
-    this.getDtailInfo()
+    this.getDtailInfo();
+    let regtype = wx.getStorageSync('savePostion');
+    if (regtype == 1 || regtype == 2) {
+      this.setData({
+        bgc: util.loginIdentity().pBC
+      })
+    } else {
+      this.setData({
+        bgc: util.loginIdentity().pBgC
+      })
+    }
   },
 
-  getDtailInfo () {
+  getDtailInfo() {
     var that = this,
       time = ''
-    ServerData.messageDetail({ id: that.data.dId}).then((res) => {
+    ServerData.messageDetail({ id: that.data.dId }).then((res) => {
       let info = res.data.data;
-      console.log(info);
       if (res.data.code == 1) {
         time = ServerData._timeStampForwardAate(res.data.data.create_time);
-
         var article = info.content
         // console.log(article);
         WxParse.wxParse('article', 'html', article, that, 0)
-
         that.setData({
           info: info,
           addTime: time
@@ -50,10 +59,9 @@ Page({
       }
     })
   },
-  fanhui(){
+  fanhui() {
     wx.navigateBack({
       delta: 1
     });
-      
   }
 })

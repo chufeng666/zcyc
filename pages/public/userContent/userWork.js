@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function (options) {
     this.initUserInfo2();
-    this.sameDay();
+    // this.sameDay();
   },
   // 当天时间
   // sameDay() {

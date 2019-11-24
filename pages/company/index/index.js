@@ -55,7 +55,7 @@ Page({
             content: '是否完善个人信息',
             success(res) {
               if (res.confirm) {
-                wx.redirectTo({
+                wx.navigateTo({
                   url: '/pages/company/editInfo/editInfo'
                 })
               } else if (res.cancel) {

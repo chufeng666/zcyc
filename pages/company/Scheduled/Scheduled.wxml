@@ -26,7 +26,8 @@
         <view class="mf_bt_top">
           <view class="mf_bt_top_left" wx:for="{{images}}" wx:key="index">
             <text class="iconfont  icon-yanzhengma"></text>
-            <view>{{item.title}}</view>
+            <view wx:if="{{item.title=='' || item.title == null}}">该人才未上传职业证书</view>
+            <view wx:else>{{item.title}}</view>
           </view>
         </view>
       </view>

@@ -8,6 +8,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),          //获取用户信息是否在当前版本可用
     inputValue: null,
     status: false,
+    status1: false,
     eyekai: 0,
     is_pwd: 'password',
     input1text: '',
@@ -45,11 +46,11 @@ Page({
     if (e.detail.value != '') {
       this.setData({
         input2text: e.detail.value,
-        status: true
+        status1: true
       })
     } else {
       this.setData({
-        status: false
+        status1: false
       })
     }
     if (!(this.data.input2text == '' || this.data.input1text == '')) {
@@ -93,10 +94,6 @@ Page({
         }
       })
     }
-
-
-
-
   },
 
   toLogin: function () {     //保存用户身份用

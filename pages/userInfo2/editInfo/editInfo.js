@@ -63,8 +63,8 @@ Page({
   },
   detil() {
     wx.navigateBack({
-      detil: 1
-    })
+      delta: 1,
+    });
   }
 
 })

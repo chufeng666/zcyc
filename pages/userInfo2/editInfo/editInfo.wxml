@@ -108,7 +108,7 @@
     <view class="us_wk_first">
       <view class="us_wk_ft_left">
         <view class="us_l_t_name">工作经验</view>
-        <view class="yiwanshan">必填</view>
+        <!-- <view class="yiwanshan">必填</view> -->
       </view>
       <navigator url="../../public/userContent/userWork">
         <text class="iconfont  icon-bianji"></text>
@@ -138,7 +138,7 @@
     <view class="us_wk_first">
       <view class="us_wk_ft_left">
         <view class="us_l_t_name">项目经验</view>
-        <view class="yiwanshan">必填</view>
+        <!-- <view class="yiwanshan">必填</view> -->
       </view>
       <navigator url="../../public/userContent/userProject">
         <text class="iconfont  icon-bianji"></text>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "审核提示"
+  "navigationBarTitleText": "审核提示",
+  "navigationStyle": "default"
 
 }

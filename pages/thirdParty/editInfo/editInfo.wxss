@@ -1,5 +1,6 @@
 /* pages/userInfo/editInfo.wxss */
 @import "/pages/template/common.wxss";
+@import "/pages/template/common1/common1.wxss";
 
 .user_header {
   display: flex;
@@ -7,6 +8,7 @@
   height: 56rpx;
   background-color: #FFE4CC;
   color: #FF730E;
+  margin-top: 180rpx;
 }
 
 .user_header .liaojie {

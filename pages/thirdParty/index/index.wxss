@@ -1,5 +1,5 @@
 .i-header {
-  height: 245rpx;
+  height: 208rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;
@@ -119,7 +119,7 @@
   color: #969696;
 }
 
-.newest-search .n-xiahuaxian .n-search .newsite_button {
+.newest-search .n-xiahuaxian .n-search .newsite_button:first-child {
   display: flex;
   align-items: center;
   background-color: #eaeaea;
@@ -128,7 +128,14 @@
   line-height: 56rpx;
   border-radius: 8%;
 }
-
+.newest-search .n-xiahuaxian .n-search .newsite_button {
+  display: flex;
+  align-items: center;
+  background-color: #eaeaea;
+  height: 56rpx;
+  line-height: 56rpx;
+  border-radius: 8%;
+}
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
   margin: 0 10rpx;
 }

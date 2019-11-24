@@ -106,7 +106,6 @@
   align-items: center;
   background-color: #eaeaea;
   height: 56rpx;
-  line-height: 56rpx;
   border-radius: 8%;
 }
 

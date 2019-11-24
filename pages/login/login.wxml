@@ -15,7 +15,7 @@
     <text class="qianzui  iconfont icon-yonghu  "></text>
     <input placeholder="请输入手机号" class="phone_num" type='text' name="phone_num" bindinput='getMobile' value='{{inputValue}}'></input>
   </view>
-  <view class="mima_ear  {{status?'active':''}}">
+  <view class="mima_ear  {{status1?'active':''}}">
     <text class="qianzui  iconfont icon-lock-alt2"></text>
     <input placeholder="请输入密码" class="phone_password" name="password" password="{{is_pwd}}" bindinput='getPassword'></input>
   </view>

@@ -1,10 +1,8 @@
 <!-- top -->
 <view class='inner'>
   <view class='global-company-list'>
-    <navigator url='../headPortrait/headPortrait'>
-      <image mode="aspectFit" src='{{cList.logo}}' class="c-logo" />
-    </navigator>
-    <view class="gcl_right">
+    <image mode="aspectFit" src='{{cList.logo}}' class="c-logo" />
+    <view class="gcl_right">d
       <view class='c-info-text'>
         <text class='c-info-title'>{{cList.company_name}}</text>
       </view>
@@ -57,7 +55,7 @@
     <view class="cc_desx">
       <view class='c-second'>
         <view class='cOrTInfo-option'>
-          <image wx:if="{{savePostion==3}}"  class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
+          <image wx:if="{{savePostion==3}}" class="yuangongfuliguanli" src="/static/images/index/yuangongfuli.png">
           </image>
           <image wx:else class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <text class='cOrTInfo-msg'>公司简介</text>

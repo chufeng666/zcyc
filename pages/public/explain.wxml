@@ -1,9 +1,16 @@
-<!--pages/auditInfo/explain.wxml-->
+<view class="inner_top">
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view wx:if='{{name == "shenhe"}}' class="h-left">审核流程</view>
+  <view wx:elif='{{name == "weigui"}}' class="h-left">违规声明</view>
+  <view wx:elif='{{name == "yinsi"}}' class="h-left">隐私声明</view>
+  <view wx:elif='{{name == "qita"}}'  class="h-left">其他介绍</view>
+</view>
 <view class='inner'>
   <!-- <text class='e-msg'>时间：2019-6-20</text> -->
   <view class='e-content'>
     <view class='e-c-list'>
-      {{info}}
+      <import src="../wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
   </view>
 </view>

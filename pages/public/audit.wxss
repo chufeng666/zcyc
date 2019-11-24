@@ -1,5 +1,6 @@
 /* pages/auditInfo/audit.wxss */
-@import '../template/common';
+@import '/pages/template/common';
+@import '/pages/template/common1/common1.wxss';
 .inner{
   margin: 0 24rpx;
   min-height: 100%;

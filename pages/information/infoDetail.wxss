@@ -1,9 +1,9 @@
 @import "../wxParse/wxParse.wxss";
 @import "/pages/template/font.wxss";
+@import "/pages/template/common.wxss";
 
 /* 头部 */
 .xiaoxi_header {
-  background-color: var(--themeColor);
   height: 127rpx;
   line-height: 170rpx;
 }

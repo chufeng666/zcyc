@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   font-size: 32rpx;
-  color: #FDA430;
+  color: #fda430;
   margin-bottom: 62rpx;
 }
 
@@ -40,7 +40,14 @@
   border-radius: 50%;
 }
 
-.main_moddle {}
+.main_bt {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_moddle navigator {
+  margin: 0 auto;
+}
 
 .wancheng {
   width: 242rpx;
@@ -48,7 +55,7 @@
   border-radius: 10rpx;
   font-size: 28rpx;
   color: #fff;
-  background-color: #E8B05F;
+  background-color: #e8b05f;
 }
 
 .jixu {
@@ -57,8 +64,8 @@
   margin-top: 40rpx;
   border-radius: 10rpx;
   font-size: 28rpx;
-  color: #E8B05F;
-  background-color: #D8D1CF;
+  color: #e8b05f;
+  background-color: #d8d1cf;
 }
 
 .main_footer {
@@ -67,7 +74,6 @@
   align-items: center;
   margin-top: 228rpx;
   font-size: 22rpx;
-  color: #FF730E;
+  color: #ff730e;
 }
-
 @import "../../template/font";
