@@ -151,7 +151,6 @@ swiper-item {
   align-items: center;
   background-color: #eaeaea;
   height: 56rpx;
-  line-height: 56rpx;
   border-radius: 8%;
 }
 
@@ -163,11 +162,14 @@ swiper-item {
   padding-left: 16rpx;
 }
 
+.newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou:first-child {
+  font-size: 16rpx;
+  padding: 116rpx 16rpx;
+}
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
-  font-size: 25rpx;
+  font-size: 16rpx;
   padding: 0 16rpx;
 }
-
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
   background-color: #eaeaea;
   height: 56rpx;

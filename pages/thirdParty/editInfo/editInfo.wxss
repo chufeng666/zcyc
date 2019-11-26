@@ -125,3 +125,8 @@
   color: var(--themeColor);
   margin-top: 50rpx;
 }
+.size-28_zhuangtai{
+  color: var(--themeColor);
+  font-size: 28rpx;
+  font-weight: bold;
+}

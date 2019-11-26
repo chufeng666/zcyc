@@ -54,20 +54,24 @@ Page({
     ],
     xinzi: [
       { id: 0, name: "不限", isShow: true },
-      { id: 1, name: "3k及以下", isShow: false },
-      { id: 2, name: "3-6k", isShow: false },
-      { id: 3, name: "6-10k", isShow: false },
-      { id: 4, name: "10-20k", isShow: false },
-      { id: 5, name: "20-50k", isShow: false },
+      { id: 1, name: "3k以下", isShow: false },
+      { id: 2, name: "3 - 5k", isShow: false },
+      { id: 3, name: "5 - 10k", isShow: false },
+      { id: 4, name: "10 - 20k", isShow: false },
+      { id: 5, name: "20 - 50k", isShow: false },
       { id: 6, name: "50k以上", isShow: false },
     ],
+    // 接受传递的数据
+    name:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      name: options.name
+    })
   },
 
   /**
@@ -92,31 +96,31 @@ Page({
     let { index } = e.currentTarget.dataset;
     let { zhengshu } = this.data
     zhengshu.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhengshu,index2:index })
+    this.setData({ zhengshu, index2: index })
   },
   changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
     let { zhiwei } = this.data
     zhiwei.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhiwei,index3:index })
+    this.setData({ zhiwei, index3: index })
   },
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
     let { xueli } = this.data
     xueli.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xueli,index4:index })
+    this.setData({ xueli, index4: index })
   },
   changJingyan(e) {
     let { index } = e.currentTarget.dataset;
     let { jingyan } = this.data;
     jingyan.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ jingyan,index5:index })
+    this.setData({ jingyan, index5: index })
   },
   changXinzi(e) {
     let { index } = e.currentTarget.dataset;
     let { xinzi } = this.data;
     xinzi.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ xinzi,index6:index })
+    this.setData({ xinzi, index6: index })
   },
   editTel() {
     let { index1, index2, index3, index4, index5, index6 } = this.data
@@ -133,7 +137,7 @@ Page({
   },
   detil() {
     wx.navigateBack({
-      delta:1
+      delta: 1
     }); //关闭当前页面，返回上一个页面
   }
 })

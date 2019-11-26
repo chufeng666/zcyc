@@ -146,7 +146,7 @@ swiper-item {
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
-  font-size: 25rpx;
+  font-size: 16rpx;
   margin-right: 16rpx;
 }
 

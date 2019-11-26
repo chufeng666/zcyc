@@ -23,7 +23,8 @@ Page({
     city: '',         //市
     district: '',         //区
     head: '',            //公司环境
-    showTST: true
+    showTST: true,
+    zhezao: true
   },
 
   /**
@@ -58,9 +59,9 @@ Page({
     })
   },
   setCompanyInfoThree() {
-    let {head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
-    let regtype =wx.getStorageSync("savePostion")
-    serverData.setCompanyInfoThree({regtype,head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
+    let { head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
+    let regtype = wx.getStorageSync("savePostion")
+    serverData.setCompanyInfoThree({ regtype, head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
       if (res.data.status == 1) {
         serverData._wxTost(res.data.msg);
         setTimeout(() => {
@@ -141,16 +142,13 @@ Page({
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
-    console.log(info);
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
       showTST: info.showTST,
       province: info.province,
       city: info.city,
       district: info.area,
+      zhezao: true
     })
   },
 
@@ -158,6 +156,9 @@ Page({
   selectDistrict: function (e) {
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
+    this.setData({
+      zhezao: false
+    })
   },
   /***********地址结束**************** */
   detil() {

@@ -18,3 +18,7 @@
   line-height: 72rpx;
   background-color: var(--themeColor);
 }
+.bc_shuoming[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
+}

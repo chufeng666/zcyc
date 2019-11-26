@@ -27,9 +27,12 @@ Page({
     // 现居住地址
     addressBoxShow: true,
     tapIndex: '',
+    disabled: false // 点击一次的开关
   },
   onShow() {
-
+  this.setData({
+    disabled: false
+  })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -100,7 +103,7 @@ Page({
         tapIndex = res.data.data.gender
         if (tapIndex == 0) {
           tapIndex = '男'
-        }else {
+        } else {
           tapIndex = '女'
         }
         that.setData({
@@ -122,6 +125,9 @@ Page({
   // 上传基本信息
   initUserInfoOne() {
     let that = this
+    that.setData({
+      disabled: true
+    })
     // if (!that._verifyInfo()) { return }
     let { name, tapIndex, age, nation, province, avatar, city, district, school_type, work_age } = this.data
     if (tapIndex == '男') {
@@ -133,12 +139,15 @@ Page({
     ServerData.initUserInfoOne({ name, gender, age, avatar, nation, province, city, district, school_type, work_age }).then(res => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -148,6 +157,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })

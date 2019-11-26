@@ -14,16 +14,16 @@
     </view>
     <view class="main">
       <view class="m_top">公司名称</view>
-      <input bindinput="inputCompany_name" class="picker" placeholder="请输入公司名称" value="{{company_name}}" />
+      <input bindinput="inputCompany_name" placeholder-style="font-size: 36rpx;opacity:0.4;" class="picker" placeholder="请输入公司名称" value="{{company_name}}" />
     </view>
     <view class="main">
       <view class="m_top">公司固定电话</view>
-      <input bindinput="inputTelephone" class="picker" placeholder="请输入公司固定电话" value="{{telephone}}" />
+      <input bindinput="inputTelephone" class="picker" placeholder-style="font-size: 36rpx;opacity:0.4;" placeholder="如：020-88888888" value="{{telephone}}" />
     </view>
     <view class="main">
       <view class="m_top">公司性质</view>
       <picker mode="selector" range="{{xingzhi}}" value="{{index2}}" bindchange="setXingzhi">
-        <view wx:if="{{type==''}}" class="picker">请选择公司性质</view>
+        <view wx:if="{{type==''}}" class="picker_1">请选择公司性质</view>
         <view wx:else class="picker">{{type}}</view>
       </picker>
     </view>
@@ -50,9 +50,9 @@
         {{city}} - {{district}}
       </view>
     </view>
-    <view class="main">
+    <view class="main" wx:if="{{zhezao}}">
       <view class="m_top">公司简介</view>
-      <textarea class="ql-container" bindinput="inputDesc" placeholder="请填写公司简介" value="{{desc}}"></textarea>
+      <textarea class="ql-container" placeholder-style="font-size: 36rpx;opacity:0.4;" bindinput="inputDesc" placeholder="请填写公司简介" value="{{desc}}"></textarea>
     </view>
     <view class="main">
       <view class="m_top">公司环境</view>

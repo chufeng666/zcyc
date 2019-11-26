@@ -1,1 +1,4 @@
-@import "userWork"
+@import "userWork";
+.zaizhiDate{
+  margin-bottom: 100rpx;
+}

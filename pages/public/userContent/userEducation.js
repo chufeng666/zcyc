@@ -16,6 +16,7 @@ Page({
     school: '', // 学校名称
     school_type: '', // 学历
     start_time: '', // 就读时间
+    disabled: false // 点击一次的开关
   },
 
   /**
@@ -24,6 +25,11 @@ Page({
   onLoad: function (options) {
     this.sameDay();
     this.initUserInfo3();
+  },
+  onShow() {
+    this.setData({
+      disabled: false
+    })
   },
   // 请求
   initUserInfo3() {
@@ -42,6 +48,10 @@ Page({
     })
   },
   initUserInfoThree() {
+    let that = this
+    that.setData({
+      disabled: true
+    })
     let { graduate_time, major, school, school_type, start_time } = this.data;
     ServerData.initUserInfoThree({ graduate_time, major, school, school_type, start_time }).then((res) => {
       if (res.data.status == 1) {
@@ -52,6 +62,9 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -61,6 +74,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })
@@ -83,19 +99,17 @@ Page({
     })
   },
   setSameDay(e) {
+    let t = this;
+    let date_1 = e.detail.value
     this.setData({
-      start_time: e.detail.value
+      start_time: date_1
     })
   },
   setSameDay2(e) {
-    let t=this;
-    let date_1 = e.detail.value , i = new Date(date_1.replace(/-/g, '/'));;
-    console.log(date_1)
-    console.log(i)
-    let year = i.getFullYear();
-    let date = year + "年"
+    let t = this;
+    let date_1 = e.detail.value
     this.setData({
-      graduate_time: e.detail.value
+      graduate_time: date_1
     })
   },
   // 设置学历

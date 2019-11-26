@@ -236,8 +236,10 @@ page {
   border: none;
   margin: 0;
 }
-
+.yiwanshan{
+  color: var(--themeColor);
+}
 /* <!-- USER OPTION START --> */
 
 /* 主体 */
-@import '../../template/font';
+@import '/pages/template/font';

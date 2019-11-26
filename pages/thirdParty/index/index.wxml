@@ -99,7 +99,7 @@
 </view>
 
 <!-- 搜索历史部分 -->
-<view wx:else class="sousuolishi">
+<!-- <view wx:else class="sousuolishi">
   <view class="history">
     <view class="history_search">
       <view class="hs_top">
@@ -128,7 +128,7 @@
       <view class="zw_security-officer">安全员</view>
     </view>
   </view>
-</view>
+</view> -->
 <!-- 搜索历史部分 -->
 <view style="height: 120rpx;">
 

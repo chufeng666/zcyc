@@ -39,5 +39,5 @@
   <input placeholder="再次输入密码" class="phone_password" type='password' name="pass" bindinput='comfirnPasd'></input>
 </view>
 <view>
-  <button class="denglu" bindtap='saveRegister' style="background:{{color}}">下一步</button>
+  <button class="denglu" bindtap='saveRegister' style="background:{{color}}">登录</button>
 </view>

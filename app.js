@@ -2,10 +2,32 @@
 
 App({
   // golbalJs:'public',
-  onLaunch: function () {
+  onLaunch: function (options) {
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    // 关闭小程序后，重新进入的页面为首页
+    // let savePostion = wx.getStorageSync('savePostion');
+    // if (savePostion == 3 || options.path == '/pages/userInfo2/index/index') {
+    //   wx.reLaunch({
+    //     url: '/pages/userInfo2/index/index'
+    //   })
+    // }else if(savePostion == 2){
+    //   wx.reLaunch({
+    //     url: '/pages/thirdParty/index/index'
+    //   })
+    // } else if (savePostion == 1){
+    //   wx.reLaunch({
+    //     url: '/pages/company/index/index'
+    //   })
+    // } else if(savePostion == '' || savePostion == null || savePostion == undefined){
+    //   wx.reLaunch({
+    //     url: '/pages/login/login'
+    //   })
+    // }
+  },
+  onShow: function (options) {
+   
   },
   //第一种底部  
   editTabBar: function () {
@@ -216,5 +238,5 @@ App({
       "position": "bottom"
     },
 
-  }
+  },
 })

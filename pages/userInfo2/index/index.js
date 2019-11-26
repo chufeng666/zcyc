@@ -41,7 +41,7 @@ Page({
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
       this.reqIndex()
     }
-    this.initUserInfo()
+    this.initUserInfo();
   },
 	/**
 	 * 生命周期函数--监听页面加载
@@ -65,10 +65,16 @@ Page({
     } else {
       require_cert = ''
     }
-    if (type && education && work_age === '全部' || salary === '不限') {
-      type = '';
-      education = '';
+    if (work_age == '全部') {
       work_age = '';
+    }
+    if (type  == '全部' ) {
+      type = '';
+    }
+    if ( education  == '全部' ) {
+      education = '';
+    }
+    if ( salary == '不限') {
       salary = ''
     }
     let _opt = {
@@ -81,7 +87,7 @@ Page({
       'education': education,
       'work_age': work_age,
       'salary': salary,
-      'regtype': 3,
+      // 'regtype': 3,
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
@@ -90,7 +96,7 @@ Page({
         })
       }
       else if (res.data.status == -1) {
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../../login/login'
         })
       }

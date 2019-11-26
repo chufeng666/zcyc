@@ -12,13 +12,13 @@
   <view class="n-xiahuaxian">
     <view class="newest">
       <view class="province" wx:if="{{showTST}}">
-        <text decode="{{true}}">广州市 - 海珠区&nbsp;&nbsp;|</text>
+        <text decode="{{true}}">公司地址&nbsp;&nbsp;/</text>
         <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
       <view class="province" wx:else>
-        <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;|</text>
+        <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;/</text>
         <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
           <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>

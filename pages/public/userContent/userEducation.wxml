@@ -22,20 +22,16 @@
   <view class="zaizhiDate">
     <text class="name_size">就读时间</text>
     <view class="zzd_bt">
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay}}" value="{{start_time}}"
-        bindchange="setSameDay">
-        <view wx:if="{{start_time==null}}" class="picker">{{sameDay}}</view>
+      <picker class="zzd_bt_data" fields="month" mode="date" value="{{date_1}}" bindchange="setSameDay">
+        <view wx:if="{{start_time==null||start_time==''}}" class="picker">请选择时间</view>
         <view wx:else class="picker">{{start_time}}</view>
       </picker>
       <text>—</text>
-      <picker class="zzd_bt_data" fields="month" mode="date" range="{{sameDay2}}" value="{{graduate_time}}"
-        bindchange="setSameDay2">
-        <view wx:if="{{graduate_time==null}}" class="picker">{{sameDay2}}</view>
+      <picker class="zzd_bt_data" fields="month" mode="date" value="{{date_1}}" bindchange="setSameDay2">
+        <view wx:if="{{graduate_time==null||graduate_time==''}}" class="picker">请选择时间</view>
         <view wx:else class="picker">{{graduate_time}}</view>
       </picker>
     </view>
   </view>
+  <button class="info_bt" disabled="{{disabled}}" bindtap="initUserInfoThree">保存</button>
 </view>
-<footer class="pro_ft">
-  <button class="add" bindtap="initUserInfoThree">保存</button>
-</footer>

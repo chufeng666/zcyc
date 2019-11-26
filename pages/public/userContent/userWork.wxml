@@ -43,7 +43,5 @@
       <view>添加工作经验</view>
     </view>
   </view>
+  <button class="info_bt" disabled="{{disabled}}"  bindtap='initUserInfoTwo'>保存</button>
 </view>
-<footer class="pro_ft">
-  <button class="add" bindtap='initUserInfoTwo'>保存</button>
-</footer>

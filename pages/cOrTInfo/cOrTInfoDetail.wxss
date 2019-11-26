@@ -54,7 +54,7 @@
 /* 第二部分 */
 .introduction {
   padding: 0 31rpx;
-  border-top: 10rpx solid #f0f0f0;
+  border-top: 16rpx solid #f0f0f0;
 }
 .tabs {
   display: flex;
@@ -100,7 +100,9 @@
   color: #686868;
 }
 .company_nav {
-  margin-bottom: 319rpx;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 100rpx;
+  margin-bottom: 100rpx;
 }
 .company_nav .iconfont {
   font-size: 30rpx;
@@ -114,6 +116,7 @@
 /* 招聘 */
 .third {
   margin-top: 41rpx;
+  margin-bottom: 120rpx;
 }
 .i_list {
   display: flex;
@@ -126,7 +129,7 @@
   color: #000;
 }
 .i_list .l_price {
-  color: #ee291a;
+  /* color: #ee291a; */
   font-weight: 600;
   font-size: 32rpx;
 }
@@ -138,7 +141,7 @@
   color: #fff;
   font-size: 24rpx;
   font-weight: normal;
-  background-color: #ee291a;
+  /* background-color: #ee291a; */
   padding: 6rpx 15rpx;
   border-radius: 4rpx;
 }
@@ -177,14 +180,17 @@
   padding-top: 40rpx;
 }
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
-  text-align: right;
-  padding: 0 24rpx;
+  padding: 24rpx 24rpx;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  width: 100%;
+  background-color: #fff;
+  border-top: 1rpx solid #dedede;
 }
 
 .search2-inner {

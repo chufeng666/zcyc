@@ -1,4 +1,5 @@
 import ServerData from '../../../utils/serverData.js';
+const util = require('../../../utils/util.js');  //通用方法
 const payArray = [];
 for (let i = 1; i <= 20; i++) {
   // i=i+1000-1;
@@ -11,12 +12,25 @@ Page({
    */
   data: {
     getUData: [],
+    bgc: ''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let regtype = wx.getStorageSync('savePostion')
+    if (regtype == 1 || regtype == 2) {
+      this.setData({
+        isShow: false,
+        bgc: util.loginIdentity().pBC,
+        companyShow: false
+      })
+    } else {
+      this.setData({
+        bgc: util.loginIdentity().pBgC,
+        companyShow: true
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示
@@ -56,8 +70,11 @@ Page({
         wx.navigateBack({
           url: '../userCenter/userCenter'
         })
+      } else if (res.data.status == -1) {
+        ServerData._wxTost('审核失败，请重新填写资料')
+      }else {
+        ServerData._wxTost(res.data.msg)
       }
-      ServerData._wxTost(res.data.msg)
     })
 
   },

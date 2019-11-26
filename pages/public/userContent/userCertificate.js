@@ -6,8 +6,13 @@ Page({
    */
   data: {
     desc: '',
+    disabled: false // 点击一次的开关
   },
-
+  onShow() {
+    this.setData({
+      disabled: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,6 +29,9 @@ Page({
   },
   initUserInfoEight() {
     let that = this
+    that.setData({
+      disabled: true
+    })
     let { desc } = that.data
     ServerData.initUserInfoEight({ desc }).then((res) => {
       if (res.data.status == 1) {
@@ -34,6 +42,9 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -43,6 +54,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })

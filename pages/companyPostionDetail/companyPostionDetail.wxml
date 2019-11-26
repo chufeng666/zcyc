@@ -7,8 +7,9 @@
       <view class="d-c-list">
         <view class='c-list-info'>
           <view class="list_name">
-            <view class='m-b22'>{{personalData.name}}</view>
-            <text class="iconfont  .icon-nv"></text>
+            <view class=''>{{personalData.name}}</view>
+            <text wx:if="{{personalData.name == 1}}" class="iconfont  icon-nv"></text>
+            <text wx:else class="iconfont  icon-nan"></text>
           </view>
           <view class='w-bold'>
             <text class='iconfont  icon-baobao'></text>
@@ -57,19 +58,22 @@
           <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>工作经验</view>
         </view>
-        <view class="zhanshi" wx:for="{{experience}}" wx:key="index">
-          <view class="gongsi">
-            <text class="iconfont  icon-gongsi"></text>
-            <view>{{item.data1}}</view>
-          </view>
-          <view class="gangwei">
-            <view class="gw_left">岗位: {{item.data2}}</view>
-            <view class="gw_right">时间: {{item.data3}}-{{item.data4}}</view>
-          </view>
-          <view class="gongzuoneirong">
-            <text>
-              {{item.data5}}
-            </text>
+        <view wx:if="{{experience=='' || experience == null}}" class="zanwu">暂无工作经历</view>
+        <view wx:else>
+          <view class="zhanshi" wx:for="{{experience}}" wx:key="index">
+            <view class="gongsi">
+              <text class="iconfont  icon-gongsi"></text>
+              <view>{{item.data1}}</view>
+            </view>
+            <view class="gangwei">
+              <view class="gw_left">岗位: {{item.data2}}</view>
+              <view class="gw_right">时间: {{item.data3}}-{{item.data4}}</view>
+            </view>
+            <view class="gongzuoneirong">
+              <text>
+                {{item.data5}}
+              </text>
+            </view>
           </view>
         </view>
       </view>
@@ -80,11 +84,11 @@
           <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>职业证书</view>
         </view>
-        <view class="jinengzhengshu">
+        <view wx:if="{{personalData.images[0].title=='' || personalData.images == null}}" class="zanwu">暂无证书</view>
+        <view wx:else class="jinengzhengshu">
           <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
             <image class="zhengshuicon" src="/static/images/index/zhengshuicon.png"></image>
-            <view wx:if="{{item.title=='' || item.title == null}}">该人才未上传职业证书</view>
-            <view wx:else>{{item.title}}</view>
+            <view>{{item.title}}</view>
           </view>
         </view>
       </view>

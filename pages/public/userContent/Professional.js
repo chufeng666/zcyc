@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    images: [{ path: '', title: '' }],
+    images: [],
     showAddBtn: 1,
-    index: 0
+    index: 0,
+    disabled: false // 点击一次的开关
   },
 
   /**
@@ -20,8 +21,10 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
+  onShow: function () {
+    this.setData({
+      disabled: false
+    })
   },
   initUserInfo6() {
     let that = this
@@ -34,7 +37,14 @@ Page({
   },
   initUserInfoSix() {
     let that = this
-    let { images } = that.data;
+    let { images, disabled } = that.data;
+    if (disabled == false) {
+      that.setData({
+        disabled: true
+      })
+    } else {
+      return
+    }
     ServerData.initUserInfoSix({ images }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
@@ -44,18 +54,25 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-            }
-          }
-        })
+        if (disabled) {
+          setTimeout(() => {
+            wx.showModal({
+              title: '提示',
+              content: '是否不修改信息',
+              success(res) {
+                if (res.confirm) {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                } else if (res.cancel) {
+                  that.setData({
+                    disabled: false
+                  })
+                }
+              }
+            })
+          }, 350);
+        }
       } else {
         ServerData._wxTost(res.data.msg)
       }

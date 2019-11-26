@@ -163,6 +163,10 @@ Page({
         mCode: e.detail.value,
         status1: true,
       })
+    }else {
+      this.setData({
+        status1: false
+      })
     }
     if (this.data.mobile != '' && e.detail.value != '') {
       this.setData({
@@ -177,17 +181,31 @@ Page({
 
   },
   getPassword(e) {
-    this.setData({
-      password: e.detail.value,
-      status2: true,
-    })
+    if (e.detail.value != '') {
+      this.setData({
+        password: e.detail.value,
+        status2: true,
+      })
+    }else {
+      this.setData({
+        status2: false
+      })
+    }
+   
   },
 
   comfirnPasd(e) {
-    this.setData({
-      comPasd: e.detail.value,
-      status3: true,
-    })
+    if (e.detail.value != '') {
+      this.setData({
+        comPasd: e.detail.value,
+        status3: true,
+      })
+    }else {
+      this.setData({
+        status3: false
+      })
+    }
+    
   },
   deletetext: function (e) {
     this.setData({

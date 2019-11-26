@@ -62,8 +62,8 @@
 
 .search-icon {
   margin-left: 26rpx;
-  width: 24rpx;
-  height: 24rpx;
+  width: 32rpx;
+  height: 32rpx;
 }
 
 /* 头部 */
@@ -116,7 +116,7 @@
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
-  font-size: 25rpx;
+  font-size: 16rpx;
   padding: 0 10rpx;
 }
 
@@ -174,7 +174,7 @@
   align-items: center;
   font-size: 28rpx;
   color: #fff;
-  margin-top: 20rpx;
+  margin: 16rpx 0;
 }
 
 .c-msg {
@@ -185,7 +185,6 @@
 }
 
 .company-status {
-  margin-top: 14rpx;
   font-size: 26rpx;
   color: #686868;
   font-weight: 500;

@@ -1,7 +1,7 @@
 <view class="information">
-    <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
-    <view class="in_left">个人信息</view>
-  </view>
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="in_left">个人信息</view>
+</view>
 <view class="user_header">
   <view class="liaojie">请填写真实信息，方便企业了解</view>
   <text class="iconfont  .icon-cha"></text>
@@ -11,7 +11,7 @@
   <view class="user_name">
     <view class="us_left">
       <view class="us_l_top">
-        <view wx:if="{{getUData.name=='' || getUData.name==null }}"  class="us_l_t_name">请完善个人信息</view>
+        <view wx:if="{{getUData.name=='' || getUData.name==null }}" class="us_l_t_name">请完善个人信息</view>
         <view wx:else class="us_l_t_name">{{getUData.name}}</view>
         <navigator url="../../public/userContent/userInfo">
           <text class="iconfont  .icon-bianji"></text>
@@ -26,7 +26,7 @@
         class="us_l_bottom">
       </view>
       <view wx:else class="us_l_bottom">
-        {{getUData.work_age}} 年经验 | {{getUData.age}} 岁 | {{getUData.school_type}}
+        {{getUData.work_age}} | {{getUData.age}} 岁 | {{getUData.school_type}}
       </view>
     </view>
     <image mode="aspectFit" bindtap="openActionsheet" class="us_img" src="{{getUData.avatar}}" />
@@ -210,14 +210,15 @@
       <view class="yiwanshan" wx:else>已通过审核</view>
     </view>
     <view wx:if="{{getUData.audit_status.status== -1}}" class="us_l_bottom">
-      <view>{{getUData.audit_status.remark}}</view>
+      <view class="size-28_zhuangtai">{{getUData.audit_status.remark}}</view>
     </view>
   </view>
 
   <view class='set-option-1'>
-    <button
-      wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status == -1 ||getUData.audit_status == null}}"
-      class='s-1-option' bindtap='shenhe'>提交审核</button>
+    <button wx:if="{{ getUData.audit_status.status == -1 ||getUData.audit_status == null}}" class=' {{bgc}} s-1-option_user'
+      bindtap='shenhe'>提交审核</button>
+    <button wx:elif="{{getUData.audit_status.status == 0 }}"
+      class='s-1-option_yi'>审核中,请耐心等待</button>
     <button wx:else class='s-1-option_yi'>审核通过</button>
   </view>
 </view>

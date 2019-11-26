@@ -14,9 +14,14 @@ Page({
     sameDay2: '请选择在职时间',
     jingli: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
     experience: [],   // 工作经验上传  
-    isShow: true
+    isShow: true,
+    disabled: false // 点击一次的开关
   },
-
+  onShow() {
+    this.setData({
+      disabled: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -77,21 +82,28 @@ Page({
   },
   // 上传数据
   initUserInfoTwo() {
+    let that =this
     let { experience } = this.data
     for (let i in experience) {
       if (experience[i].data1 == '' || experience[i].data2 == '') {
         return ServerData._wxTost('请填写完整的工作经验')
       }
     }
+    that.setData({
+      disabled: true
+    })
     ServerData.initUserInfoTwo({ experience }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -101,6 +113,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })

@@ -14,11 +14,11 @@
     </view>
     <view class="main">
       <view class="m_top">联系人名称</view>
-      <input bindinput="inputContactsName" placeholder="请输入姓名" value="{{contacts}}" />
+      <input bindinput="inputContactsName" placeholder-style="font-size: 36rpx;opacity:0.4;" placeholder="请输入姓名" value="{{contacts}}" />
     </view>
     <view class="main">
       <view class="m_top">联系人手机号码</view>
-      <input bindinput="inputContactsMobile" placeholder="请输入联系人手机号码" value="{{mobile}}" />
+      <input bindinput="inputContactsMobile" placeholder-style="font-size: 36rpx;opacity:0.4;" placeholder="请输入联系人手机号码" value="{{mobile}}" />
     </view>
   </view>
   <view class="footer">

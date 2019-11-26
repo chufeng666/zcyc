@@ -2,26 +2,10 @@ page {
   background: #fff;
 }
 
-/* 头部 */
-.title_login {
-  display: flex;
-  align-items: center;
-  margin-top: 64rpx;
-  color: #999;
-  padding: 0 16rpx;
-}
 
-.title_login .icon-zuojiantou {
-  font-size: 60rpx;
+.inner {
+  margin-top: 145rpx;
 }
-
-.title_login .tl_denglu {
-  font-size: 36rpx;
-  font-weight: 500;
-  margin-bottom: 7rpx;
-}
-
-/* 头部 */
 
 /* 微信授权 */
 

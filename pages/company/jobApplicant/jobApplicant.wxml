@@ -5,16 +5,20 @@
   </view>
   <view class="h-bottom">
     <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-    <input bindconfirm="bindconfirm" placeholder="一级建造师" bindinput="handeSearchInput" class='search-nosearch'></input>
+    <input bindconfirm="bindconfirm" placeholder="请输入岗位" bindinput="handeSearchInput" class='search-nosearch'></input>
   </view>
 </view>
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="province">
       <text class="dizhi" wx:if="{{city=='' && district==''&& type=='' && education==''}}"
-        decode="{{true}}">{{hiringData[0].city}}-{{hiringData[0].district}}&nbsp;&nbsp;|&nbsp;&nbsp;{{hiringData[0].school_type}}&nbsp;&nbsp;|&nbsp;&nbsp;{{hiringData[0].job_intention}}</text>
+        decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;学历&nbsp;&nbsp;/&nbsp;&nbsp;职位</text>
+      <text class="dizhi" wx:elif="{{city=='' && district==''}}"
+        decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;{{type}}</text>
+      <text class="dizhi" wx:elif="{{type=='' && education==''}}"
+        decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;学历&nbsp;&nbsp;/&nbsp;&nbsp;职位</text>
       <text class="dizhi" wx:else
-        decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;|&nbsp;&nbsp;{{education}}&nbsp;&nbsp;|&nbsp;&nbsp;{{type}}</text>
+        decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;{{type}}</text>
     </view>
     <view class="n-search">
       <view class="newsite_button active" bindtap="selectDistrict">

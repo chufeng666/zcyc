@@ -71,9 +71,11 @@
   padding-bottom: 10rpx;
   border-bottom: 1rpx solid #dedede;
 }
-.inputXinxi{
+
+.inputXinxi {
   opacity: 0.4;
 }
+
 .name_size {
   margin-bottom: 48rpx;
   font-size: 28rpx;
@@ -87,7 +89,13 @@
   font-size: 30rpx;
   border-radius: 36rpx;
 }
-.inputXinxi-real{
+
+.inputXinxi-real {
   font-weight: bold;
   color: #262626;
+}
+
+.info_bt[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
 }

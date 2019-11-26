@@ -10,9 +10,14 @@ Page({
     isShow2: true,
     idcard_front: [],
     idcard: '',  // 省份证号码
-    status: 0 //审核
+    status: 0, //审核
+    disabled: false // 点击一次的开关
   },
-
+  onShow() {
+    this.setData({
+      disabled: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,7 +28,6 @@ Page({
   initUserInfo5() {
     let that = this;
     ServerData.initUserInfo5({}).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           idcard: res.data.data.idcard,
@@ -37,6 +41,9 @@ Page({
   // 上传身份证
   initUserInfoFive() {
     let that = this;
+    that.setData({
+      disabled: true
+    })
     let { idcard, idcard_back, idcard_front } = that.data
     ServerData.initUserInfoFive({ idcard, idcard_back, idcard_front }).then((res) => {
       if (res.data.status == 1) {
@@ -47,6 +54,9 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -56,6 +66,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })
@@ -70,7 +83,6 @@ Page({
     if (status == 1) {
       ServerData._wxTost('审核已完成,不可更改')
     } else {
-
       wx.chooseImage({
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
@@ -118,9 +130,18 @@ Page({
   },
   // 身份证号码
   inputIdcard(e) {
-    this.setData({
-      idcard: e.detail.value
-    })
+    let that = this
+    let { status } = this.data;
+    if (status == 1) {
+      that.setData({
+        disabled: true
+      })
+      return ServerData._wxTost('审核已完成,不可更改')
+    } else {
+      this.setData({
+        idcard: e.detail.value
+      })
+    }
   },
   detil() {
     wx.navigateBack({

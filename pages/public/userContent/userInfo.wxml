@@ -61,5 +61,5 @@
     <address-form id='address' bind:tabEvent="tabEvent"></address-form>
     <!-- 地址选择接受 -->
   </view>
-  <button class="info_bt" bindtap="initUserInfoOne">保存</button>
+  <button class="info_bt" disabled="{{disabled}}" catchtap="initUserInfoOne">保存</button>
 </view>

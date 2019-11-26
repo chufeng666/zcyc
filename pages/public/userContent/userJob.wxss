@@ -12,15 +12,17 @@
   padding-bottom: 29rpx;
   border-bottom: 1rpx solid #dedede;
 }
-.inputXinxi{
+
+.inputXinxi {
   opacity: 0.4;
 }
+
 .xizi {
   color: var(--themeColor);
 }
 
 .job_bt {
-  margin-top: 313rpx;
+  margin-top: 200rpx;
   height: 72rpx;
   line-height: 72rpx;
   text-align: center;
@@ -36,18 +38,77 @@
   font-weight: normal;
   color: #262626;
 }
-.inputXinxi-real{
+
+.inputXinxi-real {
   font-weight: bold;
   color: #262626;
 }
-.inputXinxi-red{
+
+.inputXinxi-red {
   font-weight: bold;
   color: var(--themeColor);
 }
+
 .job_whole {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
+/* 职业证书 */
+.userId_main .userId_img {
+  margin-bottom: 0;
+}
+
+.userId_shangchuang {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+  background-color: #dedede;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  opacity: 0.8;
+  margin-bottom: 200rpx;
+}
+
+.icon-hao {
+  font-weight: bold;
+  margin-right: 15rpx;
+}
+
+
+.del {
+  width: 178rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  background-color: #dedede;
+  color: #1487F1;
+  margin-right: 12rpx;
+  font-size: 30rpx;
+}
+
+.add {
+  width: 442rpx;
+  height: 72rpx;
+  background-color: var(--themeColor);
+  color: #fff;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+}
+
+
+.inpuTitle {
+  margin-top: 30rpx;
+  color: #262626;
+}
+.job_bt[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
+}
+@import "userId";
 @import "/pages/template/font";
 @import "/pages/template/common1/common1";
+@import "/pages/template/common";

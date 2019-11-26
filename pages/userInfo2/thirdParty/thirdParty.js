@@ -37,16 +37,17 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // 3 简单做一些验证 trim() 
-    if (!value.trim()) {
-      this.setData({
-        goods: [],
-        inputValue: "",
-        isFocus: false
-      })
-      // 不合法 
-      return;
-    }
+    console.log(value);
+    // // 3 简单做一些验证 trim() 
+    // if (!value.trim()) {
+    //   this.setData({
+    //     goods: [],
+    //     inputValue: "",
+    //     isFocus: false
+    //   })
+    //   // 不合法 
+    //   return;
+    // }
     this.setData({
       isShowInfo: true
     })
@@ -71,8 +72,8 @@ Page({
     }
     let _opt = {
       'type': type,
-      'title': value,
-      'regtype': 2,
+      'company_name': value,
+      'regtype': 1,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district

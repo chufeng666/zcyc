@@ -19,7 +19,7 @@
         value="{{item.data2}}" />
     </view>
     <view class="zaizhiDate">
-      <text class="name_size">在职时间</text>
+      <text class="name_size">开始时间/结束时间</text>
       <view class="zzd_bt">
         <picker class="zzd_bt_data" fields="month" mode="date" data-index="{{index}}" range="{{sameDay}}"
           value="{{item.data3}}" bindchange="setSameDay">
@@ -35,9 +35,9 @@
       </view>
     </view>
     <view class="jingli  gongsi">
-      <text class="name_size">开始结束时间</text>
+      <text class="name_size">主要职责</text>
       <textarea bindinput="onContentChange" data-index="{{index}}" value="{{item.data5}}" class="jieshao"
-        placeholder="请输入项目经历"></textarea>
+        placeholder="请输入主要职责"></textarea>
     </view>
   </view>
   <view class="userId_main" wx:if="{{isShow}}">
@@ -46,7 +46,5 @@
       <view>项目描述</view>
     </view>
   </view>
+  <button class="info_bt" disabled="{{disabled}}" bindtap='initUserInfoFour'>保存</button>
 </view>
-<footer class="pro_ft">
-  <button class="add" bindtap='initUserInfoFour'>保存</button>
-</footer>

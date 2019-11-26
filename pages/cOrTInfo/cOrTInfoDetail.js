@@ -12,6 +12,7 @@ Page({
     pList: [],          //公司招聘列表
     companyId: '', 
     pBgC: '',                            //动态获背景颜色 
+    pColor: '',                            //动态获字体颜色 
     tabs: [
       { id: 0, name: '公司介绍', isActive: true },
       { id: 1, name: '最新招聘', isActive: false }
@@ -30,12 +31,14 @@ Page({
     if (savePostion == 1 || savePostion == 2) {
       savePostion = 1
       this.setData({
-        pBgC: util.loginIdentity().pBC
+        pBgC: util.loginIdentity().pBC,
+        pColor: util.loginIdentity().pColor,
       })
     } else {
       savePostion = 3
       this.setData({
-        pBgC: util.loginIdentity().pBgC
+        pBgC: util.loginIdentity().pBgC,
+        pColor: util.loginIdentity().pColor,
       })
     }
     this.setData({

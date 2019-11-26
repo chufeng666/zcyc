@@ -94,7 +94,7 @@ Page({
     // // 4 正常
     setTimeout(() => {
       this.reqIndex(value);
-    }, 1000);
+    }, 0);
   },
   bindfocus(e) {
     this.setData({
@@ -120,10 +120,16 @@ Page({
     } else {
       require_cert = ''
     }
-    if (type && education && work_age === '全部' || salary === '不限') {
-      type = '';
-      education = '';
+    if (work_age == '全部') {
       work_age = '';
+    }
+    if (type  == '全部' ) {
+      type = '';
+    }
+    if ( education  == '全部' ) {
+      education = '';
+    }
+    if ( salary == '不限') {
       salary = ''
     }
     let _opt = {

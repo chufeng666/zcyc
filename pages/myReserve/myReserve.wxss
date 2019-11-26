@@ -3,7 +3,7 @@
 @import "/pages/template/common1/common1";
 
 .inner {
-  margin-top: 128rpx;
+  margin-top: 180rpx;
 }
 
 .yuding {

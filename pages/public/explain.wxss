@@ -5,7 +5,7 @@
 }
 
 .e-content{
-  margin-top: 127rpx;
+  margin-top: 180rpx;
   padding:30rpx 24rpx;
   color:#3c3c3c;
   font-size:26rpx;

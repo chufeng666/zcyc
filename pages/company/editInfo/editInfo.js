@@ -245,7 +245,8 @@ Page({
 
 
   saveEditInfo: function () {
-    ServerData.companyShenhe({}).then((res) => {
+    let regtype = wx.getStorageSync("savePostion")
+    ServerData.companyShenhe({ regtype }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
         setTimeout(() => {
@@ -253,7 +254,8 @@ Page({
             url: '../cUserInfo/cUserInfo',
           })
         }, 1000);
-
+      } else if (res.data.status == -1) {
+        ServerData._wxTost('审核失败，请重新修改信息');
       } else {
         ServerData._wxTost(res.data.msg);
       }

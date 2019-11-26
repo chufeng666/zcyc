@@ -132,9 +132,10 @@ Page({
           })
         }, 1000);
       } else if(res.data.status == -1) {
-        
+        ServerData._wxTost('审核失败，请重新修改信息');
+      }else {
+        ServerData._wxTost(res.data.msg);
       }
-      ServerData._wxTost(res.data.msg);
     })
   },
   detil() {

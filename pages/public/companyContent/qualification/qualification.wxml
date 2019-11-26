@@ -1,8 +1,8 @@
 <!-- 头部 -->
 <view class='i-header'>
-    <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
-    <view class="h-left">公司资质</view>
-  </view>
+  <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
+  <view class="h-left">公司资质</view>
+</view>
 <view class="inner">
   <view class="header">
     <view class="top">
@@ -17,8 +17,8 @@
         <view class="m_top">公司资质</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input wx:if="{{seniority===null}}" bindinput="inputSeniority" data-index="{{index}}" placeholder="请输入公司资质" />
-      <input wx:else bindinput="inputSeniority" data-index="{{index}}" value="{{item}}" placeholder="请输入公司资质" />
+      <input bindinput="inputSeniority" placeholder-style="font-size: 36rpx;opacity:0.4;" data-index="{{index}}"
+        value="{{item}}" placeholder="请输入公司资质" />
     </view>
     <view class="userId_shangchuang" bindtap="addSeniority" wx:if="{{isShow}}">
       <text class="iconfont  .icon-hao"></text>

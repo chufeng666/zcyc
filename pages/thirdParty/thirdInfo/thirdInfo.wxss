@@ -234,6 +234,8 @@ page {
 }
 
 /* <!-- USER OPTION START --> */
-
+.yiwanshan{
+  color: var(--themeColor);
+}
 /* 主体 */
-@import '../../template/font';
+@import '/pages/template/font';

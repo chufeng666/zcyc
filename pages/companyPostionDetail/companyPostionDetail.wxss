@@ -9,18 +9,20 @@
 
 /* SRARCH INFO START */
 
-.inner {
-}
-.yuangongfuliguanli{
+.inner {}
+
+.yuangongfuliguanli {
   width: 34rpx;
   height: 34rpx;
   margin-right: 16rpx;
 }
-.zhengshuicon{
+
+.zhengshuicon {
   width: 30rpx;
   height: 30rpx;
   margin-right: 16rpx;
 }
+
 .search-inner {
   margin: 25rpx 0 10rpx;
   display: flex;
@@ -67,8 +69,7 @@
   top: 30rpx;
 }
 
-.collect_tab {
-}
+.collect_tab {}
 
 /* CONTENT STAT */
 
@@ -80,6 +81,8 @@
 
 .list_name {
   display: flex;
+  align-items: center;
+  margin-bottom: 21rpx;
 }
 
 .icon-nv {
@@ -87,7 +90,11 @@
   padding-top: 6rpx;
   margin-left: 24rpx;
 }
-
+.icon-nan {
+  color: #f10180;
+  padding-top: 6rpx;
+  margin-left: 24rpx;
+}
 .icon-baobao {
   margin-right: 8rpx;
 }
@@ -95,12 +102,14 @@
 .d-c-list {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 40rpx 30rpx;
   border-bottom: 16rpx solid #dedede;
 }
 
 .d-c-list:nth-child(4) {
   border-bottom: none;
+  margin-bottom: 300rpx;
 }
 
 /* list */
@@ -211,15 +220,19 @@
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 20rpx 32rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
+ background-color: #fff;
+ border-top: 1rpx solid #dedede;
 }
 
-.c-list-info-jinyan {
-}
+
 
 .footer-right {
   display: flex;
@@ -255,6 +268,13 @@
   color: #686868;
   background-color: #e3e3e3;
 }
-.zhanshi{
+
+.zhanshi {
   margin-bottom: 46rpx;
+}
+
+.zanwu {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #262626;
 }

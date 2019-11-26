@@ -48,11 +48,11 @@
       <view class="youmihuobi">
         <navigator url="/pages/company/myPurse/myPurse" class='u-o-qianbao'>
           <view class="u-o_left">
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
             <text>我的谷仓</text>
           </view>
           <view class="user_price">
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
             <view wx:if="{{userData.balance==null ||userData.balance=='null'}}" class="usp_yuer">暂无余额,赶快去充值吧</view>
             <view wx:else class="usp_yuer">{{userData.balance}}</view>
             <text class='iconfont icon-youjiantou user-color-'></text>
@@ -62,44 +62,45 @@
       <view class="user_caozuo">
         <view class="uscz_neirong">
           <navigator url="../collect/collect" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shouc.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_shouc.png" />
             <view class="u-o_left">
               <text>我的收藏</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <navigator url="../../jobList/jobList" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_zhengshu.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_zhengshu.png" />
             <view class="u-o_left">
               <text>招聘信息</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <navigator url="../../myReserve/myReserve" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shimingrenz.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/wodeyuding.png" />
             <view class="u-o_left">
               <text>我的预定</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
           <navigator url="../privacySettings/privacySettings" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
             <view class="u-o_left">
               <text>简历推送</text>
               <text class='iconfont icon-youjiantou user-color-'></text>
             </view>
           </navigator>
-          <navigator url="" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shoucfankui.png" />
+          <view url="" class='u-o-list'>
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_shimingrenz.png" />
             <view class="u-o_left" style="width:628rpx">
               <text>实名验证</text>
-              <text class='iconfont icon-youjiantou user-color-'></text>
+              <view class="yiwanshan" wx:if="{{audit_status  == null ||audit_status.status == 0 ||audit_status.status == -1}}">未验证</view>
+              <view class="yiwanshan" wx:else>已验证</view>
             </view>
-          </navigator>
-          <navigator url="../../public/help" class='u-o-list'>
-            <image class="user_img" src="../../../static/images/bar_icon/user/Xiaocx_gerenzhongx_shoucfankui.png" />
+          </view>
+          <navigator url="/pages/information/information" class='u-o-list'>
+            <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_shoucfankui.png" />
             <view class="u-o_left">
-              <text>帮助与反馈</text>
+              <text>我的消息</text>
             </view>
           </navigator>
         </view>

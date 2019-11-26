@@ -2,7 +2,7 @@
 @import "/pages/template/font";
 @import "/pages/template/common1/common1.wxss";
 .inner{
-  margin-top: 128rpx;
+  margin-top: 180rpx;
 }
 .yuding {
   padding: 0 24rpx;

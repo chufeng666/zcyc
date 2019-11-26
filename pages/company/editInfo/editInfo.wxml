@@ -26,7 +26,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>联系人</view>
-            <view class="yiwanshan">已完善</view>
+            <!-- <view class="yiwanshan">已完善</view> -->
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
             <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-28">请填写来联系人</view>
@@ -51,7 +51,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>行业标签</view>
-            <view class="yiwanshan">已完善</view>
+            <!-- <view class="yiwanshan">已完善</view> -->
           </view>
           <navigator url="../../public/companyContent/label/label">
             <view class="ec_bt">
@@ -65,7 +65,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>公司资质</view>
-            <view class="yiwanshan">已完善</view>
+            <!-- <view class="yiwanshan">已完善</view> -->
           </view>
           <navigator url="../../public/companyContent/qualification/qualification">
             <view class="ec_bt">
@@ -96,14 +96,14 @@
             <view class="yiwanshan" wx:else>已通过审核</view>
           </view>
           <view class="ec_bt" wx:if="{{userList.audit_status.status == -1}}">
-            <view class="size-28">{{userList.audit_status.remark}}</view>
+            <view class="size-28_zhuangtai">{{userList.audit_status.remark}}</view>
           </view>
         </view>
       </view>
       <view>
         <view class='set-option-1'>
-          <button
-            wx:if="{{getUData.audit_status.status == 0  ||  getUData.audit_status.status == -1 ||getUData.audit_status.status == null}}"
+          <button wx:if="{{userList.audit_status.status == 0 }}" class='s-1-option_yi'>审核中，请耐心等待</button>
+          <button wx:elif="{{  userList.audit_status.status == -1 || userList.audit_status == null}}"
             class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
           <button wx:else class='s-1-option_yi'>审核通过</button>
         </view>

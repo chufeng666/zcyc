@@ -60,19 +60,19 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // 3 简单做一些验证 trim() 
-    if (!value.trim()) {
-      this.setData({
-        recList: [],
-      })
-      // 不合法 
-      return;
-    }
+    // // 3 简单做一些验证 trim() 
+    // if (!value.trim()) {
+    //   this.setData({
+    //     recList: [],
+    //   })
+    //   // 不合法 
+    //   return;
+    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.getCompanyList(value);
-    }, 1000);
+    }, 0);
   },
 
   lookMore() {
@@ -90,7 +90,7 @@ Page({
     let _opt = {
       "type": type,
       "company_name": value,
-      'regtype': 2,
+      'regtype': 1,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,

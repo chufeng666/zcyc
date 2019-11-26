@@ -16,7 +16,7 @@
       <text class="bitian">必填</text>
     </view>
     <view class="us_hd_id">
-      <input class="us_hd_id_num" type="number" bindinput="inputIdcard" placeholder="请填写身份证号码" value="{{idcard}}" />
+      <input class="us_hd_id_num" type="idcard" disabled="{{disabled}}"  bindinput="inputIdcard" placeholder="请填写身份证号码" value="{{idcard}}" />
     </view>
   </view>
   <view class="userId_main">
@@ -31,7 +31,7 @@
         src="../../../static/images/bar_icon/user/edit/shengfengzheng_beimian.png" />
       <image mode="aspectFit" wx:else bindtap="addIdCardPic2" class="userId_img" src="{{idcard_front}}" />
     </view>
-    <button wx:if="{{status==0 || status==-1 || status==null}}" class="userId_bt" bindtap="initUserInfoFive">确定上传</button>
+    <button wx:if="{{status==0 || status==-1 || status==null}}" disabled="{{disabled}}" class="userId_bt" bindtap="initUserInfoFive">保存</button>
     <button wx:else class="userId_bt shenhe">审核成功</button>
   </view>
 </view>

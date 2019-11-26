@@ -2,7 +2,7 @@
 @import "/pages/template/common1/common1";
 @import "/pages/template/font";
 .jobWrap{
-  margin-top: 128rpx;
+  margin-top: 180rpx;
 }
 
 .main_top {

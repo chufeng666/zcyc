@@ -68,14 +68,14 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // 3 简单做一些验证 trim() 
-    if (!value.trim()) {
-      this.setData({
-        recList: [],
-      })
-      // 不合法 
-      return;
-    }
+    // // 3 简单做一些验证 trim() 
+    // if (!value.trim()) {
+    //   this.setData({
+    //     recList: [],
+    //   })
+    //   // 不合法 
+    //   return;
+    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
@@ -90,8 +90,8 @@ Page({
       type = ''
     }
     let _opt = {
-      'title': value,
-      'regtype': 1,
+      'company_name': value,
+      'regtype': 2,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,

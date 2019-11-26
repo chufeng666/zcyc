@@ -5,7 +5,7 @@
     <view class='search-cont s-nosearch-wrap'>
       <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
       <input bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
-        class='search-nosearch' placeholder="一级建造师" />
+        class='search-nosearch' placeholder="请输入岗位" />
     </view>
   </view>
   <view class="new">
@@ -109,7 +109,7 @@
 <!-- 搜寻部分 -->
 
 <!-- 搜索历史部分 -->
-<view wx:else class="sousuolishi">
+<!-- <view wx:else class="sousuolishi">
   <view class="history">
     <view class="history_search">
       <view class="hs_top">
@@ -138,7 +138,7 @@
       <view class="zw_security-officer">安全员</view>
     </view>
   </view>
-</view>
+</view> -->
 <!-- 搜索历史部分 -->
 
 

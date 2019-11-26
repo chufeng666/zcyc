@@ -12,6 +12,7 @@
   font-size: 32rpx;
   font-weight: bold;
   color: #262626;
+  margin-top: 45rpx;
 }
 
 .userId_main {
@@ -85,6 +86,11 @@
 
 .shenhe {
   background-color: #686868;
+}
+
+.userId_bt[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
 }
 @import "/pages/template/font";
 @import "/pages/template/common1/common1";

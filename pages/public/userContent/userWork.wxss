@@ -87,6 +87,7 @@
   border-radius: 10rpx;
   font-size: 26rpx;
   opacity: 0.8;
+  margin-bottom: 200rpx;
 }
 
 .icon-hao {
@@ -124,6 +125,10 @@
 .radio-group {
   font-size: 28rpx;
 }
-
+.info_bt[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
+}
 @import "/pages/template/font";
-@import "/pages/template/common1/common1"
+@import "/pages/template/common1/common1";
+@import "/pages/template/common"

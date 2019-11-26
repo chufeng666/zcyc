@@ -48,7 +48,10 @@ Page({
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      showTST: info.showTST
+      showTST: info.showTST,
+      province: info.province,
+      city: info.city,
+      district: info.area,
     })
     this.getCompanyList()
     // this.hiring()             //主页信息
@@ -67,18 +70,18 @@ Page({
     // 2 输入框的值
     const { value } = e.detail;
     // 3 简单做一些验证 trim() 
-    if (!value.trim()) {
-      this.setData({
-        recList: [],
-      })
-      // 不合法 
-      return;
-    }
+    // if (!value.trim()) {
+    //   this.setData({
+    //     recList: [],
+    //   })
+    //   // 不合法 
+    //   return;
+    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.getCompanyList(value);
-    }, 1000);
+    }, 0);
   },
 
   // lookMore() {
@@ -96,7 +99,7 @@ Page({
     let _opt = {
       "type": type,
       "company_name": value,
-      'regtype': 1,
+      'regtype': 2,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,

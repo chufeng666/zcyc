@@ -5,7 +5,10 @@
 
 /* 头部 */
 .xiaoxi_header {
-  background-color: var(--themeColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 127rpx;
   line-height: 170rpx;
 }
@@ -25,6 +28,7 @@
 /* 头部 */
 .inner {
   background: #fff;
+  margin-top: 127rpx;
   padding: 25rpx 30rpx;
 }
 
@@ -32,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .create-time {
@@ -54,8 +59,8 @@
 
 .show {
   position: absolute;
-  top: 6rpx;
-  left: 90rpx;
+  top: 17rpx;
+  left: 93rpx;
   width: 28rpx;
   height: 28rpx;
   border-radius: 50%;

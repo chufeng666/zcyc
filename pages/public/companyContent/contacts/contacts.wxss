@@ -38,7 +38,7 @@
 
 .main input {
   font-size: 36rpx;
-  opacity: 0.4;
+  color: #262626;
 }
 
 .footer {

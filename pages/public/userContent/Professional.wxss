@@ -1,5 +1,6 @@
 @import "/pages/template/font";
 @import "/pages/template/common1/common1";
+@import "/pages/template/common";
 
 
 .userId_main .userId_img {
@@ -16,6 +17,7 @@
   border-radius: 10rpx;
   font-size: 26rpx;
   opacity: 0.8;
+  margin-bottom: 200rpx;
 }
 
 .icon-hao {
@@ -23,13 +25,6 @@
   margin-right: 15rpx;
 }
 
-.pro_ft {
-  margin-top: 200rpx;
-  padding: 80rpx 56rpx;
-  display: flex;
-  align-items: center;
-
-}
 
 .del {
   width: 178rpx;
@@ -59,5 +54,9 @@
 .inpuTitle-real{
   margin-top: 30rpx;
   color: #262626;
+}
+.info_bt[disabled] {
+  background-color: var(--themeColor) !important;
+  color: #fff !important;
 }
 @import "userId";

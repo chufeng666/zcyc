@@ -14,7 +14,7 @@
     </view>
     <view class="main">
       <view class="m_top"></view>
-      <input maxlength="4" class="biaoqian" bindinput="inputBiaoqian" placeholder="请输入不超过四个字符行业标签" />
+      <input maxlength="4" class="biaoqian"  placeholder-style="font-size: 36rpx;opacity:0.4;" bindinput="inputBiaoqian" placeholder="请输入不超过四个字符行业标签" />
       <view bindtap="addBiaoqian">添加标签</view>
     </view>
     <view class="setLabel">

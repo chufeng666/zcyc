@@ -116,3 +116,8 @@
   border-radius: 10rpx;
   color: #fff;
 }
+.size-28_zhuangtai{
+  color: var(--themeColor);
+  font-size: 28rpx;
+  font-weight: bold;
+}

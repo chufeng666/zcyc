@@ -43,6 +43,7 @@ Page({
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
       this.getUserInfo()
     }
+    this.initUserInfo();
   },
   //主页信息请求
   getUserInfo: function (value) {
@@ -55,10 +56,16 @@ Page({
     } else {
       require_cert = ''
     }
-    if (type && education && work_age === '全部' || salary === '不限') {
-      type = '';
-      education = '';
+    if (work_age == '全部') {
       work_age = '';
+    }
+    if (type  == '全部' ) {
+      type = '';
+    }
+    if ( education  == '全部' ) {
+      education = '';
+    }
+    if ( salary == '不限') {
       salary = ''
     }
     let _opt = {
@@ -126,7 +133,7 @@ Page({
     // // 4 正常
     setTimeout(() => {
       this.getUserInfo(value);
-    }, 1000);
+    }, 0);
   },
   bindfocus(e) {
     this.setData({
@@ -146,9 +153,9 @@ Page({
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
+      province: info.province,
+      city: info.city,
+      district: info.area,
       showTST: info.showTST
     })
     this.getUserInfo()

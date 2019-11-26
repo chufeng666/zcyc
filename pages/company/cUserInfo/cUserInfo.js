@@ -8,8 +8,9 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		userData:{},
-    	timer:''
+		userData: {},
+		timer: '',
+		audit_status: '' // 实名验证
 	},
 
 	/**
@@ -19,26 +20,27 @@ Page({
 		util.getStorageItem('savePostion', app)   //获取底部导航
 	},
 
-	onShow(){
+	onShow() {
 		this.requserData();     //初始化数据
+		this.getCompayInfo();
 	},
 	/**
 	 * 获取公司信息
 	 */
-	requserData:function(){
+	requserData: function () {
 		ServerData.userInfo({}).then((res) => {
 			if (res.data.status == 1) {
-        var time = ServerData._timeStampForwardAate(res.data.data.vip_time)
+				var time = ServerData._timeStampForwardAate(res.data.data.vip_time)
 				this.setData({
 					userData: res.data.data,
-          			timer: time
+					timer: time
 				})
-			}  
-			else if (res.data.status == -1){
+			}
+			else if (res.data.status == -1) {
 				wx.redirectTo({
 					url: '../../login/login'
 				})
-			}else{
+			} else {
 				ServerData._wxTost(res.data.msg)
 			}
 		})
@@ -52,32 +54,38 @@ Page({
 			url: '../../jobList/editJobList',
 		})
 	},
-  //切换账号
-  switchUser() {
-    wx.showModal({
-      // title: '提示',
-      content: '是否切换账号?',
-      confirmText: '是',
-      confirmColor: '#be4cff',
-      cancelText: '否',
-      cancelColor: '#666',
-      success(res) {
-        if (res.confirm) {
-          wx.removeStorageSync('token')
-          wx.removeStorageSync('savePostion')
-          wx.reLaunch({
-            url: '../../login/login'
-          })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
-	}
+	//切换账号
+	switchUser() {
+		wx.showModal({
+			// title: '提示',
+			content: '是否切换账号?',
+			confirmText: '是',
+			confirmColor: '#1487f1',
+			cancelText: '否',
+			cancelColor: '#666',
+			success(res) {
+				if (res.confirm) {
+					wx.removeStorageSync('token')
+					wx.removeStorageSync('savePostion')
+					wx.reLaunch({
+						url: '../../login/login'
+					})
+				} else if (res.cancel) {
+					console.log('用户点击取消')
+				}
+			}
+		})
+	},
+	// 实名验证
+	getCompayInfo() {
+		let regtype = wx.getStorageSync("savePostion")
+		ServerData.getCompayInfo({ regtype }).then((res) => {
+			if (res.data.status == 1) {
+				var info = res.data.data
+				this.setData({
+					audit_status: info.audit_status,
+				})
+			}
+		})
+	},
 })

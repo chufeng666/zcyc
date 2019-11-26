@@ -1,8 +1,4 @@
-<view class="title_login">
-  <view class="iconfont icon-zuojiantou"></view>
-  <view class="tl_denglu">登录 / 注册</view>
-</view>
-<view>
+<view class="inner">
   <view>
     <view class="log_ear">
       <image src="../../static/images/public/Xiaocx_zhuce_tubiao.png" class="xiaolian"></image>

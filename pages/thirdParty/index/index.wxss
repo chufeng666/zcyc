@@ -141,11 +141,11 @@
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
-  padding-left: 10rpx;
+  padding:0 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
-  font-size: 25rpx;
+  font-size: 16rpx;
   margin-right: 16rpx;
 }
 

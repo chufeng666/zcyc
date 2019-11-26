@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: ''
+    info: '',
+    audit_status:'' // 实名验证
   },
 
   /**
@@ -20,7 +21,8 @@ Page({
  * 生命周期函数--监听页面显示
  */
   onShow: function () {
-    this.getUserInfo()
+    this.getUserInfo();
+    this.initUserInfo();
   },
   getUserInfo () {
     var that = this
@@ -42,7 +44,7 @@ Page({
     wx.showModal({
       content: '是否切换账号?',
       confirmText: '是',
-      confirmColor: '#ff54b5',
+      confirmColor: '#d93e23',
       cancelText: '否',
       cancelColor: '#666',
       success (res) {
@@ -55,6 +57,18 @@ Page({
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+      }
+    })
+  },
+  // 实名验证
+  initUserInfo() {
+    let regtype = wx.getStorageSync("savePostion")
+    ServerData.initUserInfo({ regtype }).then((res) => {
+      if (res.data.status == 1) {
+        var info = res.data.data
+        this.setData({
+          audit_status: info.audit_status,
+        })
       }
     })
   },

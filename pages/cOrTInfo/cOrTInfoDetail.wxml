@@ -2,7 +2,7 @@
 <view class='inner'>
   <view class='global-company-list'>
     <image mode="aspectFit" src='{{cList.logo}}' class="c-logo" />
-    <view class="gcl_right">d
+    <view class="gcl_right">
       <view class='c-info-text'>
         <text class='c-info-title'>{{cList.company_name}}</text>
       </view>
@@ -37,7 +37,8 @@
     </view>
     <view class='-cOrTInfo' wx:for="{{cList.seniority}}" wx:key="id">
       <text class="iconfont  icon-icon-test"></text>
-      <view>{{item}}</view>
+      <view wx:if="{{item == '' ||item==null}}">该公司没有填写资质</view>
+      <view wx:else>{{item}}</view>
     </view>
   </view>
 </view>
@@ -91,11 +92,11 @@
       <view class='c-l-info'>
         <view class="i_list">
           <view class="l_yuan">{{item.title}}</view>
-          <view class="l_price">{{item.salary}}/月</view>
+          <view class="l_price {{pColor}}">{{item.salary}}/月</view>
         </view>
-        <view class="i_second">
-          <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-          <view>{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
+        <view class="i_second ">
+          <view class="{{pBgC}}">{{item.regtype == 1 ? "企业":"服务商"}}</view>
+          <view class="{{pBgC}}">{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
@@ -127,3 +128,6 @@
   </button>
 </view>
 <!-- bottom -->
+<view style="height: 140rpx;">
+
+</view>

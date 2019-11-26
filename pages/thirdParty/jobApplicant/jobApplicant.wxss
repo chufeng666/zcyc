@@ -115,9 +115,7 @@
   display: flex;
   align-items: center;
   background-color: #eaeaea;
-  margin-right: 0;
   height: 56rpx;
-  line-height: 56rpx;
   border-radius: 8%;
 }
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
@@ -128,10 +126,13 @@
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
   padding-left: 10rpx;
 }
-
+.newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou:first-child {
+  font-size: 16rpx;
+  padding: 0 16rpx;
+}
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
-  font-size: 25rpx;
-  margin: -2rpx 6rpx 0rpx 6rpx;
+  font-size: 16rpx;
+  padding: 0 16rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {

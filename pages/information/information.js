@@ -9,8 +9,9 @@ Page({
     cStatus: 0,
     array: [],
     page: 1,
-    rows: 10,
-    isMore: false
+    rows: 100,
+    isMore: false,
+    bgc: '',                     //动态获背景颜色    
   },
 
   /**
@@ -18,7 +19,20 @@ Page({
    */
   onLoad: function (options) {
     util.getStorageItem('savePostion', app);   //获取底部导航
-    this.messageList()
+    this.messageList();
+    let regtype = wx.getStorageSync('savePostion')
+    if (regtype == 1 || regtype == 2) {
+      this.setData({
+        isShow: false,
+        bgc: util.loginIdentity().pBC,
+        companyShow: false
+      })
+    } else {
+      this.setData({
+        bgc: util.loginIdentity().pBgC,
+        companyShow: true
+      })
+    }
   },
   // lookMore () {
   //   if (this.data.isMore === true) {
@@ -72,19 +86,22 @@ Page({
     })
   },
   fanhui() {
-    let regpyte = wx.getStorageInfo('savePostion')
-    if (regpyte == 3) {
-      wx.redirectTo({
-        url: '/pages/userInfo2/index/index'
-      });//返回上一页面
-    } else if (regpyte == 2) {
-      wx.redirectTo({
-        url: '/pages/thirdParty/index/index'
-      });//返回上一页面
-    } else {
-      wx.redirectTo({
-        url: '/pages/company/index/index'
-      });//返回上一页面
-    }
+    wx.navigateBack({
+      delta: 1,
+    });
+  //   let regpyte = wx.getStorageInfo('savePostion')
+  //   if (regpyte == 3) {
+  //     wx.redirectTo({
+  //       url: '/pages/userInfo2/userCenter/userCenter'
+  //     });//返回上一页面
+  //   } else if (regpyte == 2) {
+  //     wx.redirectTo({
+  //       url: '/pages/thirdParty/thirdInfo/thirdInfo'
+  //     });//返回上一页面
+  //   } else {
+  //     wx.redirectTo({
+  //       url: '/pages/company/cUserInfo/cUserInfo'
+  //     });//返回上一页面
+  //   }
   }
 })

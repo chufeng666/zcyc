@@ -4,7 +4,7 @@
     <view class='search-cont s-nosearch-wrap'>
       <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
       <input bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
-        class='search-nosearch' placeholder="一级建造师" />
+        class='search-nosearch' placeholder="请输入求职岗位" />
     </view>
   </view>
   <view class="new">
@@ -59,7 +59,7 @@
         </view>
         <view class="i_second">
           <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+          <view>{{item.require_cert == 1 ? "需要证书":"无需证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
@@ -68,7 +68,7 @@
         </view>
         <view class="i_fourth">
           <image src='{{item.logo}}' class="f_logo" />
-          <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+          <view class="f_zhiwei">{{item.contacts}}</view>
           <view class="f_gongsi">[{{item.company_name}}]</view>
         </view>
       </navigator>
@@ -85,7 +85,7 @@
         </view>
         <view class="i_second">
           <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+          <view>{{item.require_cert == 1 ? "需需证书":"无需证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
@@ -94,7 +94,7 @@
         </view>
         <view class="i_fourth">
           <image src='{{item.logo}}' class="f_logo" />
-          <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+          <view class="f_zhiwei">{{item.contacts}}</view>
           <view class="f_gongsi">[{{item.company_name}}]</view>
         </view>
       </navigator>
@@ -104,7 +104,7 @@
 </view>
 
 <!-- 搜索历史部分 -->
-<view class="sousuolishi" wx:else>
+<!-- <view class="sousuolishi" wx:else>
   <view class="history">
     <view class="history_search">
       <view class="hs_top">
@@ -133,7 +133,7 @@
       <view class="zw_security-officer">安全员</view>
     </view>
   </view>
-</view>
+</view> -->
 <!-- 搜索历史部分 -->
 <view style="height: 120rpx;">
 

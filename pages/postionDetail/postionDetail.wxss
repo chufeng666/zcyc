@@ -5,6 +5,7 @@ page {
 }
 
 #wrap {
+  border-top: 16rpx solid #dedede;
   border-bottom: 16rpx solid #dedede;
   background: #fff;
   font-size: 26rpx;

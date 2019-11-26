@@ -113,14 +113,14 @@ Page({
   bindconfirm(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // 3 简单做一些验证 trim() 
-    if (!value.trim()) {
-      this.setData({
-        hiringData: [],
-      })
-      // 不合法 
-      return;
-    }
+    // // 3 简单做一些验证 trim() 
+    // if (!value.trim()) {
+    //   this.setData({
+    //     hiringData: [],
+    //   })
+    //   // 不合法 
+    //   return;
+    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {

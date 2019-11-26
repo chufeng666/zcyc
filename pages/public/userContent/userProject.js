@@ -10,7 +10,8 @@ Page({
     index1: '',
     checked: false,
     sameDay2: '',
-    sameDay: '1991.11'
+    sameDay: '1991.11',
+    disabled: false // 点击一次的开关
   },
 
   /**
@@ -22,6 +23,9 @@ Page({
 
   },
   onShow: function (option) {
+    this.setData({
+      disabled: false
+    })
   },
   // 当天时间
   sameDay() {
@@ -96,21 +100,28 @@ Page({
   },
   //上传数据
   initUserInfoFour() {
+    let that = this
     let { project } = this.data
     for (let i in project) {
-      if(project[i].data1 == '' || project[i].data1 == ''){
-        return  ServerData._wxTost('请填写完整的项目经验信息');
+      if (project[i].data1 == '' || project[i].data1 == '') {
+        return ServerData._wxTost('请填写完整的项目经验信息');
       }
     }
+    that.setData({
+      disabled: true
+    })
     ServerData.initUserInfoFour({ project }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
       } else if (res.data.status == -1) {
+        that.setData({
+          disabled: true
+        })
         wx.showModal({
           title: '提示',
           content: '是否不修改信息',
@@ -120,6 +131,9 @@ Page({
                 delta: 1
               })
             } else if (res.cancel) {
+              that.setData({
+                disabled: false
+              })
             }
           }
         })

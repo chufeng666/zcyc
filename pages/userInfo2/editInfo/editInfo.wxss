@@ -299,6 +299,16 @@
   background-color: #ff730e;
   border-radius: 10rpx 5rpx 10rpx 0;
 }
+.s-1-option_user{
+  font-size: 30rpx;
+  border-radius: 36rpx;
+  color: #fff;
+}
+.size-28_zhuangtai{
+  color: var(--themeColor);
+  font-size: 28rpx;
+  font-weight: bold;
+}
 @import '/pages/template/font.wxss';
 @import '/pages/template/common';
 @import '/pages/public/userContent/userInfo';

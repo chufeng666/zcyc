@@ -26,7 +26,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.1",
+	"libVersion": "2.9.2",
 	"appid": "wxb2321247535b62b6",
 	"projectname": "job_xcx",
 	"debugOptions": {
@@ -58,63 +58,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/userInfo2/collect/collect",
-					"pathName": "pages/userInfo2/collect/collect",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/company/collect/collect",
-					"pathName": "pages/company/collect/collect",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/help",
-					"pathName": "pages/public/help",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/company/myPurse/myPurse",
-					"pathName": "pages/company/myPurse/myPurse",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userEducation",
-					"pathName": "pages/public/userContent/userEducation",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/thirdParty/editInfo/editInfo",
-					"pathName": "pages/thirdParty/editInfo/editInfo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/company/editInfo/editInfo",
-					"pathName": "pages/company/editInfo/editInfo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/password",
-					"pathName": "pages/public/password",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }
