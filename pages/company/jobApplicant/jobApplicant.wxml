@@ -10,15 +10,45 @@
 </view>
 <view class="newest-search">
   <view class="n-xiahuaxian">
-    <view class="province">
-      <text class="dizhi" wx:if="{{city=='' && district==''&& type=='' && education==''}}"
-        decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;学历&nbsp;&nbsp;/&nbsp;&nbsp;职位</text>
-      <text class="dizhi" wx:elif="{{city=='' && district==''}}"
-        decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;{{type}}</text>
-      <text class="dizhi" wx:elif="{{type=='' && education==''}}"
-        decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;学历&nbsp;&nbsp;/&nbsp;&nbsp;职位</text>
-      <text class="dizhi" wx:else
-        decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;{{type}}</text>
+    <view class="province" wx:if="{{city == '' && education ==''}}">
+      <view class="dizhi">
+        <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text decode="{{true}}">学历&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text bindtap="selectOccupational">
+          <text wx:if="{{showTST1}}">请选择岗位</text>
+          <text wx:else>{{title}}/{{type}}</text>
+        </text>
+      </view>
+    </view>
+    <view class="province" wx:elif="{{education ==''}}">
+      <view class="dizhi">
+        <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text decode="{{true}}">学历&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text bindtap="selectOccupational">
+          <text wx:if="{{showTST1}}">请选择岗位</text>
+          <text wx:else>{{title}}/{{type}}</text>
+        </text>
+      </view>
+    </view>
+    <view class="province" wx:elif="{{city == ''}}">
+      <view class="dizhi">
+        <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text decode="{{true}}">{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text bindtap="selectOccupational">
+          <text wx:if="{{showTST1}}">请选择岗位</text>
+          <text wx:else>{{title}}/{{type}}</text>
+        </text>
+      </view>
+    </view>
+    <view class="province" wx:else>
+      <view class="dizhi">
+        <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text decode="{{true}}">{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
+        <text bindtap="selectOccupational">
+          <text wx:if="{{showTST1}}">请选择岗位</text>
+          <text wx:else>{{title}}/{{type}}</text>
+        </text>
+      </view>
     </view>
     <view class="n-search">
       <view class="newsite_button active" bindtap="selectDistrict">
@@ -46,6 +76,7 @@
 </view>
 <!-- 所有城市三级联动列表 -->
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
+<Occupational-form id='Occupational' bind:tabEvent1="tabEvent1"></Occupational-form>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

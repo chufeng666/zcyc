@@ -7,7 +7,8 @@
 <view class='inner'>
   <view class="yuding">
     <view class="bianji">
-      <view bindtap="bianji" data-aa="0" class="bj_left">编辑</view>
+      <view wx:if="{{dStatus == 0 }}" bindtap="bianji" data-aa="0" class="bj_left">编辑</view>
+      <view wx:else bindtap="bianji" data-aa="1" class="bj_left">完成</view>
       <view bindtap="detel" wx:if="{{searchLoading}}" class="bj_right">取消预订</view>
     </view>
   </view>

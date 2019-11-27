@@ -27,20 +27,16 @@ Page({
    */
   onLoad: function (options) {
     this.initUserInfo2();
-    // this.sameDay();
+
   },
-  // 当天时间
-  // sameDay() {
-  //   var timestamp = Date.parse(new Date());
-  //   var date = new Date(timestamp);
-  //   //获取年份  
-  //   var Y = date.getFullYear();
-  //   //获取月份  
-  //   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-  //   this.setData({
-  //     sameDay2: Y + '.' + M
-  //   })
-  // },
+  /**
+ * 生命周期函数--监听页面初次渲染完成
+ */
+  onShow: function () {
+    this.setData({
+      disabled: false
+    })
+  },
   setSameDay(e) {
     let { index } = e.currentTarget.dataset;
     let data3 = e.detail.value
@@ -80,9 +76,9 @@ Page({
       }
     })
   },
-  // 上传数据
-  initUserInfoTwo() {
-    let that =this
+  TimeId: -1,
+  initUserInfoTwoOut() {
+    let that = this
     let { experience } = this.data
     for (let i in experience) {
       if (experience[i].data1 == '' || experience[i].data2 == '') {
@@ -92,6 +88,14 @@ Page({
     that.setData({
       disabled: true
     })
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoTwo(experience)
+    }, 350);
+  },
+  // 上传数据
+  initUserInfoTwo(experience) {
+    let that = this
     ServerData.initUserInfoTwo({ experience }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
@@ -101,26 +105,20 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        that.setData({
-          disabled: true
-        })
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
         })
       } else {
         ServerData._wxTost(res.data.msg);
+        that.setData({
+          disabled: false
+        })
       }
     })
   },

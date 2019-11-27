@@ -38,12 +38,20 @@ Page({
       }
     })
   },
-  // 上传身份证
-  initUserInfoFive() {
-    let that = this;
+  TimeId: -1,
+  initUserInfoFiveOut() {
+    let that = this
     that.setData({
       disabled: true
     })
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoFive()
+    }, 350);
+  },
+  // 上传身份证
+  initUserInfoFive() {
+    let that = this;
     let { idcard, idcard_back, idcard_front } = that.data
     ServerData.initUserInfoFive({ idcard, idcard_back, idcard_front }).then((res) => {
       if (res.data.status == 1) {
@@ -54,26 +62,20 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        that.setData({
-          disabled: true
-        })
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
         })
       } else {
-        ServerData._wxTost(res.data.msg)
+        ServerData._wxTost(res.data.msg);
+        this.setData({
+          disabled: false
+        })
       }
     })
   },

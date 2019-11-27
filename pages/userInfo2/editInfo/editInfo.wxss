@@ -299,15 +299,32 @@
   background-color: #ff730e;
   border-radius: 10rpx 5rpx 10rpx 0;
 }
-.s-1-option_user{
+
+.s-1-option_user {
   font-size: 30rpx;
   border-radius: 36rpx;
   color: #fff;
 }
-.size-28_zhuangtai{
+
+.size-28_zhuangtai {
   color: var(--themeColor);
   font-size: 28rpx;
   font-weight: bold;
+}
+
+.us_l_bottom-1 {
+  display: flex;
+  flex-direction: column;
+  color: #686868;
+  font-size: 28rpx;
+
+}
+.us_l_bt_oottom-1{
+  margin-top: 16rpx;
+}
+.us_l_bt_top-1{
+  font-weight: bold;
+  color: #262626;
 }
 @import '/pages/template/font.wxss';
 @import '/pages/template/common';

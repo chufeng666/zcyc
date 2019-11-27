@@ -35,16 +35,20 @@ Page({
       }
     })
   },
-  initUserInfoSix() {
+  TimeId: -1,
+  initUserInfoSixOut() {
     let that = this
-    let { images, disabled } = that.data;
-    if (disabled == false) {
-      that.setData({
-        disabled: true
-      })
-    } else {
-      return
-    }
+    let { images } = that.data;
+    that.setData({
+      disabled: true
+    })
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoSix(images)
+    }, 350);
+  },
+  initUserInfoSix(images) {
+    let that = this
     ServerData.initUserInfoSix({ images }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
@@ -54,27 +58,20 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        if (disabled) {
-          setTimeout(() => {
-            wx.showModal({
-              title: '提示',
-              content: '是否不修改信息',
-              success(res) {
-                if (res.confirm) {
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                } else if (res.cancel) {
-                  that.setData({
-                    disabled: false
-                  })
-                }
-              }
-            })
-          }, 350);
-        }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
+        })
       } else {
         ServerData._wxTost(res.data.msg)
+        this.setData({
+          disabled: false
+        })
       }
     })
 
@@ -133,22 +130,24 @@ Page({
     let that = this
     let { index } = e.currentTarget.dataset;
     let { images } = this.data;
-    wx.showModal({
-      title: '提示',
-      content: '您确定要删除吗',
-      success(res) {
-        if (res.confirm) {
-          for (let i in images) {
-            if (i == index) {
-              images.splice(i, 1)
+    setTimeout(() => {
+      wx.showModal({
+        title: '提示',
+        content: '您确定要删除吗',
+        success(res) {
+          if (res.confirm) {
+            for (let i in images) {
+              if (i == index) {
+                images.splice(i, 1)
+              }
             }
+            that.setData({
+              images
+            })
           }
-          that.setData({
-            images
-          })
         }
-      }
-    })
+      })
+    }, 350);
   },
   detil() {
     wx.navigateBack({

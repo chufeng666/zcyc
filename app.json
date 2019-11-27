@@ -1,10 +1,14 @@
 {
   "pages": [
-    "pages/company/index/index",
+    "pages/company/jobApplicant/jobApplicant",
     "pages/userInfo2/index/index",
+    "pages/thirdParty/jobApplicant/jobApplicant",
+    
+    
+    "pages/company/index/index",
+    "pages/thirdParty/index/index",
     "pages/userInfo2/editInfo/editInfo",
     "pages/company/editInfo/editInfo",
-    "pages/thirdParty/index/index",
     
     "pages/userInfo2/privacySettings/privacySettings",
     "pages/login/login",
@@ -16,7 +20,6 @@
     "pages/userInfo2/collect/collect",
     "pages/userInfo2/search/search",
     "pages/company/cUserInfo/cUserInfo",
-    "pages/company/jobApplicant/jobApplicant",
     "pages/company/thirdParty/thirdParty",
     "pages/company/ScreeningConditions/ScreeningConditions",
     "pages/company/jobApplicantSwarch/jobApplicantSwarch",
@@ -34,7 +37,6 @@
     "pages/company/postJobPostings/postJobPostings",
     "pages/thirdParty/thirdInfo/thirdInfo",
     "pages/thirdParty/editInfo/editInfo",
-    "pages/thirdParty/jobApplicant/jobApplicant",
     "pages/thirdParty/company/company",
     "pages/thirdParty/search/search",
     "pages/thirdParty/ScreeningConditions/ScreeningConditions",

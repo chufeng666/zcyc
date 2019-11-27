@@ -1,4 +1,4 @@
-// pages/userInfo2/ScreeningConditions/ScreeningConditions.js
+import ServerData from '../../../utils/serverData.js';
 Page({
 
   /**
@@ -62,6 +62,9 @@ Page({
       { id: 6, name: "50k以上", isShow: false },
     ],
   },
+  onLoad: function () {
+    this.category()
+  },
   changIsActive(e) {
     let { index } = e.currentTarget.dataset;
     let { disanfang } = this.data
@@ -111,4 +114,9 @@ Page({
     });
     wx.navigateBack({}); //关闭当前页面，返回上一个页面
   },
+  category() {
+    ServerData.category({}).then((res) => {
+      console.log(res);
+    })
+  }
 })

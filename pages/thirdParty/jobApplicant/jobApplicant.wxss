@@ -86,17 +86,18 @@
   border-bottom: 1px solid #ccc;
 }
 
-.newest-search .n-xiahuaxian .newest .province {
-  display: flex;
-  align-items: center;
+.newest-search .n-xiahuaxian .province {
+  /* display: flex;
+  align-items: center; */
   font-size: 26rpx;
   font-weight: 500;
   color: #686868;
 }
 
 .newest-search .n-xiahuaxian .n-search {
+  width: 320rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-content: center;
   font-size: 28rpx;
   color: #969696;
@@ -147,7 +148,15 @@
   font-size: 25rpx;
   margin: -8rpx 6rpx 0rpx -6rpx;
 }
-
+.dizhi {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 /* 筛选 */
 
 /* 数据展示 */

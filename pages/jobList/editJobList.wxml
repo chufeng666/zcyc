@@ -90,7 +90,7 @@
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view>职位介绍</view>
-          <textarea placeholder='职位描述' class="texa" value="{{detail}}" bindinput="getDetails"></textarea>
+          <textarea wx:if="{{isShow}}" placeholder='职位描述' class="texa" value="{{detail}}" bindinput="getDetails"></textarea>
         </view>
       </view>
       <view>

@@ -47,7 +47,7 @@ Page({
   bianji(e) {
     let { bookListData, searchLoading } = this.data
     if (bookListData == '') {
-      return ServerData._wxTost('没有推送简历')
+      return ServerData._wxTost('没有预定的人才')
     }
     let status = e.currentTarget.dataset.aa,
       newS = ""
@@ -56,7 +56,7 @@ Page({
       searchLoading = true
     } else {
       newS = 0
-      searchLoadingf = false
+      searchLoading = false
     }
     this.setData({
       dStatus: newS,

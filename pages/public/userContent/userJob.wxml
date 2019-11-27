@@ -53,5 +53,5 @@
       <view wx:if="{{showAddBtn}}">添加证件</view>
     </view>
   </view>
-  <button class="job_bt" disabled="{{disabled}}" bindtap="initUserInfoSeven">保存</button>
+  <button class="job_bt" disabled="{{disabled}}" bindtap="initUserInfoSevenOut">保存</button>
 </view>

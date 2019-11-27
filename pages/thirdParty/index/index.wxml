@@ -4,7 +4,7 @@
     <view class="h-left">筑城优才</view>
     <view url='../search/search' class='search-cont s-nosearch-wrap'>
       <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
-      <input c bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
+      <input bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
         class='search-nosearch' placeholder="一级建造师" />
     </view>
   </view>
@@ -31,14 +31,19 @@
       </view>
       <view class="n-search">
         <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
-          <view wx:if="{{areaInfo==''||areaInfo==null}}" class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
-          <view wx:else class="newsite_city ">{{areaInfo}}</view>
+          <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
+          <view wx:else class="newsite_city ">地点</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </view>
-        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
+        <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
+          <view class="newsite_view subtitle-msg" wx:if="{{showTST1}}">职位</view>
+          <view wx:else class="newsite_city ">职位</view>
+          <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
+        </view>
+        <!-- <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
           <view class="newsite_view subtitle-msg">更多</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
-        </navigator>
+        </navigator> -->
       </view>
     </view>
   </view>
@@ -134,6 +139,7 @@
 
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
+<Occupational-form id='Occupational' bind:tabEvent1="tabEvent1"></Occupational-form>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

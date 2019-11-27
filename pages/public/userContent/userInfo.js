@@ -30,9 +30,9 @@ Page({
     disabled: false // 点击一次的开关
   },
   onShow() {
-  this.setData({
-    disabled: false
-  })
+    this.setData({
+      disabled: false
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -122,21 +122,40 @@ Page({
       }
     })
   },
-  // 上传基本信息
-  initUserInfoOne() {
+  TimeId: -1,
+  initUserInfoOneOut() {
     let that = this
     that.setData({
       disabled: true
     })
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoOne()
+    }, 350);
+  },
+  // 上传基本信息
+  initUserInfoOne() {
+    let that = this
     // if (!that._verifyInfo()) { return }
-    let { name, tapIndex, age, nation, province, avatar, city, district, school_type, work_age } = this.data
+    let { tapIndex } = that.data
     if (tapIndex == '男') {
       tapIndex = 0
     } else {
       tapIndex = 1
     }
-    let gender = tapIndex
-    ServerData.initUserInfoOne({ name, gender, age, avatar, nation, province, city, district, school_type, work_age }).then(res => {
+    let _opt = {
+      "name": that.data.name,
+      "age": that.data.age,
+      "nation": that.data.nation,
+      "province": that.data.province,
+      "avatar": that.data.avatar,
+      "city": that.data.city,
+      "district": that.data.district,
+      "school_type": that.data.school_type,
+      "work_age": that.data.work_age,
+      "gender": tapIndex,
+    }
+    ServerData.initUserInfoOne(_opt).then(res => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
         setTimeout(() => {
@@ -145,39 +164,33 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        that.setData({
-          disabled: true
-        })
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
         })
       } else {
         ServerData._wxTost(res.data.msg);
+        that.setData({
+          disabled: false
+        })
       }
     })
   },
-  saveHeaderPic() {
-    var that = this,
-      avatar = that.data.avatar
-    ServerData.uploadHeadpic({ avatar }).then((res) => {
-      if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg)
-      }
-      ServerData._wxTost(res.data.msg)
-    })
-  },
+  // saveHeaderPic() {
+  //   var that = this,
+  //     avatar = that.data.avatar
+  //   ServerData.uploadHeadpic({ avatar }).then((res) => {
+  //     if (res.data.status == 1) {
+  //       ServerData._wxTost(res.data.msg)
+  //     }
+  //     ServerData._wxTost(res.data.msg)
+  //   })
+  // },
   addIdCardPic: function (e) {                                    //头像上传
     var _this = this,
       avatar = _this.data.getUData.avatar
@@ -241,9 +254,6 @@ Page({
     var info = data.detail
     this.setData({
       areaInfo: info.areaInfo,
-      pCode: info.pCode,
-      cCode: info.cCode,
-      aCode: info.aCode,
       showTST: info.showTST,
       addressBoxShow: info.isShow,
       province: info.province,

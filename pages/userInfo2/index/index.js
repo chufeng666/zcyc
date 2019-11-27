@@ -29,12 +29,10 @@ Page({
       { id: 0, title: "最新", isActive: true },
       { id: 1, title: "最热", isActive: false },
     ],
-    // 搜索内容
-    require_cert: '', //证书
-    type: '',        //工种
-    education: '',  // 学历
-    work_age: '',   // 工龄
-    salary: '',     // 薪资
+    //地址
+    showTST1: true,
+    type: '',         //工种
+    title: '',        //职位
   },
   onShow: function () {
     let { require_cert, type, education, work_age, salary } = this.data;
@@ -54,6 +52,9 @@ Page({
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
+    /*********职业 */
+    this.Occupational = this.selectComponent('#Occupational');
+    /*********职业 */
   },
   reqIndex(value) {
     let { province, city, district, require_cert, type, education, work_age, salary } = this.data;
@@ -68,13 +69,13 @@ Page({
     if (work_age == '全部') {
       work_age = '';
     }
-    if (type  == '全部' ) {
+    if (type == '全部') {
       type = '';
     }
-    if ( education  == '全部' ) {
+    if (education == '全部') {
       education = '';
     }
-    if ( salary == '不限') {
+    if (salary == '不限') {
       salary = ''
     }
     let _opt = {
@@ -151,7 +152,7 @@ Page({
       }
     })
   },
-
+  /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
@@ -170,6 +171,23 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
+  /***********职位开始**************** */
+  tabEvent1(data) {      //接收传过来的参数
+    var info = data.detail
+    this.setData({
+      type: info.job_careers,
+      title: info.job_intention,
+      showTST1: info.isShow
+    })
+    this.reqIndex()
+  },
+
+  // 点击所在地区弹出选择框
+  selectOccupational: function (e) {
+    this.Occupational.showPopup()
+    this.Occupational.startAddressAnimation(true)
+  },
+  /***********职位结束**************** */
 
   // tabs栏
   changeTitleByIndex(e) {

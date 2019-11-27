@@ -16,12 +16,6 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    // 更多返回的数据
-    require_cert: '', //证书
-    type: '',        //工种
-    education: '',  // 学历
-    work_age: '',   // 工龄
-    salary: '',     // 薪资
     //地址
     showTST: true,                  //是否选择地址
     province: '',
@@ -34,13 +28,13 @@ Page({
     index: 0,
     // 历史消息模态框开关
     isShow: false,
+    //地址
+    showTST1: true,
+    type: '',         //工种
+    title: '',        //职位
   },
 
   onShow: function () {
-    let { require_cert, type, education, work_age, salary } = this.data;
-    if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
-      this.reqIndex()
-    }
     this.initUserInfo()
   },
   // 是否完善信息请求
@@ -111,38 +105,15 @@ Page({
 	 * 请求数据
 	 */
   reqIndex(value) {
-    let { province, city, district, require_cert, type, education, work_age, salary } = this.data
+    let { province, city, district, type } = this.data
     var that = this
-    if (require_cert == '有证书') {
-      require_cert = 0
-    } else if (require_cert == '无证书') {
-      require_cert = 1
-    } else {
-      require_cert = ''
-    }
-    if (work_age == '全部') {
-      work_age = '';
-    }
-    if (type  == '全部' ) {
-      type = '';
-    }
-    if ( education  == '全部' ) {
-      education = '';
-    }
-    if ( salary == '不限') {
-      salary = ''
-    }
     let _opt = {
       'title': value,
       'province': province,
       'city': city,
       'district': district,
       'regtype': 1,
-      'require_cert': require_cert,
       'type': type,
-      'education': education,
-      'work_age': work_age,
-      'salary': salary,
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
@@ -174,13 +145,28 @@ Page({
     })
     this.reqIndex()
   },
-
   // 点击所在地区弹出选择框
   selectDistrict: function (e) {
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
+  /***********职位开始**************** */
+  tabEvent1(data) {      //接收传过来的参数
+    var info = data.detail
+    this.setData({
+      type: info.job_careers,
+      title: info.job_intention,
+      showTST1: info.isShow
+    })
+    this.reqIndex()
+  },
+  // 点击所在地区弹出选择框
+  selectOccupational: function (e) {
+    this.Occupational.showPopup()
+    this.Occupational.startAddressAnimation(true)
+  },
+  /***********职位结束**************** */
   // tabs栏
   changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;

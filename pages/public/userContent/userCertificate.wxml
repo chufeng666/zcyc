@@ -10,5 +10,5 @@
   </view>
 </view>
 <footer class="baocun">
-  <button class="bc_shuoming" disabled="{{disabled}}" bindtap="initUserInfoEight">保存</button>
+  <button class="bc_shuoming" disabled="{{disabled}}" bindtap="initUserInfoEightOut">保存</button>
 </footer>

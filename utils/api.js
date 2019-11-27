@@ -43,6 +43,7 @@ const userAPI = {
   editImages: `${proxys}/user/edit_images`,           // 编辑证书
 
   categoryList: `${proxys}/person/category_list`,     // 工种列表
+  category: `${proxys}/user/category`,     // 工种列表
 
   myPurse: `${proxys}/person/my_wallet`,              // 我的钱包
   registerVip: `${proxys}/person/buy_vip`,            // 开通会员

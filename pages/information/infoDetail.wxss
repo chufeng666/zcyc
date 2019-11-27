@@ -4,6 +4,10 @@
 
 /* 头部 */
 .xiaoxi_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 127rpx;
   line-height: 170rpx;
 }
@@ -23,6 +27,7 @@
 /* 头部 */
 .info-detail-wrap {
   padding: 24rpx;
+  margin-top: 127rpx;
 }
 
 .info-detail-wrap .time {

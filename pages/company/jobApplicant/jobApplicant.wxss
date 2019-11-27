@@ -87,8 +87,7 @@
 }
 
 .newest-search .n-xiahuaxian .province {
-  flex: 2;
-  display: flex;
+  /* flex: 2; */
   font-size: 26rpx;
   font-weight: 500;
   color: #686868;
@@ -105,12 +104,13 @@
 }
 
 .newest-search .n-xiahuaxian .n-search {
-  /* flex: 1; */
+  width: 300rpx;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
   font-size: 28rpx;
   color: #969696;
   padding: 18rpx 0;
+  margin-left: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button:nth-child(1) {

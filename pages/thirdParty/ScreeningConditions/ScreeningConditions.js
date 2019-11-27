@@ -128,7 +128,6 @@ Page({
     let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
     prevPage.setData({
       require_cert: this.data.zhengshu[index2].name,
-      type: this.data.zhiwei[index3].name,
       education: this.data.xueli[index4].name,
       work_age: this.data.jingyan[index5].name,
       salary: this.data.xinzi[index6].name,

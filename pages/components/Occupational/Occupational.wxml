@@ -1,11 +1,11 @@
 <view wx:if="{{isShow}}">
-    <view class="zhezhao" catchtap="cityCancel"></view>
+    <view class="zhezhao" catchtap="occupationalCancel"></view>
     <view class="picker-view" animation="{{animationAddressMenu}}"  style="visibility:{{isShow ? 'visible':'hidden'}}">
       <view class="Occupational" style="height:15% ;width:95%;margin-top:18rpx">
-        <text  catchtap="cityCancel">取消</text>
-        <text style="float: right" catchtap="citySure">确定</text>
+        <text  catchtap="occupationalCancel">取消</text>
+        <text style="float: right" catchtap="occupationalSure">确定</text>
       </view>
-      <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key>
+      <picker-view style="width: 100%; height: 300px;" bindchange="occupationalChange" value="{{value}}" wx:key>
         <picker-view-column>
           <view wx:for="{{intention}}" class="picker-item" wx:key="index">{{item.cat_name}}</view>
         </picker-view-column>

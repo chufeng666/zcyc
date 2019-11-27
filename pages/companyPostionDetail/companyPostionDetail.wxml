@@ -78,13 +78,39 @@
         </view>
       </view>
     </view>
+    <view class="d-c-list-jinyan">
+      <view class="c-list-info-jinyan">
+        <view class='qiuzhiqiwang'>
+          <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
+          <view>项目经验</view>
+        </view>
+        <view wx:if="{{personalData.project=='' || personalData.project == null}}" class="zanwu">暂无项目经验</view>
+        <view wx:else>
+          <view class="zhanshi" wx:for="{{personalData.project}}" wx:key="index">
+            <view class="gongsi">
+              <text class="iconfont  icon-gongsi"></text>
+              <view>{{item.data1}}</view>
+            </view>
+            <view class="gangwei">
+              <view class="gw_left">岗位: {{item.data2}}</view>
+              <view class="gw_right">时间: {{item.data3}}-{{item.data4}}</view>
+            </view>
+            <view class="gongzuoneirong">
+              <text>
+                {{item.data5}}
+              </text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
     <view class="d-c-list">
       <view class="c-list-info">
         <view class='qiuzhiqiwang'>
           <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>职业证书</view>
         </view>
-        <view wx:if="{{personalData.images[0].title=='' || personalData.images == null}}" class="zanwu">暂无证书</view>
+        <view wx:if="{{personalData.images=='' || personalData.images == null || personalData.images[0].path == ''}}" class="zanwu">暂无证书</view>
         <view wx:else class="jinengzhengshu">
           <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
             <image class="zhengshuicon" src="/static/images/index/zhengshuicon.png"></image>
@@ -125,4 +151,7 @@
 
     </view>
   </view>
+</view>
+<view style="height: 130rpx;">
+
 </view>

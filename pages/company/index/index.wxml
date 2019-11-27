@@ -41,13 +41,18 @@
       <view class="n-search">
         <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
           <view class="newsite_view subtitle-msg" wx:if="{{showTST}}">地点</view>
-          <view wx:else class="newsite_city ">{{areaInfo}}</view>
+          <view wx:else class="newsite_city ">地点</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </view>
-        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
+        <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
+          <view class="newsite_view subtitle-msg" wx:if="{{showTST1}}">职位</view>
+          <view wx:else class="newsite_city ">职位</view>
+          <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
+        </view>
+        <!-- <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
           <view class="newsite_view subtitle-msg">更多</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
-        </navigator>
+        </navigator> -->
       </view>
     </view>
   </view>
@@ -145,6 +150,7 @@
 <view style="height: 120rpx;">
 </view>
 <address-form id='address' bind:tabEvent="tabEvent"></address-form>
+<Occupational-form id='Occupational' bind:tabEvent1="tabEvent1"></Occupational-form>
 <!-- 底部tabbar栏 -->
 <import src="../../template/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

@@ -47,11 +47,19 @@ Page({
       }
     })
   },
-  initUserInfoThree() {
+  TimeId: -1,
+  initUserInfoThreeOut() {
     let that = this
     that.setData({
       disabled: true
     })
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoThree()
+    }, 350);
+  },
+  initUserInfoThree() {
+    let that = this
     let { graduate_time, major, school, school_type, start_time } = this.data;
     ServerData.initUserInfoThree({ graduate_time, major, school, school_type, start_time }).then((res) => {
       if (res.data.status == 1) {
@@ -62,26 +70,20 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        that.setData({
-          disabled: true
-        })
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
         })
       } else {
         ServerData._wxTost(res.data.msg);
+        this.setData({
+          disabled: false
+        })
       }
     })
   },

@@ -9,7 +9,7 @@
         <view>项目名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input class="inputSize" type='text' placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate"
+      <input class="inputSize" type='text' placeholder="请输入项目名称" data-index="{{index}}" bindinput="inputCorporate"
         value="{{item.data1}}" />
       <view></view>
     </view>
@@ -46,5 +46,5 @@
       <view>项目描述</view>
     </view>
   </view>
-  <button class="info_bt" disabled="{{disabled}}" bindtap='initUserInfoFour'>保存</button>
+  <button class="info_bt" disabled="{{disabled}}" bindtap='initUserInfoFourOut'>保存</button>
 </view>

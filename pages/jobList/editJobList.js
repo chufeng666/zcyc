@@ -2,7 +2,6 @@ import ServerData from '../../utils/serverData.js';
 const util = require('../../utils/util.js');  //通用方法
 Page({
   data: {
-    jobArray: [],                     //工种列表
     company_id: '',                    //发布人id
     id: '',                           //动态id 修改信息时才能获取到
     title: '',                         //职位名称
@@ -17,6 +16,7 @@ Page({
     province: '',                     //省
     city: '',                         //市
     district: '',                     //区
+    isShow: true,
     //工作地点
     detail: '',                         //職位介绍
     certificate: [],
@@ -44,12 +44,12 @@ Page({
       company_id: options.company_id,
       remark: options.remark,
     })
-    let { company_id,status} = this.data
+    let { company_id, status } = this.data
     if (company_id == '' || company_id == undefined || company_id == null) {
-      if (options.remark == null &&  status == -1){
+      if (options.remark == null && status == -1) {
         ServerData._wxTost(options.remark);
       }
-        this.goEditRecruit()
+      this.goEditRecruit()
     }
   },
   /**
@@ -101,7 +101,6 @@ Page({
           education: info.education,
         })
       } else {
-        console.log('111111111111111111111111111111111111111');
         ServerData._wxTost(res.data.msg);
       }
     })
@@ -268,13 +267,17 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
+      isShow: true,
     })
   },
 
   // 点击所在地区弹出选择框
   selectDistrict: function (e) {
-    this.addressForm.showPopup()
-    this.addressForm.startAddressAnimation(true)
+    this.addressForm.showPopup();
+    this.addressForm.startAddressAnimation(true);
+    this.setData({
+      isShow: false,
+    })
   },
   /***********地址结束**************** */
   detil() {

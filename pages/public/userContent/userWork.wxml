@@ -9,11 +9,11 @@
         <view>公司名称</view>
         <text class="iconfont  icon-lajitong" data-index="{{index}}" bindtap='deleteitem'></text>
       </view>
-      <input placeholder="请输入公司名称" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
+      <input placeholder="请输入公司名称" placeholder-style="opacity: 0.4;font-weight: normal" data-index="{{index}}" bindinput="inputCorporate" value="{{item.data1}}" />
     </view>
     <view class="zhiwei  gongsi">
       <text class="name_size">职位名称</text>
-      <input type='text' placeholder="请输入职位名称" data-index="{{index}}" bindinput="inputGangwei" value="{{item.data2}}" />
+      <input type='text' placeholder="请输入职位名称" placeholder-style="opacity: 0.4;font-weight: normal" data-index="{{index}}" bindinput="inputGangwei" value="{{item.data2}}" />
     </view>
     <view class="zaizhiDate">
       <text class="name_size">在职时间</text>
@@ -43,5 +43,5 @@
       <view>添加工作经验</view>
     </view>
   </view>
-  <button class="info_bt" disabled="{{disabled}}"  bindtap='initUserInfoTwo'>保存</button>
+  <button class="info_bt" disabled="{{disabled}}"  bindtap='initUserInfoTwoOut'>保存</button>
 </view>

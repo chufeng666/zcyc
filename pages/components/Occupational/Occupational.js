@@ -38,8 +38,8 @@ Component({
         addressMenuIsShow: isShow,
       })
     },
-
-    cityCancel: function (e) {
+    // 点击职位选择取消按钮
+    occupationalCancel: function (e) {
       this.startAddressAnimation(false)
       this.showPopup()
       var json = {
@@ -50,27 +50,28 @@ Component({
       this.triggerEvent('tabEvent1', json)
     },
 
-    // 点击地区选择确定按钮
-    citySure: function (e) {
+    // 点击职位选择确定按钮
+    occupationalSure: function (e) {
       var that = this
       that.startAddressAnimation(false)
       that.setData({
         job_careers: that.data.job_careers,
-        job_intention:  that.data.job_intention,
-        job_type:  that.data.job_intention.cat_id,
+        job_intention: that.data.job_intention,
+        job_type: that.data.job_intention.cat_id,
       })
       this.showPopup()
       var json = {
         job_careers: that.data.job_careers.cat_name,
-        job_intention:  that.data.job_intention.cat_name,
-        job_type:  that.data.job_intention.cat_id,
-        isShow: true
+        job_intention: that.data.job_intention.cat_name,
+        job_type: that.data.job_intention.cat_id,
+        intention:that.data.intention,
+        isShow: false
       }
       this.triggerEvent('tabEvent1', json)
     },
 
     // 处理职位联动逻辑
-    cityChange: function (e) {
+    occupationalChange: function (e) {
       var value = e.detail.value
       var provinceNum = value[0]
       var cityNum = value[1]

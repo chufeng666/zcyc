@@ -58,7 +58,7 @@
   </view>
   <!-- 身份验证 -->
   <!-- 职业证书 -->
-  <view class="user_name">
+  <!-- <view class="user_name">
     <view class="us_left">
       <view class="us_l_top">
         <view class="us_l_t_name">职业证书</view>
@@ -77,7 +77,7 @@
     <navigator url="../../public/userContent/Professional">
       <text class="iconfont  icon-bianji"></text>
     </navigator>
-  </view>
+  </view> -->
   <!-- 职业证书 -->
   <!-- 求职意向 -->
   <view class="user_name">
@@ -91,9 +91,9 @@
         class="us_l_bottom">
         <text>暂无</text>
       </view>
-      <view wx:else class="us_l_bottom">
-        <view class="us_l_bt_top">{{getUData.job_intention}}　 {{getUData.salary}}</view>
-        <view class="us_l_bt_oottom">
+      <view wx:else class="us_l_bottom-1">
+        <view class="us_l_bt_top-1">{{getUData.job_intention}}　 {{getUData.salary}}</view>
+        <view class="us_l_bt_oottom-1">
           {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time }}
         </view>
       </view>

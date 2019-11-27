@@ -89,6 +89,23 @@ class ServerData {
     })
     return promise
   }
+  showModal(content) {
+    let promise = new Promise((resolve, reject) => {
+      wx.showModal({
+        title: '提示',
+        content: content,
+        success(res) {
+          if (res.confirm) {
+            resolve()
+          } else if (res.cancel) {
+            reject()
+          }
+        }
+      })
+    })
+    return promise
+  }
+
 
   //登陆
   toLogin(_data, complete) {
@@ -262,6 +279,10 @@ class ServerData {
   //工种列表
   categoryList(_data, complete) {
     return this._promise_post(_data, api.userAPI.categoryList, complete);
+  }
+  //职位列表
+  category(_data, complete) {
+    return this._promise_get(_data, api.userAPI.category, complete);
   }
 
   //编辑个人资料
@@ -518,20 +539,7 @@ class ServerData {
       duration: 400
     })
   }
-  _showModal(title) {
-    wx.showModal({
-      title: '提示',
-      content: title,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确认')
-        } else {
-          console.log('用户点击取消')
-        }
 
-      }
-    })
-  }
 
   //校验手机号码
   _zzVerifyMobile(obj) {

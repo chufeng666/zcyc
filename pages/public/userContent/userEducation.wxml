@@ -5,12 +5,12 @@
 <view class="inner">
   <view class="gongsi">
     <text class="name_size">学校名称</text>
-    <input type='text' placeholder="请输入学校名称" bindinput="inputSchool" value="{{school}}"></input>
+    <input type='text' placeholder-style="opacity: 0.4;font-weight: normal" placeholder="请输入学校名称" bindinput="inputSchool" value="{{school}}"></input>
     <view></view>
   </view>
   <view class="zhiwei  gongsi">
     <text class="name_size">专业</text>
-    <input placeholder="请输入专业" type='text' bindinput="inputMajor" value="{{major}}" />
+    <input placeholder="请输入专业" placeholder-style="opacity: 0.4;font-weight: normal" type='text' bindinput="inputMajor" value="{{major}}" />
   </view>
   <view class="zhiwei  gongsi">
     <text class="name_size">学历</text>
@@ -33,5 +33,5 @@
       </picker>
     </view>
   </view>
-  <button class="info_bt" disabled="{{disabled}}" bindtap="initUserInfoThree">保存</button>
+  <button class="info_bt" disabled="{{disabled}}" bindtap="initUserInfoThreeOut">保存</button>
 </view>

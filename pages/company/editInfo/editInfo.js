@@ -213,7 +213,6 @@ Page({
 	 * 校验数据
 	 */
   verifyData: function () {
-    console.log(this.data.companyScale)
     if (this.data.companyName == "") {
       ServerData._wxTost('名称不能为空');
       return false
@@ -245,6 +244,7 @@ Page({
 
 
   saveEditInfo: function () {
+    let {userList} = this.data
     let regtype = wx.getStorageSync("savePostion")
     ServerData.companyShenhe({ regtype }).then((res) => {
       if (res.data.status == 1) {
@@ -255,7 +255,7 @@ Page({
           })
         }, 1000);
       } else if (res.data.status == -1) {
-        ServerData._wxTost('审核失败，请重新修改信息');
+        ServerData._wxTost('审核失败，请重新修改信息'+ '(' + userList.audit_status.remark + ')');
       } else {
         ServerData._wxTost(res.data.msg);
       }

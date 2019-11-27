@@ -115,7 +115,7 @@
 
 .newest-search .n-xiahuaxian .n-search {
   display: flex;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #969696;
 }
 

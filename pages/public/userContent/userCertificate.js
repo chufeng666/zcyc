@@ -27,12 +27,20 @@ Page({
       }
     })
   },
-  initUserInfoEight() {
+  TimeId: -1,
+  initUserInfoEightOut() {
     let that = this
+    let { desc } = that.data;
     that.setData({
       disabled: true
     })
-    let { desc } = that.data
+    clearTimeout(this.TimeId);
+    this.TimeId = setTimeout(() => {
+      this.initUserInfoEight(desc)
+    }, 350);
+  },
+  initUserInfoEight(desc) {
+    let that = this
     ServerData.initUserInfoEight({ desc }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);
@@ -42,26 +50,20 @@ Page({
           })
         }, 1000)
       } else if (res.data.status == -1) {
-        that.setData({
-          disabled: true
-        })
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-              that.setData({
-                disabled: false
-              })
-            }
-          }
+        ServerData.showModal('是否不修改信息').then((res) => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch((res) => {
+          that.setData({
+            disabled: false
+          })
         })
       } else {
         ServerData._wxTost(res.data.msg);
+        this.setData({
+          disabled: false
+        })
       }
     })
   },

@@ -2,7 +2,7 @@
 @import "/pages/template/common";
 @import "/pages/template/common1/common1.wxss";
 .header-pic{
-  margin-top: 127rpx;
+  margin-top: 180rpx;
 }
 .idPic {
   width: 100%;

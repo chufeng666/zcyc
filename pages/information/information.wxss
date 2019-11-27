@@ -11,6 +11,7 @@
   right: 0;
   height: 127rpx;
   line-height: 170rpx;
+  z-index: 1;
 }
 
 .h-left {

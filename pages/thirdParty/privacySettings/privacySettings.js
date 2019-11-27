@@ -13,6 +13,7 @@ Page({
     isShowR: false,                     // 没有数据是显示 
     searchLoading: false,               // 显示删除按钮和复选框
     isShowR: false,               // 显示删除按钮和复选框
+    dStatus:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -37,13 +38,23 @@ Page({
       }
     })
   },
-  bianji() {
-    let { bookListData } = this.data
+  bianji(e) {
+    let { bookListData, searchLoading } = this.data
     if (bookListData == '') {
       return ServerData._wxTost('没有推送简历')
     }
+    let status = e.currentTarget.dataset.aa,
+      newS = ""
+    if (status == 0) {
+      newS = 1
+      searchLoading = true
+    } else {
+      newS = 0
+      searchLoading = false
+    }
     this.setData({
-      searchLoading: true
+      dStatus: newS,
+      searchLoading
     })
   },
   detel() {
@@ -94,7 +105,7 @@ Page({
       bookListData
     });
   },
-  detil(){
+  detil() {
     wx.navigateBack({
       delta: 2
     });
