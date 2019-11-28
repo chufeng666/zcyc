@@ -1,6 +1,6 @@
 <view class='search-wrap    user-top'>
   <view class="h-left">
-    <text  bindtap="editTel" class="iconfont icon-zuojiantou"></text>
+    <text bindtap="editTel" class="iconfont icon-zuojiantou"></text>
     <view class="l_qiye">筛选</view>
   </view>
 </view>
@@ -8,23 +8,23 @@
   <view class="s_gongsi">
     <view class="title-color">证书</view>
     <view class="gs_waiwei">
-      <view class="si_qiye" wx:for="{{zhengshu}}" bindtap="changZhengshu"data-index="{{index}}"  wx:key="id">
+      <view class="si_qiye" wx:for="{{zhengshu}}" bindtap="changZhengshu" data-index="{{index}}" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
       </view>
     </view>
   </view>
-  <view class="s_gongsi">
+  <view class="s_gongsi" wx:if="{{name != '招人'}}">
     <view class="title-color">职位</view>
     <view class="gs_waiwei">
-      <view class="si_qiye" wx:for="{{zhiwei}}" bindtap="changZhiwei"data-index="{{index}}" wx:key="id">
-        <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
+      <view class="si_qiye" wx:for="{{jobArry}}" data-index="{{index}}" bindtap="changZhiwei" wx:key="id">
+        <view class="qy_name  {{index3 == index?'avtive':''}}">{{item.cat_name}}</view>
       </view>
     </view>
   </view>
   <view class="s_gongsi">
     <view class="title-color">学历</view>
     <view class="gs_waiwei">
-      <view class="si_qiye" wx:for="{{xueli}}"  bindtap="changXueli"data-index="{{index}}" wx:key="id">
+      <view class="si_qiye" wx:for="{{xueli}}" bindtap="changXueli" data-index="{{index}}" wx:key="id">
         <view class="qy_name  {{item.isShow?'avtive':''}}">{{item.name}}</view>
       </view>
     </view>

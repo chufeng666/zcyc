@@ -90,7 +90,9 @@ page {
 }
 
 .m-b22 {
+  padding-bottom: 32rpx;
   margin-bottom: 29rpx;
+  border-bottom: 1rpx solid #dedede;
 }
 
 .m-b45 {

@@ -4,7 +4,7 @@
       <view class='global-search-wrap'>
         <view class='search-job-list'>
           <view class='c-info-title'>
-            <text>{{item.name}}</text>
+            <text>{{item.careers}}</text>
             <text class="pColor">{{item.salary==='面议' ? item.salary : item.salary+'/月'}}</text>
           </view>
           <view class='s-portrait'>
@@ -24,7 +24,7 @@
               class='portrait-icon' />
             <view wx:if="{{item.job_intention==''||item.job_intention==null}}" class="xianmujingli">求职岗位•
               {{item.careers}}</view>
-            <view wx:else class="xianmujingli">求职岗位• {{item.job_intention}}</view>
+            <view wx:else class="xianmujingli">求职者• {{item.name}}</view>
           </view>
         </view>
       </view>

@@ -25,7 +25,7 @@
 .inner .user_name {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 44rpx;
+  padding-bottom: 56rpx;
   border-bottom: 1rpx solid #dedede;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .inner .user_work {
-  margin-top: 56rpx;
+  /* margin-top: 56rpx; */
   padding-bottom: 56rpx;
   border-bottom: 1rpx solid #dedede;
 }
@@ -251,6 +251,7 @@
 }
 
 .us_wk_project {
+  
   margin-top: 40rpx;
 }
 

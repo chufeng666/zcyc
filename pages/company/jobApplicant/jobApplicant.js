@@ -19,8 +19,8 @@ Page({
     require_cert: '', //证书
     education: '',  // 学历
     work_age: '',   // 工龄
-    salary: '',     // 薪资     
-    //地址
+    salary: '',     // 薪资 
+    //职位
     showTST1: true,
     type: '',         //工种
     title: '',        //职位      
@@ -72,9 +72,8 @@ Page({
       salary = ''
     }
     var _opt = {
-      'name': value,
-      'type': type,
-      'title': title,
+      'careers': value,
+      'job_intention': '电气工程师',
       'education': education,
       'work_age': work_age,
       'salary': salary,
@@ -104,7 +103,6 @@ Page({
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
-      areaInfo: info.areaInfo,
       showTST: info.showTST,
       province: info.province,
       city: info.city,
@@ -142,9 +140,9 @@ Page({
     const { value } = e.detail;
     // // 3 简单做一些验证 trim() 
     // if (!value.trim()) {
-    //   this.setData({
-    //     hiringData: [],
-    //   })
+      // this.setData({
+      //   title:value
+      // })
     //   // 不合法 
     //   return;
     // }
@@ -152,6 +150,6 @@ Page({
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.hiring(value);
-    }, 1000);
+    }, 0);
   },
 })

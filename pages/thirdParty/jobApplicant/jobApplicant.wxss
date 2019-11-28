@@ -121,7 +121,7 @@
 }
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
   margin-left: 10rpx;
-  color: var(--thirdPartyColor);
+  /* color: var(--thirdPartyColor); */
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {

@@ -6,7 +6,7 @@ page {
 
 #wrap {
   border-top: 16rpx solid #dedede;
-  border-bottom: 16rpx solid #dedede;
+  /* border-bottom: 16rpx solid #dedede; */
   background: #fff;
   font-size: 26rpx;
   width: 100%;
@@ -67,7 +67,7 @@ page {
 }
 
 .collect_tab {
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #151515;
   margin-right: 0 !important;
 }
@@ -143,8 +143,8 @@ page {
 }
 
 .gs_dz {
-  font-size: 24rpx;
-  font-weight: bold;
+  font-size: 26rpx;
+  font-weight: normal;
   color: #262626;
   margin-left: 19rpx;
 }

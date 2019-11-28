@@ -23,7 +23,7 @@ Page({
     daogang_time: '', // 工作状态
 
     // 职业证书
-    images: [{ path: '', title: '' }],
+    images: [],
     showAddBtn: 1,
     index: 0,
 
@@ -41,7 +41,6 @@ Page({
   onLoad: function (options) {
     this.initUserInfo7();
     this.categoryList();
-    this.initUserInfo6();
     /*********地址 */
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
@@ -53,6 +52,7 @@ Page({
   initUserInfo7() {
     let that = this;
     ServerData.initUserInfo7({}).then((res) => {
+      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           careers: res.data.data.careers,
@@ -63,42 +63,44 @@ Page({
           province: res.data.data.province,
           salary: res.data.data.salary,
           daogang_time: res.data.data.daogang_time,
+          images: res.data.data.images,
         })
       }
     })
   },
   TimeId: -1,
   initUserInfoSevenOut() {
-    let { images, job_intention, intention } = this.data
+    let { job_intention, intention } = this.data;
     intention.forEach((v, i) => {
       if (v.cat_name === job_intention) {
         if (v.money > 0) {
-          if (images == '' || images == null) {
-            ServerData._wxTost('请上传职业证书和填写证件类型')
-          } else {
-            clearTimeout(this.TimeId);
-            this.TimeId = setTimeout(() => {
-              this.initUserInfoSeven();
-            }, 350);
-          }
+          clearTimeout(this.TimeId);
+          this.TimeId = setTimeout(() => {
+            this.initUserInfoSeven();
+          }, 350);
+        } else {
+          return ServerData._wxTost('请上传职业证书');
         }
       }
     })
-
-
   },
   // 上传
   initUserInfoSeven() {
     let that = this
     let { images, job_intention } = this.data
+    for (let i in images) {
+      if (images == '' || images == null || images[i].title === '' || images[i].path === '') {
+        return ServerData._wxTost('职业证书和证书类型不能为空');
+      }
+    }
     let _opt = {
       'daogang_time': that.data.daogang_time,
-      'careers': that.data.careers,
       'city': that.data.city,
-      'district': that.data.district,
-      'job_intention': job_intention,
       'province': that.data.province,
+      'district': that.data.district,
       'salary': that.data.salary,
+      'careers': that.data.careers,
+      'job_intention': job_intention,
       'images': images,
     }
     ServerData.initUserInfoSeven(_opt).then((res) => {
@@ -171,45 +173,6 @@ Page({
     })
   },
   /***********地址结束**************** */
-  // 职业证书展示开始
-  initUserInfo6() {
-    let that = this
-    ServerData.initUserInfo6({}).then((res) => {
-      if (res.data.status == 1) {
-        let images = res.data.data;
-        that.setData({ images })
-      }
-    })
-  },
-  initUserInfoSix() {
-    let that = this
-    let { images } = that.data;
-    ServerData.initUserInfoSix({ images }).then((res) => {
-      if (res.data.status == 1) {
-        ServerData._wxTost(res.data.msg)
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 1000)
-      } else if (res.data.status == -1) {
-        wx.showModal({
-          title: '提示',
-          content: '是否不修改信息',
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            } else if (res.cancel) {
-            }
-          }
-        })
-      } else {
-        ServerData._wxTost(res.data.msg)
-      }
-    })
-  },
   addIdCardPic(e) {                                    //头像上传
     var _this = this
     let path
@@ -238,7 +201,7 @@ Page({
   // 点击添加证件
   addOption: function (e) {
     let images = this.data.images;
-    if (images == null) {
+    if (images == null || images == '') {
       images = []
     }
     images.push({ path: '', title: '' })

@@ -237,6 +237,7 @@ page {
   margin: 0;
 }
 .yiwanshan{
+  font-size: 24rpx;
   color: var(--themeColor);
 }
 /* <!-- USER OPTION START --> */

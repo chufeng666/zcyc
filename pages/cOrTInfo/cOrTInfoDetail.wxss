@@ -87,6 +87,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 32rpx 0 ;
 }
 .c-second .cOrTInfo-option .icon-1 {
   font-size: 30rpx;
@@ -97,10 +98,12 @@
 }
 .desc {
   font-size: 30rpx;
+  letter-spacing:2rpx;
   color: #686868;
 }
 .company_nav {
-  border-bottom: 1rpx solid #dedede;
+  /* border-bottom: 1rpx solid #dedede; */
+  margin-top: 41rpx;
   padding-bottom: 100rpx;
   margin-bottom: 100rpx;
 }
@@ -161,9 +164,7 @@
 /* 第二部分 */
 .cOrTInfo-,
 .cOrTInfo-option {
-  margin-top: 32rpx;
   font-weight: 600;
-  margin-bottom: 20rpx;
   display: flex ;
   align-items: center;
 }

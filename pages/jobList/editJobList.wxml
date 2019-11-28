@@ -17,7 +17,7 @@
             <view>职位名称</view>
           </view>
           <view wx:if="{{title=='' || type==''}}" class="ec_bt" bindtap="selectOccupational">请选择岗位</view>
-          <view wx:else class="ec_bt" bindtap="selectOccupational">{{title}}-{{type}}</view>
+          <view wx:else class="ec_bt" bindtap="selectOccupational">{{type}}-{{title}}</view>
           <!-- 职位列表 -->
           <Occupational-form id='Occupational' bind:tabEvent1="tabEvent1"></Occupational-form>
         </view>

@@ -17,49 +17,49 @@
       <view class="dizhi">
         <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
         <text decode="{{true}}">学历&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text bindtap="selectOccupational">
+        <!-- <text bindtap="selectOccupational">
           <text wx:if="{{showTST1}}">请选择岗位</text>
           <text wx:else>{{title}}/{{type}}</text>
-        </text>
+        </text> -->
       </view>
     </view>
     <view class="province" wx:elif="{{education ==''}}">
       <view class="dizhi">
         <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
         <text decode="{{true}}">学历&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text bindtap="selectOccupational">
+        <!-- <text bindtap="selectOccupational">
           <text wx:if="{{showTST1}}">请选择岗位</text>
           <text wx:else>{{title}}/{{type}}</text>
-        </text>
+        </text> -->
       </view>
     </view>
     <view class="province" wx:elif="{{city == ''}}">
       <view class="dizhi">
         <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
         <text decode="{{true}}">{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text bindtap="selectOccupational">
+        <!-- <text bindtap="selectOccupational">
           <text wx:if="{{showTST1}}">请选择岗位</text>
           <text wx:else>{{title}}/{{type}}</text>
-        </text>
+        </text> -->
       </view>
     </view>
     <view class="province" wx:else>
       <view class="dizhi">
         <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
         <text decode="{{true}}">{{education}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text bindtap="selectOccupational">
+        <!-- <text bindtap="selectOccupational">
           <text wx:if="{{showTST1}}">请选择岗位</text>
           <text wx:else>{{title}}/{{type}}</text>
-        </text>
+        </text> -->
       </view>
     </view>
     <view class="n-search">
-      <view class="newsite_button active" bindtap="selectDistrict">
-        <view class="newsite_view subtitle-msg  active">地点</view>
+      <view class="newsite_button {{city == '' ? '':'active'}}" bindtap="selectDistrict">
+        <view class="newsite_view subtitle-msg">地点</view>
         <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
       </view>
-      <navigator class="newsite_button  active" url="../ScreeningConditions/ScreeningConditions?name={{name}}">
-        <view class="newsite_view subtitle-msg  ">更多</view>
+      <navigator class="newsite_button {{require_cert == '' || education =='' ||work_age == '' ||salary == '' ? '' : 'active'}}" url="../ScreeningConditions/ScreeningConditions?name={{name}}">
+        <view class="newsite_view subtitle-msg">更多</view>
         <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
       </navigator>
     </view>

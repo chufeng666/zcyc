@@ -89,7 +89,7 @@
       <view
         wx:if="{{getUData.job_intention == null || getUData.salary == null || getUData.city == null || getUData.district==null || getUData.daogang_time == null}}"
         class="us_l_bottom">
-        <text>暂无</text>
+        <text style="font-size: 30rpx;">暂无</text>
       </view>
       <view wx:else class="us_l_bottom-1">
         <view class="us_l_bt_top-1">{{getUData.job_intention}}　 {{getUData.salary}}</view>
@@ -115,7 +115,7 @@
       </navigator>
     </view>
     <view class="us_wk_project" wx:if="{{getUData.experience == null ||getUData.experience==''}}">
-      <text>暂无</text>
+      <text style="font-size: 30rpx;">暂无</text>
     </view>
     <view wx:else>
       <view class="us_wk_project" wx:for="{{getUData.experience}}" wx:key="index">
@@ -145,7 +145,7 @@
       </navigator>
     </view>
     <view class="us_wk_project" wx:if="{{getUData.project == null || getUData.project == ''}}">
-      <text>暂无</text>
+      <text style="font-size: 30rpx;">暂无</text>
     </view>
     <view wx:else>
       <view class="us_wk_project" wx:for="{{getUData.project}}" wx:key="index">
@@ -176,7 +176,7 @@
       <view wx:else class="us_l_bt_top">{{getUData.school}}</view>
       <view
         wx:if="{{getUData.school_type=='' || getUData.major==null || getUData.start_time=='' || getUData.graduate_time==null}}"
-        class="us_l_bt_oottom">
+        class="us_l_bt_oottom" style="font-size: 30rpx;">
         暂无
       </view>
       <view wx:else class="us_l_bt_oottom">
@@ -194,7 +194,7 @@
       </navigator>
     </view>
     <view wx:if="{{getUData.desc==null}}" class="us_l_bottom">
-      <text>暂无</text>
+      <text style="font-size: 30rpx;">暂无</text>
     </view>
     <view wx:else class="us_l_bottom">
       <text>{{getUData.desc}}</text>

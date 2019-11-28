@@ -2,7 +2,7 @@
   <view class="h-bottom">
     <view class="h-left">筑城优才</view>
     <view class='search-cont s-nosearch-wrap'>
-      <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+      <text class="search-icon iconfont icon-sousuo" src='../../../static/images/public/search_icon.png'></text>
       <input bindconfirm='handeSearchInput' bindfocus="bindfocus" bindblur="bindblur" type="text"
         class='search-nosearch' placeholder="请输入求职岗位" />
     </view>
@@ -39,15 +39,15 @@
           <view wx:else class="newsite_city">地点</view>
           <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
         </view>
-        <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
+        <!-- <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
           <view class="newsite_view subtitle-msg" wx:if="{{showTST1}}">职位</view>
           <view wx:else class="newsite_city">职位</view>
           <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-        </view>
-        <!-- <navigator url="/pages/userInfo2/ScreeningConditions/ScreeningConditions" class="newsite_button">
+        </view> -->
+        <navigator url="/pages/userInfo2/ScreeningConditions/ScreeningConditions" class="newsite_button">
           <view class="newsite_view">更多</view>
           <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
-        </navigator> -->
+        </navigator>
       </view>
     </view>
   </view>

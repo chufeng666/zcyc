@@ -20,15 +20,7 @@ Page({
       { id: 2, name: "无需证书", isShow: false }
     ],
     index3: 0,
-    zhiwei: [
-      { id: 0, name: "全部", isShow: true },
-      { id: 1, name: "一级建造师", isShow: false },
-      { id: 2, name: "二级建造师", isShow: false },
-      { id: 3, name: "造价评审师", isShow: false },
-      { id: 4, name: "电器", isShow: false },
-      { id: 5, name: "土木工程", isShow: false },
-      { id: 6, name: "建筑工程", isShow: false },
-    ],
+    jobArry: [],
     index4: 0,
     xueli: [
       { id: 0, name: "全部", isShow: true },
@@ -62,8 +54,11 @@ Page({
       { id: 6, name: "50k以上", isShow: false },
     ],
   },
-  onLoad: function () {
-    this.category()
+  onLoad: function (options) {
+    this.setData({
+      name: options.name
+    })
+    this.category();
   },
   changIsActive(e) {
     let { index } = e.currentTarget.dataset;
@@ -79,9 +74,7 @@ Page({
   },
   changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
-    let { zhiwei } = this.data
-    zhiwei.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ zhiwei, index3: index })
+    this.setData({ index3: index })
   },
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
@@ -107,7 +100,7 @@ Page({
     let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
     prevPage.setData({
       require_cert: this.data.zhengshu[index2].name,
-      type: this.data.zhiwei[index3].name,
+      type: this.data.jobArry[index3].cat_name,
       education: this.data.xueli[index4].name,
       work_age: this.data.jingyan[index5].name,
       salary: this.data.xinzi[index6].name,
@@ -115,8 +108,15 @@ Page({
     wx.navigateBack({}); //关闭当前页面，返回上一个页面
   },
   category() {
+    let arr = [];
     ServerData.category({}).then((res) => {
-      console.log(res);
+      if (res.data.msg == '获取成功') {
+        arr.push({ cat_id: '', cat_name: "全部" })
+        let jobArry = [...arr, ...res.data.data]
+        this.setData({
+          jobArry,
+        })
+      }
     })
-  }
+  },
 })

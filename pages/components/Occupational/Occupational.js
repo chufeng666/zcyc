@@ -8,7 +8,8 @@ Component({
     job_careers: '',
     job_intention: '',
     job_type: 0,     //职位id
-    isShow: false
+    isShow: false,
+    status: ''
   },
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持  
@@ -64,7 +65,7 @@ Component({
         job_careers: that.data.job_careers.cat_name,
         job_intention: that.data.job_intention.cat_name,
         job_type: that.data.job_intention.cat_id,
-        intention:that.data.intention,
+        intention: that.data.intention,
         isShow: false
       }
       this.triggerEvent('tabEvent1', json)
@@ -109,8 +110,11 @@ Component({
             careerss: res.data.data,
             job_careers: res.data.data[that.data.value[1]]
           })
-        } else {
-          ServerData._wxTost(res.data.msg)
+        } else if (res.data.status == -2) {
+          console.log('1111111111111111');
+          that.setData({
+            careerss: '',
+          })
         }
       })
     }

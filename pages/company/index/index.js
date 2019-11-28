@@ -28,13 +28,22 @@ Page({
     index: 0,
     // 历史消息模态框开关
     isShow: false,
-    //地址
+    //搜索
     showTST1: true,
-    type: '',         //工种
     title: '',        //职位
+    // 更多返回的数据
+    type: '',         //工种
+    require_cert: '', //证书
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
   },
 
   onShow: function () {
+    let { require_cert, education, type, work_age, salary } = this.data;
+    if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.reqIndex()
+    }
     this.initUserInfo()
   },
   // 是否完善信息请求
@@ -83,11 +92,12 @@ Page({
     // 2 输入框的值
     const { value } = e.detail;
     this.setData({
+      title: value,
       isShow: false,
     })
     // // 4 正常
     setTimeout(() => {
-      this.reqIndex(value);
+      this.reqIndex();
     }, 0);
   },
   bindfocus(e) {
@@ -104,16 +114,39 @@ Page({
 	/**
 	 * 请求数据
 	 */
-  reqIndex(value) {
-    let { province, city, district, type } = this.data
+  reqIndex() {
+    let { province, city, district, type, title, require_cert, education, work_age, salary } = this.data
     var that = this
+    if (require_cert == '有证书') {
+      require_cert = 1
+    } else if (require_cert == '无证书') {
+      require_cert = 0
+    } else {
+      require_cert = ''
+    }
+    if (work_age == '全部') {
+      work_age = '';
+    }
+    if (type == '全部') {
+      type = '';
+    }
+    if (education == '全部') {
+      education = '';
+    }
+    if (salary == '不限') {
+      salary = ''
+    }
     let _opt = {
-      'title': value,
+      'title': title,
       'province': province,
       'city': city,
       'district': district,
       'regtype': 1,
       'type': type,
+      'education': education,
+      'work_age': work_age,
+      'salary': salary,
+      'require_cert': require_cert,
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {

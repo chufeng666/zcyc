@@ -44,15 +44,15 @@
           <view wx:else class="newsite_city ">地点</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </view>
-        <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
+        <!-- <view class="newsite_button {{showTST1?'':'active'}}" bindtap="selectOccupational">
           <view class="newsite_view subtitle-msg" wx:if="{{showTST1}}">职位</view>
           <view wx:else class="newsite_city ">职位</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
-        </view>
-        <!-- <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
+        </view> -->
+        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
           <view class="newsite_view subtitle-msg">更多</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
-        </navigator> -->
+        </navigator>
       </view>
     </view>
   </view>
@@ -65,12 +65,12 @@
       <navigator class="c_info" wx:for="{{indexData.person}}" wx:key="id"
         url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
         <view class="i_list">
-          <view class="l_yuan">{{item.job_type}}</view>
+          <view class="l_yuan">{{item.careers}}</view>
           <view class="l_price">{{item.salary}}/月</view>
         </view>
         <view class="i_second">
           <view>人才</view>
-          <view>{{item.images == 1 ? "无需证书":"需要证书"}}</view>
+          <view>{{item.images == 0 ? "无证书":"有证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
@@ -95,7 +95,7 @@
         </view>
         <view class="i_second">
           <view>服务商</view>
-          <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+          <view>{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
         </view>
         <view class="i_third">
           <view class="t_weizhi">{{item.city}} - {{item.district}}</view>

@@ -126,7 +126,7 @@
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
   padding: 0 10rpx;
-  color: var(--thirdPartyColor);
+  /* color: var(--thirdPartyColor); */
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {

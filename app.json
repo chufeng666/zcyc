@@ -1,13 +1,17 @@
 {
   "pages": [
-    "pages/company/jobApplicant/jobApplicant",
     "pages/userInfo2/index/index",
-    "pages/thirdParty/jobApplicant/jobApplicant",
-    
+    "pages/company/jobApplicant/jobApplicant",
     
     "pages/company/index/index",
+    
     "pages/thirdParty/index/index",
+    
+    "pages/thirdParty/jobApplicant/jobApplicant",
     "pages/userInfo2/editInfo/editInfo",
+    
+    
+    
     "pages/company/editInfo/editInfo",
     
     "pages/userInfo2/privacySettings/privacySettings",

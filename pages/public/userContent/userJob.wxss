@@ -69,7 +69,7 @@
   border-radius: 10rpx;
   font-size: 26rpx;
   opacity: 0.8;
-  margin-bottom: 200rpx;
+  margin-bottom: 140rpx;
 }
 
 .icon-hao {

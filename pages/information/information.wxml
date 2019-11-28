@@ -1,7 +1,7 @@
 <view class="xiaoxi_header {{bgc}}">
   <view class="h-left">
     <view bindtap="fanhui" class="iconfont icon-zuojiantou"></view>
-    <view class="l_qiye">消息(24)</view>
+    <!-- <view class="l_qiye">消息(24)</view> -->
   </view>
 </view>
 <view class='inner'>
@@ -28,8 +28,8 @@
           <icon class='t-i-raduis'></icon>
         </view>
       </view>
-      <view class="show">{{item.show}}</view>
+      <!-- <view class="show">{{item.show}}</view> -->
     </navigator>
-    <!-- <view class='more-recommond2' wx:if="{{isMore}}" bindtap='lookMore'>点击查看更多</view> -->
+    <view class='more-recommond2'  bindtap='lookMore'>点击查看更多</view>
   </view>
 </view>

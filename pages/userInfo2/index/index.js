@@ -31,8 +31,16 @@ Page({
     ],
     //地址
     showTST1: true,
+    jobArry: [],      // 一级职位
+    type: '',         //一级职位名称
+    title: '',        //二级岗位
+    job_type: '',      // 一级职位id
+    // 更多返回的数据
+    require_cert: '', //证书
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
     type: '',         //工种
-    title: '',        //职位
   },
   onShow: function () {
     let { require_cert, type, education, work_age, salary } = this.data;
@@ -47,6 +55,7 @@ Page({
   onLoad: function () {
     this.messageList()
     this.reqIndex(); //请求数据
+    this.category();
     util.getStorageItem('savePostion', app);   //
     /*********地址 */
     if (wx.hideHomeButton) wx.hideHomeButton()
@@ -56,12 +65,12 @@ Page({
     this.Occupational = this.selectComponent('#Occupational');
     /*********职业 */
   },
-  reqIndex(value) {
-    let { province, city, district, require_cert, type, education, work_age, salary } = this.data;
+  reqIndex() {
+    let { province, city, district, type, title, job_type, require_cert, education, work_age, salary } = this.data;
     var that = this;
-    if (require_cert == '需要证书') {
+    if (require_cert == '有证书') {
       require_cert = 1
-    } else if (require_cert == '无需证书') {
+    } else if (require_cert == '无证书') {
       require_cert = 0
     } else {
       require_cert = ''
@@ -79,15 +88,16 @@ Page({
       salary = ''
     }
     let _opt = {
-      'title': value,
       'province': province,
       'city': city,
       'district': district,
-      'require_cert': require_cert,
+      'title': title,
+      'job_type': job_type,
       'type': type,
       'education': education,
       'work_age': work_age,
       'salary': salary,
+      'require_cert': require_cert,
       // 'regtype': 3,
     }
     ServerData.userVisit(_opt).then((res) => {
@@ -175,9 +185,10 @@ Page({
   tabEvent1(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
-      showTST1: info.isShow
+      title: info.job_careers,
+      type: info.job_intention,
+      showTST1: info.isShow,
+      job_type: info.job_type
     })
     this.reqIndex()
   },
@@ -214,10 +225,11 @@ Page({
     // 2 输入框的值
     const { value } = e.detail;
     this.setData({
+      title: value,
       isShow: false,
     })
     setTimeout(() => {
-      this.reqIndex(value);
+      this.reqIndex();
     }, 1000);
   },
   bindfocus(e) {
@@ -231,4 +243,14 @@ Page({
     })
   },
   /* 搜索内容传递给请求部分 */
+  category() {
+    let that = this
+    ServerData.category({}).then((res) => {
+      if (res.data.status == 1) {
+        that.setData({
+          jobArry: res.data.data
+        })
+      }
+    })
+  }
 })

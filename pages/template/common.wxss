@@ -92,6 +92,7 @@
 }
 
 .search2-inner .collect_tab {
+  font-size: 24rpx;
   text-align: center;
 }
 
@@ -590,8 +591,8 @@ textarea {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 32rpx 0;
-  border-bottom: 1rpx solid #dedede;
+  /* padding-top: 32rpx ; */
+  /* border-bottom: 1rpx solid #dedede; */
 }
 
 /* loading start */

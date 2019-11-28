@@ -34,6 +34,9 @@
   color: #fff;
   border-radius: 36rpx;
 }
+.us_hd_id:first-child{
+  margin-top: 49rpx;
+}
 .us_hd_id{
   margin-top: 49rpx;
 }
@@ -59,9 +62,8 @@
 }
 
 .us_hd_id_num {
-  font-size: 26rpx;
-  opacity: 0.4;
-  margin-top: 51rpx;
+  font-size: 32rpx;
+  color: #262626;
 }
 
 .bitian {

@@ -18,18 +18,18 @@ Page({
     audit_status: [],//是否完善信息
     isShow: false,
     // 更多返回的数据
-    // require_cert: '', //证书
-    // education: '',  // 学历
-    // work_age: '',   // 工龄
-    // salary: '',     // 薪资
+    require_cert: '', //证书
+    education: '',  // 学历
+    work_age: '',   // 工龄
+    salary: '',     // 薪资
+    type: '',         //工种
     //地址
     showTST: true,                  //是否选择地址
     province: '',
     city: '',
     district: '',
-    //地址
-    showTST1: true, 
-    type: '',         //工种
+    //搜索
+    showTST1: true,
     title: '',        //职位
 
   },
@@ -46,19 +46,46 @@ Page({
     /*********职位 */
   },
   onShow: function () {
-    this.initUserInfo();
+    let { require_cert, education, type, work_age, salary } = this.data;
+    console.log(type);
+    if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.getUserInfo()
+    }
   },
   //主页信息请求
-  getUserInfo: function (value) {
-    let { province, city, district, type } = this.data
+  getUserInfo: function () {
+    let { province, city, district, type, title, require_cert, education, work_age, salary } = this.data
     var that = this
+    if (require_cert == '有证书') {
+      require_cert = 1
+    } else if (require_cert == '无证书') {
+      require_cert = 0
+    } else {
+      require_cert = ''
+    }
+    if (work_age == '全部') {
+      work_age = '';
+    }
+    if (type == '全部') {
+      type = '';
+    }
+    if (education == '全部') {
+      education = '';
+    }
+    if (salary == '不限') {
+      salary = ''
+    }
     let _opt = {
-      'title': value,
+      'title': title,
       'province': province,
       'city': city,
       'district': district,
       'regtype': 2,
       'type': type,
+      'education': education,
+      'work_age': work_age,
+      'salary': salary,
+      'require_cert': require_cert,
     }
     ServerData.userVisit(_opt).then((res) => {
       // console.log(res.data)
@@ -108,11 +135,12 @@ Page({
     // 2 输入框的值
     const { value } = e.detail;
     this.setData({
+      title: value,
       isShow: false,
     })
     // // 4 正常
     setTimeout(() => {
-      this.getUserInfo(value);
+      this.getUserInfo();
     }, 0);
   },
   bindfocus(e) {
@@ -148,8 +176,8 @@ Page({
   tabEvent1(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
+      title: info.job_careers,
+      type: info.job_intention,
       showTST1: info.isShow
     })
     this.getUserInfo()

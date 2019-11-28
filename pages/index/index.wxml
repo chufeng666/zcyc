@@ -53,7 +53,7 @@
       </view>
       <view class="i_second">
         <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-        <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+        <view>{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
         <view class="t_weizhi">广州 - 海珠区</view>
@@ -75,7 +75,7 @@
       </view>
       <view class="i_second">
         <view>{{item.regtype == 1 ? "企业":"服务商"}}</view>
-        <view>{{item.require_cert == 1 ? "无需证书":"需要证书"}}</view>
+        <view>{{item.require_cert == 0 ? "无需证书":"需要证书"}}</view>
       </view>
       <view class="i_third">
         <view class="t_weizhi">广州 - 海珠区</view>

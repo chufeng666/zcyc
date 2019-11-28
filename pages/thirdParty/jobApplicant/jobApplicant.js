@@ -10,7 +10,7 @@ Page({
   data: {
     hiringData: [],
     jobArray: [],                 //职位列表
-    row: 10,                     //默认拿一百条
+    row: 1,                     //默认拿一百条
     page: 1,                        //默认第一页
     //地址三级开始
     province: '',
@@ -29,6 +29,7 @@ Page({
     showTST1: true,
     type: '',         //工种
     title: '',        //职位  
+    name: '招人'
   },
 
   /**
@@ -63,7 +64,7 @@ Page({
     }, 0);
   },
   hiring: function (value) {
-    let { province, city, district, require_cert, type, education, work_age, salary } = this.data
+    let { province, city, district, require_cert, type, education, work_age, salary ,page,row} = this.data
     var that = this
     if (require_cert == '有证书') {
       require_cert = 1
@@ -86,16 +87,19 @@ Page({
       job_intention = ''
     }
     let _opt = {
-      'title': value,
+      'careers': value,
       'province': province,
+      'job_intention': '电气工程师',
       'city': city,
       'district': district,
-      'regtype': 2,
+      // 'regtype': 2,
       'require_cert': require_cert,
-      'type': type,
+      // 'type': type,
       'education': education,
       'work_age': work_age,
       'salary': salary,
+      // 'page': page,
+      // 'row': row,
     }
     ServerData.hiring(_opt).then((res) => {
       if (res.data.status == 1) {
@@ -131,19 +135,26 @@ Page({
   },
   /***********地址结束**************** */
   /***********职位开始**************** */
-  tabEvent1(data) {      //接收传过来的参数
-    var info = data.detail
-    this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
-      showTST1: info.isShow
-    })
-    this.hiring()
-  },
-  // 点击职位弹出选择框
-  selectOccupational: function (e) {
-    this.Occupational.showPopup()
-    this.Occupational.startAddressAnimation(true)
-  },
+  // tabEvent1(data) {      //接收传过来的参数
+  //   var info = data.detail
+  //   this.setData({
+  //     type: info.job_careers,
+  //     title: info.job_intention,
+  //     showTST1: info.isShow
+  //   })
+  //   this.hiring()
+  // },
+  // // 点击职位弹出选择框
+  // selectOccupational: function (e) {
+  //   this.Occupational.showPopup()
+  //   this.Occupational.startAddressAnimation(true)
+  // },
   /***********职位开始结束**************** */
+  // onReachBottom: function () {
+  //   this.setData({
+  //     page: this.data.page + 1,
+  //     // isMore: false
+  //   })
+  //   this.hiring()
+  // },
 })

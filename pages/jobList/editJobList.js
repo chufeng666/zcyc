@@ -248,8 +248,8 @@ Page({
   tabEvent1(data) {
     let info = data.detail
     this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
+      title: info.job_careers,
+      type: info.job_intention,
     })
   },
   selectOccupational: function (e) {
