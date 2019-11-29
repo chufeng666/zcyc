@@ -53,7 +53,7 @@
           </view>
           <view class="user_price">
             <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_youmihuobi.png" />
-            <view wx:if="{{userData.balance==null ||userData.balance=='null'}}" class="usp_yuer">暂无余额,赶快去充值吧</view>
+            <view wx:if="{{userData.balance==null ||userData.balance=='null'}}" class="usp_yuer">0</view>
             <view wx:else class="usp_yuer">{{userData.balance}}</view>
             <text class='iconfont icon-youjiantou user-color-'></text>
           </view>
@@ -92,7 +92,7 @@
           <view url="" class='u-o-list'>
             <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_shimingrenz.png" />
             <view class="u-o_left" style="width:628rpx">
-              <text>实名验证</text>
+              <text>企业验证</text>
               <view class="yiwanshan" wx:if="{{audit_status  == null ||audit_status.status == 0 ||audit_status.status == -1}}">未验证</view>
               <view class="yiwanshan" wx:else>已验证</view>
             </view>

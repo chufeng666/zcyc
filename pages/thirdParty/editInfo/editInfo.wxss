@@ -40,8 +40,8 @@
 .touxiang {
   display: flex;
   flex-direction: column;
-  font-size: 30rpx;
-  font-weight: bold;
+  font-size: 28rpx;
+  /* font-weight: bold; */
   color: #262626;
 }
 
@@ -101,7 +101,7 @@
 
 .ec_bt {
   font-size: 36rpx;
-  color: #B1B1B1;
+  color: #262626;
   margin-top: 49rpx;
   font-weight: normal;
 }

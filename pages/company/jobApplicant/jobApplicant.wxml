@@ -1,6 +1,6 @@
 <view class='i-header'>
   <view class="h-left">
-    <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+    <!-- <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator> -->
     <view class="l_qiye">招人</view>
   </view>
   <view class="h-bottom">
@@ -10,44 +10,12 @@
 </view>
 <view class="newest-search">
   <view class="n-xiahuaxian">
-    <view class="province" wx:if="{{city == '' && education ==''}}">
+    <view class="province">
       <view class="dizhi">
-        <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text decode="{{true}}">学历&nbsp;&nbsp;</text>
-        <!-- <text bindtap="selectOccupational">
-          <text wx:if="{{showTST1}}">请选择岗位</text>
-          <text wx:else style="color: var(--thirdPartyColor);">请选择岗位</text>
-        </text> -->
-      </view>
-    </view>
-    <view class="province" wx:elif="{{education ==''}}">
-      <view class="dizhi">
-        <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text decode="{{true}}">学历&nbsp;&nbsp;</text>
-        <!-- <text bindtap="selectOccupational">
-          <text wx:if="{{showTST1}}">请选择岗位</text>
-          <text wx:else style="color: var(--thirdPartyColor);">请选择岗位</text>
-        </text> -->
-      </view>
-    </view>
-    <view class="province" wx:elif="{{city == ''}}">
-      <view class="dizhi">
-        <text decode="{{true}}">公司地址&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text decode="{{true}}">{{education}}&nbsp;&nbsp;</text>
-        <!-- <text bindtap="selectOccupational">
-          <text wx:if="{{showTST1}}">请选择岗位</text>
-          <text wx:else style="color: var(--thirdPartyColor);">请选择岗位</text>
-        </text> -->
-      </view>
-    </view>
-    <view class="province" wx:else>
-      <view class="dizhi">
-        <text decode="{{true}}">{{city}}-{{district}}&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-        <text decode="{{true}}">{{education}}&nbsp;&nbsp;</text>
-        <!-- <text bindtap="selectOccupational">
-          <text wx:if="{{showTST1}}">请选择岗位</text>
-          <text wx:else style="color: var(--thirdPartyColor);">请选择岗位</text>
-        </text> -->
+        <text decode="{{true}}" wx:if="{{showTST}}">公司地址&nbsp;&nbsp;/</text>
+        <text decode="{{true}}" wx:else>{{city}} - {{district}}&nbsp;&nbsp;/</text>
+        <text decode="{{true}}" wx:if="{{showTST1}}">&nbsp;&nbsp;学历</text>
+        <text decode="{{true}}" wx:else>&nbsp;&nbsp;{{school_type}}</text>
       </view>
     </view>
     <view class="n-search">
@@ -55,7 +23,8 @@
         <view class="newsite_view subtitle-msg  ">地点</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </view>
-      <navigator url="../ScreeningConditions/ScreeningConditions?name=招人" class="newsite_button {{require_cert == '' || education =='' ||work_age == '' ||salary == '' ? '' : 'active'}}">
+      <navigator url="../ScreeningConditions/ScreeningConditions?name=招人&job_intention={{job_intention}}&require_cert={{require_cert}}&salary={{salary}}&school_type={{school_type}}&work_age={{work_age}}"
+        class="newsite_button {{require_cert == '' || school_type =='' ||work_age == '' ||salary == '' ? '' : 'active'}}">
         <view class="newsite_view subtitle-msg  ">更多</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </navigator>

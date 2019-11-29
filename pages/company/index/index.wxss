@@ -42,6 +42,7 @@
 
 .i-header .new, swiper {
   height: 74rpx;
+  background-color: #deeffe;
 }
 
 swiper-item {
@@ -51,7 +52,7 @@ swiper-item {
 .i-header .new .new_xiaoxi {
   display: flex;
   align-content: center;
-  background-color: #ffeeab;
+  /* background-color: #ffeeab; */
   height: 74rpx;
   line-height: 74rpx;
 }
@@ -61,7 +62,7 @@ swiper-item {
   margin-left: 34rpx;
   font-size: 32rpx;
   font-weight: 700;
-  color: #f0a930;
+  color: #262626;
   display: flex;
 }
 
@@ -138,7 +139,7 @@ swiper-item {
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_view {
-  margin:0 10rpx;
+  margin-left: 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .newsite_city {
@@ -147,7 +148,7 @@ swiper-item {
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 16rpx;
-  margin-right: 16rpx;
+  margin:0 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {

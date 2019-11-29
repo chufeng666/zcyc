@@ -59,7 +59,7 @@
 }
 
 .footer {
-  margin-top: 489rpx;
+  margin-top: 140rpx;
 }
 
 .footer button {

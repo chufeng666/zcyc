@@ -19,7 +19,25 @@
   opacity: 0.8;
   margin-bottom: 200rpx;
 }
+.user_header {
+  display: flex;
+  align-items: center;
+  height: 56rpx;
+  background-color: #ffe4cc;
+  color: #ff730e;
+  margin-top: 180rpx;
+}
 
+.user_header .liaojie {
+  flex: 18;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.user_header .icon-cha {
+  flex: 1;
+  font-size: 24rpx;
+}
 .icon-hao {
   font-weight: bold;
   margin-right: 15rpx;
@@ -49,7 +67,7 @@
 .inpuTitle {
   margin-top: 30rpx;
   font-weight: normal;
-  color: #686868;
+  color: #262626;
 }
 .inpuTitle-real{
   margin-top: 30rpx;

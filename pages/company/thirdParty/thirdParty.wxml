@@ -1,6 +1,6 @@
 <view class='i-header'>
   <view class="h-left">
-    <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator>
+    <!-- <navigator url="../index/index" class="iconfont icon-zuojiantou"></navigator> -->
     <view class="l_qiye">服务商</view>
   </view>
   <view class="h-bottom">
@@ -11,16 +11,12 @@
 <view class="newest-search">
   <view class="n-xiahuaxian">
     <view class="newest">
-      <view class="province" wx:if="{{showTST}}">
-        <text decode="{{true}}">公司地址&nbsp;&nbsp;/</text>
-        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
-          <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
-        </picker>
-      </view>
-      <view class="province" wx:else>
-        <text decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;/</text>
-        <picker mode="selector" range="{{xingzhi}}" bindchange="setXingzhi">
-          <text decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
+      <view class="province">
+        <text wx:if="{{showTST}}" decode="{{true}}">公司地址&nbsp;&nbsp;/</text>
+        <text wx:else decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;/</text>
+        <picker mode="selector" bindcancel="bindcancel" range="{{xingzhi}}" bindchange="setXingzhi">
+          <text wx:if="{{type==''}}" decode="{{true}}" class="picker">&nbsp;&nbsp;全部</text>
+          <text wx:else decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
         </picker>
       </view>
     </view>

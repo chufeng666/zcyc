@@ -8,7 +8,7 @@
         <view class='c-list-info'>
           <view class="list_name">
             <view class=''>{{personalData.name}}</view>
-            <text wx:if="{{personalData.name == 1}}" class="iconfont  icon-nv"></text>
+            <text wx:if="{{personalData.gender == 1}}" class="iconfont  icon-nv"></text>
             <text wx:else class="iconfont  icon-nan"></text>
           </view>
           <view class='w-bold'>
@@ -110,7 +110,8 @@
           <image class="yuangongfuliguanli" src="/static/images/index/companyygfl.png"></image>
           <view>职业证书</view>
         </view>
-        <view wx:if="{{personalData.images=='' || personalData.images == null || personalData.images[0].path == ''}}" class="zanwu">暂无证书</view>
+        <view wx:if="{{personalData.images=='' || personalData.images == null || personalData.images[0].path == ''}}"
+          class="zanwu">暂无证书</view>
         <view wx:else class="jinengzhengshu">
           <view class="jnzs_list" wx:for="{{personalData.images}}" wx:key="index">
             <image class="zhengshuicon" src="/static/images/index/zhengshuicon.png"></image>
@@ -125,19 +126,19 @@
           <text class="iconfont  icon-wuxiaoxing-kong"></text>
           <view>收藏</view>
         </view>
-        <view class="shoucang" bindtap="onCollection" class='collect_tab' data-stu="1" wx:else>
-          <text class="iconfont  icon-wuxiaoxing-kong active"></text>
+        <view class="shoucang " bindtap="onCollection" class='collect_tab' data-stu="1" wx:else>
+          <text class="iconfont  icon-wuxiaoxing-kong active {{pColor}}"></text>
           <view>已收藏</view>
         </view>
       </view>
       <view class="footer-right">
-        <button wx:if="{{personalData.reserve == 1 && personalData.reserve_c != personalData.company_id}}"
-          bindtap="yuDing" class='f-btn-1'>马上预订</button>
+        <button wx:if="{{personalData.reserve == 1 && personalData.reserve_c == 0 }}" bindtap="yuDing"
+          class='f-btn-1'>马上预订</button>
         <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c == personalData.company_id}}"
           class='f-btn-1_fou'>您已预订</button>
-        <button wx:elif="{{personalData.reserve == 0 }}" class='f-btn-1_fou'>未开启预定</button>
-        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c ==0  }}"
+        <button wx:elif="{{personalData.reserve == 1 && personalData.reserve_c != personalData.company_id}}"
           class='f-btn-1_fou'>已被预订</button>
+        <button wx:elif="{{personalData.reserve == 0 }}" class='f-btn-1_fou'>未开启预定</button>
       </view>
       <view class="footer-right">
         <button class='f-btn-1'>

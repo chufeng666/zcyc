@@ -12,7 +12,7 @@ Page({
     // 当天时间
     sameDay: '请选择在职时间',
     sameDay2: '请选择在职时间',
-    jingli: '1.负责落实公司各项安全规章管理制度\n2.确保项目部顺利实行安全生产工作\n3.现场检查管理工作及内场资料。',
+    jingli: '',
     experience: [],   // 工作经验上传  
     isShow: true,
     disabled: false // 点击一次的开关

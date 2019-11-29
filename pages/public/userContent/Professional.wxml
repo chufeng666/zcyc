@@ -2,8 +2,13 @@
   <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
   <view class="in_left">职业证书</view>
 </view>
-<image wx:if="{{images=='' || images == null}}" mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
-<view  ex:else class="inner">
+<view class="user_header">
+  <view class="liaojie">删除或增加职业证书请到求职意向里面操作</view>
+  <text class="iconfont  .icon-cha"></text>
+</view>
+<image wx:if="{{images=='' || images == null}}" mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png">
+</image>
+<view ex:else class="inner">
   <view class="" wx:for="{{images}}" wx:key="index">
     <view class="userId_header">
       <view class="name_size">

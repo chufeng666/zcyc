@@ -230,7 +230,7 @@ page {
 }
 
 .user_qiehuan .u-o-list:last-child .u-o_left {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #686868;
   border: none;
   margin: 0;
@@ -238,6 +238,7 @@ page {
 
 /* <!-- USER OPTION START --> */
 .yiwanshan{
+  font-size: 24rpx;
   color: var(--themeColor);
 }
 /* 主体 */

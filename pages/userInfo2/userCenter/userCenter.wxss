@@ -231,7 +231,7 @@ page {
 }
 
 .user_qiehuan .u-o-list:last-child .u-o_left1 {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #686868;
   border: none;
   margin: 0;

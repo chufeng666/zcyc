@@ -53,7 +53,12 @@ Page({
       { id: 5, name: "20 - 50k", isShow: false },
       { id: 6, name: "50k以上", isShow: false },
     ],
-    name: ''
+    name: '',
+    require_cert: '',
+    job_intention: '',
+    school_type: '',
+    work_age: '',
+    salary: '',
   },
 
   /**
@@ -61,17 +66,33 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      name: options.name
+      name: options.name,
+      require_cert: options.require_cert,
+      job_intention: options.job_intention,
+      school_type: options.school_type,
+      work_age: options.work_age,
+      salary: options.salary,
     })
-    this.category();
+    // this.category();
+    // 返回选定
+    this.changRequireCert();
+    this.changWorkAge();
+    this.changSalary();
+    // 招人页面返回参数选定
+    this.changSchoolType();
+    setTimeout(() => {
+      this.changJobIntention();
+    }, 300);
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.category();
   },
+  //一级职位的请求
   category() {
     let arr = [];
     ServerData.category({}).then((res) => {
@@ -84,62 +105,124 @@ Page({
       }
     })
   },
-  slider4change(e) {
-    let value = e.detail.value
-    this.setData({
-      value
-    })
-  },
-  changIsActive(e) {
-    let { index } = e.currentTarget.dataset;
-    let { disanfang } = this.data
-    disanfang.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
-    this.setData({ disanfang, })
-  },
+  // 证书
   changZhengshu(e) {
     let { index } = e.currentTarget.dataset;
     let { zhengshu } = this.data
     zhengshu.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ zhengshu, index2: index })
   },
+  //证书返回选定
+  changRequireCert(e) {
+    let { zhengshu, require_cert } = this.data;
+    this.forEach(zhengshu, require_cert)
+    this.setData({ zhengshu })
+  },
+  // 一级职位
   changZhiwei(e) {
     let { index } = e.currentTarget.dataset;
-    this.setData({  index3: index })
+    this.setData({ index3: index })
   },
+  // 一级职位返回选定(招人页面)
+  changJobIntention(e) {
+    let index = 0;
+    let { job_intention, jobArry } = this.data
+    console.log(job_intention,jobArry);
+    for (let i in jobArry) {
+      console.log('111111111111111');
+      if (jobArry[i].cat_name == job_intention) {
+        console.log(jobArry[i].cat_name);
+        console.log(job_intention);
+        console.log(i);
+        index = i;
+      }
+    }
+    console.log(index);
+    this.setData({ index3: index })
+  },
+
+  // 学历
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
     let { xueli } = this.data
     xueli.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ xueli, index4: index })
   },
+  // 学历返回选定(招人页面)
+  changSchoolType() {
+    let { xueli, school_type } = this.data;
+    this.forEach(xueli, school_type)
+    this.setData({ xueli })
+  },
+  //经验
   changJingyan(e) {
     let { index } = e.currentTarget.dataset;
     let { jingyan } = this.data;
     jingyan.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ jingyan, index5: index })
   },
+  //经验返回选定
+  changWorkAge(e) {
+    let { jingyan, work_age } = this.data;
+    this.forEach(jingyan, work_age)
+    this.setData({ jingyan })
+  },
+  // 薪资
   changXinzi(e) {
     let { index } = e.currentTarget.dataset;
     let { xinzi } = this.data;
     xinzi.forEach((v, i) => i === index ? v.isShow = true : v.isShow = false);
     this.setData({ xinzi, index6: index })
   },
+  // 薪资返回选定
+  changSalary(e) {
+    let { xinzi, salary } = this.data;
+    this.forEach(xinzi, salary)
+    this.setData({ xinzi })
+  },
+  // 点击确定将数据返回给上一个页面
   editTel() {
-    let { index1, index2, index3, index4, index5, index6 } = this.data
+    let { index1, index2, index3, index4, index5, index6, name } = this.data
     let pages = getCurrentPages(); //获取上一个页面信息栈(a页面)
     let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
-    prevPage.setData({
-      require_cert: this.data.zhengshu[index2].name,
-      type: this.data.jobArry[index3].cat_name,
-      education: this.data.xueli[index4].name,
-      work_age: this.data.jingyan[index5].name,
-      salary: this.data.xinzi[index6].name,
-    });
+    if (name == '招人') {
+      prevPage.setData({
+        require_cert: this.data.zhengshu[index2].name,
+        job_intention: this.data.jobArry[index3].cat_name,
+        school_type: this.data.xueli[index4].name,
+        work_age: this.data.jingyan[index5].name,
+        salary: this.data.xinzi[index6].name,
+      });
+    } else {
+      prevPage.setData({
+        require_cert: this.data.zhengshu[index2].name,
+        type: this.data.jobArry[index3].cat_name,
+        education: this.data.xueli[index4].name,
+        work_age: this.data.jingyan[index5].name,
+        salary: this.data.xinzi[index6].name,
+      });
+    }
     wx.navigateBack({}); //关闭当前页面，返回上一个页面
   },
   fanhui() {
     wx.navigateBack({
       delta: 1
     }); //关闭当前页面，返回上一个页面
+  },
+  // 返回选定封装方法
+  forEach(arr, type) {
+    let index = 0
+    for (let i in arr) {
+      if (arr[i].name == type) {
+        index = i;
+      }
+    }
+    for (let i in arr) {
+      if (index === i) {
+        arr[i].isShow = true;
+      } else if (index != i) {
+        arr[i].isShow = false;
+      }
+    }
   }
 })

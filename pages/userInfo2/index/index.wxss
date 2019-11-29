@@ -71,7 +71,7 @@ swiper-item {
   margin-left: 34rpx;
   font-size: 32rpx;
   font-weight: 700;
-  color: #f0a930;
+  color: #000;
   display: flex;
 }
 
@@ -85,7 +85,7 @@ swiper-item {
   margin-left: 16rpx;
   font-size: 28rpx;
   font-weight: 500;
-  color: #686868;
+  color: #000;
   display: -webkit-box;
   overflow: hidden;
   white-space: normal !important;

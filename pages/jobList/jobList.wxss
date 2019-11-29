@@ -92,5 +92,6 @@
 }
 
 .guocheng {
+  font-size: 28rpx;
   color: var(--thirdPartyColor);
 }

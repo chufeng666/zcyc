@@ -1,9 +1,9 @@
 <view class="information">
   <text bindtap="detil" class="iconfont  icon-zuojiantou"></text>
-  <view class="in_left">个人信息</view>
+  <view class="in_left">企业信息</view>
 </view>
 <view class="user_header">
-  <view class="liaojie">请完善公司信息</view>
+  <view class="liaojie">请完善企业信息</view>
   <text class="iconfont  .icon-cha"></text>
 </view>
 <!-- pages/userInfo/editInfo.wxml -->
@@ -14,7 +14,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>头像</view>
-            <view class="yiwanshan">必填</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan" wx:if="{{userList.city == ''}}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
@@ -35,7 +35,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>联系人</view>
-            <view class="yiwanshan">必填</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan" wx:if="{{userList.contacts == '' || userList.mobile == '' }}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
@@ -44,7 +44,7 @@
             <view class="yiwanshan" wx:else>已审核</view> -->
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
-            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-28">请填写来联系人</view>
+            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-29">请填写来联系人</view>
             <view wx:else class="size-28">{{userList.contacts}}/{{userList.mobile}}</view>
           </navigator>
         </view>
@@ -52,20 +52,16 @@
       <view class="ec_lianxiren">
         <view class="touxiang">
           <view class="jibenxinxi">
-            <view>公司基本信息</view>
-            <view class="yiwanshan">必填</view>
+            <view>企业基本信息</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan"
               wx:if="{{userList.city == '' || userList.company_name == '' || userList.contacts_scale == '' || userList.desc == '' || userList.district == '' || userList.head == '' || userList.open_time == '' || userList.province == '' || userList.telephone == '' || userList.type == ''}}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
-            <view class="yiwanshan" wx:if="{{userList.audit_status.status  == null}}">待审核</view>
-            <view class="yiwanshan" wx:elif="{{userList.audit_status.status == 0}}">审核中</view>
-            <view class="yiwanshan" wx:elif="{{userList.audit_status.status == -1}}">未通过</view>
-            <view class="yiwanshan" wx:else>已通过审核</view>
           </view>
           <navigator url="/pages/public/companyContent/information/information">
             <view class="ec_bt">
-              <view wx:if="{{userList.company_name==null || userList.type==''}}" class="size-28">请填写公司基本信息</view>
+              <view wx:if="{{userList.company_name==null || userList.type==''}}" class="size-29">请填写公司基本信息</view>
               <view wx:else class="size-28">{{userList.company_name}}/{{userList.type}}</view>
             </view>
           </navigator>
@@ -75,7 +71,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>行业标签</view>
-            <view class="yiwanshan">必填</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan" wx:if="{{userList.label == null }}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
@@ -85,7 +81,7 @@
           </view>
           <navigator url="/pages/public/companyContent/label/label">
             <view class="ec_bt">
-              <view wx:if="{{userList.label==null}}" class="size-28">请填写行业标签</view>
+              <view wx:if="{{userList.label==null}}" class="size-29">请填写行业标签</view>
               <view wx:else class="size-28">{{userList.label}}</view>
             </view>
           </navigator>
@@ -95,7 +91,7 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>公司资质</view>
-            <view class="yiwanshan">必填</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan" wx:if="{{userList.seniority == null}}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
@@ -105,7 +101,7 @@
           </view>
           <navigator url="/pages/public/companyContent/qualification/qualification">
             <view class="ec_bt">
-              <view wx:if="{{userList.seniority == null}}" class="size-28">请填写公司资质</view>
+              <view wx:if="{{userList.seniority == null}}" class="size-29">请填写公司资质</view>
               <view wx:else class="size-28">{{userList.seniority}}</view>
             </view>
           </navigator>
@@ -115,18 +111,18 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>营业执照</view>
-            <view class="yiwanshan">必填</view>
+            <!-- <view class="yiwanshan">必填</view> -->
             <view class="yiwanshan" wx:if="{{userList.c_img==null}}">
               未完善</view>
             <view class="yiwanshan" wx:else>已完善</view>
-            <view class="yiwanshan" wx:if="{{userList.audit_status.status  == null}}">待审核</view>
+            <!-- <view class="yiwanshan" wx:if="{{userList.audit_status.status  == null}}">待审核</view>
             <view class="yiwanshan" wx:elif="{{userList.audit_status.status == 0}}">审核中</view>
             <view class="yiwanshan" wx:elif="{{userList.audit_status.status == -1}}">未通过</view>
-            <view class="yiwanshan" wx:else>已通过审核</view>
+            <view class="yiwanshan" wx:else>已通过审核</view> -->
           </view>
           <navigator url="../../public/companyContent/license/license">
             <view class="ec_bt">
-              <view class="size-28" wx:if="{{userList.c_img == null}}">未上传</view>
+              <view class="size-29" wx:if="{{userList.c_img == null}}">未上传</view>
               <view class="size-28" wx:else>已上传</view>
             </view>
           </navigator>

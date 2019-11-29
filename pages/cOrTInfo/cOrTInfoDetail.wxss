@@ -32,6 +32,7 @@
   color: #686868;
   padding: 32rpx 0;
   border-bottom: 1rpx solid #dedede;
+  margin-bottom: 32rpx;
 }
 .global-c-body {
   background-color: #f0f0f0;
@@ -69,7 +70,7 @@
   border-bottom: 1rpx solid #dedede;
 }
 .tabs .active {
-  color: var(--themeColor);
+  
   font-weight: 600;
   border-width: 100rpx;
   padding-bottom: 31rpx;
@@ -114,7 +115,7 @@
   align-items: center;
 }
 .company_nav .company_map .cOrTInfo-msg {
-  color: var(--themeColor);
+  /* color: var(--themeColor); */
 }
 /* 招聘 */
 .third {
@@ -164,12 +165,13 @@
 /* 第二部分 */
 .cOrTInfo-,
 .cOrTInfo-option {
-  font-weight: 600;
+  font-size: 30rpx;
+  font-weight: 500;
   display: flex ;
   align-items: center;
 }
 .cOrTInfo-msg {
-  font-size: 26rpx;
+  font-size: 30rpx;
   margin-left: 12rpx;
 }
 .cOrTInfo-2 {
@@ -250,7 +252,7 @@
 }
 
 .icon-wuxiaoxing-kong {
-  color: #B6B6B6;
+  /* color: #B6B6B6; */
   font-size: 46rpx;
 }
 
@@ -260,7 +262,7 @@
 }
 
 .active {
-  color: var(--themeColor);
+  
 }
 
 @import '../template/font';

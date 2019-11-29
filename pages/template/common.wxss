@@ -418,11 +418,11 @@
 
 .s-portrait .posen-msg {
   background-color: var(--thirdPartyColor);
-  font-size: 28rpx !important;
+  font-size: 24rpx !important;
   color: #fff;
   padding: 6rpx 16rpx;
   margin-right: 16rpx;
-  border-radius: 8rpx;
+  border-radius: 4rpx;
 }
 
 /* SETTING BTN START */
@@ -439,7 +439,7 @@
   bottom: 38%;
   font-size: 32rpx;
   z-index: 11;
-  background-color: var(--themeColor);
+  /* background-color: var(--themeColor); */
 }
 
 /**/
@@ -526,21 +526,22 @@
 }
 
 textarea {
-  border: 2rpx solid #eee;
+  /* border: 2rpx solid #eee; */
   border-radius: 6rpx;
   padding: 6rpx;
   box-sizing: border-box;
 }
 
 .texa {
-  width: 639rpx;
-  height: 480rpx;
-  font-size: 24rpx;
+  /* width: 639rpx; */
+  height: 320rpx;
+  font-size: 28rpx;
   border-radius: 10rpx;
-  border: solid 2rpx #eee;
+  /* border: solid 2rpx #eee; */
   margin-top: 18rpx;
   padding: 10rpx;
   box-sizing: border-box;
+  /* color: #262626; */
 }
 
 .tex-wrap {

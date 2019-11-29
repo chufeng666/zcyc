@@ -18,22 +18,22 @@
 .name_company {
   position: relative;
   text-align: center;
-  color: #686868;
+  /* color: #686868; */
   font-size: 30rpx;
 }
 
 .name_company_active {
-  color: #ee291a;
+  /* color: #ee291a; */
   font-weight: bold;
 }
 
 .active {
   position: absolute;
-  right: 134rpx;
+  right: 145rpx;
   bottom: -30rpx;
   width: 89rpx;
   height: 4rpx;
-  background-color: var(--themeColor);
+  /* background-color: var(--themeColor); */
   text-align: center;
 }
 

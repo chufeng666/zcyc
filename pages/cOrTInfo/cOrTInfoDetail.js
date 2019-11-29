@@ -35,7 +35,6 @@ Page({
         pColor: util.loginIdentity().pColor,
       })
     } else {
-      savePostion = 3
       this.setData({
         pBgC: util.loginIdentity().pBgC,
         pColor: util.loginIdentity().pColor,

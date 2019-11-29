@@ -40,5 +40,18 @@ Page({
     wx.navigateBack({
       delta: 1,
     })
+  },
+  wancheng() {
+    let regtype = wx.getStorageSync('savePostion');
+    if(regtype == 1 ) {
+      wx.redirectTo({
+        url:'/pages/company/index/index'
+      })
+    }else if(regtype == 2) {
+      wx.redirectTo({
+        url:'/pages/thirdParty/index/index'
+      })
+    }
+  
   }
 })

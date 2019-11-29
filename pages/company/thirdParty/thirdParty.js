@@ -15,7 +15,7 @@ Page({
     isMore: true,
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
-    type: '请选择公司性质', //公司性质
+    type: '', //公司性质
   },
   setXingzhi(e) {
     let { xingzhi } = this.data;
@@ -132,5 +132,10 @@ Page({
       }
     })
   },
-
+  bindcancel() {
+    this.setData({
+      type: ''
+    })
+    this.getCompanyList();
+  }
 })

@@ -63,6 +63,34 @@
 					"id": -1,
 					"name": "pages/public/userContent/userJob",
 					"pathName": "pages/public/userContent/userJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/companyContent/information/information",
+					"pathName": "pages/public/companyContent/information/information",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobList/editJobList",
+					"pathName": "pages/jobList/editJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/public/userContent/userJob",
+					"pathName": "pages/public/userContent/userJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/company/myPurse/goldDeposits/goldDeposits",
+					"pathName": "pages/company/myPurse/goldDeposits/goldDeposits",
 					"scene": null
 				}
 			]

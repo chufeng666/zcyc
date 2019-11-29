@@ -175,7 +175,7 @@
 
 .c-info-msg {
   display: flex;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #fff;
   margin: 12rpx 0;
 }
@@ -183,7 +183,7 @@
 .c-msg {
   background-color: var(--themeColor);
   padding: 4rpx 16rpx;
-  border-radius: 10rpx;
+  border-radius: 4rpx;
   margin-right: 16rpx;
 }
 

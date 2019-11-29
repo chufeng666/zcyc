@@ -23,10 +23,14 @@
   border-bottom: 16rpx solid #dedede;
 }
 
-.weixinhao {}
+.weixinhao {
+  display: flex;
+  flex-direction: column;
+}
 
 .wxh_top {
   margin-bottom: 45rpx;
+  margin-right: auto;
   font-size: 26rpx;
   color: #B0B0B0;
 }

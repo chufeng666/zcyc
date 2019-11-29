@@ -8,7 +8,7 @@
           <view class='m-b22'>
             <view class='w-bold'>
               <view class="wm">{{recruitDetail.title}}</view>
-              <view class='m-r20'>{{recruitDetail.salary}}/月</view>
+              <view class='m-r20 {{pColor}}'>{{recruitDetail.salary}}/月</view>
             </view>
             <view class="mb_yaoqiu">
               <view class="mb_y">
@@ -35,7 +35,7 @@
                   {{recruitDetail.city}}{{recruitDetail.district}}
                 </view>
               </view>
-              <icon class='iconfont icon-youjiantou2'></icon>
+              <icon class='iconfont icon-youjiantou2 {{pColor}}' ></icon>
             </navigator>
           </view>
           <view class='employee-welfare'>
@@ -66,7 +66,7 @@
       <view class="-desc-msg">{{recruitDetail.detail}}</view>
     </view>
   </view>
-  <view class='footer' wx:if="{{companyShow}}">
+  <view class='footer' >
     <!-- <button class='f-btn-1' bindtap="callWithHim">马上预订</button> -->
     <view class='search2-inner'>
       <view class="si_shoucang">
@@ -75,19 +75,21 @@
           <view class='collect_tab'>收藏职位</view>
         </view>
         <view class="ss_weishoucang" bindtap="onCollection" data-stu="1" wx:else>
-          <text class="iconfont icon-wuxiaoxing-kong {{isCollect==0?'':'active'}}"></text>
+          <text class="iconfont icon-wuxiaoxing-kong {{isCollect==0?'':'active'}} {{pColor}}"></text>
           <view class='collect_tab'>已收藏</view>
         </view>
       </view>
     </view>
-    <button wx:if="{{resume_status ==0 && isShow}}" class="f-btn-2 {{bgc}}" bindtap="tuisong">
-      <text class="iconfont  icon-tuisong"></text>
-      <view>推送简历</view>
-    </button>
-    <button wx:else class="f-btn-2_hui">
-      <text class="iconfont  icon-tuisong"></text>
-      <view>已推送简历</view>
-    </button>
+    <view wx:if="{{companyShow}}" class="tanxing">
+      <button wx:if="{{resume_status ==0 && isShow}}" class="f-btn-2 {{bgc}}" bindtap="tuisong">
+        <text class="iconfont  icon-tuisong"></text>
+        <view>推送简历</view>
+      </button>
+      <button wx:else class="f-btn-2_hui">
+        <text class="iconfont  icon-tuisong"></text>
+        <view>已推送简历</view>
+      </button>
+    </view>
     <button class='f-btn-2 {{bgc}}' open-type="contact">
       <text class="iconfont    icon-lianxi"></text>
       <view>联系客服</view>

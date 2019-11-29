@@ -19,6 +19,7 @@ Page({
     resume_status: '',
     companyShow: false, // 隐藏推荐按钮
     regtype: 0,
+    
   },
 
 	/**
@@ -42,11 +43,13 @@ Page({
       this.setData({
         isShow: false,
         bgc: util.loginIdentity().pBC,
+        pColor: util.loginIdentity().pColor,
         companyShow:false
       })
     } else {
       this.setData({
         bgc: util.loginIdentity().pBgC,
+        pColor: util.loginIdentity().pColor,
         companyShow:true
       })
     }

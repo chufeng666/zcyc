@@ -18,6 +18,7 @@ Page({
     audit_status: [],//是否完善信息
     isShow: false,
     // 更多返回的数据
+    showTST2: false,
     require_cert: '', //证书
     education: '',  // 学历
     work_age: '',   // 工龄
@@ -47,8 +48,11 @@ Page({
   },
   onShow: function () {
     let { require_cert, education, type, work_age, salary } = this.data;
-    console.log(type);
+
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.setData({
+        showTST2: true
+      })
       this.getUserInfo()
     }
   },

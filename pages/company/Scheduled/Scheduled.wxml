@@ -15,7 +15,7 @@
       </view>
       <view class="mf_middle">
         <view class="mf_m_left">
-          <image src="" class="mf_m_l_img" />
+          <text class="iconfont  icon-weixin"></text>
           <view>{{name}}</view>
         </view>
         <view class="mf_m_right">
@@ -25,7 +25,7 @@
       <view class="mf_bt">
         <view class="mf_bt_top">
           <view class="mf_bt_top_left" wx:for="{{images}}" wx:key="index">
-            <text class="iconfont  icon-yanzhengma"></text>
+            <image class="zhengshuicon" src="/static/images/index/zhengshuicon.png"></image>
             <view wx:if="{{item.title=='' || item.title == null}}">该人才未上传职业证书</view>
             <view wx:else>{{item.title}}</view>
           </view>

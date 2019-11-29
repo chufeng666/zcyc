@@ -12,13 +12,13 @@ Page({
     rows: 10,
     isMore: false,
     bgc: '',                     //动态获背景颜色    
+    total:''                    // 总条数
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    util.getStorageItem('savePostion', app);   //获取底部导航
     this.messageList();
     let regtype = wx.getStorageSync('savePostion')
     if (regtype == 1 || regtype == 2) {
@@ -35,7 +35,6 @@ Page({
     }
   },
   lookMore() {
-    console.log('1111111111111111111');
     this.setData({
       page: this.data.page++
     })
@@ -67,6 +66,7 @@ Page({
           }
           this.setData({
             array: newArray,
+            total:res.data.total,
             isMore: true
           })
         }

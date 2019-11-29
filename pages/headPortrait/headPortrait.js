@@ -13,6 +13,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let regtype = wx.getStorageSync('savePostion')
+    if (regtype == 1 || regtype == 2) {
+      this.setData({
+        isShow: false,
+        bgc: util.loginIdentity().pBC,
+      })
+    } else {
+      this.setData({
+        bgc: util.loginIdentity().pBgC,
+      })
+    }
     this.setCompanyInfo7()
   },
   setCompanyInfo7() {

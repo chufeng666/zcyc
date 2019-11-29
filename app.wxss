@@ -47,7 +47,7 @@ page {
 }
 
 .m-r10 {
-  margin-right: 32rpx;
+  margin-right: 12rpx;
 }
 
 .m-r20 {
@@ -74,7 +74,6 @@ page {
 }
 
 .m-b10 {
-  
 }
 
 .m-t20 {
@@ -112,7 +111,18 @@ page {
 }
 
 .size-28 {
-  font-size: 28rpx !important;
+  font-size: 36rpx !important;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.size-29 {
+  font-size: 36rpx !important;
+  color: #686868;
 }
 
 .bold {
@@ -181,7 +191,8 @@ page {
   width: 100%;
 }
 
-.footer-height {}
+.footer-height {
+}
 
 /* MOBILE CODE START */
 

@@ -104,7 +104,7 @@
   align-items: center;
   background-color: #eaeaea;
   height: 56rpx;
-  line-height: 56rpx;
+  /* line-height: 56rpx; */
   border-radius: 8%;
   padding: 0 10rpx
 }
@@ -172,7 +172,7 @@
 .c-info-msg {
   display: flex;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #fff;
   margin: 16rpx 0;
 }
@@ -180,7 +180,7 @@
 .c-msg {
   background-color: var(--themeColor);
   padding: 4rpx 16rpx;
-  border-radius: 10rpx;
+  border-radius: 4rpx;
   margin-right: 16rpx;
 }
 

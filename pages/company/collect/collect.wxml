@@ -9,9 +9,9 @@
   <view class='inner'>
     <view class="inner_top_zhiye">
       <view class="name" wx:for="{{tabs}}" wx:key="index" bindtap="tabs" data-index="{{item.id}}">
-        <view class="name_company {{item.isActive?'name_company_active':''}}">
+        <view class="name_company {{item.isActive?'name_company_active':''}} {{pColor}}">
           {{item.name}}
-          <text class=" {{item.isActive?'active':''}}"></text>
+          <text class=" {{item.isActive?'active':''}} {{pBC}}"></text>
         </view>
       </view>
     </view>

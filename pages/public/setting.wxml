@@ -19,5 +19,5 @@
     <text class="-view-msg" wx:if="{{openid !=''}}">已授权</text>
     <button wx:else class="wx-binding {{pBgC}}" bindtap='binWx'>一键绑定</button>
   </view>
-  <button class='set-option {{pBgC}}' bindtap="unLogin">退出登录</button>
+  <!-- <button class='set-option {{pBgC}}' bindtap="unLogin">退出登录</button> -->
 </view>

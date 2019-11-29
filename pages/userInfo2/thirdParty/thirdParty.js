@@ -15,7 +15,7 @@ Page({
     site_show: false,              //
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
-    type: '请选择公司性质', //公司性质
+    type: '', //公司性质
     row: 10,
     page: 1
   },
@@ -106,9 +106,6 @@ Page({
     })
     this.getCompanyList()
   },
-  bindcancel(e) {
-    console.log(e);
-  },
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
@@ -128,5 +125,10 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-
+  bindcancel() {
+    this.setData({
+      type: ''
+    })
+    this.getCompanyList();
+  }
 })

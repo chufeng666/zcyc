@@ -54,7 +54,7 @@ Page({
       { id: 6, name: "50k以上", isShow: false },
     ],
     // 接受传递的数据
-    name:''
+    name: ''
   },
 
   /**
@@ -125,16 +125,26 @@ Page({
     this.setData({ xinzi, index6: index })
   },
   editTel() {
-    let { index1, index2, index3, index4, index5, index6 } = this.data
+    let { index2, index3, index4, index5, index6, name } = this.data
     let pages = getCurrentPages(); //获取上一个页面信息栈(a页面)
     let prevPage = pages[pages.length - 2] //给上一页面的tel赋值
-    prevPage.setData({
-      require_cert: this.data.zhengshu[index2].name,
-      type: this.data.jobArry[index3].cat_name,
-      education: this.data.xueli[index4].name,
-      work_age: this.data.jingyan[index5].name,
-      salary: this.data.xinzi[index6].name,
-    });
+    if (name == '招人') {
+      prevPage.setData({
+        require_cert: this.data.zhengshu[index2].name,
+        job_intention: this.data.jobArry[index3].cat_name,
+        school_type: this.data.xueli[index4].name,
+        work_age: this.data.jingyan[index5].name,
+        salary: this.data.xinzi[index6].name,
+      });
+    } else {
+      prevPage.setData({
+        require_cert: this.data.zhengshu[index2].name,
+        type: this.data.jobArry[index3].cat_name,
+        education: this.data.xueli[index4].name,
+        work_age: this.data.jingyan[index5].name,
+        salary: this.data.xinzi[index6].name,
+      });
+    }
     wx.navigateBack({}); //关闭当前页面，返回上一个页面
   },
   detil() {

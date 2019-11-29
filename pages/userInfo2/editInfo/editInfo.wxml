@@ -13,14 +13,14 @@
       <view class="us_l_top">
         <view wx:if="{{getUData.name=='' || getUData.name==null }}" class="us_l_t_name">请完善个人信息</view>
         <view wx:else class="us_l_t_name">{{getUData.name}}</view>
-        <navigator url="../../public/userContent/userInfo">
-          <text class="iconfont  .icon-bianji"></text>
-        </navigator>
         <view class="yiwanshan">必填</view>
         <view class="yiwanshan" wx:if="{{getUData.audit_status.status  == null}}">待审核</view>
         <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == 0}}">审核中</view>
         <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
         <view class="yiwanshan" wx:else>已通过审核</view>
+        <navigator url="../../public/userContent/userInfo">
+          <text class="iconfont  .icon-bianji"></text>
+        </navigator>
       </view>
       <view wx:if="{{getUData.work_age == '' || getUData.age==null || getUData.school_type == null}}"
         class="us_l_bottom">
@@ -215,10 +215,9 @@
   </view>
 
   <view class='set-option-1'>
-    <button wx:if="{{ getUData.audit_status.status == -1 ||getUData.audit_status == null}}" class=' {{bgc}} s-1-option_user'
-      bindtap='shenhe'>提交审核</button>
-    <button wx:elif="{{getUData.audit_status.status == 0 }}"
-      class='s-1-option_yi'>审核中,请耐心等待</button>
+    <button wx:if="{{ getUData.audit_status.status == -1 ||getUData.audit_status == null}}"
+      class=' {{bgc}} s-1-option_user' bindtap='shenhe'>提交审核</button>
+    <button wx:elif="{{getUData.audit_status.status == 0 }}" class='s-1-option_yi'>审核中,请耐心等待</button>
     <button wx:else class='s-1-option_yi'>审核通过</button>
   </view>
 </view>

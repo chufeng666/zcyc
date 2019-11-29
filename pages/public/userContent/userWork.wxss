@@ -87,7 +87,7 @@
   border-radius: 10rpx;
   font-size: 26rpx;
   opacity: 0.8;
-  margin-bottom: 200rpx;
+  margin-bottom: 140rpx;
 }
 
 .icon-hao {
@@ -99,7 +99,7 @@
   font-size: 28rpx;
   color: #686868;
   font-weight: normal;
-  height: 150rpx;
+  height: 260rpx;
 }
 
 .inner_main {

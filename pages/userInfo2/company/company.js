@@ -12,7 +12,7 @@ Page({
     site_show: false,              //
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
-    type: '请选择公司性质', //公司性质
+    type: '', //公司性质
     page: 1,
     rows: 10,
 
@@ -86,9 +86,9 @@ Page({
   getCompanyList(value) {
     var that = this,
       { type } = this.data
-    if (type == '请选择公司性质') {
-      type = ''
-    }
+    // if (type == '请选择公司性质') {
+    //   type = ''
+    // }
     let _opt = {
       'company_name': value,
       'regtype': 2,
@@ -113,4 +113,10 @@ Page({
       }
     })
   },
+  bindcancel() {
+    this.setData({
+      type: ''
+    })
+    this.getCompanyList();
+  }
 })

@@ -149,6 +149,7 @@
 
 .content-list {
   padding: 33rpx 32rpx;
+  border-bottom: 16rpx solid #dedede;
 }
 
 .c-l-info {
@@ -175,7 +176,7 @@
 .c-info-msg {
   display: flex;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #fff;
   margin-top: 12rpx;
 }
@@ -183,7 +184,7 @@
 .c-msg {
   background-color: var(--themeColor);
   padding: 4rpx 16rpx;
-  border-radius: 10rpx;
+  border-radius: 4rpx;
   margin-right: 16rpx;
 }
 

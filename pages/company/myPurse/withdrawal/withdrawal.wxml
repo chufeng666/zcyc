@@ -8,17 +8,19 @@
   <view class="main">
     <view class="main_top">
       <view class="weixinhao">
-        <view class="wxh_top">绑定微信号充值</view>
+        <view class="wxh_top">提现到绑定微信</view>
         <view class="wxh_bt">
           <view class="wxh_left">
             <text class="iconfont  icon-weixin"></text>
             <view>微信</view>
-            <view class="zhanghao">（微信号：ky15815836096）</view>
+            <!-- <view class="zhanghao">（微信号：ky15815836096）</view> -->
           </view>
-          <icon wx:if="{{selected}}" type="success" color="var(--thirdPartyColor)" bindtap="changItemStatus"
+          <!-- <icon wx:if="{{selected}}" type="success" color="var(--thirdPartyColor)" bindtap="changItemStatus"
             data-index="{{index}}" class="dagou" size="22" />
           <icon wx:else type="circle" bindtap="changItemStatus" data-index="{{index}}" color="var(--thirdPartyColor)"
-            class="dagou" size="22" data-goodid="{{item.id}}" />
+            class="dagou" size="22" data-goodid="{{item.id}}" /> -->
+          <icon type="success" size="20" />
+
         </view>
       </view>
     </view>

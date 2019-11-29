@@ -47,7 +47,7 @@
 <view class="introduction">
   <view class='tabs'>
     <view class="title_item " wx:for="{{tabs}}" wx:key="id" bindtap="handleItemChange" data-index="{{index}}">
-      <view class="{{item.isActive?'active':''}}">{{item.name}}</view>
+      <view class="{{item.isActive?'active':''}} {{pColor}}">{{item.name}}</view>
     </view>
   </view>
   <!-- 公司介绍部分 -->
@@ -78,7 +78,7 @@
       </view>
       <navigator class="company_map" url="">
         <icon class="iconfont icon-ditu {{pColor}}" />
-        <text class='cOrTInfo-msg'>{{cList.city}} - {{cList.district}}</text>
+        <text class='cOrTInfo-msg {{pColor}}'>{{cList.city}} - {{cList.district}}</text>
       </navigator>
     </view>
   </view>
@@ -117,7 +117,7 @@
         <view class='collect_tab'>收藏公司</view>
       </view>
       <view class="ss_weishoucang" bindtap="onCollection" data-stu="1" wx:else>
-        <text class="iconfont icon-wuxiaoxing-kong {{is_collection==0?'':'active'}}"></text>
+        <text class="iconfont icon-wuxiaoxing-kong {{is_collection==0?'':'active'}} {{pColor}}"></text>
         <view class='collect_tab'>已收藏</view>
       </view>
     </view>

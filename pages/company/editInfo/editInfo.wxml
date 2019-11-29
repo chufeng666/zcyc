@@ -26,10 +26,12 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>联系人</view>
-            <!-- <view class="yiwanshan">已完善</view> -->
+            <view class="yiwanshan" wx:if="{{userList.contacts == '' && userList.mobile== ''}}">
+              未完善</view>
+            <view class="yiwanshan" wx:else>已完善</view>
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
-            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-28">请填写来联系人</view>
+            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-29">请填写来联系人</view>
             <view wx:else class="size-28">{{userList.contacts}}/{{userList.mobile}}</view>
           </navigator>
         </view>
@@ -38,10 +40,13 @@
         <view class="touxiang">
           <view class="jibenxinxi">
             <view>公司基本信息</view>
+            <view class="yiwanshan" wx:if="{{userList.company_name == '' && userList.type== ''}}">
+              未完善</view>
+            <view class="yiwanshan" wx:else>已完善</view>
           </view>
           <navigator url="../../public/companyContent/information/information">
             <view class="ec_bt">
-              <view wx:if="{{userList.company_name==null || userList.type==''}}" class="size-28">请填写公司基本信息</view>
+              <view wx:if="{{userList.company_name==null || userList.type==''}}" class="size-29">请填写公司基本信息</view>
               <view wx:else class="size-28">{{userList.company_name}}/{{userList.type}}</view>
             </view>
           </navigator>
@@ -51,11 +56,13 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>行业标签</view>
-            <!-- <view class="yiwanshan">已完善</view> -->
+            <view class="yiwanshan" wx:if="{{userList.label == '' || userList.label == null}}">
+              未完善</view>
+            <view class="yiwanshan" wx:else>已完善</view>
           </view>
           <navigator url="../../public/companyContent/label/label">
             <view class="ec_bt">
-              <view wx:if="{{userList.label==null}}" class="size-28">请填写行业标签</view>
+              <view wx:if="{{userList.label==null}}" class="size-29">请填写行业标签</view>
               <view wx:else class="size-28">{{userList.label}}</view>
             </view>
           </navigator>
@@ -65,11 +72,13 @@
         <view class="touxiang">
           <view class="ec_top">
             <view>公司资质</view>
-            <!-- <view class="yiwanshan">已完善</view> -->
+            <view class="yiwanshan" wx:if="{{userList.seniority == '' || userList.seniority == null}}">
+              未完善</view>
+            <view class="yiwanshan" wx:else>已完善</view>
           </view>
           <navigator url="../../public/companyContent/qualification/qualification">
             <view class="ec_bt">
-              <view wx:if="{{userList.seniority == null}}" class="size-28">请填写公司资质</view>
+              <view wx:if="{{userList.seniority == null}}" class="size-29">请填写公司资质</view>
               <view wx:else class="size-28">{{userList.seniority}}</view>
             </view>
           </navigator>
@@ -77,10 +86,15 @@
       </view>
       <view class="ec_lianxiren">
         <view class="touxiang">
-          <view>营业执照</view>
+          <view class="ec_top">
+            <view>营业执照</view>
+            <view class="yiwanshan" wx:if="{{userList.c_img == '' || userList.c_img == null}}">
+              未完善</view>
+            <view class="yiwanshan" wx:else>已完善</view>
+          </view>
           <navigator url="../../public/companyContent/license/license">
             <view class="ec_bt">
-              <view class="size-28" wx:if="{{userList.c_img == null}}">未上传</view>
+              <view class="size-29" wx:if="{{userList.c_img == null}}">未上传</view>
               <view class="size-28" wx:else>已上传</view>
             </view>
           </navigator>
@@ -103,8 +117,8 @@
       <view>
         <view class='set-option-1'>
           <button wx:if="{{userList.audit_status.status == 0 }}" class='s-1-option_yi'>审核中，请耐心等待</button>
-          <button wx:elif="{{  userList.audit_status.status == -1 || userList.audit_status == null}}"
-            class='s-1-option' bindtap='saveEditInfo'>提交审核</button>
+          <button wx:elif="{{  userList.audit_status.status == -1 || userList.audit_status == null}}" class='s-1-option'
+            bindtap='saveEditInfo'>提交审核</button>
           <button wx:else class='s-1-option_yi'>审核通过</button>
         </view>
       </view>

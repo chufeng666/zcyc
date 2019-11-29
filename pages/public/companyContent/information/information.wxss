@@ -42,6 +42,7 @@
 }
 
 .ql-container {
+  font-size: 28rpx;
   height: 10rpx;
   min-height: 200rpx;
   color: #262626;

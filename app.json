@@ -1,19 +1,15 @@
 {
   "pages": [
     "pages/userInfo2/index/index",
-    "pages/company/jobApplicant/jobApplicant",
-    
-    "pages/company/index/index",
-    
     "pages/thirdParty/index/index",
-    
-    "pages/thirdParty/jobApplicant/jobApplicant",
-    "pages/userInfo2/editInfo/editInfo",
-    
-    
-    
+    "pages/company/index/index",
     "pages/company/editInfo/editInfo",
     
+    "pages/userInfo2/editInfo/editInfo",
+    
+    "pages/thirdParty/editInfo/editInfo",
+    "pages/company/jobApplicant/jobApplicant",
+    "pages/thirdParty/jobApplicant/jobApplicant",
     "pages/userInfo2/privacySettings/privacySettings",
     "pages/login/login",
     "pages/thirdParty/uCollect/uCollect",
@@ -40,7 +36,6 @@
     "pages/company/myPurse/goldDeposits/goldDeposits",
     "pages/company/postJobPostings/postJobPostings",
     "pages/thirdParty/thirdInfo/thirdInfo",
-    "pages/thirdParty/editInfo/editInfo",
     "pages/thirdParty/company/company",
     "pages/thirdParty/search/search",
     "pages/thirdParty/ScreeningConditions/ScreeningConditions",

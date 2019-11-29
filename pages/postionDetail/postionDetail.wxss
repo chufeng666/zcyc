@@ -156,7 +156,7 @@ page {
 .icon-youjiantou2 {
   margin-left: 160rpx;
   font-size: 50rpx;
-  color: var(--themeColor);
+  /* color: var(--themeColor); */
 }
 
 .wf_top {
@@ -201,7 +201,7 @@ page {
   padding: 0 24rpx;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -215,16 +215,20 @@ page {
 .dcd_top {
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-size: 30rpx;
+  font-weight: 500;
 }
-
+.f-btn-2:first-child{
+  /* margin-right: 15rpx; */
+}
 .f-btn-2 {
+  /* flex: 1.5; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 254rpx;
+  /* width: 254rpx; */
   line-height: 88rpx;
-  border-radius: 4;
+  border-radius: 4rpx;
   box-sizing: border-box;
   font-size: 30rpx;
   color: #fff;
@@ -258,7 +262,7 @@ page {
 }
 
 .icon-wuxiaoxing-kong {
-  color: #B6B6B6;
+  /* color: #B6B6B6; */
   font-size: 46rpx;
 }
 
@@ -268,7 +272,11 @@ page {
 }
 
 .active {
-  color: var(--themeColor);
+  /* color: var(--themeColor); */
 }
-
+.tanxing{
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+}
 @import '../template/font.wxss';

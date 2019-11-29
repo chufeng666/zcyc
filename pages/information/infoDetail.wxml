@@ -1,12 +1,12 @@
 <view class="xiaoxi_header   {{bgc}}">
   <view class="h-left">
     <view bindtap="fanhui" class="iconfont icon-zuojiantou"></view>
-    <view class="l_qiye">消息(24)</view>
+    <!-- <view class="l_qiye">消息(24)</view> -->
   </view>
 </view>
 <view class='info-detail-wrap'>
-  <view class='title'>{{info.title}}</view>
-  <view class='time'>{{addTime}}</view>
+  <!-- <view class='title'>{{info.title}}</view>
+  <view class='time'>{{addTime}}</view> -->
   <view class='content'>
     <import src="../wxParse/wxParse.wxml" />
     <template is="wxParse" data="{{wxParseData:article.nodes}}" />

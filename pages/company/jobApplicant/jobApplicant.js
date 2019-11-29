@@ -17,13 +17,13 @@ Page({
     showTST: true,
     // 筛选
     require_cert: '', //证书
-    education: '',  // 学历
+    school_type: '',  // 学历
     work_age: '',   // 工龄
     salary: '',     // 薪资 
     //职位
     showTST1: true,
-    type: '',         //工种
-    title: '',        //职位      
+    careers: '',         //工种
+    job_intention: '',        //职位  一级    
   },
   setXingzhi(e) {
     let { jobArray } = this.data;
@@ -47,14 +47,14 @@ Page({
     /*********职位 */
   },
   onShow: function () {
-    let { require_cert, education, work_age, salary } = this.data;
-    if (require_cert != ''  || education != '' || work_age != '' || salary != '') {
+    let { require_cert, school_type, work_age, salary,job_intention } = this.data;
+    if (require_cert != '' || job_intention != '' || school_type != '' || work_age != '' || salary != '') {
       this.hiring()
     }
   },
-  hiring: function (value) {
+  hiring: function () {
     var that = this
-    let { require_cert, type, education, work_age, salary, title } = this.data
+    let { require_cert, job_intention, school_type, work_age, salary} = this.data
     if (require_cert == '有证书') {
       require_cert = 1
     } else if (require_cert == '无证书') {
@@ -65,16 +65,19 @@ Page({
     if (work_age == '全部') {
       work_age = '';
     }
-    if (education == '全部') {
-      education = '';
+    if (job_intention == '全部') {
+      job_intention = '';
+    }
+    if (school_type == '全部') {
+      school_type = '';
     }
     if (salary == '不限') {
       salary = ''
     }
     var _opt = {
-      'careers': value,
-      'job_intention': '电气工程师',
-      'education': education,
+      'careers': that.data.careers,
+      'job_intention': job_intention,
+      'school_type': school_type,
       'work_age': work_age,
       'salary': salary,
       'province': that.data.province,
@@ -103,6 +106,7 @@ Page({
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
+      areaInfo: info.areaInfo,
       showTST: info.showTST,
       province: info.province,
       city: info.city,
@@ -140,9 +144,9 @@ Page({
     const { value } = e.detail;
     // // 3 简单做一些验证 trim() 
     // if (!value.trim()) {
-      // this.setData({
-      //   title:value
-      // })
+    this.setData({
+      careers:value
+    })
     //   // 不合法 
     //   return;
     // }

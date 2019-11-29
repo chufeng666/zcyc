@@ -49,7 +49,7 @@
           <view wx:else class="newsite_city ">职位</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </view> -->
-        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button">
+        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button {{showTST1?'':'active'}}">
           <view class="newsite_view subtitle-msg">更多</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </navigator>
@@ -104,7 +104,7 @@
         </view>
         <view class="i_fourth">
           <image src='{{item.logo}}' class="f_logo" />
-          <view class="f_zhiwei">项目经理●{{item.contacts}}</view>
+          <view class="f_zhiwei">{{item.contacts}}</view>
           <view class="f_gongsi">[{{item.company_name}}]</view>
         </view>
       </navigator>

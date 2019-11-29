@@ -9,7 +9,8 @@
           </view>
           <view class='s-portrait'>
             <text class="posen-msg">人才</text>
-            <view class='posen-msg'>{{item.images == null ? "无证书":"有证书"}}</view>
+            <view class='posen-msg' wx:if="{{item.images == null || item.images == ''}}">无证书</view>
+            <view class='posen-msg' wx:else>有证书</view>
           </view>
           <view class='c-info-msg global-search-cont'>
             <view>

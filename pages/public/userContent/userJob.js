@@ -70,17 +70,40 @@ Page({
   },
   TimeId: -1,
   initUserInfoSevenOut() {
-    let { job_intention, intention } = this.data;
+    let { job_intention, intention, images, careers, city, salary, daogang_time } = this.data;
+    let title = '',
+      path = ''
+    if (careers == '' || city == '' || job_intention == '' || salary == '' || daogang_time == '' ) {
+      return ServerData._wxTost('请填写数据');
+    }
+    for (let i in images) {
+      title = images[i].title
+      path = images[i].path
+    }
+    console.log(title);
+    console.log(path);
     intention.forEach((v, i) => {
-      if (v.cat_name === job_intention) {
+      if (v.cat_name == job_intention) {
         if (v.money > 0) {
+          if (title == '' || path == null) {
+            return ServerData._wxTost('请上传职业证书');
+          } else {
+            clearTimeout(this.TimeId);
+            this.TimeId = setTimeout(() => {
+              this.initUserInfoSeven();
+            }, 350);
+          }
+        } else {
           clearTimeout(this.TimeId);
           this.TimeId = setTimeout(() => {
             this.initUserInfoSeven();
           }, 350);
-        } else {
-          return ServerData._wxTost('请上传职业证书');
         }
+
+        // else {
+        //   console.log('22222222222222');
+        //   return ServerData._wxTost('请上传职业证书');
+        // }
       }
     })
   },
@@ -88,11 +111,11 @@ Page({
   initUserInfoSeven() {
     let that = this
     let { images, job_intention } = this.data
-    for (let i in images) {
-      if (images == '' || images == null || images[i].title === '' || images[i].path === '') {
-        return ServerData._wxTost('职业证书和证书类型不能为空');
-      }
-    }
+    // for (let i in images) {
+    //   if (images == '' || images == null || images[i].title === '' || images[i].path === '') {
+    //     return ServerData._wxTost('职业证书和证书类型不能为空');
+    //   }
+    // }
     let _opt = {
       'daogang_time': that.data.daogang_time,
       'city': that.data.city,

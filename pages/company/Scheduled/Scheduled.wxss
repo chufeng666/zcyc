@@ -120,5 +120,14 @@
   background-color: #e8b05f;
   color: #fff;
 }
-
+.icon-weixin {
+  color: #62BE63;
+  font-size: 42rpx;
+  margin-right: 16rpx;
+}
+.zhengshuicon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+}
 @import "../../template/font";

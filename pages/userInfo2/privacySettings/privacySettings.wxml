@@ -3,7 +3,7 @@
   <view class='setting-list'>
     <text>允许预定</text>
     <view class="body-view">
-      <switch checked="{{item.reserve==1}}" bindchange="switch1Change" style="zoom:.6" data-index="1" color="#ff54b5" width="66rpx" />
+      <switch checked="{{item.reserve==1}}" bindchange="switch1Change" style="zoom:.6" data-index="1" color="var(--themeColor)" width="66rpx" />
     </view>
   </view>
 </view>

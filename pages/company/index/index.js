@@ -29,9 +29,9 @@ Page({
     // 历史消息模态框开关
     isShow: false,
     //搜索
-    showTST1: true,
     title: '',        //职位
     // 更多返回的数据
+    showTST1: true,
     type: '',         //工种
     require_cert: '', //证书
     education: '',  // 学历
@@ -42,6 +42,9 @@ Page({
   onShow: function () {
     let { require_cert, education, type, work_age, salary } = this.data;
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.setData({
+        showTST1:false
+      })
       this.reqIndex()
     }
     this.initUserInfo()

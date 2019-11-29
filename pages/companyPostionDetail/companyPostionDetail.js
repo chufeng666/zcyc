@@ -15,7 +15,8 @@ Page({
     balance: '', // 预定用户的余额
     money: '',
     reserve: {},
-    user_id: 0
+    user_id: 0,
+    pColor:''
   },
 
 	/**
@@ -24,7 +25,8 @@ Page({
   onLoad: function (options) {
     // 接收id
     this.setData({
-      id: options.id
+      id: options.id,
+      pColor: util.loginIdentity().pColor,
     });
     this.reqPersonal(); //请求数据
   },
@@ -129,7 +131,6 @@ Page({
             url: '../company/Scheduled/Scheduled?name=' + personalData.name + "&images=" + images + "&money=" + that.data.money + "&balance=" + that.data.balance + '&id=' + id,
           })
         } else if (res.cancel) {
-
         }
       }
     })

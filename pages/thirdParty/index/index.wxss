@@ -54,7 +54,7 @@
 .i-header .new .new_xiaoxi {
   display: flex;
   align-content: center;
-  background-color: #ffeeab;
+  background-color: #deeffe;
   height: 74rpx;
   line-height: 74rpx;
 }
@@ -64,7 +64,7 @@
   margin-left: 34rpx;
   font-size: 32rpx;
   font-weight: 700;
-  color: #f0a930;
+  color: #000;
   display: flex;
 }
 
@@ -115,7 +115,7 @@
 
 .newest-search .n-xiahuaxian .n-search {
   display: flex;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #969696;
 }
 

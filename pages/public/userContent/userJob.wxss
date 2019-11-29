@@ -22,7 +22,7 @@
 }
 
 .job_bt {
-  margin-top: 200rpx;
+  margin-top: 140rpx;
   height: 72rpx;
   line-height: 72rpx;
   text-align: center;

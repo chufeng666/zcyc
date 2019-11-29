@@ -16,7 +16,7 @@ Page({
     pColor: '',                            //动态获z字体颜色 
     pBgC: '',                            //动态获背景颜色     
     xingzhi: ['国企', '民营', '私企'],
-    type: '请选择公司性质', //公司性质            
+    type: '', //公司性质            
   },
   setXingzhi(e) {
     let { xingzhi } = this.data;
@@ -91,13 +91,9 @@ Page({
   //   this.getCompanyList()
   // },
   getCompanyList(value) {
-    var that = this,
-      { type } = that.data
-    if (type === '请选择公司性质') {
-      type = ''
-    }
+    var that = this
     let _opt = {
-      "type": type,
+      "type":  that.data.type,
       "company_name": value,
       'regtype': 2,
       'province': that.data.province,
@@ -141,7 +137,10 @@ Page({
       }
     })
   },
-  onShareAppMessage: function () {
-    return
+  bindcancel() {
+    this.setData({
+      type: ''
+    })
+    this.getCompanyList();
   }
 })

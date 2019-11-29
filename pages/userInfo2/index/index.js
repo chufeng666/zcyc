@@ -45,6 +45,9 @@ Page({
   onShow: function () {
     let { require_cert, type, education, work_age, salary } = this.data;
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
+      this.setData({
+        showTST1:false
+      })
       this.reqIndex()
     }
     this.initUserInfo();
@@ -68,9 +71,9 @@ Page({
   reqIndex() {
     let { province, city, district, type, title, job_type, require_cert, education, work_age, salary } = this.data;
     var that = this;
-    if (require_cert == '有证书') {
+    if (require_cert == '需要证书') {
       require_cert = 1
-    } else if (require_cert == '无证书') {
+    } else if (require_cert == '无需证书') {
       require_cert = 0
     } else {
       require_cert = ''

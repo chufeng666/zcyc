@@ -16,20 +16,17 @@ Page({
     province: '',
     city: '',
     district: '',
-    job_intention: '请选择职位',
     showTST: true,
     // 更多返回的数据
     require_cert: '', //证书
-    education: '',  // 学历
+    school_type: '',  // 学历
     work_age: '',   // 工龄
     salary: '',     // 薪资
     // 传递到更多里面的参数
-    name: '招人',
-    //地址
+    //职位
     showTST1: true,
-    type: '',         //工种
-    title: '',        //职位  
-    name: '招人'
+    careers: '',         //工种
+    job_intention: '',        //职位  
   },
 
   /**
@@ -47,8 +44,11 @@ Page({
     /*********职位 */
   },
   onShow: function () {
-    let { require_cert, education, work_age, salary } = this.data;
-    if (require_cert != '' || education != '' || work_age != '' || salary != '') {
+    let { require_cert, school_type, work_age, salary, job_intention } = this.data;
+    if (require_cert != '' || job_intention != '' || school_type != '' || work_age != '' || salary != '') {
+      this.setData({
+        showTST1: false
+      })
       this.hiring()
     }
   },
@@ -57,14 +57,17 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
+    this.setData({
+      careers: value
+    })
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
-      this.hiring(value);
+      this.hiring();
     }, 0);
   },
-  hiring: function (value) {
-    let { province, city, district, require_cert, type, education, work_age, salary ,page,row} = this.data
+  hiring: function () {
+    let { require_cert,  school_type, job_intention, work_age, salary } = this.data
     var that = this
     if (require_cert == '有证书') {
       require_cert = 1
@@ -76,29 +79,27 @@ Page({
     if (work_age == '全部') {
       work_age = '';
     }
-    if (education == '全部') {
-      education = '';
+    if (job_intention == '全部') {
+      job_intention = '';
+    }
+    if (school_type == '全部') {
+      school_type = '';
     }
     if (salary == '不限') {
       salary = ''
     }
-    let { job_intention } = this.data
-    if (job_intention === '请选择职位') {
-      job_intention = ''
-    }
     let _opt = {
-      'careers': value,
-      'province': province,
-      'job_intention': '电气工程师',
-      'city': city,
-      'district': district,
-      // 'regtype': 2,
+      'province': that.data.province,
+      'city': that.data.city,
+      'district': that.data.district,
+      'careers': that.data.careers,
+      'job_intention': job_intention,
       'require_cert': require_cert,
-      // 'type': type,
-      'education': education,
+      'school_type': school_type,
       'work_age': work_age,
       'salary': salary,
       // 'page': page,
+      // 'regtype': 2,
       // 'row': row,
     }
     ServerData.hiring(_opt).then((res) => {
