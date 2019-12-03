@@ -12,17 +12,18 @@ page {
   display: flex;
   align-items: flex-end;
   background-color: var(--thirdPartyColor);
-  height: 127rpx;
+  height: 180rpx;
+  line-height: 180rpx;
   font-size: 36rpx;
   color: #fff;
-  padding: 20rpx 15rpx;
+  padding: 0 40rpx;
 }
 
 .icon-zuojiantou {
   font-size: 48rpx;
 }
 .h-left{
-  margin-bottom: 6rpx;
+  /* margin-bottom: 6rpx; */
 }
 /* <!-- 头部 --> */
 
@@ -30,7 +31,7 @@ page {
 
 #wrap {
   background-color: #fff;
-  margin-top: 168rpx;
+  margin-top: 180rpx;
   margin-bottom: 200rpx;
 }
 

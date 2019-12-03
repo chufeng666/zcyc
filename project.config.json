@@ -61,22 +61,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/public/userContent/userJob",
-					"pathName": "pages/public/userContent/userJob",
+					"name": "pages/public/editMobile",
+					"pathName": "pages/public/editMobile",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/public/companyContent/information/information",
-					"pathName": "pages/public/companyContent/information/information",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobList/editJobList",
-					"pathName": "pages/jobList/editJobList",
+					"name": "pages/userInfo2/editInfo/editInfo",
+					"pathName": "pages/userInfo2/editInfo/editInfo",
 					"query": "",
 					"scene": null
 				},
@@ -84,13 +77,6 @@
 					"id": -1,
 					"name": "pages/public/userContent/userJob",
 					"pathName": "pages/public/userContent/userJob",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/company/myPurse/goldDeposits/goldDeposits",
-					"pathName": "pages/company/myPurse/goldDeposits/goldDeposits",
 					"scene": null
 				}
 			]

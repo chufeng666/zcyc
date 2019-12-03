@@ -586,7 +586,28 @@ class ServerData {
     }
   }
   //***/
-
+  /* 更多页面返回的参数进行选定 */
+  /**
+   * 
+   * @param {arr} arr 该选的数组
+   * @param {string} type 返回的参数
+   */
+  forEachMoreType(arr, type) {
+    let index = 0
+    for (let i in arr) {
+      if (arr[i].name == type) {
+        index = i;
+      }
+    }
+    for (let i in arr) {
+      if (index == i) {
+        arr[i].isShow = true;
+      } else if (index != i) {
+        arr[i].isShow = false;
+      }
+    }
+    return { arr, index }
+  }
 }
 
 export default new ServerData();

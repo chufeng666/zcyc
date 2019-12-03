@@ -205,7 +205,9 @@ page {
   align-items: center;
 }
 
-.search2-inner {}
+.search2-inner {
+  flex: 1;
+}
 
 .footer-height {
   padding: 40rpx 32rpx;
@@ -223,6 +225,7 @@ page {
 }
 .f-btn-2 {
   /* flex: 1.5; */
+  /* flex: 2; */
   display: flex;
   align-items: center;
   justify-content: center;

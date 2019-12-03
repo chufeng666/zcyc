@@ -41,6 +41,7 @@
   <view class="container" wx:else>
     <import src="../../template/companyList.wxml" />
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
+    <view class='more-recommond2' wx:if="{{noData}}">暂无更多数据</view>
   </view>
 </view>
 <!-- 数据展示 -->

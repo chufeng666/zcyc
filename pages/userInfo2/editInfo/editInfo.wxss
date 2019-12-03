@@ -37,7 +37,13 @@
 .inner .user_name .us_left .us_l_top {
   display: flex;
   align-items: center;
+  /* justify-content: space-between; */
   margin-bottom: 31rpx;
+}
+
+.us_l_top_left {
+  display: flex;
+  align-items: center;
 }
 
 .inner .user_name .us_left .us_l_top .us_l_t_name {
@@ -68,12 +74,38 @@
 .inner .user_name:nth-child(2) {
   margin-top: 56rpx;
   padding-bottom: 56rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner .user_name:nth-child(2) .us_l_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 31rpx;
+}
+
+.inner .user_name:nth-child(2)  .us_l_bottom {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
 }
 
 .inner .user_name:nth-child(3) {
+  display: flex;
+  flex-direction: column;
   margin-top: 56rpx;
 }
 
+.inner .user_name:nth-child(3) .us_l_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 31rpx;
+  justify-content: space-between;
+}
+.inner .user_name:nth-child(3) .us_l_top_left{
+  display: flex;
+  align-items: center;
+}
 .inner .user_name:nth-child(3) .icon-bianji {
   color: var(--themeColor);
 }
@@ -251,7 +283,6 @@
 }
 
 .us_wk_project {
-  
   margin-top: 40rpx;
 }
 
@@ -318,12 +349,13 @@
   flex-direction: column;
   color: #686868;
   font-size: 28rpx;
-
 }
-.us_l_bt_oottom-1{
+
+.us_l_bt_oottom-1 {
   margin-top: 16rpx;
 }
-.us_l_bt_top-1{
+
+.us_l_bt_top-1 {
   font-weight: bold;
   color: #262626;
 }

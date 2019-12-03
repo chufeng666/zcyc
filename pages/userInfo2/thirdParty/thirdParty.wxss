@@ -1,5 +1,5 @@
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--themeColor);
   line-height: 104rpx;
   position: fixed;
@@ -12,7 +12,7 @@
 .i-header .h-left {
   color: #fff;
   font-weight: 500;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   display: flex;
   align-items: center;
 }
@@ -72,7 +72,7 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 208rpx;
+  margin-top: 222rpx;
 }
 
 .newest-search .n-xiahuaxian {
@@ -254,6 +254,9 @@
 .zhanwushuju {
   margin-top: 120rpx;
 }
-
-@import '../../template/font.wxss';
-@import '../../template/common.wxss';
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}
+@import '/pages/template/font.wxss';
+@import '/pages/template/common.wxss';

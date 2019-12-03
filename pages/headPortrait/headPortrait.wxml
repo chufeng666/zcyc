@@ -4,7 +4,7 @@
     <text>上传头像</text>
   </view>
   <view class='id-card-top'>
-    <view class='-add-img-' wx:if="{{logo.logo =='' || logo.logo  ==null}}">
+    <view class='-add-img-' wx:if="{{logo =='' || logo ==null}}">
       <image class='addPic' mode="aspectFit" bindtap='addIdCardPic' src='/static/images/public/plus.png' />
     </view>
     <view class='-add-img-' wx:else>

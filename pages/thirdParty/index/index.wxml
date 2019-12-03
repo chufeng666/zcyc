@@ -9,13 +9,22 @@
     </view>
   </view>
   <view class="new">
-    <navigator class="new_xiaoxi" url="/pages/information/infoDetail?id={{item.id}}">
-      <view class="n-lfet">
-        消息
-        <view>|</view>
-      </view>
-      <view class="n-right">著名企业今天新发布160个职业</view>
-    </navigator>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
+      circular="true" indicator-active-color="#ff54b5">
+      <block wx:for="{{array}}" wx:key>
+        <swiper-item>
+          <view class="new">
+            <navigator class="new_xiaoxi" url="../../information/information">
+              <view class="n-lfet">
+                消息
+                <view>|</view>
+              </view>
+              <view class="n-right">{{item.title}}</view>
+            </navigator>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>
 <!-- 头部搜索 -->
@@ -40,7 +49,10 @@
           <view wx:else class="newsite_city ">职位</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </view> -->
-        <navigator url="../ScreeningConditions/ScreeningConditions" class="newsite_button {{showTST2?'active':''}}">
+        <navigator
+          url="../ScreeningConditions/ScreeningConditions?type={{type}}&require_cert={{require_cert}}&salary={{salary}}&education={{education}}&work_age={{work_age}}"
+          class="newsite_button {{showTST1?'':'active'}}" class="newsite_button {{showTST2?'active':''}}"
+          bindtap="bindtapMore">
           <view class="newsite_view subtitle-msg">更多</view>
           <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
         </navigator>
@@ -50,55 +62,61 @@
   <!-- 搜寻部分 -->
   <view class="n-information">
     <block class="n-zhaopinxinxi" wx:if="{{index===0}}">
-      <view class="zhanwushuju" wx:if="{{list.person == ''}}">
+      <view class="zhanwushuju" wx:if="{{person == ''}}">
         <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
       </view>
-      <navigator class="c_info" wx:for="{{list.person}}" wx:key="id"
-        url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
-        <view class="i_list">
-          <view class="l_yuan">{{item.careers}}</view>
-          <view class="l_price">{{item.salary}}/月</view>
-        </view>
-        <view class="i_second">
-          <view>人才</view>
-          <view>{{item.images == 1 ? "有证书":"无证书"}}</view>
-        </view>
-        <view class="i_third">
-          <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
-          <view class="t_zhili">{{item.work_age}}</view>
-          <view class="t_xueli">{{item.school_type}}</view>
-        </view>
-        <view class="i_fourth">
-          <image src='{{item.avatar}}' class="f_logo" />
-          <view class="f_zhiwei">{{item.name}}</view>
-        </view>
-      </navigator>
+      <view wx:else>
+        <navigator class="c_info" wx:for="{{person}}" wx:key="id"
+          url="../../companyPostionDetail/companyPostionDetail?id={{item.id}}">
+          <view class="i_list">
+            <view class="l_yuan">{{item.careers}}</view>
+            <view class="l_price">{{item.salary}}/月</view>
+          </view>
+          <view class="i_second">
+            <view>人才</view>
+            <view>{{item.images == 1 ? "有证书":"无证书"}}</view>
+          </view>
+          <view class="i_third">
+            <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+            <view class="t_zhili">{{item.work_age}}</view>
+            <view class="t_xueli">{{item.school_type}}</view>
+          </view>
+          <view class="i_fourth">
+            <image src='{{item.avatar}}' class="f_logo" />
+            <view class="f_zhiwei">{{item.name}}</view>
+          </view>
+        </navigator>
+        <view class='more-recommond2' wx:if="{{noData}}">暂无更多数据</view>
+      </view>
     </block>
     <block class="n-zhaopinxinxi" wx:else>
-      <view class="zhanwushuju" wx:if="{{list.recruit == ''}}">
+      <view class="zhanwushuju" wx:if="{{recruit == ''}}">
         <image mode="aspectFit" src="/static/images/index/xiaochengxu_shengqiuye.png"></image>
       </view>
-      <navigator class="c_info" wx:for="{{list.recruit}}" wx:key="id"
-        url="../../postionDetail/postionDetail?id={{item.id}}">
-        <view class="i_list">
-          <view class="l_yuan">{{item.title}}</view>
-          <view class="l_price">{{item.salary}}/月</view>
-        </view>
-        <view class="i_second">
-          <view>服务商</view>
-          <view>{{item.require_cert == 1 ? "需要证书":"无需证书"}}</view>
-        </view>
-        <view class="i_third">
-          <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
-          <view class="t_zhili">{{item.work_age}}</view>
-          <view class="t_xueli">{{item.school_type}}</view>
-        </view>
-        <view class="i_fourth">
-          <image src='{{item.logo}}' class="f_logo" />
-          <view class="f_zhiwei">{{item.contacts}}</view>
-          <view class="f_gongsi">[{{item.company_name}}]</view>
-        </view>
-      </navigator>
+      <view wx:else>
+        <navigator class="c_info" wx:for="{{recruit}}" wx:key="id"
+          url="../../postionDetail/postionDetail?id={{item.id}}">
+          <view class="i_list">
+            <view class="l_yuan">{{item.title}}</view>
+            <view class="l_price">{{item.salary}}/月</view>
+          </view>
+          <view class="i_second">
+            <view>服务商</view>
+            <view>{{item.require_cert == 1 ? "需要证书":"无需证书"}}</view>
+          </view>
+          <view class="i_third">
+            <view class="t_weizhi">{{item.city}} - {{item.district}}</view>
+            <view class="t_zhili">{{item.work_age}}</view>
+            <view class="t_xueli">{{item.school_type}}</view>
+          </view>
+          <view class="i_fourth">
+            <image src='{{item.logo}}' class="f_logo" />
+            <view class="f_zhiwei">{{item.contacts}}</view>
+            <view class="f_gongsi">[{{item.company_name}}]</view>
+          </view>
+        </navigator>
+        <view class='more-recommond2' wx:if="{{noData}}">暂无更多数据</view>
+      </view>
     </block>
   </view>
 </view>

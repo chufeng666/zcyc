@@ -1,5 +1,5 @@
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;
@@ -15,7 +15,7 @@
 }
 
 .i-header .h-bottom {
-  padding: 24rpx 32rpx;
+  padding: 34rpx 32rpx 24rpx 34rpx;
 }
 
 .i-header .h-bottom .search-cont {
@@ -83,7 +83,7 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 282rpx;
+  margin-top: 293rpx;
   padding: 0 30rpx;
   border-top: 16rpx solid #dedede;
 }
@@ -165,7 +165,7 @@
 }
 
 .n-information {
-  margin-bottom: 95rpx;
+  /* margin-bottom: 95rpx; */
 }
 
 .n-information .c_info {
@@ -346,5 +346,8 @@
   border-radius: 50rpx;
   margin: 0 24rpx;
 }
-
-@import "../../template/font";
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}
+@import "/pages/template/font";

@@ -21,7 +21,9 @@ Page({
   setXingzhi(e) {
     let { xingzhi } = this.data;
     this.setData({
-      type: xingzhi[e.detail.value]
+      type: xingzhi[e.detail.value],
+      recList: [],
+      page: 1
     })
     this.getCompanyList()
   },
@@ -52,6 +54,8 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
+      recList: [],
+      page: 1
     })
     this.getCompanyList()
     // this.hiring()             //主页信息
@@ -69,63 +73,41 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // 3 简单做一些验证 trim() 
-    // if (!value.trim()) {
-    //   this.setData({
-    //     recList: [],
-    //   })
-    //   // 不合法 
-    //   return;
-    // }
-    // // 4 正常
+    this.setData({
+      recList: [],
+      page: 1
+    })
+    // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.getCompanyList(value);
     }, 0);
   },
 
-  // lookMore() {
-  //   this.setData({
-  //     page: this.data.page + 1
-  //   })
-  //   this.getCompanyList()
-  // },
   getCompanyList(value) {
-    var that = this
+    var that = this;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     let _opt = {
-      "type":  that.data.type,
+      "type": that.data.type,
       "company_name": value,
-      'regtype': 2,
+      'regtype': 1,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,
       'page': that.data.page,
-      'rows': that.data.rows
     }
     ServerData.companyList(_opt).then((res) => {
-      var status = res.data.status,
-        newArray = []
+      var status = res.data.status;
       if (status == 1) {
-        if (res.data.data.length > 0) {
-          if (that.data.page == 1) {
-            newArray = res.data.data
-          } else {
-            newArray = [...that.data.recList, ...res.data.data]
-          }
-          this.setData({
-            recList: newArray,
-            isMore: true
+        if (res.data.data == '') {
+          that.setData({
+            noData: true
           })
         } else {
-          this.setData({
-            isMore: false,
-          })
-          ServerData._wxTost('没有数据了')
-        }
-
-        if (that.data.page == 1 && res.data.data == "") {
-          this.setData({
-            recList: [],
+          that.setData({
+            recList: [...that.data.recList, ...res.data.data]
           })
         }
       } else if (status == -1) {
@@ -139,8 +121,20 @@ Page({
   },
   bindcancel() {
     this.setData({
-      type: ''
+      type: '',
+      recList: [],
+      page: 1
     })
     this.getCompanyList();
-  }
+  },
+  onReachBottom: function () {
+    let { noData } = this.data;
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.getCompanyList();
+  },
 })

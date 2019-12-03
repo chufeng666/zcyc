@@ -1,7 +1,7 @@
 /* 头部 */
 
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--themeColor);
   line-height: 104rpx;
   position: fixed;
@@ -14,7 +14,7 @@
 .i-header .h-left {
   color: #fff;
   font-weight: 500;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   display: flex;
   align-items: center;
 }
@@ -55,7 +55,7 @@
 
 .newest-search {
   background-color: #fff;
-  margin-top: 208rpx;
+  margin-top: 222rpx;
 }
 
 .newest-search .n-xiahuaxian {
@@ -136,7 +136,7 @@
 
 .inner {
   padding: 0;
-  margin-bottom: 120rpx;
+  /* margin-bottom: 120rpx; */
 }
 
 .container {
@@ -423,4 +423,8 @@
 .icon-yuanquan-you:before {
   content: '\e721';
 }
-@import '../../template/companyList.wxss';
+@import '/pages/template/companyList.wxss';
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}

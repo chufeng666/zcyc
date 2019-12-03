@@ -93,7 +93,11 @@ Page({
   /**
 * 点击验证码按钮
 */
-
+  detil() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  },
 })
 // 倒计时事件 单位s
 var countdown = 60;

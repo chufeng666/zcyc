@@ -1,7 +1,7 @@
 /* 头部 */
 
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;
@@ -14,7 +14,7 @@
 .i-header .h-left {
   color: #fff;
   font-weight: 500;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   display: flex;
   text-align: center;
 }
@@ -73,8 +73,7 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 208rpx;
-  border-bottom: 1px solid #ccc;
+  margin-top: 222rpx;
 }
 
 .newest-search .n-xiahuaxian {
@@ -82,7 +81,9 @@
   justify-content: space-between;
   line-height: 88rpx;
   height: 88rpx;
-  padding: 0 16rpx;
+  margin: 0 30rpx;
+  border-bottom: 1px solid #ccc;
+
 }
 
 .newest-search .n-xiahuaxian .newest .province {
@@ -256,5 +257,9 @@
   font-weight: bold;
   font-size: 30rpx;
 }
-@import '../../template/companyList';
-@import '../../template/font';
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}
+@import '/pages/template/companyList';
+@import '/pages/template/font';

@@ -34,8 +34,9 @@
   <!-- 姓名部分 -->
   <!-- 身份验证 -->
   <view class="user_name">
-    <view class="us_left">
-      <view class="us_l_top">
+    <!-- <view class="us_left"> -->
+    <view class="us_l_top">
+      <view class="us_l_top_left">
         <view class="us_l_t_name">身份验证</view>
         <view class="yiwanshan">必填</view>
         <view class="yiwanshan" wx:if="{{getUData.audit_status.status  == null}}">待审核</view>
@@ -43,18 +44,20 @@
         <view class="yiwanshan" wx:elif="{{getUData.audit_status.status == -1}}">未通过</view>
         <view class="yiwanshan" wx:else>已通过审核</view>
       </view>
-      <view class="us_l_bottom"
-        wx:if="{{getUData.idcard_front==''&&getUData.idcard_back==''|| getUData.idcard_front==null&&getUData.idcard_back==null}}">
-        <text>未上传身份证</text>
-      </view>
-      <view wx:else class="us_l_bottom">
-        <text class="iconfont  icon-lianjie"></text>
-        <view>身份证[正] [反]面</view>
-      </view>
+      <navigator url="../../public/userContent/userId">
+        <text class="iconfont  .icon-bianji  user-size"></text>
+      </navigator>
     </view>
-    <navigator url="../../public/userContent/userId">
-      <text class="iconfont  .icon-bianji  user-size"></text>
-    </navigator>
+    <view class="us_l_bottom"
+      wx:if="{{getUData.idcard_front==''&&getUData.idcard_back==''|| getUData.idcard_front==null&&getUData.idcard_back==null}}">
+      <text>未上传身份证</text>
+    </view>
+    <view wx:else class="us_l_bottom">
+      <text class="iconfont  icon-lianjie"></text>
+      <view>身份证[正] [反]面</view>
+    </view>
+    <!-- </view> -->
+
   </view>
   <!-- 身份验证 -->
   <!-- 职业证书 -->
@@ -81,26 +84,28 @@
   <!-- 职业证书 -->
   <!-- 求职意向 -->
   <view class="user_name">
-    <view class="us_left">
-      <view class="us_l_top">
+    <!-- <view class="us_left"> -->
+    <view class="us_l_top">
+      <view class="us_l_top_left">
         <view class="us_l_t_name">求职意向</view>
         <view class="yiwanshan">必填</view>
       </view>
-      <view
-        wx:if="{{getUData.job_intention == null || getUData.salary == null || getUData.city == null || getUData.district==null || getUData.daogang_time == null}}"
-        class="us_l_bottom">
-        <text style="font-size: 30rpx;">暂无</text>
-      </view>
-      <view wx:else class="us_l_bottom-1">
-        <view class="us_l_bt_top-1">{{getUData.job_intention}}　 {{getUData.salary}}</view>
-        <view class="us_l_bt_oottom-1">
-          {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time }}
-        </view>
+      <navigator url="../../public/userContent/userJob">
+        <text class="iconfont  icon-bianji"></text>
+      </navigator>
+    </view>
+    <view
+      wx:if="{{getUData.job_intention == null || getUData.salary == null || getUData.city == null || getUData.district==null || getUData.daogang_time == null}}"
+      class="us_l_bottom">
+      <text style="font-size: 30rpx;">暂无</text>
+    </view>
+    <view wx:else class="us_l_bottom-1">
+      <view class="us_l_bt_top-1">{{getUData.job_intention}}　 {{getUData.salary}}</view>
+      <view class="us_l_bt_oottom-1">
+        {{getUData.city}} - {{getUData.district}} | {{getUData.daogang_time }}
       </view>
     </view>
-    <navigator url="../../public/userContent/userJob">
-      <text class="iconfont  icon-bianji"></text>
-    </navigator>
+    <!-- </view> -->
   </view>
   <!-- 求职意向 -->
   <!-- 工作经验 -->

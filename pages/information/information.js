@@ -56,8 +56,6 @@ Page({
         if (info.length > 0) {
           for (var i in info) {
             info[i].create_time = ServerData._timeStampForwardAate(info[i].create_time)
-            // var article = info[i].content
-            // WxParse.wxParse('article', 'html', article, that, 0)
           }
           if (that.data.page == 1) {
             newArray = info
@@ -88,19 +86,5 @@ Page({
     wx.navigateBack({
       delta: 1,
     });
-    //   let regpyte = wx.getStorageInfo('savePostion')
-    //   if (regpyte == 3) {
-    //     wx.redirectTo({
-    //       url: '/pages/userInfo2/userCenter/userCenter'
-    //     });//返回上一页面
-    //   } else if (regpyte == 2) {
-    //     wx.redirectTo({
-    //       url: '/pages/thirdParty/thirdInfo/thirdInfo'
-    //     });//返回上一页面
-    //   } else {
-    //     wx.redirectTo({
-    //       url: '/pages/company/cUserInfo/cUserInfo'
-    //     });//返回上一页面
-    //   }
-  },
+  }
 })

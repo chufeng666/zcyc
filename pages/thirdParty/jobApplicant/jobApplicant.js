@@ -9,8 +9,7 @@ Page({
    */
   data: {
     hiringData: [],
-    jobArray: [],                 //职位列表
-    row: 1,                     //默认拿一百条
+    noData: false,
     page: 1,                        //默认第一页
     //地址三级开始
     province: '',
@@ -39,9 +38,6 @@ Page({
     if (wx.hideHomeButton) wx.hideHomeButton()
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-    /*********职位 */
-    this.Occupational = this.selectComponent('#Occupational');
-    /*********职位 */
   },
   onShow: function () {
     let { require_cert, school_type, work_age, salary, job_intention } = this.data;
@@ -58,7 +54,9 @@ Page({
     // 2 输入框的值
     const { value } = e.detail;
     this.setData({
-      careers: value
+      careers: value,
+      hiringData: [],
+      page: 1
     })
     // // 4 正常
     clearTimeout(this.TimeId);
@@ -67,7 +65,10 @@ Page({
     }, 0);
   },
   hiring: function () {
-    let { require_cert,  school_type, job_intention, work_age, salary } = this.data
+    let { require_cert, school_type, job_intention, work_age, salary } = this.data;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     var that = this
     if (require_cert == '有证书') {
       require_cert = 1
@@ -98,15 +99,19 @@ Page({
       'school_type': school_type,
       'work_age': work_age,
       'salary': salary,
-      // 'page': page,
-      // 'regtype': 2,
-      // 'row': row,
+      'page': that.data.page,
     }
     ServerData.hiring(_opt).then((res) => {
       if (res.data.status == 1) {
-        that.setData({
-          hiringData: res.data.data
-        })
+        if (res.data.data == '') {
+          that.setData({
+            noData: true
+          })
+        } else {
+          that.setData({
+            hiringData: [...that.data.hiringData, ...res.data.data]
+          })
+        }
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -125,7 +130,9 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
-      showTST: info.showTST
+      showTST: info.showTST,
+      hiringData: [],
+      page: 1
     })
     this.hiring()
   },
@@ -135,27 +142,22 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-  /***********职位开始**************** */
-  // tabEvent1(data) {      //接收传过来的参数
-  //   var info = data.detail
-  //   this.setData({
-  //     type: info.job_careers,
-  //     title: info.job_intention,
-  //     showTST1: info.isShow
-  //   })
-  //   this.hiring()
-  // },
-  // // 点击职位弹出选择框
-  // selectOccupational: function (e) {
-  //   this.Occupational.showPopup()
-  //   this.Occupational.startAddressAnimation(true)
-  // },
-  /***********职位开始结束**************** */
-  // onReachBottom: function () {
-  //   this.setData({
-  //     page: this.data.page + 1,
-  //     // isMore: false
-  //   })
-  //   this.hiring()
-  // },
+  onReachBottom: function () {
+    let { noData } = this.data;
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.hiring();
+  },
+  bindtapMore() {
+    setTimeout(() => {
+      this.setData({
+        hiringData: [],
+        page: 1
+      })
+    }, 1000);
+  },
 })

@@ -7,17 +7,11 @@ Page({
   data: {
     value: '',
     isShow: true,
-    index1: 0,
     index2: 0,
     index3: 0,
     index4: 0,
     index5: 0,
     index6: 0,
-    disanfang: [
-      { id: 0, name: "全部", isShow: true },
-      { id: 1, name: "服务商", isShow: false },
-      { id: 2, name: "个人", isShow: false }
-    ],
     zhengshu: [
       { id: 0, name: "全部", isShow: true },
       { id: 1, name: "有证书", isShow: false },
@@ -55,34 +49,46 @@ Page({
     ],
     name: '',
     require_cert: '',
-    job_intention: '',
-    school_type: '',
     work_age: '',
     salary: '',
+    // 招人页面更多返回的参数
+    school_type: '',
+    job_intention: '',
+    // 首页更多返回的参数
+    type: '',
+    education: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      name: options.name,
-      require_cert: options.require_cert,
-      job_intention: options.job_intention,
-      school_type: options.school_type,
-      work_age: options.work_age,
-      salary: options.salary,
-    })
-    // this.category();
+    let name = options.name,
+      require_cert = options.require_cert,
+      job_intention = options.job_intention,
+      school_type = options.school_type,
+      work_age = options.work_age,
+      type = options.type,
+      salary = options.salary,
+      education = options.education
+    this.setData({ name, require_cert, job_intention, school_type, work_age, salary, type, education })
     // 返回选定
     this.changRequireCert();
     this.changWorkAge();
     this.changSalary();
     // 招人页面返回参数选定
     this.changSchoolType();
-    setTimeout(() => {
-      this.changJobIntention();
-    }, 300);
+    if(name == '招人') {
+      setTimeout(() => {
+        this.changJobIntention();
+      }, 300);
+    }else{
+      //首页页面返回参数选定
+      this.changEducation();
+      setTimeout(() => {
+        this.changType();
+      }, 300);
+    }
 
   },
 
@@ -115,8 +121,9 @@ Page({
   //证书返回选定
   changRequireCert(e) {
     let { zhengshu, require_cert } = this.data;
-    this.forEach(zhengshu, require_cert)
-    this.setData({ zhengshu })
+    let complete = this.forEach(zhengshu, require_cert);
+    let { arr, index } = complete
+    this.setData({ zhengshu: arr, index2: index })
   },
   // 一级职位
   changZhiwei(e) {
@@ -127,20 +134,24 @@ Page({
   changJobIntention(e) {
     let index = 0;
     let { job_intention, jobArry } = this.data
-    console.log(job_intention,jobArry);
     for (let i in jobArry) {
-      console.log('111111111111111');
       if (jobArry[i].cat_name == job_intention) {
-        console.log(jobArry[i].cat_name);
-        console.log(job_intention);
-        console.log(i);
         index = i;
       }
     }
-    console.log(index);
     this.setData({ index3: index })
   },
-
+  // 一级职位返回选定(首页页面)
+  changType(e) {
+    let index = 0;
+    let { type, jobArry } = this.data
+    for (let i in jobArry) {
+      if (jobArry[i].cat_name == type) {
+        index = i;
+      }
+    }
+    this.setData({ index3: index })
+  },
   // 学历
   changXueli(e) {
     let { index } = e.currentTarget.dataset;
@@ -151,8 +162,16 @@ Page({
   // 学历返回选定(招人页面)
   changSchoolType() {
     let { xueli, school_type } = this.data;
-    this.forEach(xueli, school_type)
-    this.setData({ xueli })
+    let complete = this.forEach(xueli, school_type);
+    let { arr, index } = complete
+    this.setData({ xueli: arr, index4: index })
+  },
+  // 学历返回选定(首页页面)
+  changEducation() {
+    let { xueli, education } = this.data;
+    let complete = this.forEach(xueli, education);
+    let { arr, index } = complete
+    this.setData({ xueli: arr, index4: index })
   },
   //经验
   changJingyan(e) {
@@ -164,8 +183,9 @@ Page({
   //经验返回选定
   changWorkAge(e) {
     let { jingyan, work_age } = this.data;
-    this.forEach(jingyan, work_age)
-    this.setData({ jingyan })
+    let complete = this.forEach(jingyan, work_age);
+    let { arr, index } = complete
+    this.setData({ jingyan: arr, index5: index })
   },
   // 薪资
   changXinzi(e) {
@@ -177,8 +197,9 @@ Page({
   // 薪资返回选定
   changSalary(e) {
     let { xinzi, salary } = this.data;
-    this.forEach(xinzi, salary)
-    this.setData({ xinzi })
+    let complete = this.forEach(xinzi, salary);
+    let { arr, index } = complete
+    this.setData({ xinzi: arr, index6: index })
   },
   // 点击确定将数据返回给上一个页面
   editTel() {
@@ -218,11 +239,12 @@ Page({
       }
     }
     for (let i in arr) {
-      if (index === i) {
+      if (index == i) {
         arr[i].isShow = true;
       } else if (index != i) {
         arr[i].isShow = false;
       }
     }
+    return { arr, index }
   }
 })

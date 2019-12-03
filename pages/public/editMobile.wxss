@@ -1,11 +1,12 @@
-@import "../template/common";
-@import "../template/font";
+@import "/pages/template/common";
+@import "/pages/template/font";
+@import "/pages/template/common1/common1";
 
 .jiu_mobile {
+  margin-top: 290rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 96rpx;
   color: #7E7E7E;
 }
 
@@ -32,6 +33,7 @@
 
 .login_ear {
   margin-bottom: 64rpx;
+  padding-bottom: 10rpx;
 }
 
 .mima_ear {
@@ -56,7 +58,7 @@
 .icon-yanzhengma {
   position: absolute;
   left: -8rpx;
-  top: 5rpx;
+  top: -3rpx;
   font-size: 48rpx;
 }
 

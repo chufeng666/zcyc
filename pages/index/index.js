@@ -20,7 +20,8 @@ Page({
       { id: 0, title: "最新", isActive: true },
       { id: 1, title: "最热", isActive: false },
     ],
-    index: 0
+    index: 0,
+    showTST: true
   },
 
 	/**
@@ -48,7 +49,7 @@ Page({
       console.log("数据请求失败!")
     })
   },
-  messageList () {
+  messageList() {
     var that = this,
       newArray = []
     var toke = wx.getStorage('token')
@@ -76,7 +77,7 @@ Page({
     })
   },
   // tabs栏
-  changeTitleByIndex (e) {
+  changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);

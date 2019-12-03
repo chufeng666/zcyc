@@ -6,9 +6,8 @@ import ServerData from '../../../utils/serverData.js';
 Page({
   data: {
     hiringData: [],
-    row: 10,                      //默认拿10条
+    noData: false,
     page: 1,                      //默认第一页
-
     //地址三级开始
     province: '',
     city: '',
@@ -25,13 +24,6 @@ Page({
     careers: '',         //工种
     job_intention: '',        //职位  一级    
   },
-  setXingzhi(e) {
-    let { jobArray } = this.data;
-    this.setData({
-      job_intention: jobArray[e.detail.value]
-    })
-    this.hiring()
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -42,19 +34,19 @@ Page({
     /*********地址 */
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
-    /*********职位 */
-    this.Occupational = this.selectComponent('#Occupational');
-    /*********职位 */
   },
   onShow: function () {
-    let { require_cert, school_type, work_age, salary,job_intention } = this.data;
+    let { require_cert, school_type, work_age, salary, job_intention } = this.data;
     if (require_cert != '' || job_intention != '' || school_type != '' || work_age != '' || salary != '') {
       this.hiring()
     }
   },
   hiring: function () {
-    var that = this
-    let { require_cert, job_intention, school_type, work_age, salary} = this.data
+    var that = this;
+    let { require_cert, job_intention, school_type, work_age, salary } = this.data;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     if (require_cert == '有证书') {
       require_cert = 1
     } else if (require_cert == '无证书') {
@@ -84,11 +76,17 @@ Page({
       'city': that.data.city,
       'district': that.data.district,
       'require_cert': require_cert,
+      'page': that.data.page,
     }
     ServerData.hiring(_opt).then((res) => {
       if (res.data.status == 1) {
+        if (res.data.data == '') {
+          that.setData({
+            noData: true
+          })
+        }
         that.setData({
-          hiringData: res.data.data
+          hiringData: [...that.data.hiringData, ...res.data.data]
         })
       } else if (res.data.status == -1) {
         wx.redirectTo({
@@ -111,49 +109,52 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
+      hiringData: [],
+      page: 1
     })
     this.hiring()             //主页信息
   },
-
   // 点击所在地区弹出选择框
   selectDistrict: function (e) {
     this.addressForm.showPopup()
     this.addressForm.startAddressAnimation(true)
   },
   /* 地址结束 */
-  /***********职位开始**************** */
-  tabEvent1(data) {      //接收传过来的参数
-    var info = data.detail
-    this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
-      showTST1: info.isShow
-    })
-    this.hiring()
-  },
-  // 点击所在地区弹出选择框
-  selectOccupational: function (e) {
-    this.Occupational.showPopup()
-    this.Occupational.startAddressAnimation(true)
-  },
-  /***********职位开始结束**************** */
   // 1 定时器id
   TimeId: -1,
   bindconfirm(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // // 3 简单做一些验证 trim() 
-    // if (!value.trim()) {
     this.setData({
-      careers:value
+      hiringData: [],
+      page: 1,
+      careers: value
     })
-    //   // 不合法 
-    //   return;
-    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.hiring(value);
     }, 0);
   },
+  onReachBottom: function () {
+    let { noData } = this.data
+    if (noData) {
+      ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.hiring();
+  },
+  bindtapMore() {
+    setTimeout(() => {
+      this.setData({
+        hiringData: [],
+        page: 1
+      })
+    }, 1000);
+  },
+  // lookMore() {
+    
+  // },
 })

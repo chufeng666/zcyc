@@ -28,7 +28,8 @@
       </view>
       <navigator
         class="newsite_button {{require_cert == '' || education =='' ||work_age == '' ||salary == '' ? '' : 'active'}}"
-        url="../ScreeningConditions/ScreeningConditions?name=招人">
+        bindtap="bindtapMore"
+        url="../ScreeningConditions/ScreeningConditions?name=招人&job_intention={{job_intention}}&require_cert={{require_cert}}&salary={{salary}}&school_type={{school_type}}&work_age={{work_age}}">
         <view class="newsite_view subtitle-msg">更多</view>
         <text class="iconfont icon-zhcc_xiangxiajiantou"></text>
       </navigator>
@@ -44,6 +45,7 @@
   <view wx:else class="container">
     <import src="../../template/companyJobSearch/companyJobSearch" />
     <template is="JobSearch" data="{{recList:hiringData,url:'../../companyPostionDetail/companyPostionDetail?id='}}" />
+    <view class='more-recommond2' wx:if="{{noData}}">暂无更多数据</view>
   </view>
 </view>
 <!-- 所有城市三级联动列表 -->

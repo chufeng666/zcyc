@@ -8,13 +8,15 @@ import ServerData from '../../../utils/serverData.js';
 Page({
   data: {
     showTST: true,         //是否选择地址
-    indexData: [],         //游客首页数据
+    person: [],         //游客首页数据
+    recruit: [],         //游客首页数据
     // 轮播图
     indicatorDots: false,
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    // 地址
+    //地址
+    showTST1: true,
     province: '',
     city: '',
     district: '',
@@ -29,24 +31,20 @@ Page({
       { id: 0, title: "最新", isActive: true },
       { id: 1, title: "最热", isActive: false },
     ],
-    //地址
-    showTST1: true,
-    jobArry: [],      // 一级职位
-    type: '',         //一级职位名称
-    title: '',        //二级岗位
-    job_type: '',      // 一级职位id
+    noData: false,
     // 更多返回的数据
     require_cert: '', //证书
     education: '',  // 学历
     work_age: '',   // 工龄
     salary: '',     // 薪资
     type: '',         //工种
+    page: 1,         //工种
   },
   onShow: function () {
-    let { require_cert, type, education, work_age, salary } = this.data;
+    let { require_cert, type, education, work_age, salary, person, recruit } = this.data;
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
       this.setData({
-        showTST1:false
+        showTST1: false
       })
       this.reqIndex()
     }
@@ -70,6 +68,9 @@ Page({
   },
   reqIndex() {
     let { province, city, district, type, title, job_type, require_cert, education, work_age, salary } = this.data;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     var that = this;
     if (require_cert == '需要证书') {
       require_cert = 1
@@ -90,6 +91,7 @@ Page({
     if (salary == '不限') {
       salary = ''
     }
+
     let _opt = {
       'province': province,
       'city': city,
@@ -101,13 +103,30 @@ Page({
       'work_age': work_age,
       'salary': salary,
       'require_cert': require_cert,
-      // 'regtype': 3,
+      'page': that.data.page
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
-        this.setData({
-          indexData: res.data.data,
-        })
+        if (res.data.data.person == '') {
+          this.setData({
+            noData: true,
+          })
+        } else {
+          this.setData({
+            person: [...that.data.person, ...res.data.data.person],
+            // recruit: [...that.data.recruit, ...res.data.data.recruit],
+          })
+        }
+        if (res.data.data.recruit == '') {
+          this.setData({
+            noData: true,
+          })
+        } else {
+          this.setData({
+            // person: [...that.data.person, ...res.data.data.person],
+            recruit: [...that.data.recruit, ...res.data.data.recruit],
+          })
+        }
       }
       else if (res.data.status == -1) {
         wx.navigateTo({
@@ -117,25 +136,6 @@ Page({
       else {
         ServerData._wxTost(res.data.msg)
       }
-    }).catch((error) => {
-      ServerData._wxTost("数据请求失败!")
-    })
-    ServerData.recruitHot(_opt).then((res) => {
-      if (res.data.status == 1) {
-        this.setData({
-          popular: res.data.data,
-        })
-      }
-      else if (res.data.status == -1) {
-        wx.redirectTo({
-          url: '../../login/login'
-        })
-      }
-      else {
-        ServerData._wxTost(res.data.msg)
-      }
-    }).catch((error) => {
-      ServerData._wxTost("数据请求失败!")
     })
   },
 
@@ -173,7 +173,10 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
-      showTST: info.showTST
+      showTST: info.showTST,
+      person: [],
+      recruit: [],
+      page: 1
     })
     this.reqIndex()
   },
@@ -230,6 +233,9 @@ Page({
     this.setData({
       title: value,
       isShow: false,
+      person: [],
+      recruit: [],
+      page: 1
     })
     setTimeout(() => {
       this.reqIndex();
@@ -255,5 +261,30 @@ Page({
         })
       }
     })
-  }
+  },
+  onReachBottom: function () {
+    let { noData } = this.data;
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.reqIndex();
+  },
+  bindtapMore() {
+    setTimeout(() => {
+      this.setData({
+        person: [],
+        recruit: [],
+        page: 1
+      })
+    }, 1000);
+  },
+  // lookMore() {
+  //   let { noData } = this.data
+  //   if (noData) {
+  //     ServerData._wxTost('暂无数据')
+  //   }
+  // },
 })

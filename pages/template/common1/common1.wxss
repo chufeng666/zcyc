@@ -73,3 +73,7 @@
   padding-right: 54rpx;
   margin-bottom: 3rpx;
 }
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}

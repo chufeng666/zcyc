@@ -13,7 +13,7 @@
     <view class="newest">
       <view class="province">
         <text wx:if="{{showTST}}" decode="{{true}}">公司地址&nbsp;&nbsp;/</text>
-        <text wx:else decode="{{true}}">{{areaInfo}}&nbsp;&nbsp;/</text>
+        <text wx:else decode="{{true}}">{{city}} - {{district}}&nbsp;&nbsp;/</text>
         <picker mode="selector" bindcancel="bindcancel" range="{{xingzhi}}" bindchange="setXingzhi">
           <text wx:if="{{type==''}}" decode="{{true}}" class="picker">&nbsp;&nbsp;全部</text>
           <text wx:else decode="{{true}}" class="picker">&nbsp;&nbsp;{{type}}</text>
@@ -21,8 +21,8 @@
       </view>
     </view>
     <view class="n-search">
-      <view class="newsite_button active" bindtap="selectDistrict">
-        <view class="newsite_view subtitle-msg  active">地点</view>
+      <view class="newsite_button {{showTST?'':'active'}}" bindtap="selectDistrict">
+        <view class="newsite_view subtitle-msg">地点</view>
         <icon class="iconfont icon-zhcc_xiangxiajiantou"></icon>
       </view>
     </view>
@@ -35,6 +35,7 @@
   <view wx:else class="container">
     <import src="../../template/companyList.wxml" />
     <template is="companyList" data="{{recList:recList,url:'../../cOrTInfo/cOrTInfoDetail?company_id='}}" />
+    <view class='more-recommond2' wx:if="{{noData}}">暂无更多数据</view>
   </view>
 </view>
 <view style="height: 120rpx;">

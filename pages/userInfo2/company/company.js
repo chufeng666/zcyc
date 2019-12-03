@@ -14,13 +14,15 @@ Page({
     xingzhi: ['国企', '民营', '私企'],
     type: '', //公司性质
     page: 1,
-    rows: 10,
-
+    company_name: '',
+    noData: false
   },
   setXingzhi(e) {
     let { xingzhi } = this.data;
     this.setData({
-      type: xingzhi[e.detail.value]
+      recList: [],
+      type: xingzhi[e.detail.value],
+      page: 1
     })
     this.getCompanyList()
   },
@@ -43,10 +45,11 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
-      showTST: info.showTST
+      showTST: info.showTST,
+      recList: [],
+      page: 1
     })
     this.getCompanyList()
-    // this.hiring()             //主页信息
   },
 
   // 点击所在地区弹出选择框
@@ -57,53 +60,60 @@ Page({
 
   /***********地址结束**************** */
 
-  lookMore() {
+  onReachBottom: function () {
+    let { noData } = this.data
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
     this.setData({
-      page: this.data.page + 1
+      page: this.data.page + 1,
     })
-    this.getCompanyList()
+    this.getCompanyList();
   },
   // 1 定时器id
   TimeId: -1,
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // // 3 简单做一些验证 trim() 
-    // if (!value.trim()) {
-    //   this.setData({
-    //     recList: [],
-    //   })
-    //   // 不合法 
-    //   return;
-    // }
+    this.setData({
+      recList: [],
+      company_name: value,
+      page: 1
+    })
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
-      this.getCompanyList(value);
-    }, 1000);
+      this.getCompanyList();
+    }, 0);
   },
   // 请求
-  getCompanyList(value) {
-    var that = this,
-      { type } = this.data
-    // if (type == '请选择公司性质') {
-    //   type = ''
-    // }
+  getCompanyList() {
+    var that = this
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     let _opt = {
-      'company_name': value,
-      'regtype': 2,
+      'company_name': that.data.company_name,
+      'regtype': 1,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,
+      'type': that.data.type,
       'page': that.data.page,
-      'rows': that.data.rows,
-      'type': type,
     }
     ServerData.companyList(_opt).then((res) => {
+      let newArray = [];
       if (res.data.status == 1) {
-        that.setData({
-          recList: res.data.data
-        })
+        if (res.data.status == 1) {
+          if (res.data.data == '') {
+            that.setData({
+              noData: true
+            })
+          }
+          that.setData({
+            recList: [...that.data.recList, ...res.data.data]
+          })
+        }
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -115,8 +125,13 @@ Page({
   },
   bindcancel() {
     this.setData({
-      type: ''
+      recList: [],
+      type: '',
+      page: 1
     })
     this.getCompanyList();
-  }
+  },
+  // lookMore() {
+
+  // },
 })

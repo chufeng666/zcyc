@@ -73,8 +73,7 @@ Page({
     }
     value = ''
     this.setData({
-      label,value
-
+      label, value
     })
   },
   deletBiaoqian(e) {
@@ -84,7 +83,8 @@ Page({
       if (i == index) {
         label.splice(i, 1)
         this.setData({
-          label
+          label,
+          value: ''
         })
       }
     }

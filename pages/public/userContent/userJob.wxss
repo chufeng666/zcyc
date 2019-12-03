@@ -108,6 +108,20 @@
   background-color: var(--themeColor) !important;
   color: #fff !important;
 }
+.zhengshutype{
+  display: flex;
+  align-items: center;
+}
+.yiwanshan {
+  text-align: center;
+  font-size: 22rpx;
+  margin-left: 12rpx;
+  font-weight: normal;
+  color: #fff;
+  background-color: #ff730e;
+  padding: 2rpx 4rpx;
+  border-radius:  5rpx ;
+}
 @import "userId";
 @import "/pages/template/font";
 @import "/pages/template/common1/common1";

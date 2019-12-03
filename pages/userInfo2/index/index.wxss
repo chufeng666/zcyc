@@ -1,5 +1,5 @@
 .i-header {
-  height: 214rpx;
+  height: 222rpx;
   background-color: var(--themeColor);
   line-height: 104rpx;
   position: fixed;
@@ -12,7 +12,7 @@
   font-size: 40rpx;
   color: #fff;
   font-weight: normal;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
 }
 
 .i-header .h-bottom {
@@ -98,7 +98,7 @@ swiper-item {
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 290rpx;
+  margin-top: 296rpx;
 }
 
 .newest-search .n-xiahuaxian {
@@ -184,7 +184,7 @@ swiper-item {
 }
 
 .n-information {
-  margin-bottom: 120rpx;
+  /* margin-bottom: 120rpx; */
 }
 
 .n-information .c_info {
@@ -369,7 +369,10 @@ swiper-item {
   border-radius: 50rpx;
   margin: 0 24rpx;
 }
-
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}
 /* 所在地区 */
 
 /* @font-face {

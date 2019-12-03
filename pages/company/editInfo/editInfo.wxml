@@ -31,7 +31,7 @@
             <view class="yiwanshan" wx:else>已完善</view>
           </view>
           <navigator url="../../public/companyContent/contacts/contacts" class="ec_bt">
-            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-29">请填写来联系人</view>
+            <view wx:if="{{userList.contacts ==null || userList.mobile==null}}" class="size-29">请填写联系人</view>
             <view wx:else class="size-28">{{userList.contacts}}/{{userList.mobile}}</view>
           </navigator>
         </view>

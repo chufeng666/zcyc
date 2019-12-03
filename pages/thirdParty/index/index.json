@@ -3,5 +3,6 @@
     "address-form": "/pages/components/address/address",
     "Occupational-form": "/pages/components/Occupational/Occupational"
   },
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":true
 }

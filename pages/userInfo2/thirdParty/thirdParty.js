@@ -8,6 +8,7 @@ Page({
    */
   data: {
     recList: [],
+    noData: false,
     //地址三级开始
     province: '',
     city: '',
@@ -16,7 +17,6 @@ Page({
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
     type: '', //公司性质
-    row: 10,
     page: 1
   },
 
@@ -37,25 +37,17 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    console.log(value);
-    // // 3 简单做一些验证 trim() 
-    // if (!value.trim()) {
-    //   this.setData({
-    //     goods: [],
-    //     inputValue: "",
-    //     isFocus: false
-    //   })
-    //   // 不合法 
-    //   return;
-    // }
     this.setData({
-      isShowInfo: true
+      isShowInfo: true,
+      recList: [],
+      page: 1,
+      company_name: value
     })
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
-      this.getCompanyList(value);
-    }, 1000);
+      this.getCompanyList();
+    }, 0);
   },
   // 请求
   lookMore() {
@@ -64,32 +56,30 @@ Page({
     })
     this.getCompanyList()
   },
-  getCompanyList(value) {
-    var that = this,
-      { type } = that.data
-    if (type === '请选择公司性质') {
-      type = ''
+  getCompanyList() {
+    var that = this;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
     }
     let _opt = {
-      'type': type,
-      'company_name': value,
-      'regtype': 1,
+      'type': that.data.type,
+      'company_name': that.data.company_name,
+      'regtype': 2,
       'province': that.data.province,
       'city': that.data.city,
-      'district': that.data.district
+      'district': that.data.district,
+      'page': that.data.page
     }
     ServerData.companyList(_opt).then((res) => {
       if (res.data.status == 1) {
         if (res.data.data == '') {
-          ServerData._wxTost('没有数据了');
           that.setData({
-            recList: res.data.data
-          })
-        } else {
-          that.setData({
-            recList: res.data.data
+            noData: true,
           })
         }
+        this.setData({
+          recList: [...that.data.recList, ...res.data.data],
+        })
       } else if (res.data.status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -102,7 +92,9 @@ Page({
   setXingzhi(e) {
     let { xingzhi } = this.data;
     this.setData({
-      type: xingzhi[e.detail.value]
+      recList: [],
+      type: xingzhi[e.detail.value],
+      page: 1,
     })
     this.getCompanyList()
   },
@@ -114,7 +106,9 @@ Page({
       province: info.province,
       city: info.city,
       district: info.area,
-      showTST: info.showTST
+      showTST: info.showTST,
+      recList: [],
+      page: 1,
     })
     this.getCompanyList()
   },
@@ -127,8 +121,23 @@ Page({
   /***********地址结束**************** */
   bindcancel() {
     this.setData({
-      type: ''
+      type: '',
+      recList: [],
+      page: 1,
     })
     this.getCompanyList();
-  }
+  },
+  onReachBottom: function () {
+    let { noData } = this.data
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.getCompanyList();
+  },
+  // lookMore() {
+
+  // },
 })

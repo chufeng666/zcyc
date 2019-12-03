@@ -11,11 +11,11 @@ page {
   width: 100%;
   display: flex;
   background-color: var(--thirdPartyColor);
-  height: 127rpx;
+  height: 180rpx;
   font-size: 36rpx;
   color: #fff;
-  line-height: 163rpx;
-  padding: 0 15rpx;
+  line-height: 180rpx;
+  padding: 0 32rpx
 }
 
 .icon-zuojiantou {
@@ -29,7 +29,7 @@ page {
 
 #wrap {
   background-color: #fff;
-  margin-top: 127rpx;
+  margin-top: 180rpx;
   margin-bottom: 200rpx;
 }
 

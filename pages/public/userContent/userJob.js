@@ -5,10 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    arry: [],
     occupationalBoxShow: true,
     addressBoxShow: true,
-    // 岗位
-    gangwei: '安全员',
     // 薪资
     xinzi: ['不限', '3k及以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'],
     workJob: ['离职-随时到岗', '在职-月内到岗', '在职-考虑机会', '在职-暂不考虑',],
@@ -21,10 +20,9 @@ Page({
     province: '',   // 省
     salary: '',    // 期望薪资
     daogang_time: '', // 工作状态
-
     // 职业证书
-    images: [],
-    showAddBtn: 1,
+    images: [{ path: '', title: '' }],
+    showAddBtn: true,
     index: 0,
 
     disabled: false,// 点击一次的开关
@@ -39,20 +37,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initUserInfo7();
     this.categoryList();
+    this.initUserInfo7();
     /*********地址 */
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
     /* 职位 */
     this.OccupationalForm = this.selectComponent('#Occupational');
     /* 职位 */
+
   },
   // 请求
   initUserInfo7() {
     let that = this;
     ServerData.initUserInfo7({}).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
         that.setData({
           careers: res.data.data.careers,
@@ -64,6 +62,7 @@ Page({
           salary: res.data.data.salary,
           daogang_time: res.data.data.daogang_time,
           images: res.data.data.images,
+          arry: res.data.data,
         })
       }
     })
@@ -73,19 +72,17 @@ Page({
     let { job_intention, intention, images, careers, city, salary, daogang_time } = this.data;
     let title = '',
       path = ''
-    if (careers == '' || city == '' || job_intention == '' || salary == '' || daogang_time == '' ) {
+    if (careers == '' || city == '' || job_intention == '' || salary == '' || daogang_time == '') {
       return ServerData._wxTost('请填写数据');
     }
     for (let i in images) {
       title = images[i].title
       path = images[i].path
     }
-    console.log(title);
-    console.log(path);
     intention.forEach((v, i) => {
       if (v.cat_name == job_intention) {
         if (v.money > 0) {
-          if (title == '' || path == null) {
+          if (title == '' || path == null || images == '' || images == null) {
             return ServerData._wxTost('请上传职业证书');
           } else {
             clearTimeout(this.TimeId);
@@ -99,11 +96,6 @@ Page({
             this.initUserInfoSeven();
           }, 350);
         }
-
-        // else {
-        //   console.log('22222222222222');
-        //   return ServerData._wxTost('请上传职业证书');
-        // }
       }
     })
   },
@@ -111,11 +103,14 @@ Page({
   initUserInfoSeven() {
     let that = this
     let { images, job_intention } = this.data
-    // for (let i in images) {
-    //   if (images == '' || images == null || images[i].title === '' || images[i].path === '') {
-    //     return ServerData._wxTost('职业证书和证书类型不能为空');
-    //   }
-    // }
+    for (let i in images) {
+      if (images[i].path == '' || images[i].title == '') {
+        return ServerData._wxTost('请填写职业类型和上传职业证书');
+      }
+    }
+    if (images == '') {
+      images = [{ path: '', title: '' }]
+    }
     let _opt = {
       'daogang_time': that.data.daogang_time,
       'city': that.data.city,
@@ -156,7 +151,6 @@ Page({
   // 获取职业证书开始
   tabEvent1(data) {
     let info = data.detail
-    console.log(info);
     this.setData({
       careers: info.job_careers,
       job_intention: info.job_intention,
@@ -223,19 +217,21 @@ Page({
   },
   // 点击添加证件
   addOption: function (e) {
-    let images = this.data.images;
+    let { images } = this.data;
     if (images == null || images == '') {
       images = []
     }
+    if (images.length == 3) {
+      return ServerData._wxTost('最多只能上传3份证书')
+    }
     images.push({ path: '', title: '' })
     this.setData({ images });
-
   },
   inpuTitle(e) {
     let title = e.detail.value
     let index = e.target.dataset.index
-    // console.log(e);
     let images = this.data.images
+
     for (let i in images) {
       if (i == index) {
         images[i].title = title
@@ -256,7 +252,7 @@ Page({
         if (res.confirm) {
           for (let i in images) {
             if (i == index) {
-              images.splice(i, 1)
+              images.splice(i, 1);
             }
           }
           that.setData({

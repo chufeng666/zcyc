@@ -1,6 +1,6 @@
 <!-- 头部 -->
 <view class='i-header'>
-  <text class="iconfont  icon-zuojiantou"></text>
+  <!-- <text class="iconfont  icon-zuojiantou"></text> -->
   <view class="h-left">个人中心</view>
 </view>
 <!-- 头部 -->

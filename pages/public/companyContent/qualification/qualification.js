@@ -20,7 +20,7 @@ Page({
       { isShow } = that.data
     serverData.setCompanyInfo6({}).then((res) => {
       if (res.data.status == 1) {
-        if (res.data.data.length === 3) {
+        if (res.data.data.length === 3 || res.data.data == '' || res.data.data == null) {
           isShow = false
         } else {
           isShow = true
@@ -79,7 +79,7 @@ Page({
     let { seniority, isShow } = this.data;
     if (seniority == null) {
       seniority = []
-    } else if (seniority.length === 2) {
+    } else if (seniority.length == 2) {
       isShow = false
       serverData._wxTost("最多添加三个")
     }

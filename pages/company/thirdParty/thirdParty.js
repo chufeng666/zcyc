@@ -9,17 +9,19 @@ Page({
     province: '',
     city: '',
     district: '',
-    site_show: true,        
+    site_show: true,
     page: 1,
-    rows: 10,
     isMore: true,
     showTST: true,
     xingzhi: ['国企', '民营', '私企'],
     type: '', //公司性质
+    noData:false
   },
   setXingzhi(e) {
     let { xingzhi } = this.data;
     this.setData({
+      recList: [],
+      page: 1,
       type: xingzhi[e.detail.value]
     })
     this.getCompanyList()
@@ -35,17 +37,16 @@ Page({
     this.addressForm = this.selectComponent('#address');
     /*********地址 */
   },
-
-
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
-      areaInfo: info.areaInfo,
       showTST: info.showTST,
       province: info.province,
       city: info.city,
       district: info.area,
+      recList: [],
+      page: 1,
     })
     this.getCompanyList()             //主页信息
   },
@@ -60,69 +61,36 @@ Page({
   handeSearchInput(e) {
     // 2 输入框的值
     const { value } = e.detail;
-    // // 3 简单做一些验证 trim() 
-    // if (!value.trim()) {
-    //   this.setData({
-    //     recList: [],
-    //   })
-    //   // 不合法 
-    //   return;
-    // }
     // // 4 正常
     clearTimeout(this.TimeId);
     this.TimeId = setTimeout(() => {
       this.getCompanyList(value);
     }, 0);
   },
-
-  lookMore() {
-    this.setData({
-      page: this.data.page + 1
-    })
-    this.getCompanyList()
-  },
   getCompanyList(value) {
-    var that = this,
-      { type } = that.data
-    if (type === '请选择公司性质') {
-      type = ''
+    var that = this;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
     }
     let _opt = {
-      "type": type,
+      "type": that.data.type,
       "company_name": value,
-      'regtype': 1,
+      'regtype': 2,
       'province': that.data.province,
       'city': that.data.city,
       'district': that.data.district,
-      'page': that.data.page,
-      'rows': that.data.rows
+      'page': that.data.page
     }
     ServerData.companyList(_opt).then((res) => {
-      var status = res.data.status,
-        newArray = []
-      if (status == 1) {
-        if (res.data.data.length != "") {
-          if (that.data.page == 1) {
-            newArray = res.data.data
-          } else {
-            newArray = [...that.data.recList, ...res.data.data]
-          }
-          var tt = res.data.data.length >= that.data.rows ? true : false
-          this.setData({
-            recList: newArray,
-            isMore: tt
-          })
-        } else {
-          this.setData({
-            isMore: false
-          })
-          ServerData._wxTost('没有数据了')
-        }
-        if (that.data.page == 1 && res.data.data == "") {
-          this.setData({
-            recList: [],
+      if (res.data.status == 1) {
+        if (res.data.data.length == "") {
+          that.setData({
+            noData:true
           })
         }
+        this.setData({
+          recList: [...that.data.recList, ...res.data.data],
+        })
       } else if (status == -1) {
         wx.redirectTo({
           url: '../../login/login'
@@ -134,8 +102,20 @@ Page({
   },
   bindcancel() {
     this.setData({
+      recList: [],
+      page: 1,
       type: ''
     })
     this.getCompanyList();
-  }
+  },
+  onReachBottom: function () {
+    let { noData } = this.data;
+    if (noData) {
+      return ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.getCompanyList();
+  },
 })

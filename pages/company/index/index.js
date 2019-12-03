@@ -10,7 +10,8 @@ Page({
     // 消息
     array: [],
     //游客首页数据
-    indexData: [],
+    recruit: [],
+    person: [],
     // 轮播图
     indicatorDots: false,
     autoplay: true,
@@ -37,13 +38,15 @@ Page({
     education: '',  // 学历
     work_age: '',   // 工龄
     salary: '',     // 薪资
+    page: 1,
+    noData:false
   },
 
   onShow: function () {
     let { require_cert, education, type, work_age, salary } = this.data;
     if (require_cert != '' || type != '' || education != '' || work_age != '' || salary != '') {
       this.setData({
-        showTST1:false
+        showTST1: false
       })
       this.reqIndex()
     }
@@ -97,6 +100,9 @@ Page({
     this.setData({
       title: value,
       isShow: false,
+      person: [],
+      recruit: [],
+      page:1
     })
     // // 4 正常
     setTimeout(() => {
@@ -118,8 +124,11 @@ Page({
 	 * 请求数据
 	 */
   reqIndex() {
-    let { province, city, district, type, title, require_cert, education, work_age, salary } = this.data
-    var that = this
+    let { province, city, district, type, title, require_cert, education, work_age, salary } = this.data;
+    var that = this;
+    if (this.data.page == 1) {
+      ServerData._showLoading('加载中')
+    }
     if (require_cert == '有证书') {
       require_cert = 1
     } else if (require_cert == '无证书') {
@@ -150,12 +159,30 @@ Page({
       'work_age': work_age,
       'salary': salary,
       'require_cert': require_cert,
+      'page': that.data.page,
     }
     ServerData.userVisit(_opt).then((res) => {
       if (res.data.status == 1) {
-        this.setData({
-          indexData: res.data.data,
-        })
+        if (res.data.data.recruit == '' ) {
+          that.setData({
+            noData:true
+          })
+        }else {
+          this.setData({
+            recruit: [...that.data.recruit, ...res.data.data.recruit],
+            // person: [...that.data.person, ...res.data.data.person],
+          })
+        }
+        if (res.data.data.person == '') {
+          that.setData({
+            noData:true
+          })
+        }else {
+          this.setData({
+            // recruit: [...that.data.recruit, ...res.data.data.recruit],
+            person: [...that.data.person, ...res.data.data.person],
+          })
+        }
       }
       else if (res.data.status == -1) {
         wx.redirectTo({
@@ -173,11 +200,13 @@ Page({
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
     this.setData({
-      areaInfo: info.areaInfo,
       province: info.province,
       city: info.city,
       district: info.area,
-      showTST: info.showTST
+      showTST: info.showTST,
+      person: [],
+      recruit: [],
+      page:1
     })
     this.reqIndex()
   },
@@ -187,22 +216,6 @@ Page({
     this.addressForm.startAddressAnimation(true)
   },
   /***********地址结束**************** */
-  /***********职位开始**************** */
-  tabEvent1(data) {      //接收传过来的参数
-    var info = data.detail
-    this.setData({
-      type: info.job_careers,
-      title: info.job_intention,
-      showTST1: info.isShow
-    })
-    this.reqIndex()
-  },
-  // 点击所在地区弹出选择框
-  selectOccupational: function (e) {
-    this.Occupational.showPopup()
-    this.Occupational.startAddressAnimation(true)
-  },
-  /***********职位结束**************** */
   // tabs栏
   changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;
@@ -220,4 +233,26 @@ Page({
       }
     })
   },
+  onReachBottom: function () {
+    let { noData } = this.data
+    if (noData) {
+      ServerData._wxTost('暂无更多数据')
+    }
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.reqIndex();
+  },
+  bindtapMore(){
+    setTimeout(() => {
+      this.setData({
+        person: [],
+        recruit: [],
+        page: 1
+      })
+    }, 1000);
+  },
+  // lookMore() {
+    
+  // },
 })

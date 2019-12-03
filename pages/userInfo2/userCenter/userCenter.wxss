@@ -10,15 +10,16 @@ page {
   left: 0;
   right: 0;
   background-color: var(--themeColor);
-  height: 127rpx;
+  height: 180rpx;
   font-size: 36rpx;
   color: #fff;
   line-height: 156rpx;
   z-index: 10;
+  padding: 0 32rpx
 }
 
 .h-left {
-  margin-left: 32rpx;
+ padding-top: 40rpx;
 }
 
 /* <!-- 头部 --> */
@@ -27,7 +28,7 @@ page {
 
 #wrap {
   background-color: #fff;
-  margin-top: 127rpx;
+  margin-top: 180rpx;
   margin-bottom: 120rpx;
 }
 

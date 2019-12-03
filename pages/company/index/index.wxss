@@ -1,5 +1,5 @@
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;
@@ -16,8 +16,7 @@
 }
 
 .i-header .h-bottom {
-  padding: 0 32rpx;
-  margin: 24rpx 0;
+  padding: 34rpx 32rpx 24rpx 32rpx;
 }
 
 .i-header .h-bottom .search-cont {
@@ -89,7 +88,7 @@ swiper-item {
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 308rpx;
+  margin-top: 318rpx;
   padding: 0 30rpx;
   border-top: 16rpx solid #dedede;
 }
@@ -148,7 +147,7 @@ swiper-item {
 
 .newest-search .n-xiahuaxian .n-search .newsite_button .icon-zhcc_xiangxiajiantou {
   font-size: 16rpx;
-  margin:0 10rpx;
+  margin: 0 10rpx;
 }
 
 .newest-search .n-xiahuaxian .n-search picker .subtitle-msg {
@@ -167,7 +166,6 @@ swiper-item {
 }
 
 .n-information {
-  
 }
 
 .n-information .c_info {
@@ -288,10 +286,12 @@ swiper-item {
   font-weight: bold;
   font-size: 30rpx;
 }
-.sousuolishi{
+
+.sousuolishi {
   margin-top: 308rpx;
   border-bottom: 16rpx solid #dedede;
 }
+
 .sousuolishi .history {
   border-bottom: 10px solid #dedede;
 }
@@ -321,6 +321,7 @@ swiper-item {
   margin-left: 16rpx;
   font-size: 26rpx;
 }
+
 .sousuolishi .popular {
   margin: 27rpx 33rpx;
 }
@@ -351,4 +352,9 @@ swiper-item {
   border-radius: 50rpx;
   margin: 0 24rpx;
 }
-@import "../../template/font";
+
+.more-recommond2 {
+  text-align: center;
+  padding: 30rpx 0;
+}
+@import "/pages/template/font";

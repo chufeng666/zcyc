@@ -1,7 +1,7 @@
 /* 头部 */
 
 .i-header {
-  height: 208rpx;
+  height: 222rpx;
   background-color: var(--thirdPartyColor);
   line-height: 104rpx;
   position: fixed;
@@ -14,7 +14,7 @@
 .i-header .h-left {
   color: #fff;
   font-weight: 500;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   display: flex;
   text-align: center;
 }
@@ -72,7 +72,7 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 208rpx;
+  margin-top: 222rpx;
 }
 
 .newest-search .n-xiahuaxian {
@@ -144,7 +144,7 @@
 }
 
 .container {
-  border-bottom: 16rpx solid #dedede;
+  /* border-bottom: 16rpx solid #dedede; */
 }
 
 .content-list {
@@ -255,5 +255,9 @@
 .c-msg {
   background-color: var(--thirdPartyColor);
 }
-@import '../../template/companyList';
-@import '../../template/font';
+.more-recommond2{
+  text-align: center;
+  padding: 30rpx 0;
+}
+@import '/pages/template/companyList';
+@import '/pages/template/font';

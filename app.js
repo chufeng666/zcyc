@@ -26,9 +26,6 @@ App({
     //   })
     // }
   },
-  onShow: function (options) {
-   
-  },
   //第一种底部  
   editTabBar: function () {
     var tabBar = this.globalData.tabBar;
