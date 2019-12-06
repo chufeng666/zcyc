@@ -22,7 +22,7 @@ Page({
     education: 0,          // 学历
     educationList: ['初中及以下', '高中', '中专', '大专', '本科', '硕士', '博士'],
     workYear: 0,             //工作年限
-    workYearList: ['在校生', '应届生', '一年以内', '1-3年', '3-5年', '5-10年', '10年以上'],
+    workYearList: ['在校生', '应届生', '1年以内', '1-3年', '3-5年', '5-10年', '10年以上'],
     gender1: ['男', '女'],     // 性别
     // 现居住地址
     addressBoxShow: true,
@@ -135,8 +135,9 @@ Page({
   },
   // 上传基本信息
   initUserInfoOne() {
-    let that = this
-    // if (!that._verifyInfo()) { return }
+    let that = this;
+    if (!that._verifyInfo()) { return };
+    ServerData.buttonClicked(this);
     let { tapIndex } = that.data
     if (tapIndex == '男') {
       tapIndex = 0
@@ -231,10 +232,10 @@ Page({
       ServerData._wxTost('请输入民族');
       return false
     }
-    if (that.data.gender == "") {
-      ServerData._wxTost('请选择性别');
-      return false
-    }
+    // if (that.data.gender == "") {
+    //   ServerData._wxTost('请选择性别');
+    //   return false
+    // }
     if (that.data.province == "") {
       ServerData._wxTost('请选择居住地址');
       return false

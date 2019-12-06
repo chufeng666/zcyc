@@ -608,6 +608,17 @@ class ServerData {
     }
     return { arr, index }
   }
+  // 防止重复点击的设置
+  buttonClicked(self) {
+    self.setData({
+      buttonClicked: true
+    })
+    setTimeout(function () {
+      self.setData({
+        buttonClicked: false
+      })
+    }, 500)
+  }
 }
 
 export default new ServerData();

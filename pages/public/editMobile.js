@@ -11,7 +11,7 @@ Page({
     mcode: '',
     pColor: '',                          //动态获取字体颜色
     pBgC: '',                            //动态获背景颜色                 
-    pBC1: '',                            //动态获边框颜色   
+    brc1: '',                            //动态获边框颜色   
     getmobile: ''
   },
   /**
@@ -23,6 +23,7 @@ Page({
       pBgC: util.loginIdentity().pBgC,
       pColor: util.loginIdentity().pColor,
       pBC1: util.loginIdentity().pBC1,
+      brc1: util.loginIdentity().brc1,
       getmobile: options.mobile
     })
   },

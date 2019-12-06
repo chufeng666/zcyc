@@ -1,0 +1,82 @@
+<view class='i-header'>
+  <view class="h-left">
+    <text bindtap="detail" class="iconfont icon-zuojiantou"></text>
+    <view class="l_qiye">安管人员考试系统</view>
+  </view>
+  <view class="h-bottom">
+    <image class="search-icon" src='../../../static/images/public/search_icon.png'></image>
+    <input placeholder="一级建造师" bindconfirm='handeSearchInput' class='search-nosearch'></input>
+  </view>
+</view>
+<!-- 选项 -->
+<view class="option">
+  <view class="op_experience">
+    <text class="op_ex_top iconfont icon-iconfonticonfontrocket"></text>
+    <view class="op_ex_bt">免费体验</view>
+  </view>
+  <view class="op_experience">
+    <text class="op_ex_top iconfont icon-huangguan"></text>
+    <view class="op_ex_bt">开通系统</view>
+  </view>
+  <view class="op_experience">
+    <text class="op_ex_top iconfont icon-kaoshi"></text>
+    <view class="op_ex_bt">节章练习</view>
+  </view>
+  <view class="op_experience">
+    <text class="op_ex_top iconfont icon-kaoshi1"></text>
+    <view class="op_ex_bt">模拟考试</view>
+  </view>
+</view>
+<!-- 选项 -->
+<!-- 轮播 -->
+<scroll-view class="scroll-wrapper" scroll-x scroll-with-animation="true" scroll-into-view="item{{currentTab}}">
+  <view class="navigate-item {{currentTab == index?'active':''}}" id="item{{index}}" wx:for="{{arr}}" wx:key="{{index}}"
+    data-index="{{index}}" bindtap="handleClick">
+    <view class="names">{{item}}</view>
+  </view>
+</scroll-view>
+<!-- 轮播 -->
+<!-- 题目展示 -->
+<view class="main">
+  <view class="subject">
+    <image class="subject_img" mode="aspectFit" src="/static/images/public/alipay.png">
+      <text class="mianfei">免费</text>
+    </image>
+    <view class="sub_right">
+      <view class="sub_right_top">C证案例题</view>
+      <text class="sub_right_moddle">模拟考试</text>
+      <view class="sub_right_bt">
+        <text decode="true">共40题&nbsp;&nbsp;考试时长:&nbsp;&nbsp;60分钟</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="main">
+  <view class="subject">
+    <image class="subject_img" mode="aspectFit" src="/static/images/public/alipay.png">
+      <text class="huiyuan">会员</text>
+    </image>
+    <view class="sub_right">
+      <view class="sub_right_top">C证单选题</view>
+      <text class="sub_right_moddle">模拟考试</text>
+      <view class="sub_right_bt">
+        <text decode="true">共50题&nbsp;&nbsp;考试时长:&nbsp;&nbsp;70分钟</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="main">
+  <view class="subject">
+    <image class="subject_img" mode="aspectFit" src="/static/images/public/alipay.png">
+      <text class="huiyuan">会员</text>
+    </image>
+    <view class="sub_right">
+      <view class="sub_right_top">C证多选题</view>
+      <text class="sub_right_moddle">模拟考试</text>
+      <view class="sub_right_bt">
+        <text decode="true">共50题&nbsp;&nbsp;考试时长:&nbsp;&nbsp;70分钟</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 题目展示 -->

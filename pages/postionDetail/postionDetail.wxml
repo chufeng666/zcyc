@@ -68,7 +68,7 @@
   </view>
   <view class='footer' >
     <!-- <button class='f-btn-1' bindtap="callWithHim">马上预订</button> -->
-    <view class='search2-inner'>
+    <view class='search2-inner' wx:if="{{companyShow}}">
       <view class="si_shoucang">
         <view class="ss_weishoucang" bindtap="onCollection" data-stu="0" wx:if="{{isCollect==0}}">
           <text class="iconfont icon-wuxiaoxing-kong"></text>

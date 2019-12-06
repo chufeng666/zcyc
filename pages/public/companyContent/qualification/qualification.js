@@ -17,7 +17,7 @@ Page({
   },
   setCompanyInfo6() {
     let that = this,
-      { isShow } = that.data
+      { isShow } = that.data;
     serverData.setCompanyInfo6({}).then((res) => {
       if (res.data.status == 1) {
         if (res.data.data.length === 3 || res.data.data == '' || res.data.data == null) {
@@ -33,9 +33,10 @@ Page({
     })
   },
   setCompanyInfoSix() {
-    let { seniority } = this.data
-    for(let i in  seniority ) {
-      if(seniority[i] == '') {
+    let { seniority } = this.data;
+    serverData.buttonClicked(this);
+    for (let i in seniority) {
+      if (seniority[i] == '') {
         // seniority.splice(i,1)
         return serverData._wxTost('请输入公司资质')
       }

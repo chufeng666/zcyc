@@ -34,14 +34,14 @@
   bottom: -30rpx;
   width: 89rpx;
   height: 4rpx;
-  background-color: var(--themeColor);
+  background-color: var(--thirdPartyColor);
   text-align: center;
 }
 
 /* 数据展示 */
 
 .inner {
-  margin-top: 180rpx;
+  margin-top: 153rpx;
   padding: 0;
   background-color: #fff;
 }

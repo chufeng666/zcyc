@@ -59,7 +59,8 @@ Page({
     }, 350);
   },
   initUserInfoThree() {
-    let that = this
+    let that = this;
+    ServerData.buttonClicked(this);
     let { graduate_time, major, school, school_type, start_time } = this.data;
     ServerData.initUserInfoThree({ graduate_time, major, school, school_type, start_time }).then((res) => {
       if (res.data.status == 1) {

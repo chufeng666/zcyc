@@ -103,12 +103,12 @@ Page({
       password = that.data.password,
       mobile = that.data.mobile,
       reg = /^1[3|4|5|7|8|9]\d{9}$/;
-    // if (mobile == "" || !reg.test(mobile)) {
-    //   return ServerData._wxTost('手机号格式不正确哦!')
-    // }
-    // if (password == "") {
-    //   return ServerData._wxTost('请输入密码')
-    // }
+    if (mobile == "" || !reg.test(mobile)) {
+      return ServerData._wxTost('手机号格式不正确哦!')
+    }
+    if (password == "") {
+      return ServerData._wxTost('请输入密码')
+    }
     var _opt = {
       'mobile': mobile,
       'password': password

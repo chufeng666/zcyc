@@ -184,7 +184,7 @@
 }
 
 .company-status {
-  margin-top: 6rpx;
+  margin-top: 12rpx;
   font-size: 26rpx;
   color: #686868;
   font-weight: 500;

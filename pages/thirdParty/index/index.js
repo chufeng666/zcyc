@@ -209,6 +209,7 @@ Page({
   // tabs栏
   changeTitleByIndex(e) {
     const { index } = e.currentTarget.dataset;
+    console.log(index);
     let { tabs } = this.data;
     tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
     this.setData({ tabs, index });

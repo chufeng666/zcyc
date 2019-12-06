@@ -18,7 +18,7 @@
             <view>建议使用真实头像</view>
           </view>
         </view>
-        <navigator url="../headPortrait/headPortrait">
+        <navigator url="/pages/headPortrait/headPortrait">
           <image mode="aspectFit" class="por_img" src="{{userList.logo}}" />
         </navigator>
       </view>

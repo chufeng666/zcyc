@@ -9,19 +9,14 @@
     </view>
   </view>
   <view class="new">
+    <text decode="true" class="n-lfet">消息&nbsp;&nbsp;|&nbsp;&nbsp;</text>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="autoplay" interval="{{interval}}" duration="{{duration}}"
       circular="true" indicator-active-color="#ff54b5">
       <block wx:for="{{array}}" wx:key>
         <swiper-item>
-          <view class="new">
             <navigator class="new_xiaoxi" url="../../information/information">
-              <view class="n-lfet">
-                消息
-                <view>|</view>
-              </view>
               <view class="n-right">{{item.title}}</view>
             </navigator>
-          </view>
         </swiper-item>
       </block>
     </swiper>

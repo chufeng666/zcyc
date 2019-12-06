@@ -8,6 +8,7 @@ Page({
    */
   data: {
     logo: '',
+    buttonClicked: false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -29,21 +30,18 @@ Page({
   setCompanyInfo7() {
     var that = this
     ServerData.setCompanyInfo7({}).then((res) => {
-      console.log(res);
       if (res.data.status == 1) {
-         that.setData({
-          logo:res.data.data
-         })
+        that.setData({
+          logo: res.data.data.logo
+        })
       }
     })
   },
   setCompanyInfoSeven() {
     var that = this,
       logo = that.data.logo
-      console.log(logo);
     if (logo == "") { return ServerData._wxTost("请选择头像") }
-    ServerData.setCompanyInfoSeven({ 'logo':logo }).then((res) => {
-      console.log();
+    ServerData.setCompanyInfoSeven({ 'logo': logo }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
         setTimeout(() => {
@@ -51,13 +49,22 @@ Page({
             delta: 1
           })
         }, 1000)
+      } else if (res.data.status == 1) {
+        ServerData.showModal('是否不修改信息').then(res => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }).catch(rex => {
+
+        })
       }
       ServerData._wxTost(res.data.msg)
     })
   },
   addIdCardPic: function (e) {                                    //头像上传
     var _this = this,
-      logo = _this.data.logo
+      logo = _this.data.logo;
+    ServerData.buttonClicked(this);
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],

@@ -1,0 +1,53 @@
+<!-- 头部 -->
+<view class="inner">
+  <view class="content">
+    <text class="iconfont icon-zuojiantou"></text>
+    <text class="inner_right">模拟考试（A证模拟题）</text>
+  </view>
+</view>
+<!-- 头部 -->
+<!-- 题目数量 -->
+<view class="total">
+  <view class="total_number">
+    <text class="iconfont icon-timu"></text>
+    <text>共40题</text>
+  </view>
+  <view class="total_time">
+    <text class="iconfont icon-shizhong1"></text>
+    <text>剩余时间</text>
+    <text class="remaining_time">50:34</text>
+  </view>
+</view>
+<!-- 题目数量 -->
+<!-- 题目展示 -->
+<!-- <view class="main">
+  <view class="titleDisplay">
+    <view class="titleDisplay_top">
+      <text>第一题</text>
+      <text class="type">单选题</text>
+    </view>
+    <view class="titleDisplay_moddle">
+      <view class="titleDisplay_moddle_title">根据事故调查和责任认定，施工单位处()罚款</view>
+      <view class="fraction">(本题3分)</view>
+    </view>
+    <view class="titleDisplay_bt">
+      <view class=""></view>
+    </view>
+  </view>
+</view> -->
+<!-- 题目展示 -->
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <view class="top">
+      完善信息
+    </view>
+    <view class="middle">
+      完善信息后才可以享受更多功能
+    </view>
+    <view class="bt">
+      <button>稍后完善</button>
+      <button>立即完善</button>
+    </view>
+  </view>
+</view>

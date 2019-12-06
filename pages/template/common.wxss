@@ -26,7 +26,7 @@
 /* COMPANY STYLE START */
 
 .company-bg-, .company-active- {
-  background: var(--themeColor);
+  background: var(--thirdPartyColor);
 }
 
 .company-color- {
@@ -39,7 +39,7 @@
 }
 
 .company-bColor-1 {
-  border: 1rpx solid #be4cff !important;
+  border: 1rpx solid var(--thirdPartyColor) !important;
 }
 
 .company-bColor-1ss {

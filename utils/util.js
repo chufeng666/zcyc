@@ -45,6 +45,7 @@ function loginIdentity () {
       pBC1: 'user-bColor-1ss',
       gActive: 'user-active-',
       styleBg: '#ff54b5',
+      brc1:'user-bColor-1',
       resType: 'userInfo',
     }
     return info
@@ -56,6 +57,7 @@ function loginIdentity () {
       pBC: 'company-bColor-',
       pBC1: 'company-bColor-1ss',
       gActive: 'company-active-',
+      brc1:'company-bColor-1',
       styleBg: '#be4cff',
       resType: 'company'
     }
@@ -69,6 +71,7 @@ function loginIdentity () {
       pBC1: 'third-bColor-1ss',
       gActive: 'third-active-',
       styleBg: '#54b9ff',
+      brc1:'company-bColor-1',
       resType: 'thirdParty'
     }
     return info

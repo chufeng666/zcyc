@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: 127rpx;
-  padding: 27rpx 20rpx;
+  padding: 0 20rpx 27rpx 20rpx;
   background-color: var(--thirdPartyColor);
   display: flex;
   align-items: flex-end;

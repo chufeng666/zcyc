@@ -5,10 +5,10 @@
   </view>
   <view class='id-card-top'>
     <view class='-add-img-' wx:if="{{logo =='' || logo ==null}}">
-      <image class='addPic' mode="aspectFit" bindtap='addIdCardPic' src='/static/images/public/plus.png' />
+      <image class='addPic' mode="aspectFit" bindtap='{{!buttonClicked?"addIdCardPic":""}}' src='/static/images/public/plus.png' />
     </view>
     <view class='-add-img-' wx:else>
-      <image mode="aspectFit" bindtap='addIdCardPic' src='{{logo.logo}}' />
+      <image mode="aspectFit" bindtap='{{!buttonClicked?"addIdCardPic":""}}' src='{{logo}}' />
     </view>
   </view>
   <button class="set-option {{bgc}}" bindtap='setCompanyInfoSeven'>保存</button>

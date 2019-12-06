@@ -16,7 +16,7 @@
       <text class="bitian">必填</text>
     </view>
     <view class="us_hd_id">
-      <input class="us_hd_id_num" maxlength="18" type="idcard" disabled="{{disabled}}"  bindinput="inputIdcard" placeholder="请填写身份证号码" value="{{idcard}}" />
+      <input class="us_hd_id_num" placeholder-style="opacity: 0.4;font-weight: normal" maxlength="18" type="idcard" disabled="{{disabled}}"  bindinput="inputIdcard" placeholder="请填写身份证号码" value="{{idcard}}" />
     </view>
   </view>
   <view class="userId_main">

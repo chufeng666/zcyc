@@ -19,7 +19,7 @@ Page({
     resume_status: '',
     companyShow: false, // 隐藏推荐按钮
     regtype: 0,
-    
+
   },
 
 	/**
@@ -27,10 +27,10 @@ Page({
 	 */
   onLoad: function (options) {
     let regtype = wx.getStorageSync('savePostion')
-     // 更改图标
-     if (regtype == 1 || regtype == 2) {
+    // 更改图标
+    if (regtype == 1 || regtype == 2) {
       regtype = 1
-    }else {
+    } else {
       regtype = 3
     }
     // 接收id
@@ -44,13 +44,13 @@ Page({
         isShow: false,
         bgc: util.loginIdentity().pBC,
         pColor: util.loginIdentity().pColor,
-        companyShow:false
+        companyShow: false
       })
     } else {
       this.setData({
         bgc: util.loginIdentity().pBgC,
         pColor: util.loginIdentity().pColor,
-        companyShow:true
+        companyShow: true
       })
     }
   },
@@ -128,12 +128,17 @@ Page({
   // 推送簡歷
   tuisong() {
     let { company_id } = this.data.recruitDetail
-    ServerData.companyPush_resume({ company_id }).then((res) => {
-      if (res.data.status == 1) {
+    ServerData.showModal('是否向这家公司推送简历').then(res => {
+      console.log(res);
+      ServerData.companyPush_resume({ company_id }).then((res) => {
+        if (res.data.status == 1) {
+          ServerData._wxTost(res.data.msg)
+          this.reqDetails()
+        }
         ServerData._wxTost(res.data.msg)
-        this.reqDetails()
-      }
-      ServerData._wxTost(res.data.msg)
+      })
+    }).catch((res) => {
+      
     })
   }
 })

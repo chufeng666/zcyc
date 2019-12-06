@@ -16,7 +16,7 @@ Page({
     money: '',
     reserve: {},
     user_id: 0,
-    pColor:''
+    pColor: ''
   },
 
 	/**
@@ -127,9 +127,13 @@ Page({
       content: '是否预定人才',
       success(res) {
         if (res.confirm) {
-          wx.navigateTo({
-            url: '../company/Scheduled/Scheduled?name=' + personalData.name + "&images=" + images + "&money=" + that.data.money + "&balance=" + that.data.balance + '&id=' + id,
-          })
+          // if (res.data.data.money > 0) {
+            wx.navigateTo({
+              url: '../company/Scheduled/Scheduled?name=' + personalData.name + "&images=" + images + "&money=" + that.data.money + "&balance=" + that.data.balance + '&id=' + id,
+            })
+          // }else{
+          //   ServerData._wxTost(res.data.msg)
+          // }
         } else if (res.cancel) {
         }
       }

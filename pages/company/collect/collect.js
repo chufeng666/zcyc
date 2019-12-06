@@ -18,13 +18,13 @@ Page({
     ],
     index:0,
     pColor:'',
-    pBC:'',
+    brc1:'',
   },
   onLoad: function () {
     this.UcList();
     this.setData({
       pColor: util.loginIdentity().pColor,
-      pBC: util.loginIdentity().pBC,
+      brc1: util.loginIdentity().brc1,
     })
   },
   UcList: function () {

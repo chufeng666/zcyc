@@ -22,8 +22,9 @@ Page({
   onLoad: function (options) {
     this.setData({
       pBgC: util.loginIdentity().pBgC,
+      pColor: util.loginIdentity().pColor,
       pBC1: util.loginIdentity().pBC1,
-      pColor: util.loginIdentity().pColor
+      brc1: util.loginIdentity().brc1,
     })
   },
   saveInfo: function () {

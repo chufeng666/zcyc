@@ -59,9 +59,21 @@ Page({
     })
   },
   setCompanyInfoThree() {
-    let { head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type } = this.data
-    let regtype = wx.getStorageSync("savePostion")
-    serverData.setCompanyInfoThree({ regtype, head, province, city, district, company_name, contacts_scale, desc, open_time, telephone, type }).then((res) => {
+    serverData.buttonClicked(this);
+    let regtype = wx.getStorageSync("savePostion");
+    let _opt = {
+      "head":this.data.head,
+      "province":this.data.province,
+      "city":this.data.city,
+      "district":this.data.district,
+      "company_name":this.data.company_name,
+      "contacts_scale":this.data.contacts_scale,
+      "desc":this.data.desc,
+      "open_time":this.data.open_time,
+      "telephone":this.data.telephone,
+      "type":this.data.type,
+    }
+    serverData.setCompanyInfoThree(_opt).then((res) => {
       if (res.data.status == 1) {
         serverData._wxTost(res.data.msg);
         setTimeout(() => {

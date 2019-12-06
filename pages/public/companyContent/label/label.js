@@ -27,6 +27,7 @@ Page({
   },
   setCompanyInfoOne() {
     let { label } = this.data;
+    serverData.buttonClicked(this);
     serverData.setCompanyInfoOne({ label }).then((res) => {
       if (res.data.status == 1) {
         serverData._wxTost(res.data.msg);

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     c_img: '',
-    isShow: true
+    isShow: true,
+    buttonClicked: false
   },
 
   /**
@@ -57,6 +58,7 @@ Page({
   openActionsheet (e) {
     var _this = this
     let { c_img } = _this.data;
+    serverData.buttonClicked(this);
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],

@@ -52,7 +52,16 @@ Page({
   // 上传身份证
   initUserInfoFive() {
     let that = this;
-    let { idcard, idcard_back, idcard_front } = that.data
+    let { idcard, idcard_back, idcard_front } = that.data;
+    if(idcard == '') {
+      return ServerData._wxTost('请填写身份证号码');
+    }
+    if(idcard_back == '' ) {
+      return ServerData._wxTost('请填写身份证正面');
+    }
+    if(idcard_front == '' ) {
+      return ServerData._wxTost('请填写身份证反面');
+    }
     ServerData.initUserInfoFive({ idcard, idcard_back, idcard_front }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg)
@@ -132,8 +141,9 @@ Page({
   },
   // 身份证号码
   inputIdcard(e) {
-    let that = this
+    let that = this;
     let { status } = this.data;
+    let value = e.detail.value;
     if (status == 1) {
       that.setData({
         disabled: true
@@ -141,7 +151,7 @@ Page({
       return ServerData._wxTost('审核已完成,不可更改')
     } else {
       this.setData({
-        idcard: e.detail.value
+        idcard: value
       })
     }
   },

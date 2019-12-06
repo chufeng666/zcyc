@@ -29,6 +29,7 @@ Page({
   },
   setCompanyInfoTwo() {
     let { contacts, mobile } = this.data;
+    serverData.buttonClicked(this);
     serverData.setCompanyInfoTwo({ contacts, mobile }).then((res) => {
       if (res.data.status == 1) {
         serverData._wxTost(res.data.msg);

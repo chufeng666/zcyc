@@ -1,10 +1,16 @@
 {
   "pages": [
+    "pages/examinationSystem/mockExam/mockExam",
+    "pages/userInfo2/index/index",
+    
+    
     "pages/company/index/index",
+    
+    
+    "pages/examinationSystem/examinationSystem/examinationSystem",
     "pages/thirdParty/index/index",
     "pages/thirdParty/jobApplicant/jobApplicant",
     "pages/thirdParty/company/company",
-    "pages/userInfo2/index/index",
     "pages/company/jobApplicant/jobApplicant",
     "pages/company/thirdParty/thirdParty",
     "pages/userInfo2/thirdParty/thirdParty",

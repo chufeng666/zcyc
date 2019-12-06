@@ -1,5 +1,7 @@
 // pages/userInfo/collect.js
 import ServerData from '../../../utils/serverData.js';
+const util = require('../../../utils/util.js');  //通用方法
+
 const app = getApp();
 Page({
 
@@ -14,10 +16,18 @@ Page({
       { id: 0, name: '公司/服务商', isActive: true },
       { id: 1, name: '人才', isActive: false }
     ],
-    index: 0
+    index: 0,
+    pColor:'',
+    pBC:'',
   },
   onLoad: function () {
-    this.collectionList()
+    this.setData({
+      pColor: util.loginIdentity().pColor,
+      pBC: util.loginIdentity().pBC,
+    })
+  },
+  onShow(){
+    this.collectionList();
   },
   collectionList: function () {
     var _opt = {

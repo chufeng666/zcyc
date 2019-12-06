@@ -149,7 +149,7 @@
   margin-top: 40rpx;
 }
 
-.inner .user_work .us_wk_first .us_wk_ft_left .us_l_t_name {
+ .us_l_t_name {
   font-weight: bold;
 }
 
@@ -209,6 +209,7 @@
 }
 
 .inner .user_education .us_l_top .icon-bianji {
+  font-weight: normal;
   color: var(--themeColor);
 }
 
@@ -326,7 +327,7 @@
   line-height: 28rpx;
   text-align: center;
   color: #fff;
-  width: 68rpx;
+  padding: 0 5rpx;
   height: 28rpx;
   background-color: #ff730e;
   border-radius: 10rpx 5rpx 10rpx 0;

@@ -33,7 +33,7 @@
   bottom: -30rpx;
   width: 89rpx;
   height: 4rpx;
-  /* background-color: var(--themeColor); */
+  background-color: var(--thirdPartyColor);
   text-align: center;
 }
 

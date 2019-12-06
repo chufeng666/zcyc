@@ -28,6 +28,7 @@ Page({
   },
   setCompanyInfoFour () {
     let { head } = this.data
+    serverData.buttonClicked(this);
     ServerData.setCompanyInfoFour({ head }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);

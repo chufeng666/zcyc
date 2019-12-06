@@ -44,6 +44,7 @@ page {
 
 .c-l-info {
   display: flex;
+  align-items: center;
 }
 
 .c-logo {
@@ -58,6 +59,7 @@ page {
   flex-direction: column;
   align-content: space-between;
   padding: 16rpx 40rpx;
+  margin-left: 40rpx;
 }
 
 .c-info-title {

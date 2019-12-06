@@ -1,6 +1,6 @@
 .inner {
-  /* margin-top: 180rpx; */
-  padding: 59rpx 56rpx;
+  margin-top: 180rpx;
+  padding: 0 56rpx 59rpx 56rpx;
 }
 
 .userId_header {

@@ -12,7 +12,7 @@
       <view class="main_top">
         <view class='c-l-info'>
           <navigator url='../../headPortrait/headPortrait'>
-            <image src='{{userData.logo}}' class="c-logo" />
+            <image mode="aspectFit"  src='{{userData.logo}}' class="c-logo" />
           </navigator>
           <view class='c-info-text'>
             <view class='c-info-title'>
@@ -108,7 +108,7 @@
         </view>
       </view>
       <view class="user_qiehuan">
-        <navigator url="../../public/setting?openid={{info.mobile}}" class='u-o-list'>
+        <navigator url="../../public/setting?openid={{userData.openid}}&mobile={{userData.mobile}}" class='u-o-list'>
           <image class="user_img" src="/static/images/bar_icon/user/Xiaocx_gerenzhongx_qianbao.png" />
           <view class="u-o_left">
             <text>设置</text>

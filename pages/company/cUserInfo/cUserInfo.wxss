@@ -46,6 +46,7 @@ page {
 
 .c-l-info {
   display: flex;
+  align-items: center;
 }
 
 .c-logo {

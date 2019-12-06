@@ -62,18 +62,21 @@ Page({
       }
     })
   },
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-  onReady: function () {
-
+  // getUserInfo: function (e) {
+  //   app.globalData.userInfo = e.detail.userInfo
+  //   this.setData({
+  //     userInfo: e.detail.userInfo,
+  //     hasUserInfo: true
+  //   })
+  // },
+  selectDistrict() {
+    wx.redirectTo({
+      url: "../login/login"
+    })
   },
-
-  getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  jobChange() {
+    wx.redirectTo({
+      url: "../login/login"
     })
   },
   // tabs栏

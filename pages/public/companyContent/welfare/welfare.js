@@ -32,33 +32,24 @@ Page({
     let { daiyu } = this.data
     var item = daiyu[index];
     let arr = []; // 申明的变量
-    let gg = 0;
+    let gg = [];
     // 样式取反
     item.checd = !item.checd;
     // 把daiyu数组里面取反的值赋值到新的数组里面
     for (let i in daiyu) {
-      if (daiyu[i].checd === true) { 
-        if (arr.length <= 2) { // 数组长度大于3不执行 小于等于三执行
+      if (daiyu[i].checd == true) {
+        if (arr.length < 3) { // 数组长度大于3不执行 小于等于三执行
           arr.push(daiyu[i].name); // 循环点击将选中的参数保存在数组
-        }else{
-          console.log(arr.length);
-          return false
+        } else {
+          for (let i in arr) {
+            if (daiyu[i].name != arr[i]) {
+              daiyu[i].checd = false;
+            }
+          }
+          return ServerData._wxTost('最多只能选择3个')
         }
       }
     }
-    // console.log(gg);
-    // if (arr.length >= 4) {
-    //   console.log('不執行');
-    //   return false;
-    // }
-    // console.log(arr);
-    // 获取当前选中数组里面的值进行取反
-    // for (let i in arr) {
-    //   if (daiyu[index].name == arr[i]) {
-    //     console.log('取反样式');
-    //     daiyu[index].checd = true
-    //   }
-    // }
     this.setData({
       daiyu,
       daiyu1: arr

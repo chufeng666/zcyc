@@ -9,7 +9,7 @@ Page({
     occupationalBoxShow: true,
     addressBoxShow: true,
     // 薪资
-    xinzi: ['不限', '3k及以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'],
+    xinzi: ['不限', '3k以下', '3 - 5k', '5 - 10k', '10 - 20k', '20 - 50k', '50k以上'],
     workJob: ['离职-随时到岗', '在职-月内到岗', '在职-考虑机会', '在职-暂不考虑',],
     // 上传数据
     careers: '',  // 岗位名称
@@ -26,7 +26,8 @@ Page({
     index: 0,
 
     disabled: false,// 点击一次的开关
-    intention: []
+    intention: [],
+    money: '' // 职位价格
   },
   onShow() {
     this.setData({
@@ -69,35 +70,36 @@ Page({
   },
   TimeId: -1,
   initUserInfoSevenOut() {
-    let { job_intention, intention, images, careers, city, salary, daogang_time } = this.data;
+    let { job_intention, intention, images, careers, city, salary, daogang_time, money } = this.data;
     let title = '',
       path = ''
     if (careers == '' || city == '' || job_intention == '' || salary == '' || daogang_time == '') {
-      return ServerData._wxTost('请填写数据');
+      return ServerData._wxTost('请填写资料');
     }
     for (let i in images) {
       title = images[i].title
       path = images[i].path
     }
-    intention.forEach((v, i) => {
-      if (v.cat_name == job_intention) {
-        if (v.money > 0) {
-          if (title == '' || path == null || images == '' || images == null) {
-            return ServerData._wxTost('请上传职业证书');
-          } else {
-            clearTimeout(this.TimeId);
-            this.TimeId = setTimeout(() => {
-              this.initUserInfoSeven();
-            }, 350);
-          }
-        } else {
-          clearTimeout(this.TimeId);
-          this.TimeId = setTimeout(() => {
-            this.initUserInfoSeven();
-          }, 350);
-        }
+    if (money > 0) {
+      if (title == '' || path == null || images == '' || images == null) {
+        return ServerData._wxTost('请填写职业类型和上传职业证书');
+      } else {
+        clearTimeout(this.TimeId);
+        this.TimeId = setTimeout(() => {
+          this.initUserInfoSeven();
+        }, 350);
       }
-    })
+    } else {
+      clearTimeout(this.TimeId);
+      this.TimeId = setTimeout(() => {
+        this.initUserInfoSeven();
+      }, 350);
+    }
+    // intention.forEach((v, i) => {
+    //   if (v.cat_name == job_intention) {
+
+    //   }
+    // })
   },
   // 上传
   initUserInfoSeven() {
@@ -151,11 +153,13 @@ Page({
   // 获取职业证书开始
   tabEvent1(data) {
     let info = data.detail
+    console.log(data.detail);
     this.setData({
       careers: info.job_careers,
       job_intention: info.job_intention,
       intention: info.intention,
-      job_type: info.job_type
+      job_type: info.job_type,
+      money: info.money
     })
   },
   selectOccupational: function (e) {
@@ -169,6 +173,7 @@ Page({
   /***********地址开始**************** */
   tabEvent(data) {      //接收传过来的参数
     var info = data.detail
+
     this.setData({
       areaInfo: info.areaInfo,
       pCode: info.pCode,

@@ -40,7 +40,8 @@ Page({
     }, 350);
   },
   initUserInfoEight(desc) {
-    let that = this
+    let that = this;
+    ServerData.buttonClicked(this);
     ServerData.initUserInfoEight({ desc }).then((res) => {
       if (res.data.status == 1) {
         ServerData._wxTost(res.data.msg);

@@ -12,7 +12,7 @@
       <view class="main_top">
         <view class='c-l-info'>
           <navigator url='../../headPortrait/headPortrait'>
-            <image src='{{userData.logo}}' class="c-logo" />
+            <image mode="aspectFit"  src='{{userData.logo}}' class="c-logo" />
           </navigator>
           <view class='c-info-text'>
             <view class='c-info-title'>

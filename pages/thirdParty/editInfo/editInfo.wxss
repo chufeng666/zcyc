@@ -81,7 +81,7 @@
   line-height: 28rpx;
   text-align: center;
   color: #fff;
-  width: 68rpx;
+  padding: 0 5rpx;
   height: 28rpx;
   background-color: #FF730E;
   border-radius: 10rpx 5rpx 10rpx 0;

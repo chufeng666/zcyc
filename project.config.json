@@ -58,28 +58,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/public/editMobile",
-					"pathName": "pages/public/editMobile",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/userInfo2/editInfo/editInfo",
-					"pathName": "pages/userInfo2/editInfo/editInfo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/public/userContent/userJob",
-					"pathName": "pages/public/userContent/userJob",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

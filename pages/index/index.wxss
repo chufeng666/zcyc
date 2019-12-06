@@ -15,7 +15,7 @@
 }
 
 .i-header .h-bottom {
-  margin-bottom: 24rpx;
+  margin-bottom: 52rpx;
 }
 
 .i-header .h-bottom .search-cont {
@@ -89,7 +89,7 @@
 .newest-search {
   background-color: #fff;
   text-align: center;
-  margin-top: 290rpx;
+  margin-top: 320rpx;
   border-bottom: 1px solid #ccc;
 }
 
@@ -279,7 +279,14 @@
   opacity: 0.4;
   z-index: 9;
 }
+swiper {
+  height: 74rpx;
+  z-index: 3;
+}
 
+swiper-item {
+  border-radius: none;
+}
 /* 所在地区 */
 
 /* @font-face {

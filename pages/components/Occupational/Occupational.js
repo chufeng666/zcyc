@@ -66,6 +66,7 @@ Component({
         job_intention: that.data.job_intention.cat_name,
         job_type: that.data.job_intention.cat_id,
         intention: that.data.intention,
+        money: that.data.job_careers.money,
         isShow: false
       }
       this.triggerEvent('tabEvent1', json)
@@ -111,7 +112,6 @@ Component({
             job_careers: res.data.data[that.data.value[1]]
           })
         } else if (res.data.status == -2) {
-          console.log('1111111111111111');
           that.setData({
             careerss: '',
           })

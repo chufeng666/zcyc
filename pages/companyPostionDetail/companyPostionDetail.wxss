@@ -216,6 +216,7 @@
 /* FOOTER START */
 
 .search2-inner {
+  flex: 1;
   padding: 0 50rpx;
   font-size: 22rpx;
   color: #b6b6b6;
@@ -229,7 +230,7 @@
   padding: 20rpx 32rpx;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
  background-color: #fff;
  border-top: 1rpx solid #dedede;
 }
@@ -237,7 +238,8 @@
 
 
 .footer-right {
-  display: flex;
+  flex: 2;
+  /* display: flex; */
 }
 
 .icon-wuxiaoxing-kong {
@@ -264,7 +266,6 @@
 
 .f-btn-1_fou {
   border-radius: 4rpx;
-  padding: 0 50rpx;
   line-height: 88rpx;
   font-size: 28rpx;
   color: #686868;
